@@ -1,0 +1,133 @@
+/* Atlas du corps — styles. Jetons de couleur et de typographie dans :root. */
+html{box-sizing:border-box}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+/* Mise en page : classement des douleurs à gauche, planche anatomique 3D au centre, fiche et exercices à droite.
+   Ambiance : salle d'imagerie, fond bleu-noir, os ivoire, cartilage cyan. Les teintes chaudes sont réservées aux douleurs. */
+:root{
+  --bg:#0a1017; --panel:#111a24; --panel-2:#18242f; --line:#243447; --fg:#e6edf4; --muted:#92a5b8;
+  --cool:#7cc7e3; --warn-bg:#2a1710; --warn-line:#6e3d2b; --warn-fg:#f2cdbb;
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-body:'Public Sans','Segoe UI',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;
+  padding-block:14px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top,.app,.foot{max-width:1520px;margin-inline:auto}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between;margin-bottom:14px}
+h1{font:700 28px/1.1 var(--f-display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:13px}
+.layers{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:5px 12px;font:500 12px var(--f-body);cursor:pointer}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--c);opacity:.4}
+.chip[aria-pressed=true]{background:var(--panel-2);border-color:var(--c);color:var(--fg)}
+.chip[aria-pressed=true] i{opacity:1}
+button:focus-visible,a:focus-visible{outline:2px solid var(--cool);outline-offset:2px}
+.app{display:grid;gap:14px;align-items:start;grid-template-columns:minmax(250px,310px) minmax(0,1fr) minmax(290px,380px);grid-template-areas:"list view detail"}
+.list{grid-area:list}.view{grid-area:view}.detail{grid-area:detail}
+@media (max-width:1100px){.app{grid-template-columns:minmax(0,1fr) minmax(260px,350px);grid-template-areas:"view view" "list detail"}}
+@media (max-width:720px){.app{grid-template-columns:minmax(0,1fr);grid-template-areas:"view" "list" "detail"}.view{height:58vh!important;min-height:360px!important}}
+.list,.detail{background:var(--panel);border:1px solid var(--line);border-radius:14px;min-width:0}
+.list{padding:14px 0 6px}
+.list h2{font:700 15px var(--f-display);margin:0 14px 2px;letter-spacing:.01em}
+.note{margin:0 14px 8px;color:var(--muted);font-size:12px}
+#plist{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:40px minmax(0,1fr);gap:3px 8px;width:100%;text-align:left;background:transparent;color:inherit;border:0;border-top:1px solid var(--line);padding:9px 14px;cursor:pointer;font:inherit}
+.item:hover,.item.hov,.item.on{background:var(--panel-2)}
+.rk{grid-row:span 3;font:500 12px var(--f-mono);color:var(--muted);display:flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums}
+.rk i{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+.item.on .rk i{box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 35%,transparent)}
+.nm{font-weight:600;font-size:13.5px;line-height:1.3}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;align-self:center}
+.bar b{display:block;height:100%;background:var(--c)}
+.view{position:relative;height:min(80vh,760px);min-height:440px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 40%,#18263a 0%,#0c141d 62%,#080d13 100%)}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#cv:active{cursor:grabbing}
+#pins{position:absolute;inset:0;pointer-events:none}
+.pin{position:absolute;left:0;top:0;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:2px solid var(--c);background:rgba(8,13,19,.82);color:#fff;font:500 11px var(--f-mono);display:grid;place-items:center;cursor:pointer;pointer-events:auto;padding:0;transition:opacity .2s,scale .15s,background .15s}
+.pin.occ{opacity:.3}
+.pin:hover,.pin.hov,.pin.on{background:var(--c);color:#0b1117;scale:1.22;opacity:1}
+.tip{position:absolute;pointer-events:none;z-index:5;background:rgba(7,12,18,.94);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:12px;max-width:250px}
+.tip b{display:block;font-weight:600}.tip em{display:block;font:400 11px var(--f-mono);color:var(--muted);font-style:normal}
+.hint{position:absolute;left:12px;bottom:10px;right:110px;color:var(--muted);font-size:12px;pointer-events:none}
+#reset{position:absolute;right:10px;top:10px;background:rgba(8,13,19,.8);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 11px;font:500 12px var(--f-body);cursor:pointer}
+.detail{padding:16px 16px 18px}
+.detail h2{font:700 22px/1.15 var(--f-display);letter-spacing:-.01em;margin:6px 0 4px;text-wrap:balance}
+.tag{display:inline-flex;align-items:center;gap:7px;font:500 11px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.tag i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.alias{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+.zc{border:1px solid var(--c);border-radius:999px;padding:2px 9px;font-size:11.5px;color:var(--fg)}
+.detail p{margin:8px 0}.detail h3{font:600 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 4px}
+.ex{border-top:1px solid var(--line);padding:10px 0}
+.ex h4{margin:0;font-size:14px;font-weight:600}.ex p{margin:2px 0 6px;color:var(--muted);font-size:13px}
+.yt{display:inline-flex;align-items:center;gap:6px;color:var(--cool);font-size:12.5px;font-weight:600;text-decoration:none}
+.yt:hover{text-decoration:underline}.yt svg{width:15px;height:15px}
+.warn{margin:12px 0 0;border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn-fg);border-radius:8px;padding:9px 11px;font-size:13px}
+.steps{margin:10px 0 0;padding-left:18px;color:var(--muted)}.steps li{margin:5px 0}
+.foot{margin-top:16px;color:var(--muted);font-size:12px;max-width:900px}
+.sx{padding:0 14px 8px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:transparent;color:var(--muted);border:0;padding:5px 10px;font:500 12px var(--f-body);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--panel-2);color:var(--fg)}
+#q{width:100%;margin:8px 0 2px;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.gl-h{margin:9px 0 4px;font:600 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tags .chip{--c:var(--cool);padding:3px 9px;font-size:11.5px;text-align:left}
+.sm{margin:6px 0 0;color:var(--muted);font-size:12px;min-height:1em}
+.item.dim{opacity:.38}.mb{margin-left:6px;font:500 11px var(--f-mono);color:var(--cool)}
+.glo{margin:6px 14px 8px;border-top:1px solid var(--line);padding-top:8px;font-size:12.5px}.glo summary{cursor:pointer;font-weight:600}
+.glo dt{font-weight:600;margin-top:7px}.glo dd{margin:0;color:var(--muted)}
+.tb{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 100px);z-index:4}
+.tb .seg,.tb .chip{background:rgba(8,13,19,.85)}
+.mv{position:absolute;left:10px;top:50px;width:min(262px,calc(100% - 20px));background:rgba(8,13,19,.93);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;z-index:4;max-height:calc(100% - 100px);overflow:auto}
+.mv label{display:block;margin-bottom:8px}.mv output{float:right;font:500 12px var(--f-mono);color:var(--cool)}
+.mv input[type=range]{width:100%;accent-color:var(--cool)}
+.mv .ck{display:flex;gap:7px;align-items:flex-start}.mv .ck input{margin-top:3px}
+.mst{margin:6px 0;color:var(--muted);min-height:3em}.mst.bad{color:#ff9a7a}
+.fe{margin:6px 0;padding:0;list-style:none}.fe li{font-style:italic;margin:4px 0}
+.rule{border:1px solid var(--line);background:var(--panel-2);border-radius:8px;padding:9px 11px;font-size:13px;margin:8px 0}
+.mt{display:flex;flex-wrap:wrap;gap:2px 12px;font:400 11.5px var(--f-mono);color:var(--muted);margin:2px 0 6px}
+.act{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.tm{border:1px solid var(--cool);background:transparent;color:var(--cool);border-radius:8px;padding:3px 10px;font:600 12px var(--f-body);cursor:pointer}
+.tm.run{background:var(--cool);color:#08121a}
+.ns{color:var(--muted);font-size:12px;line-height:1.35}
+.sub2{margin:0 0 2px;font-size:15px;color:var(--fg)}
+.tr{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+kbd{font:500 10.5px var(--f-mono);border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted);margin-left:2px}
+.tl{background:none;border:0;border-bottom:1px dotted var(--cool);color:inherit;font:inherit;padding:0;cursor:help}
+.tl:hover{color:var(--cool)}
+.glo dt{scroll-margin-top:90px}.glo dt.flash,.glo dt.flash+dd{background:rgba(124,199,227,.16);border-radius:4px;transition:background .3s}
+@media (prefers-reduced-motion:reduce){.pin{transition:none}}
+
+/* ===== Vues corps entier et articulations : mêmes jetons et mêmes composants que l'atlas de la hanche ===== */
+#g-top{margin-bottom:10px}
+#hipview .top{justify-content:flex-start;margin-bottom:12px}
+#b-layers{margin:0 auto 12px;max-width:1520px}
+#b-cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#b-cv:active{cursor:grabbing}
+#b-pins{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#b-lead{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;stroke-width:1.5}
+#b-reset{position:absolute;right:10px;top:10px;background:rgba(8,13,19,.8);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 11px;font:500 12px var(--f-body);cursor:pointer}
+#b-load{position:absolute;left:12px;right:12px;top:52px;color:var(--muted);font-size:12px;pointer-events:none}
+#b-list{list-style:none;margin:0;padding:0}
+#b-list .rk{grid-row:span 3}
+.jl{color:var(--muted);font-size:12px;line-height:1.3}
+.jl b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.ask .sx{padding:0}
+.ask .tags{margin-bottom:4px}
+.fig{border:1px solid var(--line);border-left:3px solid var(--c);background:var(--panel-2);border-radius:8px;padding:10px 12px;margin:10px 0}
+.fig strong{display:block;font:700 26px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.fig span{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.detail .fig p{margin:6px 0 0;font-size:12.5px;color:var(--muted)}
+.open{display:block;width:100%;margin-top:12px;background:var(--cool);color:#08121a;border:0;border-radius:8px;padding:10px 12px;font:600 14px var(--f-body);cursor:pointer}
+.open:hover{filter:brightness(1.08)}
+#b-src .yt{font-weight:500;font-size:12px}
+.pin.on{box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 40%,transparent)}
+.fix{margin:16px 0 0;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:12.5px}
+.fix a,.foot a{color:var(--cool);font-weight:600;text-decoration:none}
+.fix a:hover,.foot a:hover{text-decoration:underline}

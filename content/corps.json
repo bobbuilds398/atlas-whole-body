@@ -1,0 +1,293 @@
+{
+  "_comment": "Vue corps entier. per100 = personnes concernées sur 100, d’après la source citée. Voir CONTRIBUTING.md.",
+  "sources": {
+    "oms": {
+      "title": "OMS, lombalgie : 619 millions de personnes, 1 sur 13",
+      "url": "https://healthpolicy-watch.news/who-issues-first-guidelines-low-back-pain/"
+    },
+    "arth": {
+      "title": "OMS, arthrose : 365 millions de genoux atteints",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/osteoarthritis"
+    },
+    "gbd": {
+      "title": "Étude mondiale GBD 2021, arthrose par localisation",
+      "url": "https://healthdata.org/research-analysis/library/global-regional-and-national-burden-osteoarthritis-1990-2020-and"
+    },
+    "cou": {
+      "title": "Étude mondiale GBD 2021, cervicalgie : 203 millions de personnes",
+      "url": "https://researchonline.jcu.edu.au/87316/"
+    },
+    "smith": {
+      "title": "Smith et al., PLoS One 2018",
+      "url": "https://doaj.org/article/95dc0037df8f47ea831b991ce9a8bd7a"
+    },
+    "nix": {
+      "title": "Nix et al., J Foot Ankle Res 2010",
+      "url": "https://link.springer.com/doi/10.1186/1757-1146-3-21"
+    },
+    "thomas": {
+      "title": "Thomas et al., BMC Musculoskelet Disord 2019",
+      "url": "https://eprints.keele.ac.uk/6609/"
+    },
+    "wb": {
+      "title": "Walker-Bone et al., Arthritis Rheum 2004",
+      "url": "https://scilit.com/publications/7d9d5fda5520f14105d272c9c11481a7"
+    },
+    "atroshi": {
+      "title": "Atroshi et al., JAMA 1999",
+      "url": "https://lup.lub.lu.se/record/1115719"
+    },
+    "has": {
+      "title": "HAS 2023 : près de 6 500 passages aux urgences par jour",
+      "url": "https://www.has-sante.fr/upload/docs/application/pdf/2023-09/reco475_cadrage_reeducation_cheville_crppi_vunum_mel.pdf"
+    },
+    "nhs": {
+      "title": "NHS Scotland, affections de l’épaule",
+      "url": "https://rightdecisions.scot.nhs.uk/msk-pathways/shoulder-elbow-pathways/supporting-information-on-relevant-conditions/shoulder-conditions"
+    }
+  },
+  "joints": {
+    "cou": {
+      "name": "Cou",
+      "anchor": "cou",
+      "bones": ["cou"]
+    },
+    "epaule": {
+      "name": "Épaule",
+      "anchor": "epaule",
+      "bones": ["epaule", "humerus"]
+    },
+    "coude": {
+      "name": "Coude",
+      "anchor": "coude",
+      "bones": ["avantbras"]
+    },
+    "main": {
+      "name": "Poignet et main",
+      "anchor": "poignet",
+      "bones": ["main"]
+    },
+    "lombaire": {
+      "name": "Bas du dos",
+      "anchor": "lombaire",
+      "bones": ["lombaire", "sacrum"]
+    },
+    "hanche": {
+      "name": "Hanche",
+      "anchor": "hanche",
+      "bones": ["iliaque", "femur"]
+    },
+    "genou": {
+      "name": "Genou",
+      "anchor": "genou",
+      "bones": ["rotule", "jambe"]
+    },
+    "pied": {
+      "name": "Cheville et pied",
+      "anchor": "cheville",
+      "bones": ["pied"]
+    }
+  },
+  "pathologies": [
+    {
+      "id": "hallux",
+      "joint": "pied",
+      "name": "Hallux valgus",
+      "commonName": "Oignon du gros orteil",
+      "per100": 23,
+      "basis": "Adultes de 18 à 65 ans chez qui la déformation est présente. Elle n’est pas toujours douloureuse.",
+      "source": "nix",
+      "whatYouFeel": "Bosse à la base du gros orteil, rougeur et douleur au frottement dans la chaussure, gros orteil qui part vers les autres.",
+      "anchor": "hallux",
+      "bones": ["pied-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "sfp",
+      "joint": "genou",
+      "name": "Syndrome fémoro-patellaire",
+      "commonName": "Douleur à l’avant du genou",
+      "per100": 22.7,
+      "basis": "Population générale, sur une année.",
+      "source": "smith",
+      "whatYouFeel": "Douleur autour ou derrière la rotule dans les escaliers, en position accroupie, ou après être resté assis longtemps genoux pliés.",
+      "anchor": "genou",
+      "bones": ["rotule-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "talon",
+      "joint": "pied",
+      "name": "Fasciite plantaire",
+      "commonName": "Douleur sous le talon",
+      "per100": 9.6,
+      "basis": "Adultes de 50 ans et plus ayant eu mal sous le talon au cours du dernier mois.",
+      "source": "thomas",
+      "whatYouFeel": "Douleur vive sous le talon aux premiers pas du matin ou après être resté assis, qui s’atténue en marchant.",
+      "anchor": "talon",
+      "bones": ["pied-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "lombalgie",
+      "joint": "lombaire",
+      "name": "Lombalgie commune",
+      "commonName": "Mal en bas du dos",
+      "per100": 7.9,
+      "basis": "Population mondiale, à un instant donné : 619 millions de personnes.",
+      "source": "oms",
+      "whatYouFeel": "Douleur en bas du dos, parfois dans la fesse, qui varie selon les positions et les mouvements.",
+      "anchor": "lombaire",
+      "bones": ["lombaire", "sacrum"],
+      "radius": 0.9
+    },
+    {
+      "id": "coiffe",
+      "joint": "epaule",
+      "name": "Tendinopathie de la coiffe des rotateurs",
+      "commonName": "Tendinite de l’épaule",
+      "per100": 5.3,
+      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "source": "wb",
+      "whatYouFeel": "Douleur sur le côté de l’épaule et du bras en levant le bras, en enfilant une veste, ou la nuit couché dessus.",
+      "anchor": "epaule",
+      "bones": ["epaule-d", "humerus-d"],
+      "radius": 0.6
+    },
+    {
+      "id": "gonarthrose",
+      "joint": "genou",
+      "name": "Arthrose du genou",
+      "commonName": "Usure du genou (arthrose)",
+      "per100": 4.7,
+      "basis": "Population mondiale, à un instant donné : 365 millions de personnes.",
+      "source": "arth",
+      "whatYouFeel": "Douleur à la marche et dans les escaliers, raideur au lever qui cède en quelques minutes, genou parfois gonflé.",
+      "anchor": "genou-art",
+      "bones": ["rotule-d", "jambe-d"],
+      "radius": 0.6
+    },
+    {
+      "id": "carpien",
+      "joint": "main",
+      "name": "Syndrome du canal carpien",
+      "commonName": "Fourmillements de la main la nuit",
+      "per100": 3.8,
+      "basis": "Adultes de 25 à 74 ans, diagnostic à l’examen clinique (2,7 sur 100 avec confirmation par l’examen du nerf).",
+      "source": "atroshi",
+      "whatYouFeel": "Fourmillements et engourdissement du pouce, de l’index et du majeur, surtout la nuit, soulagés en secouant la main.",
+      "anchor": "poignet",
+      "bones": ["main-d"],
+      "radius": 0.45
+    },
+    {
+      "id": "entorse",
+      "joint": "pied",
+      "name": "Entorse de la cheville",
+      "commonName": "Cheville tordue",
+      "per100": 3.5,
+      "basis": "France, sur une année : estimation d’après les passages aux urgences, rapportés à la population.",
+      "source": "has",
+      "whatYouFeel": "Douleur et gonflement sur le côté extérieur de la cheville après une torsion, parfois un bleu le lendemain.",
+      "anchor": "cheville",
+      "bones": ["pied-d", "jambe-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "capsulite",
+      "joint": "epaule",
+      "name": "Capsulite rétractile",
+      "commonName": "Épaule gelée",
+      "per100": 3.5,
+      "display": "2 à 5 sur 100",
+      "basis": "Population générale, au cours de la vie : 2 à 5 personnes sur 100.",
+      "source": "nhs",
+      "whatYouFeel": "Douleur de l’épaule d’abord forte, surtout la nuit, puis épaule de plus en plus raide dans toutes les directions.",
+      "anchor": "capsule",
+      "bones": ["epaule-d", "humerus-d"],
+      "radius": 0.6
+    },
+    {
+      "id": "cervicalgie",
+      "joint": "cou",
+      "name": "Cervicalgie commune",
+      "commonName": "Mal au cou",
+      "per100": 2.6,
+      "basis": "Population mondiale, à un instant donné : 203 millions de personnes.",
+      "source": "cou",
+      "whatYouFeel": "Douleur et raideur du cou, parfois vers l’épaule ou l’omoplate, gêne pour tourner la tête.",
+      "anchor": "cou",
+      "bones": ["cou"],
+      "radius": 0.6
+    },
+    {
+      "id": "arthmain",
+      "joint": "main",
+      "name": "Arthrose de la main",
+      "commonName": "Usure des doigts (arthrose)",
+      "per100": 2.4,
+      "basis": "Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.",
+      "source": "gbd",
+      "whatYouFeel": "Douleur et raideur des doigts ou de la base du pouce, nodosités, difficulté à serrer et à dévisser.",
+      "anchor": "main",
+      "bones": ["main-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "epicondylite",
+      "joint": "coude",
+      "name": "Épicondylite latérale",
+      "commonName": "Tennis elbow",
+      "per100": 1.2,
+      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "source": "wb",
+      "whatYouFeel": "Douleur sur le côté extérieur du coude en serrant, en portant un objet paume vers le bas, en tournant une poignée.",
+      "anchor": "coude",
+      "bones": ["avantbras-d", "humerus-d"],
+      "radius": 0.5
+    },
+    {
+      "id": "quervain",
+      "joint": "main",
+      "name": "Ténosynovite de De Quervain",
+      "commonName": "Tendinite du pouce",
+      "per100": 0.9,
+      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "source": "wb",
+      "whatYouFeel": "Douleur au bord du poignet côté pouce en attrapant, en essorant ou en soulevant un enfant.",
+      "anchor": "pouce",
+      "bones": ["main-d"],
+      "radius": 0.4
+    },
+    {
+      "id": "coxarthrose",
+      "joint": "hanche",
+      "name": "Arthrose de la hanche",
+      "commonName": "Usure de la hanche (arthrose)",
+      "alias": "Coxarthrose",
+      "per100": 0.45,
+      "basis": "Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.",
+      "source": "gbd",
+      "hipId": "coxarthrose",
+      "anchor": "hanche",
+      "bones": ["iliaque-d", "femur-d"],
+      "radius": 0.6
+    }
+  ],
+  "anchors": {
+    "lombaire": [-0.0, 30.3, 1000.5],
+    "cou": [-0.0, 22.0, 1479.0],
+    "epaule": [-176.5, 24.6, 1397.9],
+    "capsule": [-162.5, 12.6, 1369.9],
+    "coude": [-215.0, 34.6, 1094.9],
+    "poignet": [-264.7, -19.4, 843.7],
+    "pouce": [-303.2, -40.0, 825.4],
+    "main": [-284.8, -65.9, 728.2],
+    "hanche": [-63.8, 6.4, 861.6],
+    "genou": [-86.3, -7.5, 443.4],
+    "genou-art": [-77.8, 29.0, 434.5],
+    "cheville": [-72.4, 35.1, 66.2],
+    "talon": [-79.5, 48.7, 41.0],
+    "hallux": [-68.8, -82.3, 23.1]
+  }
+}

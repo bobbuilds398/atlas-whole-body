@@ -1,0 +1,24 @@
+name: Signaler un bug (Bug report)
+description: Affichage cassé, modèle 3D qui ne charge pas, sélection impossible, problème sur téléphone.
+title: "Bug : "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: quoi
+    attributes:
+      label: Ce qui se passe
+      description: Et ce que vous attendiez. Une capture d'écran aide beaucoup.
+    validations:
+      required: true
+  - type: textarea
+    id: etapes
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: "1. Ouvrir Genou  2. Couper la couche Os  3. …"
+  - type: input
+    id: appareil
+    attributes:
+      label: Appareil et navigateur
+      placeholder: "iPhone 14, Safari — ou Windows 11, Firefox 132"
+    validations:
+      required: true

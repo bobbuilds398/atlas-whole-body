@@ -1,79 +1,22 @@
-(function(){'use strict';
-/* ===== Corps entier et vues d'articulation =====
-   Accueil : douleurs les plus fréquentes toutes articulations confondues (v = personnes concernées sur 100, chiffre publié).
-   Articulation : 12 douleurs classées par fréquence relative, structures réelles (muscles, tendons) et schématiques (ligaments, nerfs, bourses),
-   zone douloureuse peinte sommet par sommet autour des foyers de chaque douleur. */
+/* Atlas du corps — vue corps entier et vues d'articulation.
+   Les textes (fiches, exercices, questions, chiffres) sont dans content/*.json ; la géométrie et le placement des douleurs dans models/*.b64.txt.
+   La hanche a son propre moteur : js/hip.js. Voir CONTRIBUTING.md. */
+fetch('content/corps.json').then(function(r){if(!r.ok)throw new Error('content/corps.json : '+r.status);return r.json()}).then(function(CONTENT){'use strict';
 const T=THREE,$=id=>document.getElementById(id);
-const SRC={
- oms:{t:'OMS, lombalgie : 619 millions de personnes, 1 sur 13',u:'https://healthpolicy-watch.news/who-issues-first-guidelines-low-back-pain/'},
- arth:{t:'OMS, arthrose : 365 millions de genoux atteints',u:'https://www.who.int/news-room/fact-sheets/detail/osteoarthritis'},
- gbd:{t:'Étude mondiale GBD 2021, arthrose par localisation',u:'https://healthdata.org/research-analysis/library/global-regional-and-national-burden-osteoarthritis-1990-2020-and'},
- cou:{t:'Étude mondiale GBD 2021, cervicalgie : 203 millions de personnes',u:'https://researchonline.jcu.edu.au/87316/'},
- smith:{t:'Smith et al., PLoS One 2018',u:'https://doaj.org/article/95dc0037df8f47ea831b991ce9a8bd7a'},
- nix:{t:'Nix et al., J Foot Ankle Res 2010',u:'https://link.springer.com/doi/10.1186/1757-1146-3-21'},
- thomas:{t:'Thomas et al., BMC Musculoskelet Disord 2019',u:'https://eprints.keele.ac.uk/6609/'},
- wb:{t:'Walker-Bone et al., Arthritis Rheum 2004',u:'https://scilit.com/publications/7d9d5fda5520f14105d272c9c11481a7'},
- atroshi:{t:'Atroshi et al., JAMA 1999',u:'https://lup.lub.lu.se/record/1115719'},
- has:{t:'HAS 2023 : près de 6 500 passages aux urgences par jour',u:'https://www.has-sante.fr/upload/docs/application/pdf/2023-09/reco475_cadrage_reeducation_cheville_crppi_vunum_mel.pdf'},
- nhs:{t:'NHS Scotland, affections de l’épaule',u:'https://rightdecisions.scot.nhs.uk/msk-pathways/shoulder-elbow-pathways/supporting-information-on-relevant-conditions/shoulder-conditions'}};
-const JOINTS={
- cou:{n:'Cou',a:'cou',g:['cou']},
- epaule:{n:'Épaule',a:'epaule',g:['epaule','humerus']},
- coude:{n:'Coude',a:'coude',g:['avantbras']},
- main:{n:'Poignet et main',a:'poignet',g:['main']},
- lombaire:{n:'Bas du dos',a:'lombaire',g:['lombaire','sacrum']},
- hanche:{n:'Hanche',a:'hanche',g:['iliaque','femur']},
- genou:{n:'Genou',a:'genou',g:['rotule','jambe']},
- pied:{n:'Cheville et pied',a:'cheville',g:['pied']}};
-/* repères en millimètres dans le repère BodyParts3D (x vers la gauche du sujet, y vers l'arrière, z vers le haut) */
-const ANCH=__ANCH__;
-const HOME_P=[
-{id:'hallux',j:'pied',a:'hallux',g:['pied-d'],r:.5,v:23,src:'nix',n:'Hallux valgus',ns:'Oignon du gros orteil',
- base:'Adultes de 18 à 65 ans chez qui la déformation est présente. Elle n’est pas toujours douloureuse.',
- pain:'Bosse à la base du gros orteil, rougeur et douleur au frottement dans la chaussure, gros orteil qui part vers les autres.'},
-{id:'sfp',j:'genou',a:'genou',g:['rotule-d'],r:.5,v:22.7,src:'smith',n:'Syndrome fémoro-patellaire',ns:'Douleur à l’avant du genou',
- base:'Population générale, sur une année.',
- pain:'Douleur autour ou derrière la rotule dans les escaliers, en position accroupie, ou après être resté assis longtemps genoux pliés.'},
-{id:'talon',j:'pied',a:'talon',g:['pied-d'],r:.5,v:9.6,src:'thomas',n:'Fasciite plantaire',ns:'Douleur sous le talon',
- base:'Adultes de 50 ans et plus ayant eu mal sous le talon au cours du dernier mois.',
- pain:'Douleur vive sous le talon aux premiers pas du matin ou après être resté assis, qui s’atténue en marchant.'},
-{id:'lombalgie',j:'lombaire',a:'lombaire',g:['lombaire','sacrum'],r:.9,v:7.9,src:'oms',n:'Lombalgie commune',ns:'Mal en bas du dos',
- base:'Population mondiale, à un instant donné : 619 millions de personnes.',
- pain:'Douleur en bas du dos, parfois dans la fesse, qui varie selon les positions et les mouvements.'},
-{id:'coiffe',j:'epaule',a:'epaule',g:['epaule-d','humerus-d'],r:.6,v:5.3,src:'wb',n:'Tendinopathie de la coiffe des rotateurs',ns:'Tendinite de l’épaule',
- base:'Adultes en âge de travailler, à un instant donné.',
- pain:'Douleur sur le côté de l’épaule et du bras en levant le bras, en enfilant une veste, ou la nuit couché dessus.'},
-{id:'gonarthrose',j:'genou',a:'genou-art',g:['rotule-d','jambe-d'],r:.6,v:4.7,src:'arth',n:'Arthrose du genou',ns:'Usure du genou (arthrose)',
- base:'Population mondiale, à un instant donné : 365 millions de personnes.',
- pain:'Douleur à la marche et dans les escaliers, raideur au lever qui cède en quelques minutes, genou parfois gonflé.'},
-{id:'carpien',j:'main',a:'poignet',g:['main-d'],r:.45,v:3.8,src:'atroshi',n:'Syndrome du canal carpien',ns:'Fourmillements de la main la nuit',
- base:'Adultes de 25 à 74 ans, diagnostic à l’examen clinique (2,7 sur 100 avec confirmation par l’examen du nerf).',
- pain:'Fourmillements et engourdissement du pouce, de l’index et du majeur, surtout la nuit, soulagés en secouant la main.'},
-{id:'entorse',j:'pied',a:'cheville',g:['pied-d','jambe-d'],r:.5,v:3.5,src:'has',n:'Entorse de la cheville',ns:'Cheville tordue',
- base:'France, sur une année : estimation d’après les passages aux urgences, rapportés à la population.',
- pain:'Douleur et gonflement sur le côté extérieur de la cheville après une torsion, parfois un bleu le lendemain.'},
-{id:'capsulite',j:'epaule',a:'capsule',g:['epaule-d','humerus-d'],r:.6,v:3.5,src:'nhs',n:'Capsulite rétractile',ns:'Épaule gelée',
- base:'Population générale, au cours de la vie : 2 à 5 personnes sur 100.',
- pain:'Douleur de l’épaule d’abord forte, surtout la nuit, puis épaule de plus en plus raide dans toutes les directions.'},
-{id:'cervicalgie',j:'cou',a:'cou',g:['cou'],r:.6,v:2.6,src:'cou',n:'Cervicalgie commune',ns:'Mal au cou',
- base:'Population mondiale, à un instant donné : 203 millions de personnes.',
- pain:'Douleur et raideur du cou, parfois vers l’épaule ou l’omoplate, gêne pour tourner la tête.'},
-{id:'arthmain',j:'main',a:'main',g:['main-d'],r:.5,v:2.4,src:'gbd',n:'Arthrose de la main',ns:'Usure des doigts (arthrose)',
- base:'Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.',
- pain:'Douleur et raideur des doigts ou de la base du pouce, nodosités, difficulté à serrer et à dévisser.'},
-{id:'epicondylite',j:'coude',a:'coude',g:['avantbras-d','humerus-d'],r:.5,v:1.2,src:'wb',n:'Épicondylite latérale',ns:'Tennis elbow',
- base:'Adultes en âge de travailler, à un instant donné.',
- pain:'Douleur sur le côté extérieur du coude en serrant, en portant un objet paume vers le bas, en tournant une poignée.'},
-{id:'quervain',j:'main',a:'pouce',g:['main-d'],r:.4,v:.9,src:'wb',n:'Ténosynovite de De Quervain',ns:'Tendinite du pouce',
- base:'Adultes en âge de travailler, à un instant donné.',
- pain:'Douleur au bord du poignet côté pouce en attrapant, en essorant ou en soulevant un enfant.'},
-{id:'coxarthrose',j:'hanche',a:'hanche',g:['iliaque-d','femur-d'],r:.6,v:.45,src:'gbd',hip:'coxarthrose',n:'Arthrose de la hanche',ns:'Usure de la hanche (arthrose)',al:'Coxarthrose',
- base:'Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.'}];
+const REPO='https://github.com/bobbuilds398/atlas-whole-body';
+const SRC={};Object.keys(CONTENT.sources).forEach(k=>SRC[k]={t:CONTENT.sources[k].title,u:CONTENT.sources[k].url});
+const JOINTS={};Object.keys(CONTENT.joints).forEach(k=>{const j=CONTENT.joints[k];JOINTS[k]={n:j.name,a:j.anchor,g:j.bones}});
+/* repères en millimètres (x vers la gauche du sujet, y vers l'arrière, z vers le haut) */
+const ANCH=CONTENT.anchors;
+const HOME_P=CONTENT.pathologies.filter(p=>JOINTS[p.joint]&&SRC[p.source]&&ANCH[p.anchor]).map(p=>({id:p.id,j:p.joint,a:p.anchor,g:p.bones||[],r:p.radius||.5,v:+p.per100,label:p.display,src:p.source,n:p.name,ns:p.commonName,al:p.alias,base:p.basis,pain:p.whatYouFeel||'',hip:p.hipId}));
 HOME_P.sort((a,b)=>b.v-a.v);
 const FIG={};HOME_P.forEach(p=>FIG[p.id]=p);
 const fr=v=>v.toLocaleString('fr-FR');
-const share=p=>p.v<1?'environ '+Math.round(p.v*10)+' sur 1 000':(p.id==='capsulite'?'2 à 5':fr(p.v))+' sur 100';
+const share=p=>p.label||(p.v<1?'environ '+Math.round(p.v*10)+' sur 1 000':fr(p.v)+' sur 100');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const getJSON=f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f+' : '+r.status);return r.json()});
+const issueUrl=(art,fiche)=>REPO+'/issues/new?template=correction.yml&title='+encodeURIComponent('Correction : '+fiche+' ('+art+')')+'&articulation='+encodeURIComponent(art)+'&fiche='+encodeURIComponent(fiche);
+const fixLink=(art,fiche)=>'<p class="fix">Une erreur, une précision, une meilleure vidéo ? <a href="'+issueUrl(art,fiche)+'" target="_blank" rel="noopener">Proposer une correction pour cette fiche</a></p>';
 const rankCol=i=>'hsl('+(6+i*3.6).toFixed(0)+',94%,'+(56+i*.6).toFixed(0)+'%)';
 
 /* ===== Scène ===== */
@@ -123,7 +66,7 @@ function addMesh(s,g){const n=g.attributes.position.count,c=new Float32Array(n*3
     const ov=new T.Mesh(g,s.veil);ov.renderOrder=4;ov.visible=false;scene.add(ov);(s.over=s.over||[]).push(ov)}}
 const b64=t=>{const s=atob(t.trim()),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u.buffer};
 const getFile=f=>fetch(f).then(r=>{if(!r.ok)throw 0;return r.text()}).then(b64);
-getFile('body.b64.txt').then(buf=>{decode(buf,(id,g)=>{
+getFile('models/body.b64.txt').then(buf=>{decode(buf,(id,g)=>{
     if(id==='peau'){skin=new T.Mesh(g,new T.MeshStandardMaterial({color:'#9fc4dc',roughness:.9,transparent:true,opacity:.1,depthWrite:false,side:T.FrontSide}));skin.renderOrder=2;scene.add(skin);return}
     const disc=id==='disques';addMesh(struct('os:'+id,disc?'Disques intervertébraux':'Os',disc?'cart':'os',null,disc?1:null,null),g)});
   $('b-load').hidden=true;repaint()})
@@ -193,11 +136,19 @@ function setHover(id){hov=id;sync();repaint();panel()}
 function select(id){const p=BY[id];if(!joint){if(p.hip){window.openHip(p.hip);return}enter(p.j,id);return}
   pinned=id;hov=null;sync();repaint();panel();flyTo(p)}
 function load(j){if(DATA[j])return Promise.resolve(DATA[j]);
-  return getFile('j-'+j+'.b64.txt').then(buf=>{
-    const jl=new DataView(buf).getUint32(0,true),h=JSON.parse(new TextDecoder().decode(new Uint8Array(buf,4,jl))),map={};
-    h.s.forEach(d=>map[d.id]=d);
+  return Promise.all([getFile('models/'+j+'.b64.txt'),getJSON('content/'+j+'.json')]).then(r=>{
+    const buf=r[0],C=r[1],jl=new DataView(buf).getUint32(0,true),h=JSON.parse(new TextDecoder().decode(new Uint8Array(buf,4,jl))),map={},geo={},names=C.structures||{};
+    h.s.forEach(d=>{d.label=names[d.id]||d.id;map[d.id]=d});
     decode(buf,(id,g)=>{const d=map[id];addMesh(struct(j+':'+id,d.label,d.layer,d.color,d.op,j),g)});
-    h.p.forEach(p=>{p.j=j;p.zones=p.zones.map(z=>j+':'+z)});
+    h.p.forEach(p=>geo[p.id]=p);
+    /* fusion : textes de content/<articulation>.json, placement du modèle */
+    h.j.n=C.joint.name;h.j.sub=C.joint.subtitle;
+    h.ex={};Object.keys(C.exercises||{}).forEach(k=>{const e=C.exercises[k];h.ex[k]={n:e.name,d:e.how,q:e.videoSearch||e.name,video:e.video||''}});
+    h.sym=(C.questions||[]).map(q=>({id:q.id,g:q.group==='where'?'w':'q',t:q.text}));
+    h.p=(C.pathologies||[]).filter(c=>{if(!geo[c.id])console.warn('Fiche sans placement dans le modèle, ignorée : '+j+'/'+c.id);return !!geo[c.id]}).map(c=>{const g=geo[c.id];
+      return {id:c.id,j:j,n:c.name,ns:c.commonName,al:c.alias,pop:+c.frequency||0,who:c.whoIsAffected,pain:c.whatYouFeel,txt:c.whatHappens,warn:c.warning,
+        ex:(c.exercises||[]).filter(k=>h.ex[k]),tags:c.answers||[],zones:g.zones.map(z=>j+':'+z),foc:g.foc,skin:g.skin,view:g.view}});
+    h.p.sort((a,b)=>b.pop-a.pop);
     return DATA[j]=h})}
 function enter(j,pid){if(j==='hanche'){window.openHip();return}
   joint=j;data=null;pinned=null;hov=null;paintedFor=undefined;buildList();buildAsk();sync();panel();
@@ -222,15 +173,15 @@ function figure(f,col){return '<div class="fig" style="--c:'+col+'"><strong>'+sh
 function homeCard(p){
   let h='<span class="tag" style="--c:'+p.col+'"><i></i>N° '+p.rank+' · '+JOINTS[p.j].n+'</span><h2>'+esc(p.ns)+'</h2><p class="alias">'+esc(p.al||p.n)+'</p>'+figure(p,p.col);
   if(p.hip)return h+'<p>La hanche dispose de son atlas : 13 douleurs, les muscles, tendons et cartilages en 3D, et des exercices par phase.</p><button type="button" class="open" id="b-open">Ouvrir l’atlas de la hanche</button>';
-  return h+'<h3>Ce que l’on ressent</h3><p>'+esc(p.pain)+'</p><p class="ns">Cliquez pour ouvrir l’articulation : structures en cause, zone douloureuse et exercices.</p>'}
+  return h+'<h3>Ce que l’on ressent</h3><p>'+esc(p.pain)+'</p><p class="ns">Cliquez pour ouvrir l’articulation : structures en cause, zone douloureuse et exercices.</p>'+fixLink(JOINTS[p.j].n,p.n)}
 function jointCard(p){
   let h='<span class="tag" style="--c:'+p.col+'"><i></i>N° '+p.rank+' · '+JOINTS[p.j].n+' · fréquence '+p.pop+'/100</span><h2>'+esc(p.ns)+'</h2><p class="alias">'+esc(p.n)+(p.al?' · '+esc(p.al):'')+'</p>';
   if(FIG[p.id])h+=figure(FIG[p.id],p.col);
   h+='<div class="chips" style="--c:'+p.col+'">'+p.zones.map(z=>S[z]?'<span class="zc">'+esc(S[z].label)+'</span>':'').join('')+'</div>';
   h+='<h3>Ce que l’on ressent</h3><p>'+esc(p.pain)+'</p><h3>Ce qui se passe</h3><p>'+esc(p.txt)+'</p><h3>Qui est concerné</h3><p>'+esc(p.who)+'</p>';
   h+='<h3>Exercices</h3><div class="rule">Repère : une gêne jusqu’à 3 ou 4 sur 10 pendant l’exercice est acceptable si elle retombe dans les 24 heures. Au-delà, réduisez.</div>';
-  p.ex.forEach(k=>{const e=data.ex[k];h+='<div class="ex"><h4>'+esc(e.n)+'</h4><p>'+esc(e.d)+'</p><a class="yt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(e.q)+'" target="_blank" rel="noopener">'+YT+'Chercher une vidéo</a></div>'});
-  return h+'<p class="warn">'+esc(p.warn)+'</p>'}
+  p.ex.forEach(k=>{const e=data.ex[k];h+='<div class="ex"><h4>'+esc(e.n)+'</h4><p>'+esc(e.d)+'</p>'+(/^https:\/\//.test(e.video)?'<a class="yt" href="'+esc(e.video).replace(/"/g,'&quot;')+'" target="_blank" rel="noopener">'+YT+'Voir la vidéo</a>':'<a class="yt" href="https://www.youtube.com/results?search_query='+encodeURIComponent(e.q)+'" target="_blank" rel="noopener">'+YT+'Chercher une vidéo</a>')+'</div>'});
+  return h+'<p class="warn">'+esc(p.warn)+'</p>'+fixLink(JOINTS[p.j].n,p.n)}
 function rest(){return '<span class="tag" style="--c:var(--cool)"><i></i>Corps entier</span><h2>Où a-t-on mal le plus souvent ?</h2>'+
   '<p>'+HOME_P.length+' douleurs fréquentes des articulations et du dos, classées par nombre de personnes concernées. Chaque numéro sur le squelette correspond à une ligne de la liste.</p>'+
   '<ol class="steps"><li>Survolez une ligne ou un numéro pour voir la zone et le chiffre.</li><li>Cliquez pour ouvrir l’articulation : 12 douleurs, muscles, tendons et ligaments, zone douloureuse détaillée, exercices.</li><li>Les boutons du haut ouvrent directement une articulation.</li></ol>'+
@@ -320,4 +271,5 @@ window.openHip=function(id){root.hidden=true;$('hipview').hidden=false;hipOpen=t
 window.openBody=function(){$('hipview').hidden=true;root.hidden=false;hipOpen=false;sync();try{history.replaceState(null,'',location.pathname)}catch(e){}fit()};
 if(location.hash==='#hanche')window.openHip();
 $('b-src').innerHTML=Object.keys(SRC).map(srcLink).join(' · ');
-})();
+}).catch(function(e){console.error(e);var d=document.getElementById('b-detail');
+  if(d)d.innerHTML='<h2>Chargement impossible</h2><p>Les contenus de l’atlas n’ont pas pu être chargés. La page doit être servie par un serveur web (voir le README), et non ouverte directement comme fichier.</p>'});

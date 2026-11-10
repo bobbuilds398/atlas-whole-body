@@ -1,0 +1,32 @@
+name: Proposer une vidéo d'exercice (Better exercise video)
+description: Remplacer une recherche YouTube par une vidéo précise et fiable.
+title: "Vidéo : "
+labels: ["contenu", "vidéo"]
+body:
+  - type: input
+    id: articulation
+    attributes:
+      label: Articulation
+    validations:
+      required: true
+  - type: input
+    id: exercice
+    attributes:
+      label: Exercice et fiche
+      placeholder: "Pont fessier — Syndrome fémoro-patellaire"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Adresse de la vidéo
+      placeholder: "https://www.youtube.com/watch?v=…"
+    validations:
+      required: true
+  - type: textarea
+    id: pourquoi
+    attributes:
+      label: Pourquoi cette vidéo
+      description: Qui l'a réalisée (kinésithérapeute, hôpital, société savante), langue, et ce qu'elle montre bien.
+    validations:
+      required: true

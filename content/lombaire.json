@@ -1,0 +1,384 @@
+{
+  "_comment": "Fiches de l’articulation. frequency = indice relatif 0-100 dans l’articulation (indicatif). Voir CONTRIBUTING.md.",
+  "joint": {
+    "key": "lombaire",
+    "name": "Bas du dos",
+    "subtitle": "Colonne lombaire et bassin, vus de dos"
+  },
+  "pathologies": [
+    {
+      "id": "lombalgie",
+      "name": "Lombalgie commune",
+      "commonName": "Mal en bas du dos",
+      "frequency": 100,
+      "whatYouFeel": "Douleur en bas du dos, parfois dans la fesse, qui varie selon les positions et les mouvements.",
+      "whatHappens": "Dans neuf cas sur dix, aucune lésion précise n’explique la douleur. Le dos reste solide et le mouvement fait partie du traitement.",
+      "whoIsAffected": "Tous les âges, avec un pic entre 50 et 55 ans.",
+      "exercises": ["marche", "chat", "bird"],
+      "warning": "Urgence : perte de force dans une jambe, difficulté à uriner, perte de sensibilité entre les jambes. Consultez aussi en cas de fièvre, de chute récente ou de douleur surtout nocturne.",
+      "answers": ["barre", "uncote", "assis", "cambre"]
+    },
+    {
+      "id": "lumbago",
+      "name": "Lumbago",
+      "commonName": "Tour de reins",
+      "frequency": 84,
+      "whatYouFeel": "Douleur brutale en barre en bas du dos, dos bloqué, penché d’un côté, pendant quelques jours.",
+      "whatHappens": "Les muscles qui longent la colonne se contractent fortement et bloquent le mouvement. L’épisode guérit le plus souvent en moins de deux semaines.",
+      "whoIsAffected": "Adultes de 30 à 50 ans, après un effort ou un faux mouvement, parfois sans cause.",
+      "exercises": ["marche", "genoux", "bascule"],
+      "warning": "Douleur qui descend sous le genou avec perte de force, ou troubles urinaires : consultez en urgence.",
+      "answers": ["barre", "brutal"]
+    },
+    {
+      "id": "sciatique",
+      "name": "Sciatique par hernie discale",
+      "commonName": "Douleur qui descend dans la jambe",
+      "frequency": 70,
+      "whatYouFeel": "Douleur de la fesse à l’arrière de la cuisse, au mollet et au pied, souvent plus forte que le mal de dos, pire assis et à la toux.",
+      "whatHappens": "Le disque L4-L5 ou L5-S1 bombe vers l’arrière et irrite une racine du nerf sciatique. La hernie se résorbe seule dans la majorité des cas.",
+      "whoIsAffected": "Adultes de 30 à 50 ans.",
+      "exercises": ["marche", "sphinx", "nsci"],
+      "warning": "Urgence : pied qui tombe, perte de sensibilité entre les jambes, difficulté à uriner.",
+      "answers": ["jambe", "fesse", "toux", "assis", "fourmi"]
+    },
+    {
+      "id": "disco",
+      "name": "Discopathie dégénérative",
+      "commonName": "Disque usé",
+      "frequency": 58,
+      "whatYouFeel": "Douleur en barre au milieu du bas du dos, pire assis longtemps et penché en avant, raideur au lever.",
+      "whatHappens": "Le disque perd de l’eau et de la hauteur avec l’âge. Cette usure est normale et n’explique pas à elle seule la douleur.",
+      "whoIsAffected": "Après 40 ans, très fréquente à l’imagerie même sans douleur.",
+      "exercises": ["marche", "bird", "planche"],
+      "warning": "Douleur nocturne qui réveille ou raideur du matin de plus d’une heure : consultez.",
+      "answers": ["barre", "assis", "matin"]
+    },
+    {
+      "id": "facettes",
+      "name": "Arthrose des articulations postérieures",
+      "commonName": "Douleur du dos en se cambrant",
+      "alias": "Syndrome facettaire",
+      "frequency": 50,
+      "whatYouFeel": "Douleur d’un côté du bas du dos en se cambrant, en restant debout longtemps, soulagée assis ou penché en avant.",
+      "whatHappens": "De petites articulations relient les vertèbres à l’arrière. Elles s’usent et deviennent douloureuses quand le dos se cambre.",
+      "whoIsAffected": "Après 50 ans.",
+      "exercises": ["genoux", "bascule", "planche"],
+      "warning": "Douleur qui descend dans les deux jambes à la marche : consultez.",
+      "answers": ["uncote", "cambre"]
+    },
+    {
+      "id": "si",
+      "name": "Douleur sacro-iliaque",
+      "commonName": "Douleur en haut de la fesse, d’un seul côté",
+      "frequency": 42,
+      "whatYouFeel": "Douleur sous la ceinture, d’un seul côté, au-dessus de la fesse, en se retournant dans le lit ou en montant les marches.",
+      "whatHappens": "L’articulation sacro-iliaque relie le sacrum à l’os du bassin. Des ligaments puissants la maintiennent, mais elle peut s’irriter.",
+      "whoIsAffected": "Après une grossesse, une chute sur les fesses, en cas de différence de longueur de jambes.",
+      "exercises": ["pontb", "bascule", "bird"],
+      "warning": "Douleur nocturne intense, fièvre ou perte de poids : consultez.",
+      "answers": ["fesse", "uncote", "retourne"]
+    },
+    {
+      "id": "canal",
+      "name": "Canal lombaire étroit",
+      "commonName": "Jambes lourdes à la marche",
+      "frequency": 34,
+      "whatYouFeel": "Douleur, lourdeur ou fourmillements dans les deux jambes à la marche, qui obligent à s’arrêter et cèdent assis ou penché en avant.",
+      "whatHappens": "Le canal où passent les racines nerveuses se rétrécit avec l’arthrose. Il s’ouvre quand le dos s’arrondit, d’où le soulagement penché en avant.",
+      "whoIsAffected": "Après 60 ans.",
+      "exercises": ["flex", "velo", "genoux"],
+      "warning": "Perte de force des jambes ou troubles urinaires : consultez rapidement.",
+      "answers": ["marche", "age", "cambre", "fourmi"]
+    },
+    {
+      "id": "ql",
+      "name": "Douleur du carré des lombes",
+      "commonName": "Point douloureux dans le flanc",
+      "frequency": 28,
+      "whatYouFeel": "Douleur profonde entre les dernières côtes et le bassin, d’un côté, en se penchant sur le côté ou en se relevant.",
+      "whatHappens": "Le carré des lombes relie les côtes, les vertèbres lombaires et le bassin. Trop sollicité, il reste contracté et sensible.",
+      "whoIsAffected": "Position assise prolongée, port de charges d’un seul côté, travaux penché.",
+      "exercises": ["etql", "lat", "rot"],
+      "warning": "Douleur du flanc avec fièvre ou brûlures urinaires : consultez, un rein peut être en cause.",
+      "answers": ["flanc", "uncote"]
+    },
+    {
+      "id": "cruralgie",
+      "name": "Cruralgie",
+      "commonName": "Douleur à l’avant de la cuisse",
+      "frequency": 22,
+      "whatYouFeel": "Douleur de l’aine à l’avant de la cuisse jusqu’au genou, souvent pire la nuit, parfois faiblesse pour monter les marches.",
+      "whatHappens": "Une racine L3 ou L4 du nerf fémoral est irritée, par un disque ou par l’arthrose.",
+      "whoIsAffected": "Après 50 ans surtout.",
+      "exercises": ["marche", "ncru", "chat"],
+      "warning": "Genou qui se dérobe ou perte de force de la cuisse : consultez rapidement.",
+      "answers": ["cuisse", "nuit", "fourmi"]
+    },
+    {
+      "id": "listhesis",
+      "name": "Spondylolisthésis",
+      "commonName": "Vertèbre qui glisse",
+      "frequency": 16,
+      "whatYouFeel": "Douleur en barre en bas du dos en se cambrant, raideur des muscles de l’arrière de la cuisse.",
+      "whatHappens": "Une fissure de l’arc arrière de L5 ou l’usure des articulations laisse la vertèbre glisser vers l’avant sur celle du dessous.",
+      "whoIsAffected": "Adolescents sportifs (gymnastique, plongeon), ou après 50 ans par arthrose.",
+      "exercises": ["dead", "bascule", "planche"],
+      "warning": "Douleur dans les jambes, fourmillements ou perte de force : consultez.",
+      "answers": ["barre", "cambre"]
+    },
+    {
+      "id": "tassement",
+      "name": "Fracture-tassement vertébrale",
+      "commonName": "Douleur brutale du dos après 60 ans",
+      "frequency": 11,
+      "whatYouFeel": "Douleur brutale au milieu du dos ou en haut des lombaires après un effort minime, pire debout, soulagée couché.",
+      "whatHappens": "Le corps d’une vertèbre fragilisée par l’ostéoporose s’écrase, le plus souvent à la jonction entre le dos et les lombaires.",
+      "whoIsAffected": "Après 60 ans, surtout les femmes, en cas d’ostéoporose.",
+      "exercises": ["marche", "ext", "chaise"],
+      "warning": "Consultez : une radio confirme et l’ostéoporose se traite. Urgence si les jambes faiblissent.",
+      "answers": ["brutal", "age", "barre"]
+    },
+    {
+      "id": "spa",
+      "name": "Spondylarthrite",
+      "commonName": "Dos raide le matin",
+      "frequency": 7,
+      "whatYouFeel": "Douleur des fesses et du bas du dos en seconde partie de nuit, raideur du matin de plus de 30 minutes, améliorée par le mouvement.",
+      "whatHappens": "Une inflammation chronique touche d’abord les articulations sacro-iliaques, puis la colonne. Le mouvement soulage, le repos aggrave.",
+      "whoIsAffected": "Début avant 45 ans, plus souvent les hommes.",
+      "exercises": ["chat", "rot", "respi"],
+      "warning": "Ce tableau justifie un avis médical : des traitements freinent la maladie. L’exercice quotidien en fait partie.",
+      "answers": ["fesse", "matin", "nuit"]
+    }
+  ],
+  "exercises": {
+    "marche": {
+      "name": "Marche",
+      "how": "10 à 30 minutes par jour, à votre rythme, même si le dos tire un peu.",
+      "videoSearch": "lombalgie marche conseils kiné",
+      "video": ""
+    },
+    "chat": {
+      "name": "Chat et vache",
+      "how": "À quatre pattes, arrondissez puis creusez le dos. 10 allers-retours lents.",
+      "videoSearch": "exercice chat vache mobilité lombaire",
+      "video": ""
+    },
+    "genoux": {
+      "name": "Genoux à la poitrine",
+      "how": "Allongé, ramenez un genou puis l’autre vers la poitrine. 10 fois par côté.",
+      "videoSearch": "genoux poitrine étirement lombaire",
+      "video": ""
+    },
+    "bird": {
+      "name": "Bird-dog",
+      "how": "À quatre pattes, tendez un bras et la jambe opposée. 3 séries de 8 par côté.",
+      "videoSearch": "bird dog exercice gainage lombalgie",
+      "video": ""
+    },
+    "bascule": {
+      "name": "Bascule du bassin couché",
+      "how": "Aplatissez le bas du dos puis relâchez. 2 séries de 10.",
+      "videoSearch": "bascule du bassin couché exercice",
+      "video": ""
+    },
+    "sphinx": {
+      "name": "Extension couchée, appui sur les avant-bras",
+      "how": "À plat ventre, redressez le buste, bassin au sol. 10 fois, si la douleur de jambe remonte vers le dos.",
+      "videoSearch": "extension lombaire McKenzie sphinx hernie discale",
+      "video": ""
+    },
+    "nsci": {
+      "name": "Glissement du nerf sciatique",
+      "how": "Assis, tendez le genou en relevant la tête, relâchez. 10 fois lentement, sans forcer la douleur.",
+      "videoSearch": "glissement nerf sciatique neurodynamique exercice assis",
+      "video": ""
+    },
+    "ncru": {
+      "name": "Glissement du nerf fémoral",
+      "how": "Couché sur le côté, talon vers la fesse puis relâchez. 10 fois lentement.",
+      "videoSearch": "glissement nerf fémoral cruralgie exercice",
+      "video": ""
+    },
+    "pontb": {
+      "name": "Pont fessier avec ballon entre les genoux",
+      "how": "Serrez le ballon en montant. 3 séries de 10.",
+      "videoSearch": "pont fessier ballon entre les genoux sacro-iliaque",
+      "video": ""
+    },
+    "planche": {
+      "name": "Planche sur les avant-bras",
+      "how": "Corps aligné, 3 tenues de 20 à 30 s.",
+      "videoSearch": "gainage ventral planche technique",
+      "video": ""
+    },
+    "lat": {
+      "name": "Planche latérale sur les genoux",
+      "how": "Appui sur l’avant-bras et les genoux, 3 tenues de 20 s par côté.",
+      "videoSearch": "planche latérale genoux carré des lombes",
+      "video": ""
+    },
+    "etql": {
+      "name": "Étirement latéral",
+      "how": "Debout, bras au-dessus de la tête, penchez-vous sur le côté opposé. 3 fois 30 s.",
+      "videoSearch": "étirement carré des lombes debout",
+      "video": ""
+    },
+    "flex": {
+      "name": "Flexion assise",
+      "how": "Assis, penchez-vous en avant, mains vers le sol. 10 fois, soulage en cas de canal étroit.",
+      "videoSearch": "flexion lombaire assis canal lombaire étroit exercice",
+      "video": ""
+    },
+    "velo": {
+      "name": "Vélo d’appartement",
+      "how": "Buste légèrement penché, 15 à 20 minutes. Le vélo est mieux toléré que la marche quand le canal est étroit.",
+      "videoSearch": "vélo canal lombaire étroit exercice",
+      "video": ""
+    },
+    "dead": {
+      "name": "Gainage en position neutre",
+      "how": "Allongé, dos neutre, levez un genou puis l’autre sans bouger le bassin. 2 séries de 10.",
+      "videoSearch": "dead bug gainage lombaire spondylolisthésis",
+      "video": ""
+    },
+    "ext": {
+      "name": "Redressement du haut du dos",
+      "how": "Assis, mains derrière la nuque, ouvrez les coudes et redressez-vous. 10 fois.",
+      "videoSearch": "extension thoracique exercice ostéoporose posture",
+      "video": ""
+    },
+    "chaise": {
+      "name": "Se lever d’une chaise",
+      "how": "Sans les mains si possible, 3 séries de 8.",
+      "videoSearch": "lever de chaise renforcement seniors",
+      "video": ""
+    },
+    "rot": {
+      "name": "Rotations du tronc couché",
+      "how": "Genoux pliés, laissez-les descendre d’un côté puis de l’autre. 10 fois.",
+      "videoSearch": "rotation lombaire couché essuie-glace exercice",
+      "video": ""
+    },
+    "respi": {
+      "name": "Respiration ample",
+      "how": "Inspirez en ouvrant les côtes, 10 cycles, matin et soir.",
+      "videoSearch": "respiration thoracique spondylarthrite exercice",
+      "video": ""
+    }
+  },
+  "questions": [
+    {
+      "id": "barre",
+      "group": "where",
+      "text": "En barre au milieu du bas du dos"
+    },
+    {
+      "id": "uncote",
+      "group": "where",
+      "text": "D’un seul côté du dos"
+    },
+    {
+      "id": "fesse",
+      "group": "where",
+      "text": "En haut de la fesse"
+    },
+    {
+      "id": "jambe",
+      "group": "where",
+      "text": "Dans la jambe, à l’arrière"
+    },
+    {
+      "id": "cuisse",
+      "group": "where",
+      "text": "À l’avant de la cuisse"
+    },
+    {
+      "id": "flanc",
+      "group": "where",
+      "text": "Dans le flanc"
+    },
+    {
+      "id": "brutal",
+      "group": "when",
+      "text": "Blocage brutal"
+    },
+    {
+      "id": "assis",
+      "group": "when",
+      "text": "Pire assis ou penché en avant"
+    },
+    {
+      "id": "cambre",
+      "group": "when",
+      "text": "Pire debout ou cambré"
+    },
+    {
+      "id": "marche",
+      "group": "when",
+      "text": "Jambes lourdes à la marche"
+    },
+    {
+      "id": "toux",
+      "group": "when",
+      "text": "Pire à la toux"
+    },
+    {
+      "id": "matin",
+      "group": "when",
+      "text": "Raide le matin, mieux en bougeant"
+    },
+    {
+      "id": "nuit",
+      "group": "when",
+      "text": "Réveille la nuit"
+    },
+    {
+      "id": "fourmi",
+      "group": "when",
+      "text": "Fourmillements dans la jambe"
+    },
+    {
+      "id": "retourne",
+      "group": "when",
+      "text": "En se retournant dans le lit"
+    },
+    {
+      "id": "age",
+      "group": "when",
+      "text": "Après 60 ans"
+    }
+  ],
+  "structures": {
+    "lomb": "Vertèbres lombaires",
+    "c-lomb": "Cartilage des articulations postérieures et des plateaux",
+    "sacrum": "Sacrum",
+    "c-sacrum": "Cartilage : sacrum",
+    "iliaque": "Os iliaques",
+    "c-iliaque": "Cartilage : os iliaques",
+    "thor": "Dernières vertèbres thoraciques et côtes",
+    "femur": "Fémurs",
+    "disques": "Disques intervertébraux",
+    "lse": "Ligaments supra-épineux et inter-épineux",
+    "ljaune": "Ligaments jaunes",
+    "llp": "Ligament longitudinal postérieur",
+    "lil": "Ligaments ilio-lombaires",
+    "lsi": "Ligaments sacro-iliaques",
+    "lst": "Ligaments sacro-tubéraux",
+    "m-multi": "Multifide",
+    "m-erect": "Muscles érecteurs du rachis",
+    "m-ql": "Carré des lombes",
+    "m-psoas": "Psoas",
+    "t-psoas": "Tendon : psoas",
+    "m-gmax": "Grand fessier",
+    "m-gmed": "Moyen fessier",
+    "t-gmed": "Tendon : moyen fessier",
+    "m-piri": "Piriforme",
+    "dure": "Sac dural et queue de cheval",
+    "sci": "Nerf sciatique",
+    "cru": "Nerf fémoral (crural)",
+    "hern": "Hernie discale, lorsqu’elle existe",
+    "peau": "Peau"
+  }
+}

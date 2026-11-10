@@ -1,0 +1,69 @@
+name: Corriger une fiche (Medical or wording correction)
+description: Une erreur médicale, une formulation trompeuse, un exercice inadapté, une zone douloureuse mal placée.
+title: "Correction : "
+labels: ["contenu", "correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci. Les fiches n'ont pas encore été relues par des professionnels de santé : chaque correction compte.
+        You can write in French or English.
+  - type: input
+    id: articulation
+    attributes:
+      label: Articulation
+      placeholder: "Genou, Épaule, Bas du dos…"
+    validations:
+      required: true
+  - type: input
+    id: fiche
+    attributes:
+      label: Fiche concernée
+      placeholder: "Tendinopathie rotulienne"
+    validations:
+      required: true
+  - type: dropdown
+    id: partie
+    attributes:
+      label: Partie à corriger
+      multiple: true
+      options:
+        - Nom ou nom courant
+        - Ce que l'on ressent
+        - Ce qui se passe
+        - Qui est concerné
+        - Exercices
+        - Signes d'alerte
+        - Zone douloureuse ou structures en 3D
+        - Classement ou chiffre
+        - Questions « où, quand et comment »
+    validations:
+      required: true
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Ce qui ne va pas
+    validations:
+      required: true
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Texte ou changement proposé
+      description: Langage courant, phrases courtes, comme le reste de l'atlas.
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Recommandation, revue, article ou manuel. Indispensable pour un changement médical.
+      placeholder: "HAS 2019, lien…"
+  - type: dropdown
+    id: profil
+    attributes:
+      label: Vous êtes
+      options:
+        - Kinésithérapeute ou physiothérapeute
+        - Médecin
+        - Autre professionnel de santé
+        - Étudiant en santé
+        - Patient ou curieux
+        - Je préfère ne pas le dire

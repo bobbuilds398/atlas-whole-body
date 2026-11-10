@@ -1,0 +1,41 @@
+name: Proposer une fiche ou un exercice (New pathology or exercise)
+description: Une douleur fréquente absente de l'atlas, ou un exercice à ajouter à une fiche existante.
+title: "Ajout : "
+labels: ["contenu", "ajout"]
+body:
+  - type: input
+    id: articulation
+    attributes:
+      label: Articulation
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type d'ajout
+      options:
+        - Nouvelle fiche (pathologie)
+        - Nouvel exercice pour une fiche existante
+        - Nouvelle articulation ou région
+    validations:
+      required: true
+  - type: textarea
+    id: contenu
+    attributes:
+      label: Contenu proposé
+      description: |
+        Pour une fiche : nom médical, nom courant, ce que l'on ressent, ce qui se passe, qui est concerné, exercices, signes d'alerte, structure anatomique en cause.
+        Pour un exercice : nom, consigne (position, répétitions, durée), fiche concernée.
+    validations:
+      required: true
+  - type: textarea
+    id: frequence
+    attributes:
+      label: Fréquence
+      description: Pourquoi cette douleur mérite sa place parmi les plus fréquentes de l'articulation. Un chiffre publié est idéal.
+  - type: textarea
+    id: source
+    attributes:
+      label: Sources
+    validations:
+      required: true

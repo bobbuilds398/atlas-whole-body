@@ -1,0 +1,412 @@
+{
+  "_comment": "Fiches de l’articulation. frequency = indice relatif 0-100 dans l’articulation (indicatif). Voir CONTRIBUTING.md.",
+  "joint": {
+    "key": "main",
+    "name": "Poignet et main",
+    "subtitle": "Poignet et main droits"
+  },
+  "pathologies": [
+    {
+      "id": "arthmain",
+      "name": "Arthrose des doigts",
+      "commonName": "Usure des doigts (arthrose)",
+      "frequency": 100,
+      "whatYouFeel": "Douleur et raideur des dernières articulations des doigts, nodosités, difficulté à serrer et à dévisser.",
+      "whatHappens": "Le cartilage des petites articulations des doigts s’use. Les poussées douloureuses alternent avec des périodes calmes, puis les nodosités deviennent indolores.",
+      "whoIsAffected": "Après 50 ans, plus souvent les femmes, souvent plusieurs personnes dans la famille.",
+      "exercises": ["ouvfer", "balle", "repos"],
+      "warning": "Articulation rouge, chaude et gonflée, ou raideur du matin de plus d’une heure : consultez.",
+      "answers": ["doigts", "raide", "pince"]
+    },
+    {
+      "id": "carpien",
+      "name": "Syndrome du canal carpien",
+      "commonName": "Fourmillements de la main la nuit",
+      "frequency": 92,
+      "whatYouFeel": "Fourmillements et engourdissement du pouce, de l’index et du majeur, surtout la nuit, soulagés en secouant la main.",
+      "whatHappens": "Le nerf médian passe avec les tendons des doigts sous une bande fibreuse à l’avant du poignet. Quand il y est comprimé, les trois premiers doigts s’engourdissent.",
+      "whoIsAffected": "Plus souvent les femmes, entre 40 et 60 ans, grossesse, gestes répétés du poignet.",
+      "exercises": ["attn", "gliss", "nmed"],
+      "warning": "Perte de force du pouce, objets qui tombent, engourdissement permanent : consultez.",
+      "answers": ["paume", "doigts", "nuit", "f123"]
+    },
+    {
+      "id": "rhiz",
+      "name": "Rhizarthrose",
+      "commonName": "Arthrose de la base du pouce",
+      "frequency": 80,
+      "whatYouFeel": "Douleur à la base du pouce en pinçant, en tournant une clé, en ouvrant un bocal.",
+      "whatHappens": "Le cartilage s’use entre le trapèze et le premier métacarpien, l’articulation qui permet au pouce de s’opposer aux doigts.",
+      "whoIsAffected": "Femmes après 50 ans surtout.",
+      "exercises": ["attp", "ecart", "opp"],
+      "warning": "Pouce qui se déforme ou douleur permanente : consultez.",
+      "answers": ["pouce", "pince"]
+    },
+    {
+      "id": "ressaut",
+      "name": "Doigt à ressaut",
+      "commonName": "Doigt qui accroche",
+      "frequency": 66,
+      "whatYouFeel": "Doigt qui se bloque plié puis se débloque avec un ressaut, douleur à la base du doigt côté paume, surtout le matin.",
+      "whatHappens": "Le tendon fléchisseur coulisse sous une poulie à la base du doigt. Un épaississement du tendon ou de la poulie le fait accrocher.",
+      "whoIsAffected": "Après 40 ans, diabète, prises serrées répétées.",
+      "exercises": ["gliss", "etdoigt", "repos"],
+      "warning": "Doigt bloqué qui ne se déplie plus : consultez.",
+      "answers": ["paume", "doigts", "accroche"]
+    },
+    {
+      "id": "quervain",
+      "name": "Ténosynovite de De Quervain",
+      "commonName": "Tendinite du pouce",
+      "frequency": 56,
+      "whatYouFeel": "Douleur au bord du poignet côté pouce en attrapant, en essorant ou en soulevant un enfant.",
+      "whatHappens": "Deux tendons du pouce coulissent dans une gaine au bord du poignet. La gaine s’épaissit et le passage devient douloureux.",
+      "whoIsAffected": "Jeunes parents qui portent un nourrisson, gestes répétés du pouce.",
+      "exercises": ["attp", "isop", "excp"],
+      "warning": "Sans amélioration après 6 semaines, consultez : une infiltration est souvent efficace.",
+      "answers": ["bordp", "pouce", "porter", "pince"]
+    },
+    {
+      "id": "kyste",
+      "name": "Kyste synovial du poignet",
+      "commonName": "Boule sur le dos du poignet",
+      "frequency": 46,
+      "whatYouFeel": "Boule ferme sur le dos du poignet, qui varie de taille, parfois gênante en appui sur la main.",
+      "whatHappens": "Une poche de liquide articulaire se forme à partir de l’articulation, le plus souvent près du ligament scapho-lunaire. Elle est bénigne et disparaît seule une fois sur deux.",
+      "whoIsAffected": "Adultes jeunes, plus souvent les femmes.",
+      "exercises": ["poign", "isopoign", "repos"],
+      "warning": "Boule qui grossit vite, douloureuse, ou qui engourdit les doigts : consultez.",
+      "answers": ["dos", "boule", "appui"]
+    },
+    {
+      "id": "entorse",
+      "name": "Entorse du poignet",
+      "commonName": "Poignet douloureux après une chute",
+      "frequency": 38,
+      "whatYouFeel": "Douleur sur le dos du poignet à l’appui, gonflement, perte de force de serrage.",
+      "whatHappens": "La chute étire les ligaments entre les petits os du poignet, en particulier celui qui unit le scaphoïde et le lunatum.",
+      "whoIsAffected": "Chute sur la main tendue, sports de glisse et de contact.",
+      "exercises": ["poign", "isopoign", "balle"],
+      "warning": "Douleur qui persiste plus de deux semaines après une chute : consultez, une lésion ligamentaire ou une fracture peut passer inaperçue.",
+      "answers": ["dos", "chute", "appui"]
+    },
+    {
+      "id": "dupuytren",
+      "name": "Maladie de Dupuytren",
+      "commonName": "Doigts qui se replient dans la paume",
+      "frequency": 30,
+      "whatYouFeel": "Nodule puis corde dure dans la paume, annulaire et petit doigt qui ne s’étendent plus complètement, sans douleur.",
+      "whatHappens": "L’aponévrose de la paume s’épaissit et se rétracte en formant des cordes qui tirent les doigts.",
+      "whoIsAffected": "Hommes après 50 ans, origine nord-européenne, antécédents familiaux.",
+      "exercises": ["etdoigt", "ouvfer", "gliss"],
+      "warning": "Quand la main ne se pose plus à plat sur une table, consultez : un geste est possible.",
+      "answers": ["paume", "boule"]
+    },
+    {
+      "id": "ecu",
+      "name": "Tendinopathie de l’extenseur ulnaire du carpe",
+      "commonName": "Douleur du bord du poignet côté petit doigt",
+      "frequency": 22,
+      "whatYouFeel": "Douleur sur le dos du poignet côté petit doigt, en tournant l’avant-bras ou en inclinant la main.",
+      "whatHappens": "Ce tendon passe dans une gouttière sur la tête de l’ulna, où il s’irrite ou devient instable.",
+      "whoIsAffected": "Tennis, golf, rameurs, gestes de torsion du poignet.",
+      "exercises": ["devuln", "prosup", "isopoign"],
+      "warning": "Claquement douloureux du tendon à la rotation : consultez.",
+      "answers": ["bord5", "dos", "tourner"]
+    },
+    {
+      "id": "tfcc",
+      "name": "Lésion du complexe triangulaire",
+      "commonName": "Douleur du poignet côté petit doigt à l’appui",
+      "frequency": 18,
+      "whatYouFeel": "Douleur du bord du poignet côté petit doigt en appui sur la main, en tournant une clé, parfois un claquement.",
+      "whatHappens": "Ce petit disque de fibrocartilage amortit et stabilise le poignet entre l’ulna et les os du carpe.",
+      "whoIsAffected": "Après une chute sur la main, gymnastes, sports de raquette.",
+      "exercises": ["prosup", "devuln", "isopoign"],
+      "warning": "Poignet instable ou douleur qui dure plus de 6 semaines : consultez.",
+      "answers": ["bord5", "appui", "tourner", "chute"]
+    },
+    {
+      "id": "scaphoide",
+      "name": "Fracture du scaphoïde",
+      "commonName": "Douleur à la base du pouce après une chute",
+      "frequency": 12,
+      "whatYouFeel": "Douleur dans le creux à la base du pouce, côté dos du poignet, à l’appui et en serrant, souvent peu de gonflement.",
+      "whatHappens": "Le scaphoïde est mal irrigué et consolide lentement. La fracture ne se voit pas toujours sur la première radio.",
+      "whoIsAffected": "Adultes jeunes après une chute sur la main tendue.",
+      "exercises": ["immob", "ouvfer", "balle"],
+      "warning": "Après une chute, une douleur à cet endroit justifie une radio, à répéter si besoin : une fracture négligée ne consolide pas.",
+      "answers": ["bordp", "pouce", "chute", "appui"]
+    },
+    {
+      "id": "guyon",
+      "name": "Compression du nerf ulnaire au poignet",
+      "commonName": "Fourmillements du petit doigt du cycliste",
+      "frequency": 8,
+      "whatYouFeel": "Fourmillements du petit doigt et de l’annulaire, faiblesse pour écarter les doigts, sans douleur au coude.",
+      "whatHappens": "Le nerf ulnaire passe dans un canal entre le pisiforme et l’hamatum, où l’appui prolongé du talon de la main le comprime.",
+      "whoIsAffected": "Cyclistes, utilisateurs d’outils vibrants ou de béquilles.",
+      "exercises": ["appui", "nuln", "balle"],
+      "warning": "Fonte des muscles de la main ou maladresse : consultez.",
+      "answers": ["bord5", "paume", "f45", "appui"]
+    }
+  ],
+  "exercises": {
+    "ouvfer": {
+      "name": "Ouvrir et fermer la main",
+      "how": "Poing souple puis doigts écartés. 10 fois, de préférence dans l’eau tiède.",
+      "videoSearch": "exercices arthrose des mains mobilité doigts",
+      "video": ""
+    },
+    "opp": {
+      "name": "Opposition du pouce",
+      "how": "Touchez le bout de chaque doigt avec le pouce. 5 tours.",
+      "videoSearch": "opposition du pouce exercice rhizarthrose",
+      "video": ""
+    },
+    "balle": {
+      "name": "Serrer une balle souple",
+      "how": "Serrez 3 s sans douleur. 10 fois.",
+      "videoSearch": "renforcement main balle souple",
+      "video": ""
+    },
+    "attn": {
+      "name": "Attelle de nuit",
+      "how": "Poignet maintenu droit pendant le sommeil, pendant 6 semaines.",
+      "videoSearch": "attelle nuit canal carpien comment la porter",
+      "video": ""
+    },
+    "gliss": {
+      "name": "Glissement des tendons",
+      "how": "Enchaînez main ouverte, crochet, poing, toit. 10 cycles, 3 fois par jour.",
+      "videoSearch": "exercices glissement tendons main",
+      "video": ""
+    },
+    "nmed": {
+      "name": "Glissement du nerf médian",
+      "how": "Mouvement lent et sans douleur, 5 répétitions, 3 fois par jour.",
+      "videoSearch": "glissement nerf médian canal carpien exercice",
+      "video": ""
+    },
+    "attp": {
+      "name": "Attelle du pouce",
+      "how": "Portez-la pour les tâches douloureuses et la nuit pendant 3 à 6 semaines.",
+      "videoSearch": "attelle pouce rhizarthrose De Quervain",
+      "video": ""
+    },
+    "ecart": {
+      "name": "Écarter le pouce contre un élastique",
+      "how": "Élastique autour des doigts, écartez le pouce. 3 séries de 10.",
+      "videoSearch": "renforcement abducteur du pouce élastique rhizarthrose",
+      "video": ""
+    },
+    "isop": {
+      "name": "Écarter le pouce contre résistance",
+      "how": "Poussez le pouce contre l’autre main sans bouger. 5 tenues de 30 s.",
+      "videoSearch": "De Quervain exercice isométrique pouce",
+      "video": ""
+    },
+    "excp": {
+      "name": "Descente lente avec un poids léger",
+      "how": "Poignet sur le bord d’une table, pouce en haut, descendez en 4 s. 3 séries de 10.",
+      "videoSearch": "De Quervain exercice excentrique déviation radiale",
+      "video": ""
+    },
+    "repos": {
+      "name": "Repos relatif des prises",
+      "how": "Limitez les prises serrées et répétées, grossissez les manches des outils.",
+      "videoSearch": "économie articulaire main conseils ergothérapie",
+      "video": ""
+    },
+    "etdoigt": {
+      "name": "Étirement du doigt en extension",
+      "how": "Posez la main à plat sur une table et appuyez doucement. 5 fois 15 s.",
+      "videoSearch": "étirement doigts extension Dupuytren doigt à ressaut",
+      "video": ""
+    },
+    "poign": {
+      "name": "Flexion et extension du poignet",
+      "how": "Avant-bras posé, montez et descendez la main. 2 séries de 15.",
+      "videoSearch": "mobilité poignet flexion extension rééducation",
+      "video": ""
+    },
+    "isopoign": {
+      "name": "Extension du poignet tenue",
+      "how": "Poignet droit, résistez à l’autre main qui appuie. 5 tenues de 20 s.",
+      "videoSearch": "isométrique poignet rééducation entorse",
+      "video": ""
+    },
+    "prosup": {
+      "name": "Rotation de l’avant-bras",
+      "how": "Coude au corps, tournez la paume vers le haut puis le bas. 2 séries de 15.",
+      "videoSearch": "pronation supination exercice poignet",
+      "video": ""
+    },
+    "devuln": {
+      "name": "Inclinaison du poignet contre résistance",
+      "how": "Bord du petit doigt vers le sol contre un élastique, retour lent. 3 séries de 10.",
+      "videoSearch": "renforcement extenseur ulnaire du carpe élastique",
+      "video": ""
+    },
+    "nuln": {
+      "name": "Glissement du nerf ulnaire",
+      "how": "Mouvement lent, sans fourmillements durables. 5 répétitions, 3 fois par jour.",
+      "videoSearch": "glissement nerf ulnaire neurodynamique exercice",
+      "video": ""
+    },
+    "appui": {
+      "name": "Supprimer l’appui sur le talon de la main",
+      "how": "Guidon de vélo, outils, béquilles : changez de prise ou rembourrez.",
+      "videoSearch": "compression nerf ulnaire poignet cycliste conseils",
+      "video": ""
+    },
+    "immob": {
+      "name": "Immobilisation prescrite",
+      "how": "Une fracture du scaphoïde demande une immobilisation décidée par le médecin.",
+      "videoSearch": "fracture scaphoïde immobilisation rééducation",
+      "video": ""
+    }
+  },
+  "questions": [
+    {
+      "id": "doigts",
+      "group": "where",
+      "text": "Dans les doigts"
+    },
+    {
+      "id": "pouce",
+      "group": "where",
+      "text": "À la base du pouce"
+    },
+    {
+      "id": "paume",
+      "group": "where",
+      "text": "Dans la paume"
+    },
+    {
+      "id": "dos",
+      "group": "where",
+      "text": "Sur le dos du poignet"
+    },
+    {
+      "id": "bordp",
+      "group": "where",
+      "text": "Au bord du poignet côté pouce"
+    },
+    {
+      "id": "bord5",
+      "group": "where",
+      "text": "Au bord du poignet côté petit doigt"
+    },
+    {
+      "id": "nuit",
+      "group": "when",
+      "text": "Fourmillements la nuit"
+    },
+    {
+      "id": "f123",
+      "group": "when",
+      "text": "Fourmillements du pouce, de l’index, du majeur"
+    },
+    {
+      "id": "f45",
+      "group": "when",
+      "text": "Fourmillements du petit doigt"
+    },
+    {
+      "id": "pince",
+      "group": "when",
+      "text": "En pinçant ou en tournant une clé"
+    },
+    {
+      "id": "accroche",
+      "group": "when",
+      "text": "Un doigt accroche ou se bloque"
+    },
+    {
+      "id": "boule",
+      "group": "when",
+      "text": "Une boule ou une corde est apparue"
+    },
+    {
+      "id": "chute",
+      "group": "when",
+      "text": "Après une chute sur la main"
+    },
+    {
+      "id": "appui",
+      "group": "when",
+      "text": "En appui sur la main"
+    },
+    {
+      "id": "raide",
+      "group": "when",
+      "text": "Doigts raides, nodosités"
+    },
+    {
+      "id": "porter",
+      "group": "when",
+      "text": "En portant un bébé ou en essorant"
+    },
+    {
+      "id": "tourner",
+      "group": "when",
+      "text": "En tournant l’avant-bras"
+    }
+  ],
+  "structures": {
+    "radius": "Radius",
+    "c-radius": "Cartilage : radius",
+    "ulna": "Ulna",
+    "c-ulna": "Cartilage : ulna",
+    "carpe": "Os du carpe",
+    "c-carpe": "Cartilage : os du carpe",
+    "scaph": "Scaphoïde",
+    "c-scaph": "Cartilage : scaphoïde",
+    "trapeze": "Trapèze",
+    "c-trapeze": "Cartilage : trapèze",
+    "meta": "Métacarpiens",
+    "c-meta": "Cartilage : métacarpiens",
+    "phal": "Phalanges",
+    "c-phal": "Cartilage : phalanges",
+    "ret": "Rétinaculum des fléchisseurs",
+    "retext": "Rétinaculum des extenseurs",
+    "gcarp": "Gaine commune des fléchisseurs",
+    "gdq": "Gaine des tendons du pouce",
+    "gecu": "Gaine de l’extenseur ulnaire du carpe",
+    "gdoigt": "Gaines des fléchisseurs dans les doigts",
+    "poulies": "Poulies des doigts",
+    "tfcc": "Disque du complexe triangulaire",
+    "lsl": "Ligament scapho-lunaire",
+    "ldors": "Ligaments dorsaux du poignet",
+    "apon": "Aponévrose palmaire",
+    "cap-ip": "Capsules des articulations des doigts",
+    "cap-mcp": "Capsules à la base des doigts",
+    "lph": "Ligament piso-hamatum (canal de Guyon)",
+    "m-pouce": "Long abducteur et court extenseur du pouce",
+    "t-pouce": "Tendons du long abducteur et du court extenseur du pouce",
+    "m-epl": "Long extenseur du pouce",
+    "t-epl": "Tendon : long extenseur du pouce",
+    "m-flech": "Fléchisseurs des doigts",
+    "t-flech": "Tendons fléchisseurs des doigts",
+    "m-ext": "Extenseurs des doigts",
+    "t-ext": "Tendons extenseurs des doigts",
+    "m-ecu": "Extenseur ulnaire du carpe",
+    "t-ecu": "Tendon de l’extenseur ulnaire du carpe",
+    "m-ecr": "Extenseurs radiaux du carpe",
+    "t-ecr": "Tendon : extenseurs radiaux du carpe",
+    "m-fcr": "Fléchisseurs du carpe",
+    "t-fcr": "Tendon : fléchisseurs du carpe",
+    "m-then": "Muscles de la base du pouce",
+    "t-then": "Tendon : muscles de la base du pouce",
+    "m-hypo": "Muscles de la base du petit doigt",
+    "t-hypo": "Tendon : muscles de la base du petit doigt",
+    "m-inter": "Interosseux et lombricaux",
+    "t-inter": "Tendon : interosseux et lombricaux",
+    "nm": "Nerf médian et ses branches",
+    "nu": "Nerf ulnaire et ses branches",
+    "nrs": "Branche superficielle du nerf radial",
+    "kyste": "Kyste synovial dorsal, lorsqu’il existe",
+    "peau": "Peau"
+  }
+}
