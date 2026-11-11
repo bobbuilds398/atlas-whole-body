@@ -7,148 +7,200 @@
   },
   "pathologies": [
     {
-      "id": "hallux",
-      "name": "Hallux valgus",
-      "commonName": "Oignon du gros orteil",
-      "frequency": 100,
-      "whatYouFeel": "Bosse à la base du gros orteil, rougeur et douleur au frottement dans la chaussure, gros orteil qui part vers les autres.",
-      "whatHappens": "Le premier métatarsien s’écarte vers l’intérieur du pied et le gros orteil dévie vers l’extérieur. La saillie de l’articulation frotte dans la chaussure.",
-      "whoIsAffected": "Plus souvent les femmes, et de plus en plus avec l’âge.",
-      "exercises": ["ecart", "court", "mobgo"],
-      "warning": "Les exercices soulagent mais ne redressent pas l’orteil. Choisissez des chaussures larges à l’avant. Consultez si la douleur gêne la marche.",
-      "answers": ["gros", "chaussure", "raide"]
-    },
-    {
       "id": "talon",
-      "name": "Fasciite plantaire",
+      "name": "Fasciopathie plantaire",
       "commonName": "Douleur sous le talon",
-      "frequency": 92,
+      "frequency": 100,
       "whatYouFeel": "Douleur vive sous le talon aux premiers pas du matin ou après être resté assis, qui s’atténue en marchant.",
       "whatHappens": "L’aponévrose plantaire est une lame fibreuse tendue du talon aux orteils. Son attache sur le talon devient douloureuse quand elle est trop sollicitée.",
       "whoIsAffected": "Personnes qui restent longtemps debout, coureurs, surpoids.",
       "exercises": ["etapo", "rath", "etmol"],
-      "warning": "Douleur au repos, la nuit, ou fourmillements dans le pied : consultez.",
-      "answers": ["talon", "matin"]
+      "warning": "Douleur au repos ou la nuit, fourmillements dans le pied : consultez. Coureur dont le talon fait mal quand on le serre sur les côtés : arrêtez la course et consultez, une fracture de fatigue est possible. Douleur des deux talons avant 45 ans avec raideur du dos le matin : parlez-en à votre médecin. Enfant de 8 à 14 ans : la douleur du talon vient le plus souvent du cartilage de croissance (maladie de Sever), qui se prend en charge différemment.",
+      "answers": ["talon", "matin"],
+      "alias": "Fasciite plantaire",
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "hallux",
+      "name": "Hallux valgus",
+      "commonName": "Oignon du gros orteil",
+      "frequency": 90,
+      "whatYouFeel": "Bosse à la base du gros orteil, rougeur et douleur au frottement dans la chaussure, gros orteil qui part vers les autres.",
+      "whatHappens": "Le premier métatarsien s’écarte vers l’intérieur du pied et le gros orteil dévie vers l’extérieur. La saillie de l’articulation frotte dans la chaussure.",
+      "whoIsAffected": "Plus souvent les femmes, et de plus en plus avec l’âge.",
+      "exercises": ["ecart", "court", "mobgo"],
+      "warning": "Gros orteil rouge, chaud, gonflé et très douloureux d’un coup, souvent la nuit : consultez rapidement, c’est souvent une crise de goutte. Les exercices soulagent mais ne redressent pas l’orteil. Choisissez des chaussures larges à l’avant. Plaie ou rougeur chez une personne diabétique : consultez rapidement.",
+      "answers": ["gros", "chaussure", "raide"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "entorse",
       "name": "Entorse latérale de la cheville",
       "commonName": "Cheville tordue",
-      "frequency": 84,
+      "frequency": 70,
       "whatYouFeel": "Douleur et gonflement sur le côté extérieur de la cheville après une torsion, parfois un bleu le lendemain.",
       "whatHappens": "Le pied part vers l’intérieur et les ligaments du côté extérieur sont étirés ou déchirés, d’abord le talo-fibulaire antérieur.",
       "whoIsAffected": "Sportifs, mais aussi la vie courante, sur un faux pas.",
       "exercises": ["alpha", "equi", "pointes"],
-      "warning": "Impossible de faire quatre pas, ou douleur en appuyant sur l’os de la malléole : une radio est nécessaire.",
-      "answers": ["dehors", "torsion", "gonfle"]
-    },
-    {
-      "id": "achille",
-      "name": "Tendinopathie d’Achille",
-      "commonName": "Tendon d’Achille douloureux",
-      "frequency": 74,
-      "whatYouFeel": "Douleur et raideur à l’arrière de la cheville au lever et au début de l’effort, tendon épaissi et sensible quand on le pince.",
-      "whatHappens": "Le tendon d’Achille relie le mollet au talon. Sa partie moyenne, 2 à 6 cm au-dessus du talon, s’épaissit et devient douloureuse.",
-      "whoIsAffected": "Coureurs, sports de saut, reprise du sport après 40 ans.",
-      "exercises": ["isoach", "alfred", "etmol"],
-      "warning": "Claquement brutal comme un coup de fouet, impossible de monter sur la pointe : urgences.",
-      "answers": ["talon", "matin", "course"]
+      "warning": "Radio nécessaire si vous ne pouvez pas faire quatre pas, juste après la torsion ou ensuite, ou si l’os fait mal quand on appuie sur l’arrière ou la pointe d’une malléole, sur la base du cinquième métatarsien (bord extérieur du pied) ou sur l’os naviculaire (bord intérieur). Pied chaud, rouge et gonflé sans vraie torsion chez une personne diabétique : consultez le jour même.",
+      "answers": ["dehors", "torsion", "gonfle"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "metat",
       "name": "Métatarsalgie",
       "commonName": "Douleur sous l’avant du pied",
-      "frequency": 62,
+      "frequency": 60,
       "whatYouFeel": "Douleur sous la base des deuxième et troisième orteils, comme un caillou dans la chaussure, pire pieds nus sur sol dur.",
       "whatHappens": "Les têtes des métatarsiens du milieu supportent trop de pression. La capsule de l’articulation et le coussinet graisseux s’irritent.",
       "whoIsAffected": "Pieds creux, talons hauts, hallux valgus, course à pied.",
       "exercises": ["chaus", "serv", "etmol"],
       "warning": "Orteil qui se déforme ou gonflement de l’avant-pied : consultez.",
-      "answers": ["avantpied", "chaussure", "course"]
-    },
-    {
-      "id": "morton",
-      "name": "Névrome de Morton",
-      "commonName": "Décharge électrique entre deux orteils",
-      "frequency": 50,
-      "whatYouFeel": "Brûlure ou décharge entre le troisième et le quatrième orteil, soulagée en retirant la chaussure et en massant le pied.",
-      "whatHappens": "Le nerf qui passe entre deux têtes métatarsiennes s’épaissit à force d’être comprimé.",
-      "whoIsAffected": "Femmes de 40 à 60 ans, chaussures étroites.",
-      "exercises": ["chaus", "serv", "court"],
-      "warning": "Sans amélioration avec le chaussage, consultez : semelles ou infiltration peuvent aider.",
-      "answers": ["avantpied", "decharge", "chaussure"]
-    },
-    {
-      "id": "tibpost",
-      "name": "Tendinopathie du tibial postérieur",
-      "commonName": "Pied qui s’affaisse vers l’intérieur",
-      "frequency": 42,
-      "whatYouFeel": "Douleur derrière et sous la malléole intérieure, voûte du pied qui s’aplatit, difficulté à monter sur la pointe d’un seul pied.",
-      "whatHappens": "Le tendon du tibial postérieur contourne la malléole intérieure et soutient la voûte du pied. Quand il faiblit, le pied s’affaisse.",
-      "whoIsAffected": "Femmes après 40 ans, surpoids, pied plat, coureurs.",
-      "exercises": ["inver", "court", "pointes"],
-      "warning": "Voûte qui s’effondre d’un seul côté : consultez tôt, une semelle protège le tendon.",
-      "answers": ["dedans", "affaisse", "course"]
-    },
-    {
-      "id": "instab",
-      "name": "Instabilité chronique de la cheville",
-      "commonName": "Cheville qui se tord souvent",
-      "frequency": 36,
-      "whatYouFeel": "Entorses à répétition, cheville qui se dérobe sur terrain irrégulier, appréhension.",
-      "whatHappens": "Après une entorse, les ligaments peuvent rester distendus et la cheville perd ses réflexes de protection.",
-      "whoIsAffected": "Après une ou plusieurs entorses mal rééduquées.",
-      "exercises": ["equi", "ever", "saut"],
-      "warning": "Dérobements fréquents malgré trois mois de rééducation : consultez.",
-      "answers": ["dehors", "instable", "torsion"]
-    },
-    {
-      "id": "fibulaires",
-      "name": "Tendinopathie des fibulaires",
-      "commonName": "Douleur derrière la malléole extérieure",
-      "frequency": 30,
-      "whatYouFeel": "Douleur derrière et sous la malléole extérieure, à la course et sur terrain en dévers.",
-      "whatHappens": "Les deux tendons fibulaires contournent la malléole extérieure et empêchent le pied de partir vers l’intérieur.",
-      "whoIsAffected": "Coureurs, pieds creux, après une entorse.",
-      "exercises": ["ever", "equi", "etmol"],
-      "warning": "Claquement ou tendon qui saute derrière la malléole : consultez.",
-      "answers": ["dehors", "course"]
+      "answers": ["avantpied", "chaussure", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "rigidus",
       "name": "Hallux rigidus",
       "commonName": "Gros orteil raide",
-      "frequency": 24,
+      "frequency": 50,
       "whatYouFeel": "Douleur et raideur à la base du gros orteil quand le pied déroule, bosse sur le dessus de l’articulation.",
       "whatHappens": "Le cartilage de l’articulation du gros orteil s’use et un bec osseux se forme sur le dessus, qui bloque la flexion vers le haut.",
       "whoIsAffected": "Après 50 ans, anciens footballeurs et danseurs.",
       "exercises": ["mobgo", "serv", "chaus"],
-      "warning": "Chaussure à semelle rigide ou à bascule. Consultez si la marche reste limitée.",
-      "answers": ["gros", "raide", "dessus"]
+      "warning": "Chaussure à semelle rigide ou à bascule. Articulation rouge, chaude et très douloureuse d’un coup : consultez rapidement. Consultez si la marche reste limitée.",
+      "answers": ["gros", "raide", "dessus"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "achille",
+      "name": "Tendinopathie d’Achille",
+      "commonName": "Tendon d’Achille douloureux",
+      "frequency": 45,
+      "whatYouFeel": "Douleur et raideur à l’arrière de la cheville au lever et au début de l’effort, tendon épaissi et sensible quand on le pince.",
+      "whatHappens": "Le tendon d’Achille relie le mollet au talon. Sa partie moyenne, 2 à 6 cm au-dessus de son attache sur le calcanéus, s’épaissit et devient douloureuse.",
+      "whoIsAffected": "Coureurs, sports de saut, reprise du sport après 40 ans. Le risque augmente avec certains antibiotiques (fluoroquinolones) et la cortisone.",
+      "exercises": ["isoach", "alfred", "etmol"],
+      "warning": "Claquement brutal comme un coup de fouet, impossible de monter sur la pointe : urgences. Douleur du tendon pendant ou après un antibiotique de la famille des fluoroquinolones (ciprofloxacine, lévofloxacine, ofloxacine…) : arrêtez le sport et appelez votre médecin.",
+      "answers": ["talon", "matin", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "morton",
+      "name": "Névrome de Morton",
+      "commonName": "Décharge électrique entre deux orteils",
+      "frequency": 35,
+      "whatYouFeel": "Brûlure ou décharge entre le troisième et le quatrième orteil, soulagée en retirant la chaussure et en massant le pied.",
+      "whatHappens": "Le nerf qui passe entre deux têtes métatarsiennes s’épaissit à force d’être comprimé.",
+      "whoIsAffected": "Femmes de 40 à 60 ans, chaussures étroites.",
+      "exercises": ["chaus", "serv", "court"],
+      "warning": "Sans amélioration avec le chaussage, consultez : semelles ou infiltration peuvent aider.",
+      "rule": "nerf",
+      "answers": ["avantpied", "decharge", "chaussure"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "tibpost",
+      "name": "Tendinopathie du tibial postérieur",
+      "commonName": "Pied qui s’affaisse vers l’intérieur",
+      "frequency": 30,
+      "whatYouFeel": "Douleur derrière et sous la malléole intérieure, voûte du pied qui s’aplatit, difficulté à monter sur la pointe d’un seul pied.",
+      "whatHappens": "Le tendon du tibial postérieur contourne la malléole intérieure et soutient la voûte du pied. Quand il faiblit, le pied s’affaisse.",
+      "whoIsAffected": "Femmes après 40 ans, surpoids, pied plat, coureurs.",
+      "exercises": ["inver", "court", "pointes"],
+      "warning": "Voûte qui s’effondre d’un seul côté : consultez tôt, une semelle protège le tendon.",
+      "answers": ["dedans", "affaisse", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "instab",
+      "name": "Instabilité chronique de la cheville",
+      "commonName": "Cheville qui se tord souvent",
+      "frequency": 25,
+      "whatYouFeel": "Entorses à répétition, cheville qui se dérobe sur terrain irrégulier, appréhension.",
+      "whatHappens": "Après une entorse, les ligaments peuvent rester distendus et la cheville perd ses réflexes de protection.",
+      "whoIsAffected": "Après une ou plusieurs entorses mal rééduquées.",
+      "exercises": ["equi", "ever", "saut"],
+      "warning": "Dérobements fréquents malgré trois mois de rééducation : consultez.",
+      "answers": ["dehors", "instable", "torsion"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "fibulaires",
+      "name": "Tendinopathie des fibulaires",
+      "commonName": "Douleur derrière la malléole extérieure",
+      "frequency": 15,
+      "whatYouFeel": "Douleur derrière et sous la malléole extérieure, à la course et sur terrain en dévers.",
+      "whatHappens": "Les deux tendons fibulaires contournent la malléole extérieure et empêchent le pied de partir vers l’intérieur.",
+      "whoIsAffected": "Coureurs, pieds creux, après une entorse.",
+      "exercises": ["ever", "equi", "etmol"],
+      "warning": "Claquement ou tendon qui saute derrière la malléole : consultez.",
+      "answers": ["dehors", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "fatigue",
       "name": "Fracture de fatigue d’un métatarsien",
       "commonName": "Douleur du dessus du pied à la marche",
-      "frequency": 18,
+      "frequency": 8,
       "whatYouFeel": "Douleur sur le dessus de l’avant-pied, précise au doigt sur un os, gonflement, pire à l’appui.",
       "whatHappens": "Des microfissures s’accumulent sur le deuxième ou le troisième métatarsien quand la charge augmente plus vite que l’os ne s’adapte.",
-      "whoIsAffected": "Coureurs, marcheurs, militaires, après une hausse brutale de l’activité.",
+      "whoIsAffected": "Coureurs, marcheurs, militaires, après une hausse brutale de l’activité. Plus fréquent en cas d’alimentation insuffisante, de règles absentes ou irrégulières, ou d’ostéoporose.",
       "exercises": ["decharge", "velo", "court"],
-      "warning": "Consultez : il faut 4 à 8 semaines sans impact, et une radio ou une IRM confirme.",
-      "answers": ["dessus", "course", "gonfle"]
+      "warning": "Arrêtez course et sauts dès maintenant et consultez dans la semaine. La radio est souvent normale au début, une IRM peut confirmer. Il faut en général 4 à 8 semaines sans impact. Douleur sur le bord extérieur du pied (base du cinquième métatarsien) ou au milieu du dessus du pied (os naviculaire) : consultez rapidement, ces fractures guérissent mal sans prise en charge.",
+      "rule": "avis",
+      "answers": ["dessus", "course", "gonfle"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "tarsien",
       "name": "Syndrome du tunnel tarsien",
       "commonName": "Brûlures sous le pied",
-      "frequency": 12,
+      "frequency": 4,
       "whatYouFeel": "Brûlures et fourmillements sous le pied et vers les orteils, pires debout et la nuit.",
       "whatHappens": "Le nerf tibial passe derrière la malléole intérieure sous une bande fibreuse, où il peut être comprimé.",
       "whoIsAffected": "Pied plat, après une entorse ou une fracture de la cheville.",
       "exercises": ["nerf", "court", "inver"],
       "warning": "Perte de sensibilité sous le pied : consultez.",
-      "answers": ["dedans", "decharge", "nuit", "avantpied"]
+      "rule": "nerf",
+      "answers": ["dedans", "decharge", "nuit", "avantpied"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -190,7 +242,7 @@
     },
     "alpha": {
       "name": "Alphabet avec le pied",
-      "how": "Dès les premiers jours, dessinez les lettres avec la pointe du pied. 2 fois par jour.",
+      "how": "Dès les premiers jours, dessinez les lettres avec la pointe du pied. 2 fois par jour. Les premiers jours : protégez sans immobiliser, surélevez, évitez les anti-inflammatoires, puis remettez-vous en mouvement selon la douleur. Les premiers jours : protégez sans immobiliser, surélevez, évitez les anti-inflammatoires, puis remettez-vous en mouvement selon la douleur.",
       "videoSearch": "entorse cheville exercice alphabet mobilité",
       "video": ""
     },
@@ -208,7 +260,7 @@
     },
     "alfred": {
       "name": "Descente lente du talon sur une marche",
-      "how": "Montez sur deux pieds, descendez en 3 s sur le pied douloureux. 3 séries de 15, une à deux fois par jour.",
+      "how": "Montez sur deux pieds, descendez en 3 s sur le pied douloureux. 3 séries de 15, une à deux fois par jour. Si la douleur est au point d’attache sur le talon, descendez seulement jusqu’au niveau de la marche, pas en dessous.",
       "videoSearch": "protocole Alfredson excentrique tendon d’Achille",
       "video": ""
     },
@@ -351,57 +403,57 @@
   ],
   "structures": {
     "tibia": "Tibia",
-    "c-tibia": "Cartilage : tibia",
+    "c-tibia": "Cartilage articulaire : tibia",
     "fibula": "Fibula",
-    "c-fibula": "Cartilage : fibula",
+    "c-fibula": "Cartilage articulaire : fibula",
     "talus": "Talus",
-    "c-talus": "Cartilage : talus",
+    "c-talus": "Cartilage articulaire : talus",
     "calca": "Calcanéus",
-    "c-calca": "Cartilage : calcanéus",
-    "tarse": "Os du tarse",
-    "c-tarse": "Cartilage : os du tarse",
+    "c-calca": "Cartilage articulaire : calcanéus",
+    "tarse": "Naviculaire, cuboïde et cunéiformes",
+    "c-tarse": "Cartilage articulaire : os du tarse",
     "meta": "Métatarsiens",
-    "c-meta": "Cartilage : métatarsiens",
-    "phal": "Phalanges",
-    "c-phal": "Cartilage : phalanges",
+    "c-meta": "Cartilage articulaire : métatarsiens",
+    "phal": "Phalanges et sésamoïdes",
+    "c-phal": "Cartilage articulaire : phalanges",
     "apon": "Aponévrose plantaire",
     "tach": "Tendon d’Achille",
     "ltfa": "Ligament talo-fibulaire antérieur",
     "lcf": "Ligament calcanéo-fibulaire",
     "ltfp": "Ligament talo-fibulaire postérieur",
-    "synd": "Ligaments tibio-fibulaires",
-    "ldelt": "Ligament deltoïde",
+    "synd": "Ligaments tibio-fibulaires antérieur et postérieur (syndesmose)",
+    "ldelt": "Ligament collatéral médial (deltoïde)",
     "spring": "Ligament calcanéo-naviculaire plantaire",
     "rtar": "Rétinaculum des fléchisseurs",
     "rfib": "Rétinaculums des fibulaires",
     "g-tibp": "Gaine du tibial postérieur",
-    "g-fib": "Gaine des fibulaires",
-    "b-ach": "Bourses du talon",
-    "cap-mtp": "Capsules et plaques plantaires des orteils",
-    "ltm": "Ligament transverse des métatarsiens",
-    "m-tri": "Mollet : soléaire et jumeaux",
-    "t-tri": "Tendon : mollet : soléaire et jumeaux",
+    "g-fib": "Gaine synoviale commune des fibulaires",
+    "b-ach": "Bourses rétro-calcanéenne et sous-cutanée calcanéenne",
+    "cap-mtp": "Capsules et plaques plantaires des métatarso-phalangiennes",
+    "ltm": "Ligament métatarsien transverse profond",
+    "m-tri": "Triceps sural (soléaire et gastrocnémien)",
+    "t-tri": "Aponévroses du triceps sural",
     "m-tibp": "Tibial postérieur",
     "t-tibp": "Tendon du tibial postérieur",
     "m-tiba": "Tibial antérieur",
-    "t-tiba": "Tendon : tibial antérieur",
-    "m-fib": "Fibulaires",
+    "t-tiba": "Tendon du tibial antérieur",
+    "m-fib": "Long et court fibulaires",
     "t-fib": "Tendons fibulaires",
-    "m-flech": "Longs fléchisseurs des orteils",
-    "t-flech": "Tendon : longs fléchisseurs des orteils",
-    "m-ext": "Extenseurs des orteils",
-    "t-ext": "Tendon : extenseurs des orteils",
+    "m-flech": "Long fléchisseur de l’hallux et long fléchisseur des orteils",
+    "t-flech": "Tendons des longs fléchisseurs de l’hallux et des orteils",
+    "m-ext": "Long extenseur de l’hallux et long extenseur des orteils",
+    "t-ext": "Tendons des longs extenseurs de l’hallux et des orteils",
     "m-abdh": "Abducteur de l’hallux",
-    "t-abdh": "Tendon : abducteur de l’hallux",
+    "t-abdh": "Tendon de l’abducteur de l’hallux",
     "m-addh": "Adducteur de l’hallux",
     "m-fdb": "Court fléchisseur des orteils",
-    "t-fdb": "Tendon : court fléchisseur des orteils",
+    "t-fdb": "Tendons du court fléchisseur des orteils",
     "nt": "Nerf tibial et nerfs plantaires",
     "ndig": "Nerfs digitaux plantaires",
     "e-ach": "Attache du tendon d’Achille",
-    "e-apon": "Attache de l’aponévrose sur le talon",
+    "e-apon": "Attache de l’aponévrose sur le tubercule médial du calcanéus",
     "mort": "Névrome de Morton, lorsqu’il existe",
-    "bun": "Bourse de l’oignon",
+    "bun": "Bourse médiale de la tête du 1er métatarsien (tracé schématique)",
     "peau": "Peau"
   }
 }

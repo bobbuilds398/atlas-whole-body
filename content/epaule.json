@@ -9,26 +9,34 @@
     {
       "id": "coiffe",
       "name": "Tendinopathie de la coiffe des rotateurs",
-      "commonName": "Tendinite de l’épaule",
+      "commonName": "Douleur des tendons de l’épaule",
       "frequency": 100,
       "whatYouFeel": "Douleur sur le côté de l’épaule et du bras en levant le bras, en enfilant une veste, ou la nuit couché dessus.",
       "whatHappens": "Quatre tendons coiffent la tête de l’humérus et la centrent quand le bras se lève. Celui du supra-épineux, au sommet, est le plus souvent en cause.",
       "whoIsAffected": "Après 35 ans, travail ou sport bras en l’air.",
       "exercises": ["re", "scap", "wall"],
-      "warning": "Après une chute, si vous ne pouvez plus lever le bras : consultez rapidement.",
-      "answers": ["cote", "lever", "nuit"]
+      "warning": "Après une chute, si vous ne pouvez plus lever le bras : consultez rapidement. Urgences (15 ou 112) si la douleur de l’épaule ou du bras gauche s’accompagne d’oppression dans la poitrine, d’essoufflement ou de sueurs, ou apparaît à l’effort. Épaule chaude et gonflée avec fièvre : consultez le jour même.",
+      "answers": ["cote", "lever", "nuit"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "conflit",
-      "name": "Conflit sous-acromial et bursite",
-      "commonName": "Épaule qui accroche en levant le bras",
-      "frequency": 86,
+      "name": "Douleur sous-acromiale et bursite",
+      "commonName": "Épaule douloureuse en levant le bras",
+      "frequency": 90,
       "whatYouFeel": "Douleur en arc de cercle quand le bras passe entre 60 et 120°, soulagée bras le long du corps.",
-      "whatHappens": "La bourse et les tendons glissent sous la voûte formée par l’acromion et son ligament. Quand la bourse s’épaissit, le passage devient douloureux.",
+      "whatHappens": "Sous l’acromion, une bourse sépare les tendons de la coiffe de l’os. Tendons et bourse deviennent sensibles quand la charge dépasse ce qu’ils tolèrent. L’os ne coince pas le tendon : l’opération qui le rabote ne fait pas mieux qu’une rééducation bien menée.",
       "whoIsAffected": "Adultes de 30 à 60 ans, gestes répétés au-dessus de la tête.",
       "exercises": ["scap", "row", "etpec"],
       "warning": "Douleur nocturne intense d’apparition brutale : consultez.",
-      "answers": ["cote", "dessus", "lever"]
+      "answers": ["cote", "dessus", "lever"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "capsulite",
@@ -40,117 +48,157 @@
       "whoIsAffected": "Entre 40 et 60 ans, plus souvent les femmes, plus fréquent en cas de diabète.",
       "exercises": ["pend", "aide", "baton"],
       "warning": "En phase très douloureuse, restez en dessous du seuil de douleur : forcer aggrave. Un avis médical aide à soulager cette phase.",
-      "answers": ["profond", "raide", "nuit", "cote"]
-    },
-    {
-      "id": "rupture",
-      "name": "Rupture de la coiffe des rotateurs",
-      "commonName": "Tendon de l’épaule déchiré",
-      "frequency": 58,
-      "whatYouFeel": "Faiblesse pour lever le bras ou le tenir écarté, douleur nocturne, parfois peu de douleur mais un bras qui ne monte plus.",
-      "whatHappens": "Le tendon du supra-épineux se détache de l’humérus, partiellement ou complètement. Les muscles voisins peuvent compenser après rééducation.",
-      "whoIsAffected": "Après 60 ans par usure, ou plus jeune après une chute.",
-      "exercises": ["iso", "aide", "row"],
-      "warning": "Perte de force brutale après une chute : consultez sans attendre, une réparation précoce est parfois proposée.",
-      "answers": ["cote", "force", "nuit", "chute", "lever"]
-    },
-    {
-      "id": "biceps",
-      "name": "Tendinopathie du long biceps",
-      "commonName": "Douleur à l’avant de l’épaule",
-      "frequency": 50,
-      "whatYouFeel": "Douleur précise à l’avant de l’épaule, dans la gouttière de l’humérus, en portant un objet bras tendu devant soi.",
-      "whatHappens": "Le tendon du long biceps sort de l’articulation et coulisse dans une gouttière à l’avant de l’humérus, où il s’irrite.",
-      "whoIsAffected": "Sports de lancer, natation, port de charges, souvent avec une atteinte de la coiffe.",
-      "exercises": ["flexb", "re", "etpec"],
-      "warning": "Claquement avec apparition d’une boule dans le bras : consultez, le tendon peut s’être rompu.",
-      "answers": ["devant", "porter"]
-    },
-    {
-      "id": "ac",
-      "name": "Arthropathie acromio-claviculaire",
-      "commonName": "Douleur sur le dessus de l’épaule",
-      "frequency": 44,
-      "whatYouFeel": "Douleur précise au bout de la clavicule, en croisant le bras devant soi ou couché sur le côté.",
-      "whatHappens": "La petite articulation entre la clavicule et l’acromion s’use ou garde les séquelles d’une entorse.",
-      "whoIsAffected": "Après 40 ans par usure, ou après une chute sur l’épaule, haltérophiles.",
-      "exercises": ["row", "iso", "yw"],
-      "warning": "Après une chute, marche d’escalier visible au bout de la clavicule : consultez.",
-      "answers": ["dessus", "croiser", "nuit", "chute"]
-    },
-    {
-      "id": "calc",
-      "name": "Tendinopathie calcifiante",
-      "commonName": "Calcification de l’épaule",
-      "frequency": 38,
-      "whatYouFeel": "Douleur chronique modérée, puis parfois une crise très violente pendant quelques jours, épaule bloquée par la douleur.",
-      "whatHappens": "Un dépôt de calcium se forme dans un tendon de la coiffe. La crise correspond à sa résorption, après laquelle la douleur disparaît souvent.",
-      "whoIsAffected": "Entre 30 et 50 ans, plus souvent les femmes.",
-      "exercises": ["pend", "aide", "re"],
-      "warning": "Crise très douloureuse : consultez pour un traitement de la douleur.",
-      "answers": ["cote", "crise", "nuit"]
-    },
-    {
-      "id": "instab",
-      "name": "Instabilité de l’épaule",
-      "commonName": "Épaule qui se déboîte",
-      "frequency": 30,
-      "whatYouFeel": "Épaule qui sort ou menace de sortir bras levé et tourné vers l’arrière, appréhension dans ce geste.",
-      "whatHappens": "Après une luxation, le bourrelet et les ligaments de l’avant de l’articulation restent distendus et retiennent moins bien la tête de l’humérus.",
-      "whoIsAffected": "Jeunes sportifs après une première luxation, sports de contact et de lancer.",
-      "exercises": ["ri", "re", "row"],
-      "warning": "Épaule déboîtée qui ne rentre pas : urgences. Luxations répétées : avis chirurgical.",
-      "answers": ["devant", "deboite", "lancer"]
+      "answers": ["profond", "raide", "nuit", "cote"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "omarthrose",
       "name": "Arthrose de l’épaule",
-      "commonName": "Usure de l’épaule (arthrose)",
+      "commonName": "Arthrose de l’épaule",
       "alias": "Omarthrose",
-      "frequency": 24,
+      "frequency": 40,
       "whatYouFeel": "Douleur profonde, raideur surtout pour tourner le bras vers l’extérieur, craquements.",
       "whatHappens": "Le cartilage entre la tête de l’humérus et la glène s’amincit et l’os se remodèle.",
       "whoIsAffected": "Après 60 ans, après une fracture ou une rupture ancienne de la coiffe.",
       "exercises": ["pend", "aqua", "baton"],
       "warning": "Douleur nocturne qui résiste aux antalgiques : consultez.",
-      "answers": ["profond", "raide", "nuit"]
+      "answers": ["profond", "raide", "nuit"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "ac",
+      "name": "Arthropathie acromio-claviculaire",
+      "commonName": "Douleur sur le dessus de l’épaule",
+      "frequency": 35,
+      "whatYouFeel": "Douleur précise au bout de la clavicule, en croisant le bras devant soi ou couché sur le côté.",
+      "whatHappens": "La petite articulation entre la clavicule et l’acromion s’use ou garde les séquelles d’une entorse.",
+      "whoIsAffected": "Après 40 ans par usure, ou après une chute sur l’épaule, haltérophiles.",
+      "exercises": ["row", "iso", "yw"],
+      "warning": "Après une chute, marche d’escalier visible au bout de la clavicule : consultez.",
+      "answers": ["dessus", "croiser", "nuit", "chute"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "calc",
+      "name": "Tendinopathie calcifiante",
+      "commonName": "Calcification de l’épaule",
+      "frequency": 35,
+      "whatYouFeel": "Douleur chronique modérée, puis parfois une crise très violente pendant quelques jours, épaule bloquée par la douleur.",
+      "whatHappens": "Un dépôt de calcium se forme dans un tendon de la coiffe. La crise correspond à sa résorption, après laquelle la douleur disparaît souvent.",
+      "whoIsAffected": "Entre 30 et 50 ans, plus souvent les femmes.",
+      "exercises": ["pend", "aide", "re"],
+      "warning": "Crise très douloureuse : consultez pour un traitement de la douleur.",
+      "answers": ["cote", "crise", "nuit"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "rupture",
+      "name": "Rupture de la coiffe des rotateurs",
+      "commonName": "Tendon de l’épaule déchiré",
+      "frequency": 30,
+      "whatYouFeel": "Faiblesse pour lever le bras ou le tenir écarté, douleur nocturne, parfois peu de douleur mais un bras qui ne monte plus.",
+      "whatHappens": "Le tendon du supra-épineux se détache de l’humérus, partiellement ou complètement. Les muscles voisins peuvent compenser après rééducation.",
+      "whoIsAffected": "Après 60 ans par usure, ou plus jeune après une chute.",
+      "exercises": ["iso", "aide", "row"],
+      "warning": "Perte de force brutale après une chute : consultez sans attendre, une réparation précoce est parfois proposée.",
+      "answers": ["cote", "force", "nuit", "chute", "lever"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "biceps",
+      "name": "Tendinopathie du long biceps",
+      "commonName": "Douleur à l’avant de l’épaule",
+      "frequency": 25,
+      "whatYouFeel": "Douleur précise à l’avant de l’épaule, dans la gouttière de l’humérus, en portant un objet bras tendu devant soi.",
+      "whatHappens": "Le tendon du long biceps sort de l’articulation et coulisse dans une gouttière à l’avant de l’humérus, où il s’irrite.",
+      "whoIsAffected": "Sports de lancer, natation, port de charges, souvent avec une atteinte de la coiffe.",
+      "exercises": ["flexb", "re", "etpec"],
+      "warning": "Claquement avec apparition d’une boule dans le bras : consultez, le tendon peut s’être rompu.",
+      "answers": ["devant", "porter"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "instab",
+      "name": "Instabilité de l’épaule",
+      "commonName": "Épaule qui se déboîte",
+      "frequency": 20,
+      "whatYouFeel": "Épaule qui sort ou menace de sortir bras levé et tourné vers l’arrière, appréhension dans ce geste.",
+      "whatHappens": "Après une luxation, le bourrelet et les ligaments de l’avant de l’articulation restent distendus et retiennent moins bien la tête de l’humérus.",
+      "whoIsAffected": "Jeunes sportifs après une première luxation, sports de contact et de lancer.",
+      "exercises": ["ri", "re", "row"],
+      "warning": "Épaule déboîtée qui ne rentre pas : urgences, sans essayer de la remettre vous-même. Après une première luxation, faites-vous examiner : avant 25 ans, le risque de récidive est élevé ; après 40 ans, un tendon de la coiffe est souvent rompu. Engourdissement du haut du bras ou faiblesse : consultez rapidement.",
+      "answers": ["devant", "deboite", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "slap",
-      "name": "Lésion du bourrelet supérieur",
+      "name": "Lésion SLAP du labrum supérieur",
       "commonName": "Douleur profonde de l’épaule du lanceur",
       "alias": "Lésion SLAP",
-      "frequency": 18,
+      "frequency": 10,
       "whatYouFeel": "Douleur profonde bras armé en arrière, parfois un accrochage ou une perte de vitesse au lancer.",
       "whatHappens": "Le bourrelet se décolle en haut de la glène, là où s’attache le tendon du long biceps.",
       "whoIsAffected": "Sports de lancer et de raquette, ou après une chute bras tendu.",
       "exercises": ["croise", "re", "row"],
       "warning": "Blocages ou douleur persistante malgré la rééducation : consultez.",
-      "answers": ["profond", "lancer"]
+      "answers": ["profond", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "dysk",
       "name": "Dyskinésie de la scapula",
       "commonName": "Omoplate qui décolle",
-      "frequency": 14,
+      "frequency": 8,
       "whatYouFeel": "Fatigue et douleur autour de l’omoplate, omoplate qui se décolle du thorax quand le bras redescend.",
       "whatHappens": "Le dentelé antérieur et le trapèze inférieur plaquent et orientent l’omoplate. Quand ils travaillent mal, l’épaule perd son appui.",
       "whoIsAffected": "Sportifs bras en l’air, travail prolongé sur écran, après une douleur d’épaule.",
       "exercises": ["pushplus", "yw", "wall"],
       "warning": "Omoplate très décollée apparue brutalement : consultez, un nerf peut être en cause.",
-      "answers": ["omoplate", "lever"]
+      "answers": ["omoplate", "lever"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "subscap",
       "name": "Tendinopathie du sous-scapulaire",
       "commonName": "Douleur à l’avant de l’épaule en rotation",
-      "frequency": 10,
+      "frequency": 8,
       "whatYouFeel": "Douleur à l’avant de l’épaule en ramenant la main vers le ventre contre résistance ou en passant la main dans le dos.",
       "whatHappens": "Le sous-scapulaire, à l’avant de l’omoplate, fait tourner le bras vers l’intérieur. Son tendon s’attache sur le petit relief à l’avant de l’humérus.",
       "whoIsAffected": "Nageurs, lanceurs, sports de combat.",
       "exercises": ["ri", "row", "etpec"],
       "warning": "Faiblesse brutale après un traumatisme bras écarté : consultez.",
-      "answers": ["devant", "lancer"]
+      "answers": ["devant", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -324,51 +372,51 @@
   ],
   "structures": {
     "humerus": "Humérus",
-    "c-humerus": "Cartilage : humérus",
-    "scapula": "Omoplate",
-    "c-scapula": "Cartilage : omoplate",
+    "c-humerus": "Cartilage articulaire : humérus",
+    "scapula": "Scapula (omoplate)",
+    "c-scapula": "Cartilage de la scapula (glène, acromion)",
     "clavicule": "Clavicule",
-    "c-clavicule": "Cartilage : clavicule",
+    "c-clavicule": "Cartilage articulaire : clavicule",
     "cotes": "Côtes",
-    "labrum": "Bourrelet glénoïdien",
-    "capsule": "Capsule de l’articulation",
+    "labrum": "Labrum glénoïdal (bourrelet)",
+    "capsule": "Capsule de l’articulation gléno-humérale",
     "lgh": "Ligaments gléno-huméraux",
     "lch": "Ligament coraco-huméral",
     "lca": "Ligament coraco-acromial",
-    "lac": "Articulation acromio-claviculaire",
-    "dac": "Disque acromio-claviculaire",
+    "lac": "Capsule et ligament acromio-claviculaires",
+    "dac": "Disque articulaire acromio-claviculaire",
     "lcc": "Ligaments coraco-claviculaires",
-    "bsa": "Bourse sous-acromiale et sous-deltoïdienne",
-    "gaine": "Gaine du long biceps",
+    "bsa": "Bourse subacromio-deltoïdienne",
+    "gaine": "Gaine du long biceps et ligament huméral transverse",
     "m-supra": "Supra-épineux",
     "t-supra": "Tendon du supra-épineux",
     "m-infra": "Infra-épineux",
     "t-infra": "Tendon de l’infra-épineux",
-    "m-subscap": "Sous-scapulaire",
-    "t-subscap": "Tendon du sous-scapulaire",
+    "m-subscap": "Subscapulaire (sous-scapulaire)",
+    "t-subscap": "Tendon du subscapulaire",
     "m-tmin": "Petit rond",
     "m-delt": "Deltoïde",
-    "t-delt": "Tendon : deltoïde",
-    "m-bicl": "Long biceps",
+    "t-delt": "Tendons du deltoïde",
+    "m-bicl": "Chef long du biceps",
     "t-bicl": "Tendon du long biceps",
-    "m-bicc": "Court biceps et coraco-brachial",
-    "t-bicc": "Tendon : court biceps et coraco-brachial",
+    "m-bicc": "Chef court du biceps et coracobrachial",
+    "t-bicc": "Tendons du chef court du biceps et du coracobrachial",
     "m-pmin": "Petit pectoral",
     "m-dent": "Dentelé antérieur",
     "m-trap": "Trapèze",
-    "t-trap": "Tendon : trapèze",
+    "t-trap": "Tendons du trapèze",
     "m-rhomb": "Rhomboïdes",
-    "t-rhomb": "Tendon : rhomboïdes",
+    "t-rhomb": "Tendons des rhomboïdes",
     "m-lev": "Élévateur de la scapula",
-    "t-lev": "Tendon : élévateur de la scapula",
+    "t-lev": "Tendons de l’élévateur de la scapula",
     "m-tmaj": "Grand rond",
     "n-sus": "Nerf supra-scapulaire",
     "n-ax": "Nerf axillaire",
     "n-lt": "Nerf thoracique long",
     "peau": "Peau",
     "e-coiffe": "Attaches de la coiffe sur l’humérus",
-    "e-subscap": "Attache du sous-scapulaire",
-    "e-bicl": "Attache du long biceps sur la glène",
+    "e-subscap": "Attache du subscapulaire sur le petit tubercule",
+    "e-bicl": "Attache du long biceps sur le tubercule supraglénoïdal",
     "calc": "Dépôt calcaire, lorsqu’il existe"
   }
 }

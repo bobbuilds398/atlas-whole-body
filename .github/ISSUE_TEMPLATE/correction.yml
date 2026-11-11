@@ -6,6 +6,18 @@ body:
   - type: markdown
     attributes:
       value: |
+        **Ce formulaire est public.** N’y décrivez pas votre propre situation médicale : nous ne pouvons pas donner d’avis personnel. Urgence : 15 ou 112.
+        *This form is public. Do not describe your own medical situation.*
+  - type: checkboxes
+    id: perso
+    attributes:
+      label: Avant d’envoyer / Before submitting
+      options:
+        - label: Je ne partage pas d’informations sur ma santé ou celle d’un proche. / I am not sharing personal health information.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
         Merci. Les fiches n'ont pas encore été relues par des professionnels de santé : chaque correction compte.
         You can write in French or English.
   - type: input
@@ -37,6 +49,14 @@ body:
         - Zone douloureuse ou structures en 3D
         - Classement ou chiffre
         - Questions « où, quand et comment »
+    validations:
+      required: true
+  - type: dropdown
+    id: danger
+    attributes:
+      label: Ce problème peut-il mettre quelqu’un en danger ? / Could this harm someone?
+      description: Exercice dangereux, signe d’alerte absent ou faux, urgence non signalée. Ces signalements sont traités en priorité.
+      options: ["Non / No", "Oui / Yes", "Je ne sais pas / Not sure"]
     validations:
       required: true
   - type: textarea

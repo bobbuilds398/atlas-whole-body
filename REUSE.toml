@@ -1,0 +1,21 @@
+version = 1
+
+[[annotations]]
+path = ["index.html", "a-propos.html", "css/**", "js/**", "tools/**", ".github/**"]
+SPDX-FileCopyrightText = "2026 bobbuilds398 and contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["content/**", "docs/**", "*.md"]
+SPDX-FileCopyrightText = "2026 bobbuilds398 and contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "models/**"
+SPDX-FileCopyrightText = ["2026 bobbuilds398 and contributors", "Z-Anatomy, Gauthier Kervyn et al.", "The Database Center for Life Science (BodyParts3D)"]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "js/hip.js"
+SPDX-FileCopyrightText = "2026 bobbuilds398 and contributors"
+SPDX-License-Identifier = "MIT AND CC-BY-SA-4.0"

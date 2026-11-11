@@ -15,142 +15,194 @@
       "whatHappens": "Le plus souvent, les muscles et les petites articulations du cou sont en cause, sans lésion grave. Bouger et renforcer aide plus que le repos.",
       "whoIsAffected": "Adultes de 45 à 75 ans, plus souvent les femmes, travail assis prolongé.",
       "exercises": ["menton", "rot", "row"],
-      "warning": "Après un accident, ou avec fourmillements et perte de force dans un bras, vertiges ou troubles de la marche : consultez.",
-      "answers": ["nuque", "tourner", "ecran", "omoplate"]
+      "warning": "Urgences (15 ou 112) : après un accident ou une chute avec douleur sur les os de la nuque, ou en cas de vertiges, de vision double, de difficulté à parler ou à avaler, d’engourdissement du visage ou de faiblesse d’un côté. Consultez rapidement : fourmillements ou faiblesse dans un bras, mains maladroites, marche instable, fièvre, antécédent de cancer ou perte de poids inexpliquée.",
+      "answers": ["nuque", "tourner", "ecran", "omoplate"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "torticolis",
       "name": "Torticolis",
       "commonName": "Cou bloqué au réveil",
-      "frequency": 82,
+      "frequency": 60,
       "whatYouFeel": "Cou bloqué et douloureux d’un côté, tête penchée, impossible de tourner la tête pendant quelques jours.",
-      "whatHappens": "Un muscle du cou, souvent le sterno-cléido-mastoïdien ou l’élévateur de la scapula, se contracte et bloque le mouvement.",
+      "whatHappens": "La cause exacte est mal connue : une petite articulation ou un disque du cou s’irrite et les muscles se contractent pour protéger. Le blocage cède le plus souvent en quelques jours.",
       "whoIsAffected": "Tous les âges, souvent au réveil ou après un mouvement brusque.",
       "exercises": ["chal", "rot", "incl"],
-      "warning": "Torticolis avec fièvre, après un traumatisme, ou qui dure plus d’une semaine : consultez.",
-      "answers": ["cote", "reveil", "tourner"]
-    },
-    {
-      "id": "cephalee",
-      "name": "Céphalée d’origine cervicale",
-      "commonName": "Mal de tête qui part de la nuque",
-      "frequency": 70,
-      "whatYouFeel": "Douleur qui part de la nuque et monte derrière la tête, parfois jusqu’au front et à l’œil, d’un seul côté.",
-      "whatHappens": "Les trois premières vertèbres cervicales et les petits muscles sous le crâne projettent leur douleur vers la tête.",
-      "whoIsAffected": "Travail sur écran, stress, après un coup du lapin.",
-      "exercises": ["subocc", "menton", "flechprof"],
-      "warning": "Mal de tête brutal et inhabituel, avec fièvre, troubles de la vue ou de la parole : urgences.",
-      "answers": ["tete", "nuque", "maldetete", "ecran"]
+      "warning": "Urgences (15 ou 112) : cou raide avec fièvre, mal de tête intense ou vomissements, surtout chez l’enfant. Consultez après une chute ou un choc, en cas de fourmillements dans un bras, ou si le cou reste bloqué plus d’une semaine.",
+      "answers": ["cote", "reveil", "tourner"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "trapeze",
       "name": "Douleur du trapèze supérieur",
       "commonName": "Nœuds entre le cou et l’épaule",
-      "frequency": 62,
+      "frequency": 50,
       "whatYouFeel": "Tension et points douloureux entre le cou et l’épaule, qui se réveillent à la pression et en fin de journée.",
-      "whatHappens": "Le trapèze supérieur soutient l’épaule et la tête. Longtemps contracté, il développe des zones sensibles.",
+      "whatHappens": "Le trapèze supérieur soutient l’épaule et la tête. Longtemps contracté, il développe des zones sensibles. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant.",
       "whoIsAffected": "Travail sur écran, stress, port de sac sur l’épaule.",
       "exercises": ["hauss", "ettrap", "balle"],
       "warning": "Douleur qui descend dans le bras avec fourmillements : consultez.",
-      "answers": ["epaule", "ecran"]
+      "answers": ["epaule", "ecran"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "arthrose",
       "name": "Arthrose cervicale",
-      "commonName": "Usure du cou (arthrose)",
+      "commonName": "Arthrose du cou",
       "alias": "Cervicarthrose",
-      "frequency": 54,
+      "frequency": 45,
       "whatYouFeel": "Raideur du cou, surtout pour tourner la tête et regarder en l’air, craquements, douleur par périodes.",
       "whatHappens": "Les disques s’affaissent et les articulations du cou s’usent. Cette usure est fréquente sans douleur.",
       "whoIsAffected": "Après 50 ans, presque constante à la radio après 65 ans.",
       "exercises": ["rot", "incl", "isoc"],
       "warning": "Maladresse des mains, jambes raides ou troubles de l’équilibre : consultez.",
-      "answers": ["nuque", "tourner", "enlair"]
+      "answers": ["nuque", "tourner", "enlair"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "cephalee",
+      "name": "Céphalée d’origine cervicale",
+      "commonName": "Mal de tête qui part de la nuque",
+      "frequency": 25,
+      "whatYouFeel": "Douleur qui part de la nuque et monte derrière la tête, parfois jusqu’au front et à l’œil, d’un seul côté.",
+      "whatHappens": "Les trois premières vertèbres cervicales et les petits muscles sous le crâne projettent leur douleur vers la tête.",
+      "whoIsAffected": "Travail sur écran, stress, après un coup du lapin.",
+      "exercises": ["subocc", "menton", "flechprof"],
+      "warning": "Urgences (15 ou 112) : mal de tête brutal, le pire de votre vie ; ou avec fièvre et nuque raide ; ou avec troubles de la vue, de la parole, faiblesse ou engourdissement. Après 50 ans, un mal de tête nouveau, surtout aux tempes ou avec douleur de la mâchoire en mâchant, se montre au médecin le jour même. Une douleur du cou inhabituelle avec un mal de tête nouveau se fait examiner avant tout exercice.",
+      "answers": ["tete", "nuque", "maldetete", "ecran"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "ncb",
       "name": "Névralgie cervico-brachiale",
       "commonName": "Douleur qui descend dans le bras",
-      "frequency": 44,
+      "frequency": 25,
       "whatYouFeel": "Douleur du cou qui descend dans l’épaule, le bras et jusqu’aux doigts, avec fourmillements, pire en penchant la tête du même côté.",
       "whatHappens": "Une racine nerveuse est irritée à sa sortie de la colonne, par une hernie discale ou par l’arthrose, le plus souvent en C6 ou C7.",
       "whoIsAffected": "Adultes de 40 à 60 ans.",
       "exercises": ["menton", "nmed", "row"],
-      "warning": "Perte de force du bras ou de la main : consultez rapidement.",
-      "answers": ["bras", "fourmi", "epaule", "omoplate"]
+      "warning": "Faiblesse du bras ou de la main : consultez rapidement. Urgences (15 ou 112) si les deux bras sont touchés, si les mains deviennent maladroites, si la marche devient instable ou en cas de troubles urinaires. Consultez aussi si la douleur reste insupportable malgré les antalgiques.",
+      "rule": "nerf",
+      "answers": ["bras", "fourmi", "epaule", "omoplate"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "whiplash",
       "name": "Coup du lapin",
       "commonName": "Cou douloureux après un accident",
-      "frequency": 36,
+      "frequency": 25,
       "whatYouFeel": "Douleur et raideur du cou dans les heures ou les jours qui suivent, maux de tête, parfois vertiges et fatigue.",
       "whatHappens": "Le cou est projeté en arrière puis en avant. Muscles, ligaments et petites articulations sont étirés, le plus souvent sans lésion grave.",
       "whoIsAffected": "Après un accident de voiture, une chute, un choc au sport.",
       "exercises": ["rot", "menton", "isoc"],
-      "warning": "Après un accident : consultez d’abord. Reprenez ensuite vite le mouvement, le collier prolongé retarde la guérison.",
-      "answers": ["nuque", "accident", "maldetete", "tourner"]
-    },
-    {
-      "id": "levator",
-      "name": "Syndrome de l’élévateur de la scapula",
-      "commonName": "Point douloureux à l’angle de l’omoplate",
-      "frequency": 30,
-      "whatYouFeel": "Douleur à l’angle supérieur de l’omoplate qui remonte vers le cou, raideur pour tourner la tête de ce côté.",
-      "whatHappens": "L’élévateur de la scapula relie le haut de l’omoplate aux premières vertèbres cervicales. Son attache basse devient sensible.",
-      "whoIsAffected": "Travail au téléphone, écran mal placé, sac en bandoulière.",
-      "exercises": ["etlev", "row", "balle"],
-      "warning": "Douleur avec essoufflement ou douleur dans la poitrine : urgences.",
-      "answers": ["omoplate", "epaule", "tourner"]
-    },
-    {
-      "id": "arnold",
-      "name": "Névralgie d’Arnold",
-      "commonName": "Décharges à l’arrière du crâne",
-      "frequency": 22,
-      "whatYouFeel": "Décharges ou brûlures qui partent de la nuque et montent sur l’arrière du crâne d’un côté, cuir chevelu sensible.",
-      "whatHappens": "Le nerf grand occipital sort entre les deux premières vertèbres et traverse les muscles de la nuque, où il peut être irrité.",
-      "whoIsAffected": "Après un traumatisme du cou, arthrose haute, tensions musculaires.",
-      "exercises": ["subocc", "menton", "chal"],
-      "warning": "Douleur inhabituelle, permanente, ou avec perte de sensibilité : consultez.",
-      "answers": ["tete", "decharge"]
+      "warning": "Après un accident : faites-vous examiner avant de bouger le cou. Urgences (15 ou 112) si vous avez plus de 65 ans, des fourmillements dans les bras ou les jambes, une douleur précise sur les os du milieu de la nuque ou si vous ne pouvez pas tourner la tête. Une fois les lésions graves écartées, reprenez vite le mouvement : le collier prolongé retarde la guérison.",
+      "answers": ["nuque", "accident", "maldetete", "tourner"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "facettes",
       "name": "Douleur des articulations postérieures",
       "commonName": "Cou qui coince d’un côté",
       "alias": "Syndrome facettaire cervical",
-      "frequency": 16,
+      "frequency": 20,
       "whatYouFeel": "Douleur précise d’un côté du cou en tournant la tête ou en regardant en l’air, parfois vers l’omoplate.",
-      "whatHappens": "De petites articulations guident le mouvement entre les vertèbres à l’arrière du cou. Elles peuvent s’irriter ou se coincer.",
+      "whatHappens": "De petites articulations guident le mouvement entre les vertèbres à l’arrière du cou. Elles peuvent s’irriter ou se coincer. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant.",
       "whoIsAffected": "Adultes, après un mouvement brusque ou une position prolongée.",
       "exercises": ["rot", "incl", "menton"],
-      "warning": "Douleur avec vertiges intenses ou troubles de la vue : consultez.",
-      "answers": ["cote", "tourner", "enlair"]
+      "warning": "Vertiges, vision double ou troubles de la parole apparus avec la douleur : urgences (15 ou 112). Fourmillements dans un bras : consultez.",
+      "answers": ["cote", "tourner", "enlair"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "levator",
+      "name": "Syndrome de l’élévateur de la scapula",
+      "commonName": "Point douloureux à l’angle de l’omoplate",
+      "frequency": 15,
+      "whatYouFeel": "Douleur à l’angle supérieur de l’omoplate qui remonte vers le cou, raideur pour tourner la tête de ce côté.",
+      "whatHappens": "L’élévateur de la scapula relie le haut de l’omoplate aux premières vertèbres cervicales. Son attache basse devient sensible. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant. Le cou douloureux sans cause grave est très fréquent : ces distinctions sont approximatives et se traitent de la même façon, en bougeant.",
+      "whoIsAffected": "Travail au téléphone, écran mal placé, sac en bandoulière.",
+      "exercises": ["etlev", "row", "balle"],
+      "warning": "Douleur avec essoufflement ou douleur dans la poitrine : urgences.",
+      "answers": ["omoplate", "epaule", "tourner"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "arnold",
+      "name": "Névralgie d’Arnold",
+      "commonName": "Décharges à l’arrière du crâne",
+      "frequency": 5,
+      "whatYouFeel": "Décharges ou brûlures qui partent de la nuque et montent sur l’arrière du crâne d’un côté, cuir chevelu sensible.",
+      "whatHappens": "Le nerf grand occipital sort entre les deux premières vertèbres et traverse les muscles de la nuque, où il peut être irrité.",
+      "whoIsAffected": "Après un traumatisme du cou, arthrose haute, tensions musculaires.",
+      "exercises": ["subocc", "menton", "chal"],
+      "warning": "Douleur inhabituelle, permanente, ou avec perte de sensibilité : consultez.",
+      "rule": "nerf",
+      "answers": ["tete", "decharge"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "defile",
       "name": "Syndrome du défilé thoraco-brachial",
       "commonName": "Bras qui s’engourdit bras en l’air",
-      "frequency": 10,
+      "frequency": 4,
       "whatYouFeel": "Fourmillements de la main, surtout des deux derniers doigts, et bras lourd quand il reste levé.",
       "whatHappens": "Les nerfs du bras passent entre les muscles scalènes puis sous la clavicule. Ce passage étroit peut les comprimer.",
       "whoIsAffected": "Femmes jeunes, travail bras levés, nageurs, musiciens.",
       "exercises": ["etscal", "etpec", "row"],
-      "warning": "Main froide, pâle ou bleue, ou bras gonflé : consultez rapidement.",
-      "answers": ["bras", "brasleve", "fourmi"]
+      "warning": "Urgences (15 ou 112) : main froide, pâle ou bleue, ou bras qui gonfle et devient lourd, surtout après un effort bras levés. Fonte des muscles de la main ou faiblesse : consultez rapidement.",
+      "rule": "nerf",
+      "answers": ["bras", "brasleve", "fourmi"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "myelopathie",
       "name": "Myélopathie cervicarthrosique",
       "commonName": "Mains maladroites et marche instable",
-      "frequency": 5,
-      "whatYouFeel": "Mains maladroites, difficulté à boutonner, marche raide et instable, parfois peu de douleur au cou.",
+      "frequency": 4,
+      "whatYouFeel": "Mains maladroites, difficulté à boutonner ou à écrire, fourmillements des deux mains, marche raide et instable, chutes, parfois envies pressantes d’uriner. La douleur du cou peut être faible.",
       "whatHappens": "Le canal cervical rétréci par l’arthrose comprime la moelle épinière.",
       "whoIsAffected": "Après 55 ans.",
-      "exercises": ["equil", "menton", "rot"],
-      "warning": "Ces signes justifient une consultation rapide : les exercices ne traitent pas la compression, un avis chirurgical est souvent nécessaire.",
-      "answers": ["maladroit", "nuque"]
+      "exercises": ["equil"],
+      "warning": "Consultez dans les jours qui suivent, et aux urgences (15 ou 112) si les signes s’aggravent vite. Les exercices ne traitent pas la compression. Évitez de pencher la tête en arrière longtemps et toute manipulation du cou.",
+      "rule": "avis",
+      "answers": ["maladroit", "nuque"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -246,8 +298,8 @@
     },
     "equil": {
       "name": "Marche et équilibre",
-      "how": "Marche quotidienne, exercices d’équilibre près d’un appui.",
-      "videoSearch": "exercices équilibre marche seniors",
+      "how": "En attendant l’avis médical : marchez chaque jour à votre rythme. Pour l’équilibre, tenez-vous debout pieds serrés, une main sur le plan de travail, 30 s, 3 fois. Arrêtez si vous vous sentez instable.",
+      "videoSearch": "exercices équilibre seniors appui plan de travail",
       "video": ""
     }
   },
@@ -335,29 +387,29 @@
   ],
   "structures": {
     "cerv": "Vertèbres cervicales",
-    "c-cerv": "Cartilage des articulations postérieures",
+    "c-cerv": "Cartilage des articulations zygapophysaires et des plateaux",
     "crane": "Crâne",
-    "ctx": "Haut du thorax et épaules",
+    "ctx": "Haut du thorax, clavicules et scapulas",
     "humerus": "Humérus",
     "disques": "Disques intervertébraux",
     "lnu": "Ligament nucal",
     "ljaune": "Ligaments jaunes",
-    "m-trap": "Trapèze supérieur",
-    "t-trap": "Tendon : trapèze supérieur",
+    "m-trap": "Trapèze, partie supérieure",
+    "t-trap": "Tendons du trapèze, partie supérieure",
     "m-lev": "Élévateur de la scapula",
-    "t-lev": "Tendon : élévateur de la scapula",
+    "t-lev": "Tendons de l’élévateur de la scapula",
     "m-scm": "Sterno-cléido-mastoïdien",
-    "t-scm": "Tendon : sterno-cléido-mastoïdien",
-    "m-spl": "Splénius",
-    "t-spl": "Tendon : splénius",
-    "m-semi": "Muscles profonds de la nuque",
-    "t-semi": "Tendon : muscles profonds de la nuque",
+    "t-scm": "Tendons du sterno-cléido-mastoïdien",
+    "m-spl": "Splénius de la tête et du cou",
+    "t-spl": "Tendons du splénius",
+    "m-semi": "Muscles profonds de la nuque (semi-épineux du cou, longissimus de la tête, multifides)",
+    "t-semi": "Tendons des muscles profonds de la nuque",
     "m-scal": "Scalènes",
     "m-subocc": "Muscles sous-occipitaux",
-    "m-long": "Muscles profonds de l’avant du cou",
+    "m-long": "Longs du cou et de la tête (prévertébraux)",
     "moelle": "Moelle épinière",
-    "plex": "Racines et plexus brachial",
-    "nbras": "Nerfs du bras",
+    "plex": "Racines (C5–T1) et troncs du plexus brachial",
+    "nbras": "Nerfs du membre supérieur",
     "arnold": "Nerf grand occipital (tracé schématique)",
     "hern": "Hernie discale, lorsqu’elle existe",
     "peau": "Peau"

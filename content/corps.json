@@ -1,49 +1,45 @@
 {
-  "_comment": "Vue corps entier. per100 = personnes concernées sur 100, d’après la source citée. Voir CONTRIBUTING.md.",
+  "_comment": "Vue corps entier. per100 = personnes concernées sur 100 (ou nouveaux cas sur 100 par an), d’après la source citée. measure : instant (à un instant donné ou sur le dernier mois), annee (nouveaux cas en un an), deformation (souvent sans douleur). allAges : true si le chiffre vaut pour tous les âges. Voir CONTRIBUTING.md.",
   "sources": {
-    "oms": {
-      "title": "OMS, lombalgie : 619 millions de personnes, 1 sur 13",
-      "url": "https://healthpolicy-watch.news/who-issues-first-guidelines-low-back-pain/"
+    "gbd-lbp": {
+      "title": "Étude GBD 2021, lombalgie : 619 millions de personnes en 2020 (Lancet Rheumatol 2023)",
+      "url": "https://doi.org/10.1016/S2665-9913(23)00098-X"
     },
-    "arth": {
-      "title": "OMS, arthrose : 365 millions de genoux atteints",
-      "url": "https://www.who.int/news-room/fact-sheets/detail/osteoarthritis"
+    "gbd-oa": {
+      "title": "Étude GBD 2021, arthrose du genou, de la main et de la hanche (Lancet Rheumatol 2023)",
+      "url": "https://doi.org/10.1016/S2665-9913(23)00163-7"
     },
-    "gbd": {
-      "title": "Étude mondiale GBD 2021, arthrose par localisation",
-      "url": "https://healthdata.org/research-analysis/library/global-regional-and-national-burden-osteoarthritis-1990-2020-and"
-    },
-    "cou": {
-      "title": "Étude mondiale GBD 2021, cervicalgie : 203 millions de personnes",
-      "url": "https://researchonline.jcu.edu.au/87316/"
-    },
-    "smith": {
-      "title": "Smith et al., PLoS One 2018",
-      "url": "https://doaj.org/article/95dc0037df8f47ea831b991ce9a8bd7a"
+    "gbd-neck": {
+      "title": "Étude GBD 2021, cervicalgie : 203 millions de personnes en 2020 (Lancet Rheumatol 2024)",
+      "url": "https://doi.org/10.1016/S2665-9913(23)00321-1"
     },
     "nix": {
       "title": "Nix et al., J Foot Ankle Res 2010",
-      "url": "https://link.springer.com/doi/10.1186/1757-1146-3-21"
+      "url": "https://doi.org/10.1186/1757-1146-3-21"
     },
     "thomas": {
       "title": "Thomas et al., BMC Musculoskelet Disord 2019",
-      "url": "https://eprints.keele.ac.uk/6609/"
+      "url": "https://doi.org/10.1186/s12891-019-2718-6"
     },
     "wb": {
       "title": "Walker-Bone et al., Arthritis Rheum 2004",
-      "url": "https://scilit.com/publications/7d9d5fda5520f14105d272c9c11481a7"
+      "url": "https://doi.org/10.1002/art.20535"
     },
     "atroshi": {
       "title": "Atroshi et al., JAMA 1999",
-      "url": "https://lup.lub.lu.se/record/1115719"
+      "url": "https://doi.org/10.1001/jama.282.2.153"
     },
-    "has": {
-      "title": "HAS 2023 : près de 6 500 passages aux urgences par jour",
-      "url": "https://www.has-sante.fr/upload/docs/application/pdf/2023-09/reco475_cadrage_reeducation_cheville_crppi_vunum_mel.pdf"
+    "bridgman": {
+      "title": "Bridgman et al., Emerg Med J 2003",
+      "url": "https://doi.org/10.1136/emj.20.6.508"
     },
-    "nhs": {
-      "title": "NHS Scotland, affections de l’épaule",
-      "url": "https://rightdecisions.scot.nhs.uk/msk-pathways/shoulder-elbow-pathways/supporting-information-on-relevant-conditions/shoulder-conditions"
+    "vanleeuwen": {
+      "title": "van Leeuwen et al., Fam Pract 2023",
+      "url": "https://academic.oup.com/fampra/article/40/4/589/7260550"
+    },
+    "vanderwindt": {
+      "title": "van der Windt et al., Ann Rheum Dis 1995",
+      "url": "https://doi.org/10.1136/ard.54.12.959"
     }
   },
   "joints": {
@@ -95,7 +91,10 @@
       "name": "Hallux valgus",
       "commonName": "Oignon du gros orteil",
       "per100": 23,
-      "basis": "Adultes de 18 à 65 ans chez qui la déformation est présente. Elle n’est pas toujours douloureuse.",
+      "display": "23 sur 100",
+      "measure": "deformation",
+      "allAges": false,
+      "basis": "Adultes de 18 à 65 ans chez qui la déformation est présente (36 sur 100 après 65 ans), d’après une synthèse d’études. C’est une déformation, souvent sans douleur : ce chiffre ne compte pas les personnes qui ont mal.",
       "source": "nix",
       "whatYouFeel": "Bosse à la base du gros orteil, rougeur et douleur au frottement dans la chaussure, gros orteil qui part vers les autres.",
       "anchor": "hallux",
@@ -107,9 +106,12 @@
       "joint": "genou",
       "name": "Syndrome fémoro-patellaire",
       "commonName": "Douleur à l’avant du genou",
-      "per100": 22.7,
-      "basis": "Population générale, sur une année.",
-      "source": "smith",
+      "per100": 0.34,
+      "display": "environ 3 sur 1 000 par an",
+      "measure": "annee",
+      "allAges": false,
+      "basis": "Jeunes de 7 à 24 ans : nouveaux cas vus par le médecin généraliste en un an (Pays-Bas). Beaucoup de personnes ne consultent pas, le nombre réel est plus élevé. Surtout fréquent à l’adolescence et chez les sportifs. Il n’existe pas de chiffre fiable pour l’ensemble de la population.",
+      "source": "vanleeuwen",
       "whatYouFeel": "Douleur autour ou derrière la rotule dans les escaliers, en position accroupie, ou après être resté assis longtemps genoux pliés.",
       "anchor": "genou",
       "bones": ["rotule-d"],
@@ -118,10 +120,13 @@
     {
       "id": "talon",
       "joint": "pied",
-      "name": "Fasciite plantaire",
+      "name": "Fasciopathie plantaire",
       "commonName": "Douleur sous le talon",
       "per100": 9.6,
-      "basis": "Adultes de 50 ans et plus ayant eu mal sous le talon au cours du dernier mois.",
+      "display": "10 sur 100 après 50 ans",
+      "measure": "instant",
+      "allAges": false,
+      "basis": "Adultes de 50 ans et plus (Royaume-Uni) ayant eu mal sous le talon au cours du dernier mois, d’après un questionnaire. Ce chiffre ne vaut pas pour tous les âges.",
       "source": "thomas",
       "whatYouFeel": "Douleur vive sous le talon aux premiers pas du matin ou après être resté assis, qui s’atténue en marchant.",
       "anchor": "talon",
@@ -134,8 +139,11 @@
       "name": "Lombalgie commune",
       "commonName": "Mal en bas du dos",
       "per100": 7.9,
-      "basis": "Population mondiale, à un instant donné : 619 millions de personnes.",
-      "source": "oms",
+      "display": "environ 8 sur 100",
+      "measure": "instant",
+      "allAges": true,
+      "basis": "Population mondiale en 2020, à un instant donné : 619 millions de personnes (étude GBD 2021). Les enquêtes de population trouvent souvent davantage.",
+      "source": "gbd-lbp",
       "whatYouFeel": "Douleur en bas du dos, parfois dans la fesse, qui varie selon les positions et les mouvements.",
       "anchor": "lombaire",
       "bones": ["lombaire", "sacrum"],
@@ -145,9 +153,12 @@
       "id": "coiffe",
       "joint": "epaule",
       "name": "Tendinopathie de la coiffe des rotateurs",
-      "commonName": "Tendinite de l’épaule",
+      "commonName": "Douleur des tendons de l’épaule",
       "per100": 5.3,
-      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "display": "environ 5 sur 100",
+      "measure": "instant",
+      "allAges": false,
+      "basis": "Adultes en âge de travailler (Royaume-Uni) ayant mal à l’épaule, diagnostic confirmé à l’examen : 4,5 sur 100 chez les hommes, 6,1 chez les femmes.",
       "source": "wb",
       "whatYouFeel": "Douleur sur le côté de l’épaule et du bras en levant le bras, en enfilant une veste, ou la nuit couché dessus.",
       "anchor": "epaule",
@@ -158,10 +169,13 @@
       "id": "gonarthrose",
       "joint": "genou",
       "name": "Arthrose du genou",
-      "commonName": "Usure du genou (arthrose)",
+      "commonName": "Arthrose du genou",
       "per100": 4.7,
-      "basis": "Population mondiale, à un instant donné : 365 millions de personnes.",
-      "source": "arth",
+      "display": "environ 5 sur 100",
+      "measure": "instant",
+      "allAges": true,
+      "basis": "Population mondiale en 2020 : 365 millions de personnes ayant une arthrose du genou visible à la radio et douloureuse (étude GBD 2021). Beaucoup plus fréquent après 50 ans.",
+      "source": "gbd-oa",
       "whatYouFeel": "Douleur à la marche et dans les escaliers, raideur au lever qui cède en quelques minutes, genou parfois gonflé.",
       "anchor": "genou-art",
       "bones": ["rotule-d", "jambe-d"],
@@ -173,7 +187,10 @@
       "name": "Syndrome du canal carpien",
       "commonName": "Fourmillements de la main la nuit",
       "per100": 3.8,
-      "basis": "Adultes de 25 à 74 ans, diagnostic à l’examen clinique (2,7 sur 100 avec confirmation par l’examen du nerf).",
+      "display": "environ 4 sur 100",
+      "measure": "instant",
+      "allAges": false,
+      "basis": "Adultes de 25 à 74 ans (Suède), diagnostic à l’examen clinique : 3,8 sur 100. Avec confirmation par l’examen du nerf : 2,7 sur 100.",
       "source": "atroshi",
       "whatYouFeel": "Fourmillements et engourdissement du pouce, de l’index et du majeur, surtout la nuit, soulagés en secouant la main.",
       "anchor": "poignet",
@@ -183,11 +200,14 @@
     {
       "id": "entorse",
       "joint": "pied",
-      "name": "Entorse de la cheville",
+      "name": "Entorse latérale de la cheville",
       "commonName": "Cheville tordue",
-      "per100": 3.5,
-      "basis": "France, sur une année : estimation d’après les passages aux urgences, rapportés à la population.",
-      "source": "has",
+      "per100": 0.6,
+      "display": "environ 6 sur 1 000 par an",
+      "measure": "annee",
+      "allAges": true,
+      "basis": "Angleterre : nouvelles entorses de cheville vues aux urgences en un an. Beaucoup d’entorses ne passent pas par les urgences : le nombre réel est plus élevé.",
+      "source": "bridgman",
       "whatYouFeel": "Douleur et gonflement sur le côté extérieur de la cheville après une torsion, parfois un bleu le lendemain.",
       "anchor": "cheville",
       "bones": ["pied-d", "jambe-d"],
@@ -198,10 +218,12 @@
       "joint": "epaule",
       "name": "Capsulite rétractile",
       "commonName": "Épaule gelée",
-      "per100": 3.5,
-      "display": "2 à 5 sur 100",
-      "basis": "Population générale, au cours de la vie : 2 à 5 personnes sur 100.",
-      "source": "nhs",
+      "per100": 0.24,
+      "display": "environ 2 sur 1 000 par an",
+      "measure": "annee",
+      "allAges": true,
+      "basis": "Nouveaux cas d’épaule douloureuse et raide vus par le médecin généraliste en un an (Pays-Bas), calculé à partir de la part de ce diagnostic parmi les nouvelles douleurs d’épaule. On cite souvent 2 à 5 personnes sur 100 au cours de la vie, sans étude récente pour le confirmer.",
+      "source": "vanderwindt",
       "whatYouFeel": "Douleur de l’épaule d’abord forte, surtout la nuit, puis épaule de plus en plus raide dans toutes les directions.",
       "anchor": "capsule",
       "bones": ["epaule-d", "humerus-d"],
@@ -213,8 +235,11 @@
       "name": "Cervicalgie commune",
       "commonName": "Mal au cou",
       "per100": 2.6,
-      "basis": "Population mondiale, à un instant donné : 203 millions de personnes.",
-      "source": "cou",
+      "display": "environ 3 sur 100",
+      "measure": "instant",
+      "allAges": true,
+      "basis": "Population mondiale en 2020, à un instant donné : 203 millions de personnes (étude GBD 2021). Les enquêtes de population trouvent souvent davantage.",
+      "source": "gbd-neck",
       "whatYouFeel": "Douleur et raideur du cou, parfois vers l’épaule ou l’omoplate, gêne pour tourner la tête.",
       "anchor": "cou",
       "bones": ["cou"],
@@ -223,11 +248,14 @@
     {
       "id": "arthmain",
       "joint": "main",
-      "name": "Arthrose de la main",
-      "commonName": "Usure des doigts (arthrose)",
-      "per100": 2.4,
-      "basis": "Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.",
-      "source": "gbd",
+      "name": "Arthrose des doigts",
+      "commonName": "Arthrose des doigts",
+      "per100": 2.2,
+      "display": "environ 2 sur 100",
+      "measure": "instant",
+      "allAges": true,
+      "basis": "Population mondiale en 2020, à un instant donné, taux standardisé sur l’âge : arthrose d’au moins une articulation de la main, visible à la radio et douloureuse (étude GBD 2021).",
+      "source": "gbd-oa",
       "whatYouFeel": "Douleur et raideur des doigts ou de la base du pouce, nodosités, difficulté à serrer et à dévisser.",
       "anchor": "main",
       "bones": ["main-d"],
@@ -236,10 +264,13 @@
     {
       "id": "epicondylite",
       "joint": "coude",
-      "name": "Épicondylite latérale",
+      "name": "Tendinopathie latérale du coude",
       "commonName": "Tennis elbow",
       "per100": 1.2,
-      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "display": "environ 1 sur 100",
+      "measure": "instant",
+      "allAges": false,
+      "basis": "Adultes en âge de travailler (Royaume-Uni), diagnostic à l’examen. Même ordre de grandeur en Finlande : 1,3 sur 100.",
       "source": "wb",
       "whatYouFeel": "Douleur sur le côté extérieur du coude en serrant, en portant un objet paume vers le bas, en tournant une poignée.",
       "anchor": "coude",
@@ -250,9 +281,12 @@
       "id": "quervain",
       "joint": "main",
       "name": "Ténosynovite de De Quervain",
-      "commonName": "Tendinite du pouce",
+      "commonName": "Douleur du poignet côté pouce",
       "per100": 0.9,
-      "basis": "Adultes en âge de travailler, à un instant donné.",
+      "display": "environ 9 sur 1 000",
+      "measure": "instant",
+      "allAges": false,
+      "basis": "Adultes en âge de travailler (Royaume-Uni), diagnostic à l’examen. Plus fréquent chez les femmes (1,3 sur 100) que chez les hommes (0,5 sur 100).",
       "source": "wb",
       "whatYouFeel": "Douleur au bord du poignet côté pouce en attrapant, en essorant ou en soulevant un enfant.",
       "anchor": "pouce",
@@ -263,15 +297,18 @@
       "id": "coxarthrose",
       "joint": "hanche",
       "name": "Arthrose de la hanche",
-      "commonName": "Usure de la hanche (arthrose)",
+      "commonName": "Arthrose de la hanche",
       "alias": "Coxarthrose",
-      "per100": 0.45,
-      "basis": "Population mondiale, à un instant donné : ordre de grandeur calculé à partir des projections de l’étude.",
-      "source": "gbd",
-      "hipId": "coxarthrose",
+      "per100": 0.42,
+      "display": "environ 4 sur 1 000",
+      "measure": "instant",
+      "allAges": true,
+      "basis": "Population mondiale en 2020, à un instant donné, taux standardisé sur l’âge : arthrose de hanche visible à la radio et douloureuse (étude GBD 2021). Nettement plus fréquent après 50 ans.",
+      "source": "gbd-oa",
       "anchor": "hanche",
       "bones": ["iliaque-d", "femur-d"],
-      "radius": 0.6
+      "radius": 0.6,
+      "hipId": "coxarthrose"
     }
   ],
   "anchors": {

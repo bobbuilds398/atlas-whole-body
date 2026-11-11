@@ -3,6 +3,18 @@ description: Une douleur fréquente absente de l'atlas, ou un exercice à ajoute
 title: "Ajout : "
 labels: ["contenu", "ajout"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Ce formulaire est public.** N’y décrivez pas votre propre situation médicale : nous ne pouvons pas donner d’avis personnel. Urgence : 15 ou 112.
+        *This form is public. Do not describe your own medical situation.*
+  - type: checkboxes
+    id: perso
+    attributes:
+      label: Avant d’envoyer / Before submitting
+      options:
+        - label: Je ne partage pas d’informations sur ma santé ou celle d’un proche. / I am not sharing personal health information.
+          required: true
   - type: input
     id: articulation
     attributes:

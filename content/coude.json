@@ -8,148 +8,201 @@
   "pathologies": [
     {
       "id": "epicondylite",
-      "name": "Épicondylite latérale",
+      "name": "Tendinopathie latérale du coude",
       "commonName": "Tennis elbow",
       "frequency": 100,
       "whatYouFeel": "Douleur sur le côté extérieur du coude en serrant, en portant un objet paume vers le bas, en tournant une poignée.",
-      "whatHappens": "Les tendons qui relèvent le poignet s’attachent ensemble sur le relief extérieur du coude. Cette attache devient douloureuse quand elle est trop sollicitée.",
+      "whatHappens": "Les tendons qui relèvent le poignet s’attachent ensemble sur le relief extérieur du coude. Cette attache devient douloureuse quand elle est trop sollicitée. Elle guérit le plus souvent en 6 à 12 mois. Une infiltration de cortisone soulage vite mais augmente les rechutes. Elle guérit le plus souvent en 6 à 12 mois. Une infiltration de cortisone soulage vite mais augmente les rechutes.",
       "whoIsAffected": "Entre 35 et 55 ans, gestes répétés de serrage et de vissage, sports de raquette.",
       "exercises": ["isoext", "excext", "etext"],
       "warning": "Coude gonflé, bloqué, ou fourmillements dans la main : consultez.",
-      "answers": ["dehors", "serrer", "porter"]
+      "answers": ["dehors", "serrer", "porter"],
+      "alias": "Épicondylite latérale",
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "epitro",
       "name": "Épicondylite médiale",
       "commonName": "Golf elbow",
-      "frequency": 70,
+      "frequency": 30,
       "whatYouFeel": "Douleur sur le côté intérieur du coude en serrant, en fléchissant le poignet, en tournant la paume vers le bas.",
       "whatHappens": "Les tendons qui fléchissent le poignet et tournent l’avant-bras s’attachent sur le relief intérieur du coude.",
       "whoIsAffected": "Golfeurs, lanceurs, bricoleurs, métiers manuels.",
       "exercises": ["isoflech", "excflech", "etflech"],
       "warning": "Fourmillements des deux derniers doigts associés : consultez, le nerf voisin peut être touché.",
-      "answers": ["dedans", "serrer", "lancer"]
+      "answers": ["dedans", "serrer", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "bursite",
       "name": "Bursite de l’olécrâne",
       "commonName": "Boule à la pointe du coude",
       "alias": "Hygroma du coude",
-      "frequency": 58,
+      "frequency": 25,
       "whatYouFeel": "Gonflement mou, parfois de la taille d’un œuf, à la pointe du coude, peu douloureux sauf à l’appui.",
       "whatHappens": "Une bourse glisse entre la peau et la pointe du coude. Les appuis ou un choc la remplissent de liquide.",
       "whoIsAffected": "Appuis répétés sur le coude, après un choc, parfois en cas de goutte.",
       "exercises": ["glace", "mob", "serrer"],
-      "warning": "Zone rouge, chaude, douloureuse, ou fièvre : consultez rapidement, la bourse peut s’infecter.",
-      "answers": ["pointe", "boule", "appui"]
+      "warning": "Zone rouge, chaude, douloureuse, plaie ou écorchure sur le coude, ou fièvre : consultez le jour même, la bourse peut être infectée. Ne la percez pas vous-même.",
+      "answers": ["pointe", "boule", "appui"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "ulnaire",
       "name": "Syndrome du tunnel cubital",
       "commonName": "Petit doigt qui fourmille",
-      "frequency": 50,
+      "frequency": 25,
       "whatYouFeel": "Fourmillements du petit doigt et de la moitié de l’annulaire, pires coude plié, parfois maladresse de la main.",
       "whatHappens": "Le nerf ulnaire passe dans une gouttière derrière le relief intérieur du coude. Il y est étiré et comprimé quand le coude reste plié.",
       "whoIsAffected": "Appui prolongé sur le coude, coude plié longtemps au téléphone ou la nuit.",
       "exercises": ["nuit", "nulnaire", "serrer"],
       "warning": "Perte de force de la main ou fonte des muscles entre les doigts : consultez.",
-      "answers": ["dedans", "fourmi45", "appui"]
-    },
-    {
-      "id": "bicepsd",
-      "name": "Tendinopathie distale du biceps",
-      "commonName": "Douleur au pli du coude",
-      "frequency": 40,
-      "whatYouFeel": "Douleur profonde au pli du coude en portant une charge coude plié ou en vissant.",
-      "whatHappens": "Le tendon du biceps plonge au pli du coude pour s’attacher sur le radius. Il plie le coude et tourne la paume vers le haut.",
-      "whoIsAffected": "Hommes de 40 à 60 ans, port de charges, musculation.",
-      "exercises": ["curl", "prosup", "etflech"],
-      "warning": "Claquement brutal avec bleu et boule qui remonte dans le bras : consultez dans les jours qui suivent.",
-      "answers": ["pli", "porter", "serrer"]
-    },
-    {
-      "id": "triceps",
-      "name": "Tendinopathie du triceps",
-      "commonName": "Douleur à l’arrière du coude",
-      "frequency": 32,
-      "whatYouFeel": "Douleur juste au-dessus de la pointe du coude en poussant, en faisant des pompes ou des dips.",
-      "whatHappens": "Le tendon du triceps s’attache sur la pointe du coude et tend le bras.",
-      "whoIsAffected": "Musculation, lancers, sports de combat, travaux de poussée.",
-      "exercises": ["triex", "mob", "etflech"],
-      "warning": "Impossibilité de tendre le coude contre résistance après un effort violent : consultez.",
-      "answers": ["pointe", "pousser"]
+      "rule": "nerf",
+      "answers": ["dedans", "fourmi45", "appui"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "arthrose",
       "name": "Arthrose du coude",
-      "commonName": "Usure du coude (arthrose)",
-      "frequency": 26,
+      "commonName": "Arthrose du coude",
+      "frequency": 12,
       "whatYouFeel": "Raideur, surtout pour tendre le coude à fond, douleur en fin de mouvement, craquements, parfois blocages.",
       "whatHappens": "Le cartilage s’use et des becs osseux se forment, qui limitent les derniers degrés du mouvement.",
       "whoIsAffected": "Travailleurs de force, anciens sportifs de lancer, après une fracture.",
       "exercises": ["mob", "prosup", "serrer"],
       "warning": "Blocages répétés ou fourmillements du petit doigt : consultez.",
-      "answers": ["raide", "pointe", "pousser"]
+      "answers": ["raide", "pointe", "pousser"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "bicepsd",
+      "name": "Tendinopathie distale du biceps",
+      "commonName": "Douleur au pli du coude",
+      "frequency": 10,
+      "whatYouFeel": "Douleur profonde au pli du coude en portant une charge coude plié ou en vissant.",
+      "whatHappens": "Le tendon du biceps plonge au pli du coude pour s’attacher sur le radius. Il plie le coude et tourne la paume vers le haut.",
+      "whoIsAffected": "Hommes de 40 à 60 ans, port de charges, musculation.",
+      "exercises": ["curl", "prosup", "etflech"],
+      "warning": "Claquement brutal au pli du coude avec bleu et boule qui remonte dans le bras : consultez sans attendre, dans la semaine. La réparation se fait au mieux dans les deux à trois premières semaines.",
+      "answers": ["pli", "porter", "serrer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "triceps",
+      "name": "Tendinopathie du triceps",
+      "commonName": "Douleur à l’arrière du coude",
+      "frequency": 5,
+      "whatYouFeel": "Douleur juste au-dessus de la pointe du coude en poussant, en faisant des pompes ou des dips.",
+      "whatHappens": "Le tendon du triceps s’attache sur la pointe du coude et tend le bras.",
+      "whoIsAffected": "Musculation, lancers, sports de combat, travaux de poussée.",
+      "exercises": ["triex", "mob", "etflech"],
+      "warning": "Impossibilité de tendre le coude contre résistance après un effort violent : consultez.",
+      "answers": ["pointe", "pousser"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "lcu",
-      "name": "Entorse du ligament collatéral médial",
+      "name": "Lésion du ligament collatéral ulnaire (médial)",
       "commonName": "Coude du lanceur",
-      "frequency": 20,
+      "frequency": 5,
       "whatYouFeel": "Douleur sur le côté intérieur du coude au lancer, perte de vitesse et de précision.",
       "whatHappens": "Ce ligament retient le coude quand l’avant-bras part vers l’extérieur, comme à l’armé du lancer. Les lancers répétés le distendent.",
-      "whoIsAffected": "Lanceurs : baseball, javelot, handball, sports de combat.",
+      "whoIsAffected": "Lanceurs : baseball, javelot, handball. Chez l’enfant lanceur, une douleur au même endroit touche souvent le cartilage de croissance.",
       "exercises": ["isoflech", "epaule", "serrer"],
-      "warning": "Claquement avec douleur vive pendant un lancer : consultez.",
-      "answers": ["dedans", "lancer"]
+      "warning": "Claquement avec douleur vive pendant un lancer : consultez. Chez un enfant ou un adolescent lanceur, toute douleur du côté intérieur du coude impose l’arrêt des lancers et un avis.",
+      "answers": ["dedans", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "radial",
       "name": "Syndrome du tunnel radial",
       "commonName": "Douleur du dessus de l’avant-bras",
-      "frequency": 16,
+      "frequency": 5,
       "whatYouFeel": "Douleur sourde quelques centimètres sous le coude, sur le dessus de l’avant-bras, souvent confondue avec un tennis elbow.",
       "whatHappens": "La branche profonde du nerf radial traverse le muscle supinateur, où elle peut être comprimée.",
       "whoIsAffected": "Gestes répétés de vissage et de rotation de l’avant-bras.",
       "exercises": ["nradial", "etext", "prosup"],
       "warning": "Difficulté à relever les doigts ou le poignet : consultez.",
-      "answers": ["avantbras", "dehors", "serrer"]
+      "rule": "nerf",
+      "answers": ["avantbras", "dehors", "serrer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "pronateur",
       "name": "Syndrome du rond pronateur",
       "commonName": "Douleur de l’avant-bras avec fourmillements",
-      "frequency": 12,
+      "frequency": 3,
       "whatYouFeel": "Douleur à l’avant de l’avant-bras, fourmillements des trois premiers doigts à l’effort, sans réveil nocturne.",
       "whatHappens": "Le nerf médian passe entre les deux chefs du rond pronateur, juste sous le pli du coude.",
       "whoIsAffected": "Gestes répétés de serrage et de pronation, musculation.",
       "exercises": ["nmedian", "etflech", "prosup"],
       "warning": "Perte de force de la pince pouce-index : consultez.",
-      "answers": ["avantbras", "pli", "fourmi123", "serrer"]
+      "rule": "nerf",
+      "answers": ["avantbras", "pli", "fourmi123", "serrer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "conflit",
       "name": "Conflit postérieur du coude",
       "commonName": "Coude qui bute en extension",
-      "frequency": 9,
+      "frequency": 3,
       "whatYouFeel": "Douleur à l’arrière du coude quand il se tend à fond, perte des derniers degrés d’extension.",
       "whatHappens": "La pointe du coude vient buter dans sa fossette à l’arrière de l’humérus. Des becs osseux peuvent s’y former.",
       "whoIsAffected": "Lanceurs, boxeurs, gymnastes, sports avec extensions brutales.",
       "exercises": ["triex", "mob", "curl"],
       "warning": "Blocages du coude : consultez.",
-      "answers": ["pointe", "pousser", "raide", "lancer"]
+      "answers": ["pointe", "pousser", "raide", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "ocd",
       "name": "Ostéochondrite du capitulum",
       "commonName": "Coude douloureux du jeune sportif",
-      "frequency": 6,
+      "frequency": 3,
       "whatYouFeel": "Douleur sur le côté extérieur du coude à l’effort, raideur, parfois blocage.",
       "whatHappens": "Un fragment d’os et de cartilage se fragilise sur le capitulum, la partie de l’humérus qui fait face au radius.",
-      "whoIsAffected": "Adolescents de 11 à 16 ans, gymnastes et lanceurs.",
-      "exercises": ["mob", "serrer", "epaule"],
-      "warning": "Chez un adolescent sportif, une douleur du coude qui dure plus de deux semaines justifie une consultation et un arrêt des lancers.",
-      "answers": ["dehors", "ado", "raide", "lancer"]
+      "whoIsAffected": "Enfants et adolescents de 10 à 16 ans, surtout gymnastes et lanceurs.",
+      "exercises": ["mob"],
+      "warning": "Chez un enfant ou un adolescent sportif, une douleur du coude qui dure plus de deux semaines, un blocage ou un coude qui ne se tend plus complètement : consultez et arrêtez lancers et appuis sur les mains (roue, poirier, sol) jusqu’à l’avis. Continuer peut détacher le fragment.",
+      "rule": "avis",
+      "answers": ["dehors", "ado", "raide", "lancer"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -196,7 +249,7 @@
       "video": ""
     },
     "glace": {
-      "name": "Protection et glace",
+      "name": "Protéger et soulager",
       "how": "Évitez l’appui sur le coude, coussinet si besoin, glace 15 minutes 2 fois par jour.",
       "videoSearch": "bursite du coude hygroma conseils",
       "video": ""
@@ -209,13 +262,13 @@
     },
     "nulnaire": {
       "name": "Glissement du nerf ulnaire",
-      "how": "Mouvement lent, sans déclencher de fourmillements durables. 5 répétitions, 3 fois par jour.",
+      "how": "Bras écarté, paume vers le plafond. Pliez le coude en portant la main vers l’oreille tout en inclinant la tête de l’autre côté, puis revenez. 5 répétitions lentes, sans fourmillements qui durent.",
       "videoSearch": "glissement nerf ulnaire neurodynamique exercice",
       "video": ""
     },
     "nradial": {
       "name": "Glissement du nerf radial",
-      "how": "Bras le long du corps, poignet fléchi, inclinez la tête à l’opposé. 5 répétitions lentes.",
+      "how": "Bras le long du corps, coude tendu, paume vers l’arrière. Pliez le poignet vers le bas en inclinant la tête du même côté, puis relâchez les deux en même temps. 5 répétitions lentes, sans fourmillements.",
       "videoSearch": "glissement nerf radial neurodynamique exercice",
       "video": ""
     },
@@ -335,37 +388,37 @@
   ],
   "structures": {
     "humerus": "Humérus",
-    "c-humerus": "Cartilage : humérus",
+    "c-humerus": "Cartilage articulaire : humérus",
     "radius": "Radius",
-    "c-radius": "Cartilage : radius",
+    "c-radius": "Cartilage articulaire : radius",
     "ulna": "Ulna",
-    "c-ulna": "Cartilage : ulna",
-    "lcu": "Ligament collatéral médial",
-    "lcr": "Ligament collatéral latéral",
-    "lan": "Ligament annulaire",
-    "capsule": "Capsule de l’articulation",
-    "b-bic": "Bourse du biceps",
-    "b-tri": "Bourse sous le tendon du triceps",
-    "bol": "Bourse de l’olécrâne",
+    "c-ulna": "Cartilage articulaire : ulna",
+    "lcu": "Ligament collatéral ulnaire (médial)",
+    "lcr": "Ligament collatéral radial (latéral)",
+    "lan": "Ligament annulaire du radius",
+    "capsule": "Capsule articulaire du coude",
+    "b-bic": "Bourse bicipito-radiale",
+    "b-tri": "Bourse subtendineuse du triceps",
+    "bol": "Bourse sous-cutanée olécrânienne (tracé schématique)",
     "m-ecrb": "Court extenseur radial du carpe",
     "t-ecrb": "Tendon du court extenseur radial du carpe",
     "m-ext": "Extenseurs du poignet et des doigts",
     "t-ext": "Tendons des extenseurs",
     "m-brad": "Brachio-radial",
-    "t-brad": "Tendon : brachio-radial",
+    "t-brad": "Tendon du brachio-radial",
     "m-sup": "Supinateur",
     "m-flech": "Fléchisseurs du poignet et des doigts",
     "t-flech": "Tendons des fléchisseurs",
     "m-pron": "Rond pronateur",
-    "t-pron": "Tendon : rond pronateur",
-    "m-bic": "Biceps",
+    "t-pron": "Tendon du rond pronateur",
+    "m-bic": "Biceps brachial",
     "t-bic": "Tendon du biceps",
     "m-brach": "Brachial",
-    "t-brach": "Tendon : brachial",
-    "m-tri": "Triceps",
+    "t-brach": "Tendon du brachial",
+    "m-tri": "Triceps brachial",
     "t-tri": "Tendon du triceps",
     "m-anc": "Anconé",
-    "t-anc": "Tendon : anconé",
+    "t-anc": "Tendon de l’anconé",
     "nu": "Nerf ulnaire",
     "nr": "Nerf radial et sa branche profonde",
     "nm": "Nerf médian",

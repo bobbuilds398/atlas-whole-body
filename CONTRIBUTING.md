@@ -59,7 +59,10 @@ Extrait de `content/genou.json` :
 | `name` | Nom médical. |
 | `commonName` | Nom courant, celui affiché en premier. |
 | `alias` | Autre nom médical (facultatif). |
-| `frequency` | Indice relatif de 0 à 100 dans l'articulation. Il fixe l'ordre de la liste. Indicatif. |
+| `frequency` | Indice relatif de 0 à 100 dans l'articulation. Il fixe l'ordre de la liste. Estimation de l'ordre, sans chiffre publié. |
+| `rule` | Repère de douleur pendant les exercices : `standard`, `nerf` (douleur d'origine nerveuse) ou `avis` (avis médical avant tout exercice). Facultatif, `standard` par défaut. |
+| `updated` | Date de la dernière modification médicale, `AAAA-MM-JJ`. |
+| `review` | `{"status": "non-relu" \| "relu" \| "a-revoir", "by": "…", "date": "AAAA-MM-JJ"}`. Voir [MEDICAL_REVIEW.md](MEDICAL_REVIEW.md). |
 | `whatYouFeel` | « Ce que l'on ressent » : la description du point de vue du patient. |
 | `whatHappens` | « Ce qui se passe » : l'explication anatomique, en deux phrases. |
 | `whoIsAffected` | « Qui est concerné ». |
@@ -73,7 +76,7 @@ Dans le même fichier :
 - `questions` : les réponses proposées sous « Où avez-vous mal ? » (`"group": "where"`) et « Quand et comment ? » (`"group": "when"`).
 - `structures` : le nom affiché de chaque structure anatomique du modèle 3D.
 
-[`content/corps.json`](content/corps.json) contient la vue d'ensemble : les douleurs classées par `per100` (personnes concernées sur 100), leur `basis` (ce que l'étude mesure) et leur `source`, définie dans `sources` avec un titre et une adresse.
+[`content/corps.json`](content/corps.json) contient la vue d'ensemble : pour chaque douleur, `per100` (personnes concernées sur 100, ou nouveaux cas sur 100 par an), `display` (le chiffre affiché, en mots), `measure` (`instant` à un instant donné ou sur le dernier mois, `annee` nouveaux cas en un an, `deformation` souvent sans douleur), `allAges` (le chiffre vaut-il pour tous les âges), `basis` (ce que l'étude mesure, en clair) et `source`, définie dans `sources` avec un titre et une adresse (DOI de préférence). La liste est regroupée par `measure`, puis par ordre de grandeur.
 
 La hanche fait exception : ses fiches sont encore dans [`js/hip.js`](js/hip.js) (tableaux `PATHO`, `SYMS`, `EXTRA` et `EXO` en tête de fichier).
 
@@ -84,7 +87,10 @@ La hanche fait exception : ses fiches sont encore dans [`js/hip.js`](js/hip.js) 
 - **Pas de promesse ni de diagnostic.** L'atlas décrit des situations fréquentes, il ne dit pas au lecteur ce qu'il a.
 - **Exercices prudents.** Des consignes précises (position, répétitions, durée), adaptées à une personne seule chez elle, sans matériel coûteux.
 - **Signes d'alerte systématiques.** Chaque fiche dit quand consulter, et en urgence si nécessaire.
-- **Chiffres** : uniquement des chiffres publiés, avec la population et la période mesurées.
+- **Chiffres** : uniquement des chiffres publiés, avec ce qu'ils mesurent (à un instant donné, sur une année, au cours de la vie, déformation), la population, les âges et le pays. Préférez la publication d'origine (DOI) à une page qui la reprend.
+- **Signes d'alerte** : les retirer ou les atténuer demande l'accord d'un relecteur qualifié ([MEDICAL_REVIEW.md](MEDICAL_REVIEW.md)).
+- **Vidéos** : une adresse `video` précise n'est acceptée qu'après avoir regardé la vidéo en entier ; elle doit correspondre à la consigne écrite et ne pas faire de publicité.
+- **Pas de balise** : les textes s'affichent tels quels, les caractères `<` et `>` sont refusés par la vérification.
 
 ## Ajouter une fiche ou une articulation
 
@@ -105,7 +111,7 @@ En contribuant, vous acceptez que votre contribution soit publiée sous la licen
 
 ## Entre nous
 
-Soyez bienveillants et précis. On discute des contenus, pas des personnes, et un désaccord médical se règle avec des sources.
+Soyez bienveillants et précis. On discute des contenus, pas des personnes, et un désaccord médical se règle avec des sources. Le [code de conduite](CODE_OF_CONDUCT.md) s'applique partout dans le dépôt. **Les issues sont publiques : n'y décrivez pas votre propre situation médicale**, nous ne pouvons pas donner d'avis personnel.
 
 ---
 
@@ -117,7 +123,7 @@ Contributions are welcome, and **reviews by health professionals** are the most 
 - **Edit a text:** all texts are plain JSON under [`content/`](content/), one file per joint. On GitHub, open the file, click the pencil, edit, and propose the change. Keep the `id` fields unchanged: they link each card to its placement in the 3D model.
 - **Work on the code:** the site is static with no build step. Run `python3 -m http.server 8000` and open the page; run `node tools/check-content.mjs` to validate the content files.
 
-Field names are in English (`name`, `commonName`, `frequency`, `whatYouFeel`, `whatHappens`, `whoIsAffected`, `exercises`, `warning`, `answers`); the table above describes each one. Setting an exercise's `video` to a specific URL replaces the default YouTube search link.
+Field names are in English (`name`, `commonName`, `frequency`, `whatYouFeel`, `whatHappens`, `whoIsAffected`, `exercises`, `warning`, `answers`); the table above describes each one. Setting an exercise's `video` to a specific URL replaces the default YouTube search link; only do so after watching the whole video. Medical changes need a source, and removing or softening a warning sign needs a qualified reviewer's approval: see [MEDICAL_REVIEW.md](MEDICAL_REVIEW.md). Issues are public, so please do not describe your own health situation.
 
 Rules for medical content: cite a source for every medical change, write in plain language for patients, make no diagnostic claims, keep exercises safe for someone alone at home, and always state when to see a professional.
 

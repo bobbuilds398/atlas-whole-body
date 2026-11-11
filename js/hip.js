@@ -1,8 +1,9 @@
+/* SPDX-License-Identifier: MIT AND CC-BY-SA-4.0 — le code est sous MIT ; les textes (PATHO, SYMS, EXTRA, EXO, GLOSS, PHASES, PHDESC) sont sous CC BY-SA 4.0. */
 /* Atlas de la hanche — moteur d'origine de la vue hanche (données des fiches incluses dans ce fichier : PATHO, SYMS, EXTRA, EXO). */
 window.startHip=function(){
 
 'use strict';
-/* ===== Données : douleurs de hanche classées par fréquence relative (indice 0-100, indicatif) =====
+/* ===== Données : douleurs de hanche, ordre estimé du plus courant au plus rare (indice 0-100, sans chiffre publié) =====
    zones = structures survolables et colorées ; also = colorées seulement ; anchor = position du numéro 3D ; view = direction de la caméra */
 const PATHO=[
 {id:'coxarthrose',n:'Arthrose de la hanche',al:'Coxarthrose',pop:100,zones:['cart-tete','cart-cotyle','tete'],anchor:[-.85,.35,.65],view:[-6,3,9],
@@ -14,18 +15,18 @@ const PATHO=[
   {n:'Abduction couchée sur le côté',d:'Jambe du dessus tendue, montée lente jusqu’à 30°. 2 à 3 séries de 10.',q:'abduction hanche allongé sur le côté renforcement moyen fessier'},
   {n:'Vélo d’appartement, résistance faible',d:'15 à 20 minutes, selle assez haute pour ne pas fermer la hanche au-delà de 90°.',q:'vélo d’appartement arthrose de hanche réglage selle'},
   {n:'Glissement du talon',d:'Allongé, glissez le talon vers les fesses puis étendez la jambe. 10 répétitions par côté.',q:'mobilité hanche arthrose exercices doux kinésithérapeute'}],
- warn:'Douleur qui réveille la nuit, blocage ou aggravation rapide : consultez.'},
-{id:'gtps',n:'Douleur du grand trochanter',al:'Tendinopathie des fessiers, bursite trochantérienne',pop:90,zones:['ten-gmed','ten-gmin','burs-troch','gt'],anchor:[-4.3,-.8,-.1],view:[-11,2,3],
- who:'Femmes de 40 à 60 ans, coureurs, personnes qui dorment sur le côté.',
+ warn:'Urgences (15 ou 112) : après une chute, douleur de l’aine ou impossibilité d’appuyer sur la jambe, même si vous arrivez à marcher un peu. Hanche très douloureuse avec fièvre : urgences. Douleur qui réveille chaque nuit, blocage ou aggravation rapide : consultez.'},
+{id:'gtps',n:'Douleur du grand trochanter',al:'Tendinopathie des fessiers, bursite trochantérienne',pop:95,zones:['ten-gmed','ten-gmin','burs-troch','gt'],anchor:[-4.3,-.8,-.1],view:[-11,2,3],
+ who:'Femmes de 40 à 60 ans, coureurs. Dormir sur le côté et croiser les jambes entretiennent la douleur.',
  pain:'Douleur sur le côté externe de la hanche, vive en dormant sur ce côté, en montant les escaliers ou debout sur une jambe.',
  txt:'Les tendons du moyen et du petit fessier s’insèrent sur le grand trochanter. Ils s’irritent avec la bourse qui les amortit, surtout quand ils sont comprimés.',
  ex:[
-  {n:'Isométrique d’abduction contre un mur',d:'Debout, côté contre le mur, poussez le genou vers le mur sans bouger. 5 tenues de 30 à 45 s.',q:'exercice isométrique moyen fessier tendinopathie trochantérienne'},
+  {n:'Isométrique d’abduction contre un mur',d:'Debout, côté douloureux contre le mur, pliez ce genou à 90° et poussez-le doucement contre le mur sans bouger le bassin. 5 tenues de 30 à 45 s.',q:'exercice isométrique moyen fessier tendinopathie trochantérienne'},
   {n:'Pont fessier',d:'Montée lente du bassin, 3 séries de 10, en gardant les genoux alignés.',q:'pont fessier technique kinésithérapeute'},
   {n:'Coquille (clamshell)',d:'Sur le côté, genoux pliés, ouvrez le genou du dessus talons joints. 3 séries de 12.',q:'clamshell exercice moyen fessier'},
   {n:'Planche latérale sur les genoux',d:'Appui sur l’avant-bras, bassin aligné. 3 tenues de 20 à 30 s par côté.',q:'planche latérale genoux moyen fessier tendinopathie'}],
- warn:'Évitez de croiser les jambes, de dormir sur le côté douloureux sans coussin entre les genoux et les étirements qui ramènent la jambe vers l’intérieur.'},
-{id:'cfa',n:'Conflit fémoro-acétabulaire',al:'Conflit de hanche, lésion du labrum',pop:78,zones:['labrum','camov','cart-cotyle'],anchor:[-.05,.85,.95],view:[-4,4,9.5],
+ warn:'Évitez de croiser les jambes, de dormir sur le côté douloureux sans coussin entre les genoux et les étirements qui ramènent la jambe vers l’intérieur. Sans amélioration après 3 mois d’exercices bien suivis, consultez.'},
+{id:'cfa',n:'Conflit fémoro-acétabulaire',al:'Conflit de hanche, lésion du labrum',pop:45,zones:['labrum','camov','cart-cotyle'],anchor:[-.05,.85,.95],view:[-4,4,9.5],
  who:'Sportifs de 20 à 40 ans (football, hockey, danse), mais aussi personnes sédentaires.',
  pain:'Douleur de l’aine, main en « C » autour de la hanche, gêne assis longtemps, en position accroupie, parfois claquement ou accrochage.',
  txt:'Une bosse osseuse au niveau de la jonction tête-col ou un cotyle trop couvrant pince le labrum et le cartilage quand la hanche se plie et tourne vers l’intérieur.',
@@ -35,7 +36,7 @@ const PATHO=[
   {n:'Marche latérale avec élastique',d:'Élastique au-dessus des genoux, petits pas en demi-squat. 3 séries de 10 pas.',q:'marche latérale élastique fessiers monster walk'},
   {n:'Squat à amplitude confortable',d:'Descendez jusqu’à la limite de la gêne, pieds légèrement ouverts. 3 séries de 8.',q:'squat technique hanche conflit pincement'}],
  warn:'Évitez la flexion extrême de hanche avec rotation interne. Un blocage ou une dérobade appelle un avis spécialisé.'},
-{id:'adducteurs',n:'Douleur de l’aine par les adducteurs',al:'Tendinopathie des adducteurs, pubalgie',pop:66,zones:['ten-addl','m-addl','pubis'],anchor:[2.2,-1.45,1.45],view:[3,1,10],
+{id:'adducteurs',n:'Douleur de l’aine par les adducteurs',al:'Douleur de l’aine liée aux adducteurs (pubalgie)',pop:55,zones:['ten-addl','m-addl','pubis'],anchor:[2.2,-1.45,1.45],view:[3,1,10],
  who:'Footballeurs, hockeyeurs, escrimeurs, souvent entre 20 et 35 ans.',
  pain:'Douleur à l’intérieur de l’aine et près du pubis, déclenchée par les changements de direction, les frappes et la toux.',
  txt:'Le tendon du long adducteur s’attache sur le pubis. Il supporte de fortes tractions lors des accélérations et des écarts de jambes, et finit par s’irriter.',
@@ -43,26 +44,27 @@ const PATHO=[
   {n:'Serrage d’un ballon entre les genoux',d:'Allongé, genoux pliés, serrez un ballon 5 s. 3 séries de 10, intensité progressive.',q:'squeeze adducteurs ballon isométrique pubalgie'},
   {n:'Copenhagen plank',d:'Appui latéral, jambe du dessus sur un banc. Commencez par la version genou plié, 3 tenues de 15 s.',q:'Copenhagen plank adducteurs progression'},
   {n:'Gainage et dead bug',d:'Le ventre profond protège le pubis. 3 séries de 8 par côté.',q:'gainage transverse pubalgie exercices'}],
- warn:'Reprenez le sport par paliers, sans douleur marquée le lendemain.'},
-{id:'psoas',n:'Tendinopathie du psoas et ressaut interne',al:'Psoas-iliaque, hanche à ressaut interne',pop:58,zones:['ten-psoas','m-psoas','burs-ilio'],anchor:[.45,.85,1.55],view:[-3,3,10],
+ warn:'Reprenez le sport par paliers, sans douleur marquée le lendemain. Boule dans l’aine qui grossit à la toux : consultez, une hernie est possible. Douleur brutale du testicule : urgences (15 ou 112). Douleur avec fièvre ou brûlures urinaires : consultez.'},
+{id:'psoas',n:'Tendinopathie du psoas et ressaut interne',al:'Psoas-iliaque, hanche à ressaut interne',pop:35,zones:['ten-psoas','m-psoas','burs-ilio'],anchor:[.45,.85,1.55],view:[-3,3,10],
  who:'Danseurs, coureurs, cyclistes, personnes très assises ou après une prothèse de hanche.',
  pain:'Douleur au pli de l’aine, claquement ressenti en passant de la flexion à l’extension, gêne en montant les escaliers.',
  txt:'Le tendon du psoas-iliaque passe devant l’articulation et sur le bord du pubis. Il frotte sur ces reliefs, avec parfois la bourse placée dessous qui s’enflamme.',
  ex:[
-  {n:'Étirement du psoas en fente',d:'Genou au sol, rentrez le bassin et avancez doucement. 3 fois 30 s, sans douleur vive.',q:'étirement psoas fente genou au sol'},
+  {n:'Flexion de hanche tenue, assis',d:'Assis, mains posées sur le genou, poussez le genou vers le haut sans bouger. 5 tenues de 30 s, gêne légère acceptée.',q:'isométrique fléchisseurs de hanche assis exercice'},
+  {n:'Étirement du psoas en fente',d:'Plus tard, quand la douleur a baissé. Genou au sol, rentrez le bassin et avancez doucement. 3 fois 30 s, sans douleur vive.',q:'étirement psoas fente genou au sol'},
   {n:'Flexion de hanche avec élastique',d:'Assis, élastique autour du pied, montez le genou lentement. 3 séries de 10.',q:'renforcement psoas élastique assis flexion de hanche'},
   {n:'Dead bug',d:'Le bassin reste fixe pendant le mouvement des jambes. 3 séries de 8 par côté.',q:'dead bug exercice gainage kiné'}],
- warn:'Un étirement trop appuyé sur le tendon douloureux peut aggraver la douleur.'},
-{id:'piriforme',n:'Syndrome du piriforme',al:'Douleur fessière profonde',pop:52,zones:['m-piri','ten-piri','nerf'],anchor:[-.9,.4,-1.4],view:[3,3,-10],
+ warn:'Un étirement trop appuyé sur le tendon douloureux peut aggraver la douleur. Après une prothèse de hanche, une douleur de l’aine qui persiste se montre au chirurgien.'},
+{id:'piriforme',n:'Syndrome du piriforme',al:'Douleur fessière profonde',pop:20,rule:'nerf',zones:['m-piri','ten-piri','nerf'],anchor:[-.9,.4,-1.4],view:[3,3,-10],
  who:'Personnes assises longtemps, coureurs, cyclistes.',
  pain:'Douleur profonde dans la fesse, parfois irradiant dans l’arrière de la cuisse, majorée assis et en courant.',
- txt:'Le muscle piriforme croise le nerf sciatique derrière l’articulation. Quand il est tendu ou irrité, il peut comprimer le nerf et reproduire une fausse sciatique.',
+ txt:'Le muscle piriforme croise le nerf sciatique derrière l’articulation. Il pourrait l’irriter, mais ce diagnostic reste rare et discuté : une douleur de fesse qui descend dans la jambe vient bien plus souvent du dos.',
  ex:[
   {n:'Étirement en « 4 » couché',d:'Cheville sur le genou opposé, tirez la cuisse vers vous. 3 fois 30 s par côté.',q:'étirement piriforme couché figure 4'},
   {n:'Glissement du nerf sciatique',d:'Assis, étendez le genou tout en relevant la tête, sans provoquer de fourmillements. 10 répétitions.',q:'neurodynamique nerf sciatique glissement exercice'},
   {n:'Coquille (clamshell)',d:'Renforce les rotateurs externes. 3 séries de 12.',q:'clamshell exercice moyen fessier'}],
- warn:'Engourdissement de la jambe qui s’aggrave, perte de force ou troubles urinaires : urgence médicale.'},
-{id:'ischio',n:'Tendinopathie des ischio-jambiers',al:'Douleur de la tubérosité ischiatique',pop:45,zones:['ten-isch','m-isch','ischion'],anchor:[.9,-2.15,-1.5],view:[3,-1,-10],
+ warn:'Urgences (15 ou 112) : difficulté à uriner ou fuites, engourdissement entre les jambes, jambe qui faiblit. Une douleur de fesse qui descend sous le genou vient le plus souvent du dos : faites-vous examiner si elle dure plus de quelques semaines.'},
+{id:'ischio',n:'Tendinopathie des ischio-jambiers',al:'Douleur de la tubérosité ischiatique',pop:35,zones:['ten-isch','m-isch','ischion'],anchor:[.9,-2.15,-1.5],view:[3,-1,-10],
  who:'Coureurs, sprinteurs, sportifs de fentes, personnes qui s’asseyent sur des sièges durs.',
  pain:'Douleur du bas de la fesse, accentuée assis, en courant vite ou en montant de grands pas.',
  txt:'Les ischio-jambiers naissent par un gros tendon sur l’os où l’on s’assoit. Compression et tractions répétées peuvent l’irriter.',
@@ -70,19 +72,19 @@ const PATHO=[
   {n:'Pont isométrique, talons sur un banc',d:'Poussez les talons, tenue de 30 à 45 s, 4 répétitions.',q:'tendinopathie ischio-jambiers proximale isométrique pont'},
   {n:'Soulevé de terre roumain léger',d:'Dos droit, charge légère, descente lente jusqu’aux genoux. 3 séries de 8.',q:'romanian deadlift ischio-jambiers tendinopathie proximale'},
   {n:'Hip thrust progressif',d:'Dos sur un banc, montez le bassin. 3 séries de 10.',q:'hip thrust technique débutant'}],
- warn:'Évitez les étirements intenses et les sièges durs : un coussin aide.'},
+ warn:'Évitez les étirements intenses et les sièges durs : un coussin aide. Claquement brutal à l’arrière de la cuisse en glissant jambe tendue (grand écart, ski nautique), avec un grand bleu : consultez dans la semaine, une désinsertion se répare au mieux dans les premières semaines.'},
 ];
 PATHO.push(
-{id:'rectus',n:'Tendinopathie du droit fémoral',al:'Insertion sur l’épine iliaque antéro-inférieure',pop:38,zones:['ten-rf'],also:['m-rf'],anchor:[-.2,1.62,1.45],view:[-3,3,10],
- who:'Footballeurs, sprinters, sportifs de frappe et de sauts.',
+{id:'rectus',n:'Tendinopathie du droit fémoral',al:'Insertion sur l’épine iliaque antéro-inférieure',pop:20,zones:['ten-rf'],also:['m-rf'],anchor:[-.2,1.62,1.45],view:[-3,3,10],
+ who:'Footballeurs, sprinters, sportifs de frappe et de sauts. Chez l’adolescent, le même geste peut arracher le cartilage de croissance.',
  pain:'Douleur à l’avant de la hanche, en haut de la cuisse, lors des frappes de balle, de la course rapide et de la montée du genou.',
  txt:'Le droit fémoral est le seul muscle du quadriceps qui passe sur la hanche. Son tendon direct s’attache sur l’os iliaque, juste au-dessus du cotyle.',
  ex:[
-  {n:'Étirement du quadriceps debout',d:'Talon vers la fesse, bassin neutre, genoux joints. 3 fois 30 s.',q:'étirement quadriceps droit fémoral debout'},
   {n:'Chaise contre un mur (isométrique)',d:'Dos au mur, cuisses à 60-90°. 4 tenues de 30 s.',q:'chaise contre le mur quadriceps isométrique tendinopathie'},
+  {n:'Étirement du quadriceps debout',d:'Talon vers la fesse, bassin neutre, genoux joints. 3 fois 30 s.',q:'étirement quadriceps droit fémoral debout'},
   {n:'Élévation de jambe tendue',d:'Allongé, montez la jambe tendue à 45° lentement. 3 séries de 10.',q:'élévation jambe tendue renforcement quadriceps'}],
- warn:'Avant de forcer, sortez de la phase très douloureuse avec du repos relatif.'},
-{id:'itb',n:'Ressaut externe et bandelette ilio-tibiale',al:'Hanche à ressaut externe, tenseur du fascia lata',pop:34,zones:['ten-itb','m-tfl'],anchor:[-4.6,-3,.3],view:[-11,2,3],
+ warn:'Avant de forcer, sortez de la phase très douloureuse avec du repos relatif. Claquement à la frappe ou au sprint avec douleur vive et boiterie, surtout chez l’adolescent : consultez rapidement, un arrachement osseux est possible.'},
+{id:'itb',n:'Ressaut externe et bandelette ilio-tibiale',al:'Hanche à ressaut externe, tenseur du fascia lata',pop:25,zones:['ten-itb','m-tfl'],anchor:[-4.6,-3,.3],view:[-11,2,3],
  who:'Coureurs, cyclistes, danseurs, adolescents en croissance.',
  pain:'Claquement visible ou audible sur le côté de la hanche, douleur externe à la cuisse, gêne en course.',
  txt:'La bandelette ilio-tibiale est une lame fibreuse tendue du bassin au genou. Elle glisse d’avant en arrière sur le grand trochanter et peut claquer.',
@@ -90,17 +92,17 @@ PATHO.push(
   {n:'Planche latérale',d:'Appui sur l’avant-bras, bassin aligné. 3 tenues de 20 à 40 s par côté.',q:'planche latérale moyen fessier bandelette ilio-tibiale'},
   {n:'Rouleau de massage sur le côté',d:'Rouler doucement sur la face externe de la cuisse. 1 minute, évitez le trochanter.',q:'foam roller tenseur du fascia lata bandelette'},
   {n:'Étirement du tenseur du fascia lata',d:'Jambe croisée derrière, penchez le buste de l’autre côté. 3 fois 30 s.',q:'étirement tenseur du fascia lata'}],
- warn:'Évitez de forcer le massage sur une zone très sensible.'},
-{id:'si',n:'Douleur sacro-iliaque',al:'Dysfonction de l’articulation sacro-iliaque',pop:30,zones:['lig-si','sacrum'],anchor:[2.6,3.4,-3],view:[4,3,-10],
- who:'Après une grossesse, un faux mouvement, ou en cas de scoliose et de différence de longueur de jambes.',
+ warn:'Évitez de forcer le massage sur une zone très sensible. Douleur qui persiste au repos ou boiterie : consultez.'},
+{id:'si',n:'Douleur sacro-iliaque',al:'Douleur de l’articulation sacro-iliaque',pop:40,zones:['lig-si','sacrum'],anchor:[2.6,3.4,-3],view:[4,3,-10],
+ who:'Pendant ou après une grossesse, après une chute sur les fesses, parfois sans cause claire.',
  pain:'Douleur en bas du dos d’un seul côté et dans la fesse, souvent prise pour une douleur de hanche, en se retournant dans le lit ou en montant les marches.',
  txt:'L’articulation sacro-iliaque relie le sacrum à l’os iliaque. Des ligaments puissants la maintiennent, mais elle peut s’irriter et projeter la douleur vers la hanche.',
  ex:[
   {n:'Bascule du bassin couché',d:'Aplatissez le bas du dos puis relâchez. 2 séries de 10.',q:'bascule du bassin couché exercice sacro-iliaque'},
   {n:'Pont fessier avec ballon entre les genoux',d:'Serrez le ballon en montant. 3 séries de 10.',q:'pont fessier ballon entre les genoux sacro-iliaque'},
   {n:'Respiration et transverse',d:'Expirez en rentrant le ventre sous le nombril. 10 cycles, 2 fois par jour.',q:'respiration diaphragmatique transverse exercice'}],
- warn:'Douleur nocturne intense, fièvre ou perte de poids : consultez.'},
-{id:'dysplasie',n:'Dysplasie de hanche',al:'Cotyle peu profond, couverture insuffisante',pop:24,zones:['toit','cotyle','labrum'],anchor:[-.45,1.4,.3],view:[-6,4,9],
+ warn:'Réveils en seconde partie de nuit et raideur du matin de plus de 30 minutes, avant 45 ans : consultez, un rhumatisme inflammatoire est possible. Douleur nocturne intense, fièvre ou perte de poids : consultez rapidement.'},
+{id:'dysplasie',n:'Dysplasie de hanche',al:'Cotyle peu profond, couverture insuffisante',pop:15,zones:['toit','cotyle','labrum'],anchor:[-.45,1.4,.3],view:[-6,4,9],
  who:'Adultes jeunes, plus souvent des femmes, parfois avec un antécédent familial.',
  pain:'Douleur de l’aine après l’effort, sensation d’instabilité, fatigue du côté externe de la hanche.',
  txt:'Le cotyle est trop plat ou trop vertical et recouvre mal la tête du fémur. Le labrum et le cartilage supportent des contraintes excessives, et l’arthrose peut s’installer.',
@@ -109,7 +111,7 @@ PATHO.push(
   {n:'Gainage ventral',d:'Appui sur les avant-bras, corps aligné. 3 tenues de 20 à 30 s.',q:'gainage ventral planche technique'},
   {n:'Natation ou vélo doux',d:'Activités porteuses. 20 à 30 minutes, 2 à 3 fois par semaine.',q:'natation crawl dysplasie hanche activité douce'}],
  warn:'Évitez les flexions extrêmes et les étirements forcés. Un avis chirurgical est utile en cas de douleur persistante.'},
-{id:'necrose',n:'Nécrose de la tête fémorale',al:'Ostéonécrose avasculaire',pop:14,zones:['tete','cart-tete'],anchor:[-.95,-.35,.2],view:[-6,3,9],
+{id:'necrose',rule:'avis',n:'Nécrose de la tête fémorale',al:'Ostéonécrose avasculaire',pop:8,zones:['tete','cart-tete'],anchor:[-.95,-.35,.2],view:[-6,3,9],
  who:'Adultes de 30 à 55 ans, après traitement prolongé par corticoïdes, excès d’alcool ou traumatisme.',
  pain:'Douleur de l’aine ou de la fesse apparue assez vite, parfois nocturne, aggravée à l’appui.',
  txt:'La zone supérieure de la tête fémorale est mal irriguée. L’os meurt puis peut s’affaisser, ce qui abîme le cartilage.',
@@ -118,13 +120,13 @@ PATHO.push(
   {n:'Vélo sans résistance',d:'10 à 15 minutes, uniquement avec l’accord du médecin.',q:'vélo d’appartement réadaptation hanche sans résistance'},
   {n:'Exercices en piscine',d:'L’eau décharge l’articulation. Séance encadrée recommandée.',q:'aquagym exercices hanche piscine'}],
  warn:'Douleur d’aine d’apparition récente chez une personne à risque : consultez rapidement. Pas d’exercices sans avis médical.'},
-{id:'fracture',n:'Fracture de fatigue du col du fémur',al:'Fracture de contrainte',pop:10,zones:['col','fxline'],anchor:[-1.7,-1.85,.5],view:[-6,3,9],
- who:'Coureurs, militaires, personnes avec une densité osseuse basse après une hausse brutale de l’entraînement.',
- pain:'Douleur de l’aine ou de la cuisse qui apparaît à l’effort puis au repos, boiterie, douleur en sautillant sur la jambe.',
+{id:'fracture',n:'Fracture de fatigue du col du fémur',al:'Fracture de contrainte',pop:5,rule:'avis',zones:['col','fxline'],anchor:[-1.7,-1.85,.5],view:[-6,3,9],
+ who:'Coureurs, militaires, après une hausse brutale de l’entraînement. Plus fréquent en cas d’alimentation insuffisante, de règles absentes ou irrégulières, ou d’os fragile.',
+ pain:'Douleur de l’aine ou de la cuisse qui apparaît à l’effort puis persiste au repos, boiterie, douleur qui oblige à s’arrêter de courir de plus en plus tôt.',
  txt:'Des microfissures s’accumulent sur le col du fémur. Si elles traversent l’os, la fracture peut se déplacer.',
  ex:[
-  {n:'Marche avec deux cannes anglaises',d:'Décharge complète si votre médecin l’impose.',q:'marche avec cannes anglaises technique'}],
- warn:'Consultez sans attendre. Évitez de courir et de sauter tant qu’un médecin ne vous a pas examiné.'}
+  {n:'Marche avec deux cannes anglaises',d:'En attendant l’avis, deux cannes si l’appui fait mal. Ensuite, décharge selon la prescription du médecin.',q:'marche avec cannes anglaises technique'}],
+ warn:'Arrêtez tout de suite course et sauts, et consultez dans les 24 à 48 heures. Ne testez pas la douleur en sautant sur la jambe. Si vous ne pouvez plus appuyer : urgences. La radio est souvent normale au début, une IRM est souvent nécessaire.'}
 );
 PATHO.sort((a,b)=>b.pop-a.pop);
 PATHO.forEach((p,i)=>{p.rank=i+1;p.col='hsl('+(6+i*3.6).toFixed(0)+',94%,'+(56+i*.6).toFixed(0)+'%)';p.hex=new THREE.Color().setStyle(p.col)});
@@ -151,7 +153,7 @@ const SYMS=[
  {id:'boite',g:'q',t:'Je boite ou j’évite d’appuyer',k:'boite boiterie appui poser'},
  {id:'retourne',g:'q',t:'En me retournant dans le lit',k:'retourner retourne lit tourner'}];
 const EXTRA={
- coxarthrose:{ns:'Usure de la hanche (arthrose)',tags:['aine','raideur','descend','escalier','boite'],fe:['« Ça tire dans l’aine quand je me lève après être resté assis. »','« J’ai du mal à mettre mes chaussettes ou à croiser les jambes. »','« Je démarre raide, puis ça se dégourdit après quelques pas. »']},
+ coxarthrose:{ns:'Arthrose de la hanche',tags:['aine','raideur','descend','escalier','boite'],fe:['« Ça tire dans l’aine quand je me lève après être resté assis. »','« J’ai du mal à mettre mes chaussettes ou à croiser les jambes. »','« Je démarre raide, puis ça se dégourdit après quelques pas. »']},
  gtps:{ns:'Mal sur le côté de la hanche',tags:['cote','lit','escalier'],fe:['« J’ai mal sur le côté de la hanche, là où l’on pose la main. »','« Impossible de dormir sur ce côté. »','« Ça fait mal quand je reste debout sur une jambe ou que je monte l’escalier. »']},
  cfa:{ns:'Hanche qui se pince',tags:['aine','assis','claque','effort'],fe:['« Je fais un C avec la main autour de la hanche pour montrer où j’ai mal. »','« Ça pince au fond de l’aine quand je ramène le genou vers la poitrine. »','« Je supporte mal la voiture ou le bureau trop longtemps. »']},
  adducteurs:{ns:'Douleur de l’aine, côté intérieur',tags:['pubis','aine','direction','effort'],fe:['« Ça tire à l’intérieur de l’aine quand je change de direction. »','« Tousser ou éternuer fait mal près du pubis. »','« Écarter les jambes devient douloureux. »']},
@@ -163,7 +165,7 @@ const EXTRA={
  si:{ns:'Douleur du bas du dos et du haut de la fesse',tags:['fesse','dos','retourne','escalier','assis'],fe:['« J’ai mal d’un seul côté, en bas du dos et en haut de la fesse. »','« Je ressens la douleur en me retournant dans le lit. »','« Monter une marche sur la jambe douloureuse est pénible. »']},
  dysplasie:{ns:'Cavité de la hanche trop plate',tags:['aine','instable','effort','cote'],fe:['« J’ai l’impression que la hanche manque de stabilité. »','« L’aine tire après l’effort ou une longue marche. »','« Je me fatigue vite sur le côté de la hanche. »']},
  necrose:{ns:'Os de la tête du fémur mal irrigué',tags:['aine','nuit','boite','fesse'],fe:['« Une douleur est apparue dans l’aine assez vite, sans choc. »','« La nuit, la douleur me réveille. »','« Je boite et j’évite de poser le poids sur cette jambe. »']},
- fracture:{ns:'Petite fracture du col du fémur',tags:['aine','effort','nuit','boite','descend'],fe:['« Ça a commencé à l’effort et ça persiste maintenant au repos. »','« Sauter sur cette jambe fait très mal. »','« La douleur est dans l’aine ou la cuisse et je boite. »']}};
+ fracture:{ns:'Petite fracture du col du fémur',tags:['aine','effort','nuit','boite','descend'],fe:['« Ça a commencé à l’effort et ça persiste maintenant au repos. »','« Je dois m’arrêter de courir et la douleur revient de plus en plus tôt. »','« La douleur est dans l’aine ou la cuisse et je boite. »']}};
 PATHO.forEach(p=>Object.assign(p,EXTRA[p.id]));
 /* terme, définition, expressions repérées dans les textes (expressions régulières, insensibles à la casse) */
 const GLOSS=[
@@ -198,14 +200,15 @@ const EXM={
  'Serrage d’un ballon entre les genoux':{ph:[1,2],eq:'ba',dose:'3 × 10 de 5 s',rest:45,tm:5},
  'Copenhagen plank':{ph:[2,3],eq:'bm',dose:'3 × 15 s',rest:60,tm:15},
  'Gainage et dead bug':{ph:[1,2],eq:'a',dose:'3 × 8 par côté',rest:45},
- 'Étirement du psoas en fente':{ph:[1,2],eq:'a',dose:'3 × 30 s',rest:20,tm:30},
+ 'Flexion de hanche tenue, assis':{ph:[1,2],eq:'a',dose:'5 × 30 s',rest:45,tm:30},
+ 'Étirement du psoas en fente':{ph:[2,3],eq:'a',dose:'3 × 30 s',rest:20,tm:30},
  'Flexion de hanche avec élastique':{ph:[2,3],eq:'el',dose:'3 × 10',rest:45},
  'Étirement en « 4 » couché':{ph:[1,2],eq:'a',dose:'3 × 30 s par côté',rest:20,tm:30},
  'Glissement du nerf sciatique':{ph:[1,2],eq:'a',dose:'10 répétitions',rest:30},
  'Pont isométrique, talons sur un banc':{ph:[1,2],eq:'bm',dose:'4 × 30 à 45 s',rest:60,tm:40},
  'Soulevé de terre roumain léger':{ph:[2,3],eq:'ch',dose:'3 × 8',rest:90},
  'Hip thrust progressif':{ph:[2,3],eq:'bm',dose:'3 × 10',rest:60},
- 'Étirement du quadriceps debout':{ph:[1,2],eq:'a',dose:'3 × 30 s',rest:20,tm:30},
+ 'Étirement du quadriceps debout':{ph:[2,3],eq:'a',dose:'3 × 30 s',rest:20,tm:30},
  'Chaise contre un mur (isométrique)':{ph:[1,2],eq:'bm',dose:'4 × 30 s',rest:60,tm:30},
  'Élévation de jambe tendue':{ph:[1,2],eq:'a',dose:'3 × 10',rest:45},
  'Planche latérale':{ph:[2,3],eq:'a',dose:'3 × 20 à 40 s par côté',rest:45,tm:30},
@@ -220,34 +223,8 @@ const EXM={
  'Vélo sans résistance':{ph:[1],eq:'vp',dose:'10 à 15 min',rest:0},
  'Exercices en piscine':{ph:[1],eq:'vp',dose:'séance encadrée',rest:0}};
 /* Vidéos trouvées par recherche YouTube (identifiant et titre repris tels que renvoyés). Les exercices absents gardent un lien de recherche. */
-const VID={
- 'Pont fessier':{id:'m7qQiAUcWaE',t:'Le pont fessier [conseils kiné]'},
- 'Coquille (clamshell)':{id:'2mMuZk69yCo',t:'Le clamshell'},
- 'Dead bug':{id:'H5Wy9OlBrs0',t:'Dead bug, exercice de gainage'},
- 'Gainage et dead bug':{id:'bG17b4f_4bg',t:'Gainage planche et dead bug, la bonne technique'},
- 'Marche latérale avec élastique':{id:'snbNxUIUQPc',t:'Monster walk, démonstration (en anglais)'},
- 'Planche latérale':{id:'_H9lCamSHR0',t:'Gainage latéral, tutoriel et progression par un kiné'},
- 'Planche latérale sur les genoux':{id:'hz00PzRgxNc',t:'Gainage latéral sur les genoux'},
- 'Étirement du psoas en fente':{id:'5M6zv6hGskQ',t:'Étirement du psoas en fente, genou au sol'},
- 'Étirement en « 4 » couché':{id:'_tvE9m9kkxM',t:'Étirement du muscle pyramidal (piriforme) allongé'},
- 'Serrage d’un ballon entre les genoux':{id:'637VSiEGd38',t:'Adducteurs en isométrique avec ballon'},
- 'Copenhagen plank':{id:'TYbD4RieNG0',t:'Copenhagen plank (en anglais)'},
- 'Soulevé de terre roumain léger':{id:'hyBx3QViCw8',t:'Soulevé de terre roumain avec haltères'},
- 'Hip thrust progressif':{id:'289C8n562vs',t:'Hip thrust : technique et progression'},
- 'Étirement du quadriceps debout':{id:'4c5oLJxm2Nk',t:'Étirement des quadriceps debout'},
- 'Chaise contre un mur (isométrique)':{id:'6E2Qn5NBMI8',t:'La chaise : renforcement isométrique des quadriceps'},
- 'Élévation de jambe tendue':{id:'pEtFC3cS48E',t:'Élévation de jambe tendue'},
- 'Rouleau de massage sur le côté':{id:'cSXkOHmKBPk',t:'Auto-massage du fascia lata au rouleau'},
- 'Étirement du tenseur du fascia lata':{id:'Ig23YTYVIYA',t:'Étirements du tenseur du fascia lata'},
- 'Bascule du bassin couché':{id:'IEN7fe43K4o',t:'Rétroversion du bassin allongé'},
- 'Respiration et transverse':{id:'8iSkyTvWBTU',t:'Bien respirer pour bien gainer (transverse)'},
- 'Gainage ventral':{id:'hoPwUu8vvvw',t:'Gainage planche : démonstration et conseils'},
- 'Marche avec deux cannes anglaises':{id:'hAuU4heIXFk',t:'Utiliser des cannes anglaises, partie 1'},
- 'Balancier à quatre pattes':{id:'yn4qiqSlUgY',t:'Quadruped rocking, hip rocks (en anglais)'},
- 'Glissement du nerf sciatique':{id:'Pso_NIzu2NQ',t:'Neurodynamique du nerf sciatique (glissement)'},
- 'Squat à amplitude confortable':{id:'J_Zm4XvE__s',t:'Faire un squat sans douleur'},
- 'Abduction couchée sur le côté':{id:'7IytTOalmio',t:'Abduction de la hanche au sol'},
- 'Flexion de hanche avec élastique':{id:'URs93J6SO5Q',t:'Renforcement du psoas avec bande élastique'}};
+/* Liens directs retirés tant qu'ils ne sont pas vérifiés un par un : voir CONTRIBUTING.md (vidéos). */
+const VID={};
 /* ===== Scène 3D : utilitaires =====
    Repère : x = médial (+) / latéral (−), y = haut, z = avant. Tête fémorale en (0,0,0), 1 unité ≈ 2,4 cm. */
 const T=THREE,V=(x,y,z)=>new T.Vector3(x,y,z),D2=Math.PI*2;
@@ -386,18 +363,19 @@ const skin=new T.Mesh(tube(SK.cy.map((y,i)=>[SK.cx[i],y,SK.cz[i]]),t=>along(SK.h
 skin.renderOrder=2;root.add(skin);let skinK=1;
 /* ===== Rendu, état, recherche par symptômes, fiches ===== */
 const $=id=>document.getElementById(id),cv=$('cv'),view=$('view'),tip=$('tip'),pinsEl=$('pins');
-const ren=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+const ren=new T.WebGLRenderer({canvas:cv,antialias:(window.devicePixelRatio||1)<2,alpha:true});
 ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));ren.setClearColor(0,0);
 const scene=new T.Scene(),cam=new T.PerspectiveCamera(36,1,.1,100);scene.add(root);
 scene.add(new T.HemisphereLight(0xe3ecff,0x2a201b,1.0));
 [[0xfff1dd,1.1,-6,8,9],[0x7fb7ff,.5,8,2,-8],[0xffffff,.3,-8,-4,3]].forEach(l=>{const d=new T.DirectionalLight(l[0],l[1]);d.position.set(l[2],l[3],l[4]);scene.add(d)});
 const ctl=new T.OrbitControls(cam,cv);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.minDistance=4;ctl.maxDistance=26;
+if(window.ATLAS)window.ATLAS.touchScroll(view,cv,ctl);const hipVis=window.ATLAS?window.ATLAS.watchVisible(view):{on:true};
 const HOME={t:V(-1,-.6,.3),o:V(-6,3,10.5)};
 let tw=null,aspectK=1;
 function fly(t,o){tw={t0:performance.now(),dur:900,t1:t.clone(),o1:o.clone(),ta:ctl.target.clone(),oa:cam.position.clone().sub(ctl.target)}}
 function home(){fly(HOME.t,HOME.o.clone().multiplyScalar(aspectK))}
 ctl.addEventListener('start',()=>{tw=null});
-function fit(){const w=view.clientWidth,h=view.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();aspectK=Math.max(1,1.1/cam.aspect)*1.4}
+function fit(){const w=view.clientWidth,h=view.clientHeight;if(!w||!h)return;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();aspectK=Math.max(1,1.1/cam.aspect)*1.4}
 new ResizeObserver(fit).observe(view);fit();
 ctl.target.copy(HOME.t);cam.position.copy(HOME.t).add(HOME.o.clone().multiplyScalar(aspectK));
 
@@ -417,7 +395,7 @@ Object.entries(LAYERS).forEach(([k,L])=>{const b=document.createElement('button'
 /* ----- liste, recherche, vocabulaire ----- */
 PATHO.forEach(p=>{const li=document.createElement('li'),b=document.createElement('button');b.type='button';b.className='item';b.style.setProperty('--c',p.col);
   b.title='Indice de fréquence relative : '+p.pop+' sur 100';
-  b.innerHTML='<span class="rk"><i></i>'+p.rank+'</span><span class="nm"><span class="tt">'+title(p)+'</span><small class="mb"></small></span><span class="ns">'+p.ns+'</span><span class="bar"><b style="width:'+p.pop+'%"></b></span>';
+  b.innerHTML='<span class="rk"><i></i>'+p.rank+'</span><span class="nm"><span class="tt">'+p.ns+'</span><small class="mb"></small></span><span class="ns">'+title(p)+(window.freqWord?' · '+window.freqWord(p.pop):'')+'</span>';
   b.onmouseenter=b.onfocus=()=>setHover(p.id);b.onmouseleave=b.onblur=()=>setHover(null);b.onclick=()=>pin(p.id);
   li.appendChild(b);$('plist').appendChild(li);p.itemEl=b});
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
@@ -427,12 +405,11 @@ function score(p){const q=norm(query).split(/[^a-z0-9]+/).filter(w=>w.length>2&&
   let sc=0;p.tags.forEach(t=>{if(tg.has(t))sc++});
   const nm=norm(p.n+' '+p.ns+' '+p.al),fe=norm(p.fe.join(' '));
   q.forEach(w=>{if(nm.includes(w))sc+=2;else if(fe.includes(w))sc+=1});return sc}
+/* filtre sans classement : l'ordre de la liste ne change pas, les fiches qui ne mentionnent pas ces repères sont atténuées */
 function reorder(){const act=SEL.size>0||norm(query).trim().length>2,sc=new Map(PATHO.map(p=>[p,act?score(p):0]));
-  const arr=PATHO.slice().sort((a,b)=>sc.get(b)-sc.get(a)||b.pop-a.pop);
-  arr.forEach(p=>{$('plist').appendChild(p.itemEl.parentNode);p.itemEl.classList.toggle('dim',act&&sc.get(p)===0);
-    p.itemEl.querySelector('.mb').textContent=act&&SEL.size&&sc.get(p)>0?p.tags.filter(t=>SEL.has(t)).length+'/'+p.tags.length:''});
-  const n=arr.filter(p=>sc.get(p)>0).length;
-  $('sres').textContent=act?(n?n+' douleur'+(n>1?'s':'')+' possible'+(n>1?'s':'')+', les plus proches en haut. Ce n’est pas un diagnostic.':'Aucune correspondance : essayez d’autres mots.'):''}
+  PATHO.forEach(p=>{p.itemEl.classList.toggle('dim',act&&sc.get(p)===0);p.itemEl.querySelector('.mb').textContent=''});
+  const n=PATHO.filter(p=>sc.get(p)>0).length;
+  $('sres').textContent=act?(n?(n>1?n+' fiches mentionnent':'1 fiche mentionne')+' ces repères. Elles restent dans l’ordre habituel de la liste. Ce n’est pas un diagnostic : seul un examen permet de trancher.':'Aucune fiche ne mentionne ces mots. Si la douleur est forte, inhabituelle ou s’aggrave, consultez.'):''}
 SYMS.forEach(s=>{const b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('aria-pressed','false');b.textContent=s.t;
   b.onclick=()=>{SEL.has(s.id)?SEL.delete(s.id):SEL.add(s.id);b.setAttribute('aria-pressed',String(SEL.has(s.id)));reorder()};$(s.g==='w'?'tw':'tq').appendChild(b)});
 $('q').oninput=e=>{query=e.target.value;reorder()};
@@ -457,8 +434,8 @@ function setHover(id){if(hov===id)return;hov=id;sync()}
 function sync(){PATHO.forEach(p=>{p.itemEl.classList.toggle('hov',hov===p.id);p.itemEl.classList.toggle('on',pinned===p.id);p.itemEl.setAttribute('aria-pressed',String(pinned===p.id));
   p.pinEl.classList.toggle('hov',hov===p.id);p.pinEl.classList.toggle('on',pinned===p.id)})}
 function pin(id){pinned=id;hov=null;sync();panel();const p=BY[id];
-  fly(HOME.t.clone().lerp(p.a3,.55),V(...p.view).multiplyScalar(aspectK));try{history.replaceState(null,'','#'+id)}catch(e){}}
-function unpin(){pinned=null;sync();panel();home();try{history.replaceState(null,'',location.pathname)}catch(e){}}
+  fly(HOME.t.clone().lerp(p.a3,.55),V(...p.view).multiplyScalar(aspectK));try{history.replaceState(null,'','#hanche/'+id)}catch(e){}}
+function unpin(){pinned=null;sync();panel();home();try{history.replaceState(null,'','#hanche')}catch(e){}}
 
 /* ----- fiche et exercices ----- */
 function exHTML(p){
@@ -466,22 +443,22 @@ function exHTML(p){
   if(!list.length)return '<p class="rule">Aucun exercice ne correspond à ces filtres pour cette douleur. Changez d’étape ou de matériel, ou demandez conseil à un kinésithérapeute.</p>';
   return list.map(e=>{const m=EXM[e.n]||{ph:[],eq:'a',dose:'',rest:0},v=VID[e.n];
     const link=v?'<a class="yt" href="https://www.youtube.com/watch?v='+v.id+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Vidéo : '+esc(v.t)+'</a>'
-      :'<a class="yt" href="'+yt(e.q)+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Chercher des vidéos sur YouTube</a>';
+      :'<a class="yt" href="'+yt(e.q)+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Chercher sur YouTube<span class="sr"> : '+e.n+' (nouvel onglet)</span></a> <span class="sm">· résultats non vérifiés, préférez les vidéos de kinésithérapeutes</span>';
     return '<div class="ex"><h4>'+e.n+'</h4><p>'+e.d+'</p><div class="mt"><span>'+m.dose+'</span>'+(m.rest?'<span>repos '+m.rest+' s</span>':'')
       +'<span>'+m.ph.map(i=>PHASES[i-1]).join(' · ')+'</span>'+(m.eq!=='a'?'<span>'+EQL[m.eq]+'</span>':'')+'</div><div class="act">'
       +(m.tm?'<button type="button" class="tm" data-tm="'+m.tm+'">Minuteur '+m.tm+' s</button>':'')+link+'</div></div>'}).join('')}
 function panel(){const d=$('detail'),p=BY[pinned];stopT();
-  if(!p){d.innerHTML='<span class="tag">Mode d’emploi</span><h2>Choisissez une douleur</h2><ol class="steps"><li>Survolez une structure du modèle ou un numéro : la zone douloureuse se colore avec sa forme exacte.</li><li>Survolez la liste : la même zone apparaît sur le modèle.</li><li>Décrivez ce que vous ressentez dans la recherche : la liste se réordonne.</li><li>Cliquez pour verrouiller la sélection et afficher les exercices.</li><li>« Mouvement et coupe » permet de plier la hanche et de voir où ça pince.</li></ol>';return}
+  if(!p){d.innerHTML='<span class="tag">Mode d’emploi</span><h2>Choisissez une douleur</h2><ol class="steps"><li>Survolez une structure du modèle ou un numéro : la zone douloureuse se colore avec sa forme exacte.</li><li>Survolez la liste : la même zone apparaît sur le modèle.</li><li>Décrivez ce que vous ressentez dans la recherche : les fiches qui en parlent restent nettes, les autres s’atténuent.</li><li>Cliquez pour verrouiller la sélection et afficher les exercices.</li><li>« Mouvement et coupe » permet de plier la hanche et de voir où ça pince.</li></ol>';return}
   d.style.setProperty('--c',p.col);
   const used=new Set(),lk=s=>linkTerms(s,used);
   const chips=p.zones.concat(p.also||[]).map(z=>'<span class="zc">'+S[z].label+'</span>').join('');
   const bt=(a,t,on)=>'<button type="button" class="chip" '+a+' aria-pressed="'+on+'">'+t+'</button>';
-  d.innerHTML='<span class="tag"><i></i>N° '+p.rank+' · fréquence '+p.pop+'/100</span><h2>'+title(p)+'</h2><p class="sub2">'+p.ns+'</p><p class="alias">Aussi appelé : '+p.al+'</p><div class="chips">'+chips+'</div><p>'+lk(p.txt)+'</p>'
+  d.innerHTML='<span class="tag"><i></i>N° '+p.rank+' · '+(window.freqWord?window.freqWord(p.pop):'')+'</span><h2 tabindex="-1">'+p.ns+'</h2><p class="sub2">'+title(p)+'</p><p class="alias">Aussi appelé : '+p.al+'</p><p class="rev">Fiche non relue par un professionnel de santé · mise à jour le 11/11/2026</p>'+(window.warnHTML?window.warnHTML(p.warn):'<div class="warn">'+p.warn+'</div>')+'<h3>Ce qui se passe</h3><p>'+lk(p.txt)+'</p><div class="chips"><span class="sm">Structures concernées :</span> '+chips+'</div>'
    +'<h3>Ce que vous ressentez</h3><ul class="fe">'+p.fe.map(f=>'<li>'+lk(f)+'</li>').join('')+'</ul><p>'+lk(p.pain)+'</p><p>'+lk(p.who)+'</p>'
-   +'<h3>Exercices</h3><div class="tags" id="phs">'+['Toutes les étapes'].concat(PHASES).map((t,i)=>bt('data-ph="'+i+'"',t,phase===i)).join('')+'</div><p class="sm" id="phd">'+(phase?PHDESC[phase-1]:'')+'</p>'
+   +'<h3>Exercices souvent proposés</h3><p class="sm">Exemples généraux. Ils ne remplacent pas un bilan par un médecin ou un kinésithérapeute, qui adapte les exercices à votre cas.</p><div class="tags" id="phs">'+['Toutes les étapes'].concat(PHASES).map((t,i)=>bt('data-ph="'+i+'"',t,phase===i)).join('')+'</div><p class="sm" id="phd">'+(phase?PHDESC[phase-1]:'')+'</p>'
    +'<div class="tags" id="eqs"><span class="sm">Matériel :</span>'+Object.entries(EQL).map(([k,t])=>bt('data-eq="'+k+'"',t,EQS.has(k))).join('')+'</div>'
-   +'<div class="rule"><b>Règle de la douleur.</b> Jusqu’à 3 sur 10 pendant l’exercice, c’est acceptable. À 4 ou 5, réduisez l’amplitude ou la charge. Au-delà de 5, ou si la douleur dure encore le lendemain, arrêtez et adaptez. Arrêtez aussi en cas de blocage, de fourmillements ou de perte de force.</div>'
-   +'<div id="exs">'+exHTML(p)+'</div><div class="warn">'+p.warn+'</div><p>'+bt('id="back" style="--c:var(--cool)"','Retour à la vue d’ensemble',false)+' '+bt('data-g="*" style="--c:var(--cool)"','Mots utiles',false)+'</p>'}
+   +'<div class="rule'+(p.rule==='avis'?' avis':'')+'">'+(window.PAIN_RULES?window.PAIN_RULES[p.rule||'standard']:'')+'</div>'
+   +'<div id="exs">'+exHTML(p)+'</div>'+(window.fixLinkHTML?window.fixLinkHTML('Hanche',p.n):'')+'<p>'+bt('id="back" style="--c:var(--cool)"','Retour à la vue d’ensemble',false)+' '+bt('data-g="*" style="--c:var(--cool)"','Mots utiles',false)+'</p>'}
 $('detail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   if(b.dataset.g){openGloss(b.dataset.g);return}const p=BY[pinned];if(!p)return;
   if(b.dataset.ph!==undefined){phase=+b.dataset.ph;document.querySelectorAll('#phs button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.ph===phase)));$('phd').textContent=phase?PHDESC[phase-1]:'';stopT();$('exs').innerHTML=exHTML(p)}
@@ -546,7 +523,7 @@ upd();
 
 /* ===== Boucle de rendu ===== */
 let last=performance.now(),fc=0;
-function frame(now){requestAnimationFrame(frame);if($('hipview').hidden){last=now;return}const dt=Math.min(.05,(now-last)/1000);last=now;
+function frame(now){requestAnimationFrame(frame);if($('hipview').hidden||!hipVis.on){last=now;return}const dt=Math.min(.05,(now-last)/1000);last=now;
   const a=BY[cur()];if(a)hot.copy(a.hex);
   Object.values(S).forEach(s=>{
     const aff=!!a&&(a.zones.includes(s.id)||(a.also||[]).includes(s.id));
@@ -567,7 +544,7 @@ function frame(now){requestAnimationFrame(frame);if($('hipview').hidden){last=no
   PATHO.forEach(p=>{const v=p.a3.clone().project(cam);p.pinEl.style.transform='translate('+((v.x*.5+.5)*w).toFixed(1)+'px,'+((-v.y*.5+.5)*h).toFixed(1)+'px)';p.pinEl.hidden=v.z>1||mv.act;
     if(doOcc){const d=p.a3.clone().sub(cam.position),L=d.length();ray.set(cam.position,d.normalize());const hh=ray.intersectObjects(solid,false)[0];p.pinEl.classList.toggle('occ',!!hh&&hh.distance<L-.35)}})}
 requestAnimationFrame(frame);
-const h0=location.hash.slice(1);if(BY[h0])pin(h0);
+const h0=location.hash.replace(/^#(hanche\/?)?/,'');if(BY[h0])pin(h0);
 /* ===== Modèle anatomique réel (Z-Anatomy / BodyParts3D), chargé après coup ; les formes procédurales servent de repli ===== */
 const NOPICK=['m-ctx','capsule'];
 function useModel(buf){
@@ -595,5 +572,5 @@ function useModel(buf){
 }
 if(typeof fetch==='function')fetch('models/hip.b64.txt').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{const s=atob(t.trim()),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);useModel(u.buffer)}).catch(()=>{});
 
-return {pin:pin};
+return {pin:pin,has:id=>!!BY[id]};
 };

@@ -7,150 +7,199 @@
   },
   "pathologies": [
     {
-      "id": "sfp",
-      "name": "Syndrome fémoro-patellaire",
-      "commonName": "Douleur à l’avant du genou",
-      "frequency": 100,
-      "whatYouFeel": "Douleur autour ou derrière la rotule dans les escaliers, en position accroupie, ou après être resté assis longtemps genoux pliés.",
-      "whatHappens": "La rotule glisse dans une gouttière à l’avant du fémur. Quand la charge dépasse ce que l’articulation tolère, la zone devient douloureuse sans lésion visible.",
-      "whoIsAffected": "Adolescents et adultes actifs, coureurs, plus souvent les femmes.",
-      "exercises": ["chaise", "pont", "abd"],
-      "warning": "Genou gonflé, qui se bloque ou qui se dérobe : consultez.",
-      "answers": ["avant", "escalier", "assis", "course"]
-    },
-    {
       "id": "gonarthrose",
       "name": "Arthrose du genou",
-      "commonName": "Usure du genou (arthrose)",
+      "commonName": "Arthrose du genou",
       "alias": "Gonarthrose",
-      "frequency": 88,
+      "frequency": 100,
       "whatYouFeel": "Douleur à la marche et dans les escaliers, raideur au lever qui cède en quelques minutes, genou parfois gonflé.",
       "whatHappens": "Le cartilage entre le fémur et le tibia s’amincit, le plus souvent du côté intérieur, et l’os se remodèle. L’activité régulière et le renforcement de la cuisse réduisent la douleur.",
       "whoIsAffected": "Surtout après 50 ans, après une blessure ancienne du genou, en cas de surpoids.",
       "exercises": ["lever", "ext", "velo"],
-      "warning": "Genou rouge, chaud et très gonflé, ou blocage : consultez.",
-      "answers": ["dedans", "avant", "escalier", "raide", "gonfle"]
+      "warning": "Urgences le jour même : genou rouge, chaud, très gonflé, surtout avec fièvre ou après une piqûre ou une plaie, il peut être infecté. Genou bloqué : consultez rapidement. Mollet gonflé, chaud et douloureux : consultez en urgence.",
+      "answers": ["dedans", "avant", "escalier", "raide", "gonfle"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "sfp",
+      "name": "Syndrome fémoro-patellaire",
+      "commonName": "Douleur à l’avant du genou",
+      "frequency": 70,
+      "whatYouFeel": "Douleur autour ou derrière la rotule dans les escaliers, en position accroupie, ou après être resté assis longtemps genoux pliés.",
+      "whatHappens": "La rotule glisse dans une gouttière à l’avant du fémur. Quand la charge dépasse ce que l’articulation tolère, la zone devient douloureuse sans lésion visible.",
+      "whoIsAffected": "Adolescents et adultes actifs, coureurs, plus souvent les femmes.",
+      "exercises": ["chaise", "pont", "abd"],
+      "warning": "Genou gonflé, qui se bloque ou qui se dérobe : consultez. Chez l’enfant ou l’adolescent, une boiterie ou une douleur qui gagne l’aine ou la cuisse se montre rapidement au médecin : la hanche peut être en cause.",
+      "answers": ["avant", "escalier", "assis", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "menisque",
       "name": "Lésion du ménisque médial",
       "commonName": "Ménisque abîmé",
-      "frequency": 72,
+      "frequency": 50,
       "whatYouFeel": "Douleur sur le bord intérieur du genou, en s’accroupissant ou en pivotant, parfois un accrochage ou un gonflement.",
-      "whatHappens": "Le ménisque est un coussin en forme de croissant entre le fémur et le tibia. Sa partie arrière, côté intérieur, se fissure le plus souvent.",
+      "whatHappens": "Le ménisque est un coussin en forme de croissant entre le fémur et le tibia. Sa partie arrière, côté intérieur, se fissure le plus souvent. Après 40 ans, la rééducation est le traitement de première intention : l’arthroscopie ne fait pas mieux. Après 40 ans, la rééducation est le traitement de première intention : l’arthroscopie ne fait pas mieux.",
       "whoIsAffected": "Sportifs après une torsion genou plié, ou après 40 ans par usure, parfois sans traumatisme.",
       "exercises": ["isoq", "talon", "lever"],
       "warning": "Genou bloqué, impossible à tendre complètement : consultez rapidement.",
-      "answers": ["dedans", "torsion", "bloque", "gonfle", "escalier"]
-    },
-    {
-      "id": "rotulien",
-      "name": "Tendinopathie rotulienne",
-      "commonName": "Genou du sauteur",
-      "frequency": 60,
-      "whatYouFeel": "Douleur précise sous la pointe de la rotule, au saut, à la réception et dans les escaliers, sensible au doigt.",
-      "whatHappens": "Le tendon rotulien relie la rotule au tibia et transmet la force du quadriceps. Son attache sous la rotule devient douloureuse quand les sauts s’accumulent.",
-      "whoIsAffected": "Sports de saut et de course : volley, basket, athlétisme.",
-      "exercises": ["isotend", "squatdec", "etquad"],
-      "warning": "Douleur brutale avec impossibilité de tendre la jambe : consultez en urgence.",
-      "answers": ["dessous", "avant", "course", "escalier"]
-    },
-    {
-      "id": "tfl",
-      "name": "Syndrome de la bandelette ilio-tibiale",
-      "commonName": "Syndrome de l’essuie-glace",
-      "frequency": 52,
-      "whatYouFeel": "Douleur sur le côté extérieur du genou qui apparaît après quelques kilomètres, pire en descente, et oblige à s’arrêter.",
-      "whatHappens": "La bandelette ilio-tibiale passe sur le relief extérieur du fémur. La zone située dessous s’irrite quand le genou plie et se tend de façon répétée autour de 30°.",
-      "whoIsAffected": "Coureurs à pied et cyclistes, souvent après une hausse du volume.",
-      "exercises": ["abd", "planche", "etfl"],
-      "warning": "Douleur qui persiste au repos ou genou gonflé : consultez.",
-      "answers": ["dehors", "course"]
-    },
-    {
-      "id": "lcm",
-      "name": "Entorse du ligament collatéral médial",
-      "commonName": "Entorse du côté intérieur du genou",
-      "frequency": 46,
-      "whatYouFeel": "Douleur sur le côté intérieur du genou après un traumatisme, sensible au doigt, parfois une impression de genou qui bâille.",
-      "whatHappens": "Ce ligament large relie le fémur au tibia sur la face intérieure du genou. Il cicatrise bien sans opération dans la plupart des cas.",
-      "whoIsAffected": "Sports de contact et de pivot, ski, après un choc sur le côté extérieur du genou.",
-      "exercises": ["isoq", "talon", "equi"],
-      "warning": "Genou très gonflé dans les heures qui suivent, ou instable : consultez.",
-      "answers": ["dedans", "torsion", "gonfle", "lache"]
-    },
-    {
-      "id": "lca",
-      "name": "Rupture du ligament croisé antérieur",
-      "commonName": "Ligament croisé rompu",
-      "frequency": 40,
-      "whatYouFeel": "Craquement lors d’une torsion, genou qui gonfle en quelques heures, puis impression que le genou se dérobe.",
-      "whatHappens": "Le ligament croisé antérieur, au centre du genou, empêche le tibia d’avancer sous le fémur. Rompu, il ne cicatrise pas seul, mais la rééducation suffit à certaines personnes.",
-      "whoIsAffected": "Sports de pivot : football, ski, handball, plus souvent les femmes à pratique égale.",
-      "exercises": ["isoq", "ischio", "equi"],
-      "warning": "Après une torsion avec gonflement rapide : consultez dans les jours qui suivent.",
-      "answers": ["torsion", "gonfle", "lache"]
+      "answers": ["dedans", "torsion", "bloque", "gonfle", "escalier"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "pes",
       "name": "Tendinobursite de la patte d’oie",
       "commonName": "Douleur sous le genou, côté intérieur",
-      "frequency": 34,
+      "frequency": 30,
       "whatYouFeel": "Douleur quelques centimètres sous l’interligne, sur la face intérieure du tibia, en montant les escaliers ou en se levant.",
-      "whatHappens": "Trois tendons s’attachent ensemble sur le haut du tibia. La bourse qui les sépare de l’os peut s’enflammer.",
+      "whatHappens": "Trois tendons s’attachent ensemble sur le haut du tibia. La bourse qui les sépare du ligament collatéral médial et du tibia peut s’enflammer.",
       "whoIsAffected": "Coureurs, nageurs de brasse, personnes avec une arthrose du genou.",
       "exercises": ["etisch", "ischio", "pont"],
       "warning": "Sans amélioration après 6 semaines, consultez.",
-      "answers": ["dedans", "dessous", "escalier", "course"]
+      "answers": ["dedans", "dessous", "escalier", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "rotulien",
+      "name": "Tendinopathie rotulienne",
+      "commonName": "Genou du sauteur",
+      "frequency": 25,
+      "whatYouFeel": "Douleur précise sous la pointe de la rotule, au saut, à la réception et dans les escaliers, sensible au doigt.",
+      "whatHappens": "Le tendon rotulien relie la rotule au tibia et transmet la force du quadriceps. Son attache sous la rotule devient douloureuse quand les sauts s’accumulent.",
+      "whoIsAffected": "Sports de saut et de course : volley, basket, athlétisme.",
+      "exercises": ["isotend", "squatdec", "etquad"],
+      "warning": "Douleur brutale avec impossibilité de tendre la jambe : consultez en urgence.",
+      "answers": ["dessous", "avant", "course", "escalier"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "osgood",
       "name": "Maladie d’Osgood-Schlatter",
       "commonName": "Bosse douloureuse sous le genou de l’adolescent",
-      "frequency": 28,
+      "frequency": 25,
       "whatYouFeel": "Bosse sensible sous le genou, douloureuse à la course, au saut et à genoux.",
       "whatHappens": "Le tendon rotulien tire sur le cartilage de croissance du tibia, qui s’irrite. Le trouble disparaît en fin de croissance.",
       "whoIsAffected": "Adolescents sportifs en pleine croissance, entre 10 et 15 ans.",
-      "exercises": ["etquad", "etisch", "isotend"],
-      "warning": "Adaptez le sport sans l’arrêter complètement. Consultez si la douleur est nocturne ou le genou gonflé.",
-      "answers": ["dessous", "ado", "course", "genoux"]
+      "exercises": ["isotend", "chaise", "pont"],
+      "warning": "Adaptez le sport sans l’arrêter complètement. Consultez rapidement si l’enfant boite, a mal la nuit ou au repos, a de la fièvre, si le genou est gonflé ou si la douleur touche aussi l’aine ou la cuisse : une maladie de la hanche peut se ressentir au genou.",
+      "answers": ["dessous", "ado", "course", "genoux"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "baker",
       "name": "Kyste poplité",
       "commonName": "Boule derrière le genou",
       "alias": "Kyste de Baker",
-      "frequency": 24,
+      "frequency": 25,
       "whatYouFeel": "Gonflement et tension à l’arrière du genou, gêne pour plier à fond.",
       "whatHappens": "Le liquide de l’articulation s’accumule dans une bourse à l’arrière du genou. Le kyste traduit le plus souvent un problème à l’intérieur du genou.",
       "whoIsAffected": "Après 40 ans, souvent avec une arthrose ou une lésion du ménisque.",
       "exercises": ["talon", "velo", "isoq"],
       "warning": "Mollet gonflé, rouge et douloureux : consultez en urgence pour écarter une phlébite.",
-      "answers": ["arriere", "gonfle", "raide"]
+      "answers": ["arriere", "gonfle", "raide"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "tfl",
+      "name": "Syndrome de la bandelette ilio-tibiale",
+      "commonName": "Syndrome de l’essuie-glace",
+      "frequency": 20,
+      "whatYouFeel": "Douleur sur le côté extérieur du genou qui apparaît après quelques kilomètres, pire en descente, et oblige à s’arrêter.",
+      "whatHappens": "La bandelette ilio-tibiale passe sur le relief extérieur du fémur. La zone située dessous s’irrite quand le genou plie et se tend de façon répétée autour de 30°.",
+      "whoIsAffected": "Coureurs à pied et cyclistes, souvent après une hausse du volume.",
+      "exercises": ["abd", "planche", "etfl"],
+      "warning": "Douleur qui persiste au repos ou genou gonflé : consultez.",
+      "answers": ["dehors", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "lcm",
+      "name": "Entorse du ligament collatéral médial",
+      "commonName": "Entorse du côté intérieur du genou",
+      "frequency": 20,
+      "whatYouFeel": "Douleur sur le côté intérieur du genou après un traumatisme, sensible au doigt, parfois une impression de genou qui bâille.",
+      "whatHappens": "Ce ligament large relie le fémur au tibia sur la face intérieure du genou. Il cicatrise bien sans opération dans la plupart des cas.",
+      "whoIsAffected": "Sports de contact et de pivot, ski, après un choc sur le côté extérieur du genou.",
+      "exercises": ["isoq", "talon", "equi"],
+      "warning": "Radio rapide si vous ne pouvez pas faire quatre pas, si vous avez mal en appuyant sur la rotule ou sur la tête du péroné, si le genou ne plie pas à 90°, ou après 55 ans. Genou très gonflé dans les heures qui suivent, ou instable : consultez.",
+      "answers": ["dedans", "torsion", "gonfle", "lache"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "lca",
+      "name": "Rupture du ligament croisé antérieur",
+      "commonName": "Ligament croisé rompu",
+      "frequency": 12,
+      "whatYouFeel": "Craquement lors d’une torsion, genou qui gonfle en quelques heures, puis impression que le genou se dérobe.",
+      "whatHappens": "Le ligament croisé antérieur, au centre du genou, empêche le tibia d’avancer sous le fémur. Rompu, il ne cicatrise pas seul, mais la rééducation suffit à certaines personnes.",
+      "whoIsAffected": "Sports de pivot : football, ski, handball, plus souvent les femmes à pratique égale.",
+      "exercises": ["isoq", "talon", "ischio"],
+      "warning": "Après une torsion avec craquement et gonflement rapide : consultez dans la semaine. Radio d’abord si vous ne pouvez pas faire quatre pas ou plier le genou à 90°. En attendant, marchez avec des cannes si besoin et évitez pivots, sauts et sports : chaque dérobement peut abîmer le ménisque et le cartilage. L’équilibre sur une jambe vient plus tard, sur avis.",
+      "rule": "avis",
+      "answers": ["torsion", "gonfle", "lache"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "prerot",
       "name": "Bursite prérotulienne",
       "commonName": "Genou gonflé devant la rotule",
-      "frequency": 20,
+      "frequency": 8,
       "whatYouFeel": "Gonflement mou devant la rotule, gêne à l’appui à genoux.",
       "whatHappens": "Une bourse glisse entre la peau et la rotule. Les frottements répétés la remplissent de liquide.",
       "whoIsAffected": "Métiers à genoux : carreleurs, plombiers, jardiniers.",
       "exercises": ["glace", "talon", "isoq"],
       "warning": "Zone rouge, chaude, douloureuse, ou fièvre : consultez rapidement, la bourse peut s’infecter.",
-      "answers": ["avant", "genoux", "gonfle"]
+      "answers": ["avant", "genoux", "gonfle"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "quadri",
       "name": "Tendinopathie quadricipitale",
       "commonName": "Douleur au-dessus de la rotule",
-      "frequency": 16,
+      "frequency": 8,
       "whatYouFeel": "Douleur au bord supérieur de la rotule en s’accroupissant, en montant les escaliers, au saut.",
       "whatHappens": "Le tendon du quadriceps s’attache sur le bord supérieur de la rotule. Cette attache devient douloureuse quand elle est trop sollicitée.",
       "whoIsAffected": "Sports de saut, haltérophilie, plus souvent après 40 ans.",
       "exercises": ["isotend", "squatdec", "etquad"],
       "warning": "Douleur brutale avec impossibilité de tendre la jambe : consultez en urgence.",
-      "answers": ["avant", "escalier", "course"]
+      "answers": ["avant", "escalier", "course"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -251,7 +300,7 @@
       "video": ""
     },
     "glace": {
-      "name": "Repos relatif et glace",
+      "name": "Protéger et soulager",
       "how": "Évitez l’appui à genoux, glace 15 minutes 2 à 3 fois par jour pendant la poussée.",
       "videoSearch": "bursite genou repos glace conseils",
       "video": ""
@@ -336,45 +385,46 @@
   ],
   "structures": {
     "femur": "Fémur",
-    "c-femur": "Cartilage : fémur",
+    "c-femur": "Cartilage articulaire : fémur",
     "tibia": "Tibia",
-    "c-tibia": "Cartilage : tibia",
+    "c-tibia": "Cartilage articulaire : tibia",
     "fibula": "Fibula",
-    "c-fibula": "Cartilage : fibula",
-    "patella": "Rotule",
-    "c-patella": "Cartilage : rotule",
+    "c-fibula": "Cartilage articulaire : fibula",
+    "patella": "Patella (rotule)",
+    "c-patella": "Cartilage articulaire : rotule",
     "men-med": "Ménisque médial",
     "men-lat": "Ménisque latéral",
     "lca": "Ligament croisé antérieur",
     "lcp": "Ligament croisé postérieur",
-    "lcm": "Ligament collatéral médial",
-    "lcl": "Ligament collatéral latéral",
+    "lcm": "Ligament collatéral tibial (médial)",
+    "lcl": "Ligament collatéral fibulaire (latéral)",
     "lpo": "Ligament poplité oblique",
-    "ret": "Ailerons rotuliens",
-    "hoffa": "Coussinet graisseux sous la rotule",
-    "b-pre": "Bourses prérotuliennes",
-    "b-inf": "Bourses sous la rotule",
+    "ret": "Rétinaculums patellaires (ailerons rotuliens)",
+    "hoffa": "Corps adipeux infrapatellaire (de Hoffa)",
+    "b-pre": "Bourses prépatellaires",
+    "b-inf": "Bourses infrapatellaires",
     "b-sup": "Bourse suprapatellaire",
     "b-pes": "Bourse de la patte d’oie",
-    "baker": "Bourses du creux poplité",
+    "baker": "Bourses du semi-membraneux et du gastrocnémien médial",
     "m-quad": "Quadriceps",
-    "t-quad": "Tendon quadricipital et tendon rotulien",
+    "t-quad": "Tendon quadricipital et ligament patellaire (tendon rotulien)",
     "m-biceps": "Biceps fémoral",
-    "t-biceps": "Tendon : biceps fémoral",
+    "t-biceps": "Tendon du biceps fémoral",
     "m-ischio": "Semi-membraneux et semi-tendineux",
-    "t-ischio": "Tendon : semi-membraneux et semi-tendineux",
+    "t-ischio": "Tendons du semi-membraneux et du semi-tendineux",
     "m-pattes": "Sartorius et gracile",
-    "t-pattes": "Tendon : sartorius et gracile",
-    "m-gastro": "Jumeaux du mollet",
-    "t-gastro": "Tendon : jumeaux du mollet",
-    "m-popl": "Muscle poplité",
-    "t-popl": "Tendon : muscle poplité",
-    "itb": "Bandelette ilio-tibiale",
+    "t-pattes": "Tendons du sartorius et du gracile",
+    "m-gastro": "Gastrocnémien (jumeaux)",
+    "t-gastro": "Tendons du gastrocnémien",
+    "m-popl": "Poplité",
+    "t-popl": "Tendon du poplité",
+    "itb": "Tractus ilio-tibial (bandelette ilio-tibiale)",
     "n-fib": "Nerf fibulaire commun",
     "n-tib": "Nerf tibial",
     "e-rot": "Attaches du tendon rotulien",
     "e-quad": "Attache du tendon quadricipital",
     "e-pes": "Attache de la patte d’oie",
-    "peau": "Peau"
+    "peau": "Peau",
+    "kyste-popl": "Kyste poplité, lorsqu’il existe (tracé schématique)"
   }
 }

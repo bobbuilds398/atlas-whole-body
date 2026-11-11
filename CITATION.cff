@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Pour citer l'Atlas du corps, utilisez ces informations. / If you use this atlas, please cite it as below."
+type: software
+title: "Atlas du corps"
+abstract: "Atlas 3D interactif, en français, des douleurs articulaires et du dos fréquentes, avec exercices souvent proposés et signes d'alerte. Information générale ; code et contenus écrits avec Claude (Anthropic), non relus par des professionnels de santé."
+authors:
+  - alias: bobbuilds398
+version: 0.2.0
+date-released: 2026-11-11
+license:
+  - MIT
+  - CC-BY-SA-4.0
+repository-code: "https://github.com/bobbuilds398/atlas-whole-body"
+url: "https://bobbuilds398.github.io/atlas-whole-body/"
+keywords: [anatomy, musculoskeletal, pain, patient-education, three-js, french]
+references:
+  - type: data
+    title: "Z-Anatomy — The libre 3D atlas of anatomy"
+    authors:
+      - family-names: Kervyn
+        given-names: Gauthier
+    license: CC-BY-SA-4.0
+    url: "https://github.com/Z-Anatomy/Models-of-human-anatomy"
+  - type: database
+    title: "BodyParts3D"
+    authors:
+      - name: "The Database Center for Life Science"
+    license: CC-BY-SA-2.1-JP
+    url: "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html"

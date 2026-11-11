@@ -1,1 +1,8 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
+contact_links:
+  - name: "Une question sur votre propre santé ? / A question about your own health?"
+    url: https://www.sante.fr/
+    about: "Ce dépôt ne donne pas d’avis personnel. Parlez-en à un médecin ou à un kinésithérapeute. Urgence : 15 ou 112. / We cannot give personal medical advice."
+  - name: "Signaler une faille de sécurité / Report a security issue"
+    url: https://github.com/bobbuilds398/atlas-whole-body/security/advisories/new
+    about: "En privé, pas dans une issue publique. / Privately, not in a public issue."

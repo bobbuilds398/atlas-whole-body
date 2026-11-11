@@ -15,141 +15,193 @@
       "whatHappens": "Dans neuf cas sur dix, aucune lésion précise n’explique la douleur. Le dos reste solide et le mouvement fait partie du traitement.",
       "whoIsAffected": "Tous les âges, avec un pic entre 50 et 55 ans.",
       "exercises": ["marche", "chat", "bird"],
-      "warning": "Urgence : perte de force dans une jambe, difficulté à uriner, perte de sensibilité entre les jambes. Consultez aussi en cas de fièvre, de chute récente ou de douleur surtout nocturne.",
-      "answers": ["barre", "uncote", "assis", "cambre"]
+      "warning": "Urgences (15 ou 112) sans attendre : difficulté à uriner ou fuites, perte du contrôle des selles, engourdissement entre les jambes, faiblesse qui gagne une ou les deux jambes. Consultez rapidement en cas de fièvre, de chute ou de choc, d’antécédent de cancer, de perte de poids inexpliquée, de douleur qui ne se calme ni au repos ni la nuit, ou d’un premier mal de dos après 50 ans.",
+      "answers": ["barre", "uncote", "assis", "cambre"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "lumbago",
       "name": "Lumbago",
       "commonName": "Tour de reins",
-      "frequency": 84,
+      "frequency": 80,
       "whatYouFeel": "Douleur brutale en barre en bas du dos, dos bloqué, penché d’un côté, pendant quelques jours.",
       "whatHappens": "Les muscles qui longent la colonne se contractent fortement et bloquent le mouvement. L’épisode guérit le plus souvent en moins de deux semaines.",
       "whoIsAffected": "Adultes de 30 à 50 ans, après un effort ou un faux mouvement, parfois sans cause.",
       "exercises": ["marche", "genoux", "bascule"],
-      "warning": "Douleur qui descend sous le genou avec perte de force, ou troubles urinaires : consultez en urgence.",
-      "answers": ["barre", "brutal"]
+      "warning": "Douleur qui descend sous le genou avec perte de force : consultez rapidement. Urgences (15 ou 112) si vous avez du mal à uriner, perdez le contrôle des selles ou sentez un engourdissement entre les jambes. Consultez aussi si la douleur ne diminue pas du tout après une semaine.",
+      "answers": ["barre", "brutal"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "sciatique",
       "name": "Sciatique par hernie discale",
       "commonName": "Douleur qui descend dans la jambe",
-      "frequency": 70,
+      "frequency": 45,
       "whatYouFeel": "Douleur de la fesse à l’arrière de la cuisse, au mollet et au pied, souvent plus forte que le mal de dos, pire assis et à la toux.",
       "whatHappens": "Le disque L4-L5 ou L5-S1 bombe vers l’arrière et irrite une racine du nerf sciatique. La hernie se résorbe seule dans la majorité des cas.",
       "whoIsAffected": "Adultes de 30 à 50 ans.",
       "exercises": ["marche", "sphinx", "nsci"],
-      "warning": "Urgence : pied qui tombe, perte de sensibilité entre les jambes, difficulté à uriner.",
-      "answers": ["jambe", "fesse", "toux", "assis", "fourmi"]
-    },
-    {
-      "id": "disco",
-      "name": "Discopathie dégénérative",
-      "commonName": "Disque usé",
-      "frequency": 58,
-      "whatYouFeel": "Douleur en barre au milieu du bas du dos, pire assis longtemps et penché en avant, raideur au lever.",
-      "whatHappens": "Le disque perd de l’eau et de la hauteur avec l’âge. Cette usure est normale et n’explique pas à elle seule la douleur.",
-      "whoIsAffected": "Après 40 ans, très fréquente à l’imagerie même sans douleur.",
-      "exercises": ["marche", "bird", "planche"],
-      "warning": "Douleur nocturne qui réveille ou raideur du matin de plus d’une heure : consultez.",
-      "answers": ["barre", "assis", "matin"]
-    },
-    {
-      "id": "facettes",
-      "name": "Arthrose des articulations postérieures",
-      "commonName": "Douleur du dos en se cambrant",
-      "alias": "Syndrome facettaire",
-      "frequency": 50,
-      "whatYouFeel": "Douleur d’un côté du bas du dos en se cambrant, en restant debout longtemps, soulagée assis ou penché en avant.",
-      "whatHappens": "De petites articulations relient les vertèbres à l’arrière. Elles s’usent et deviennent douloureuses quand le dos se cambre.",
-      "whoIsAffected": "Après 50 ans.",
-      "exercises": ["genoux", "bascule", "planche"],
-      "warning": "Douleur qui descend dans les deux jambes à la marche : consultez.",
-      "answers": ["uncote", "cambre"]
-    },
-    {
-      "id": "si",
-      "name": "Douleur sacro-iliaque",
-      "commonName": "Douleur en haut de la fesse, d’un seul côté",
-      "frequency": 42,
-      "whatYouFeel": "Douleur sous la ceinture, d’un seul côté, au-dessus de la fesse, en se retournant dans le lit ou en montant les marches.",
-      "whatHappens": "L’articulation sacro-iliaque relie le sacrum à l’os du bassin. Des ligaments puissants la maintiennent, mais elle peut s’irriter.",
-      "whoIsAffected": "Après une grossesse, une chute sur les fesses, en cas de différence de longueur de jambes.",
-      "exercises": ["pontb", "bascule", "bird"],
-      "warning": "Douleur nocturne intense, fièvre ou perte de poids : consultez.",
-      "answers": ["fesse", "uncote", "retourne"]
+      "warning": "Urgences (15 ou 112) : difficulté à uriner ou fuites, perte du contrôle des selles, engourdissement entre les jambes, douleur dans les deux jambes, pied qui tombe ou faiblesse qui s’aggrave. Consultez aussi si la douleur reste insupportable malgré les antalgiques.",
+      "rule": "nerf",
+      "answers": ["jambe", "fesse", "toux", "assis", "fourmi"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "canal",
       "name": "Canal lombaire étroit",
       "commonName": "Jambes lourdes à la marche",
-      "frequency": 34,
+      "frequency": 35,
       "whatYouFeel": "Douleur, lourdeur ou fourmillements dans les deux jambes à la marche, qui obligent à s’arrêter et cèdent assis ou penché en avant.",
       "whatHappens": "Le canal où passent les racines nerveuses se rétrécit avec l’arthrose. Il s’ouvre quand le dos s’arrondit, d’où le soulagement penché en avant.",
       "whoIsAffected": "Après 60 ans.",
       "exercises": ["flex", "velo", "genoux"],
-      "warning": "Perte de force des jambes ou troubles urinaires : consultez rapidement.",
-      "answers": ["marche", "age", "cambre", "fourmi"]
+      "warning": "Urgences (15 ou 112) : difficulté à uriner ou fuites, engourdissement entre les jambes, jambes qui lâchent. Consultez si la distance de marche diminue de semaine en semaine. Si la douleur du mollet cède dès que vous vous arrêtez debout, sans vous asseoir ni vous pencher, parlez-en à votre médecin : les artères peuvent être en cause.",
+      "rule": "nerf",
+      "answers": ["marche", "age", "cambre", "fourmi"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
-      "id": "ql",
-      "name": "Douleur du carré des lombes",
-      "commonName": "Point douloureux dans le flanc",
-      "frequency": 28,
-      "whatYouFeel": "Douleur profonde entre les dernières côtes et le bassin, d’un côté, en se penchant sur le côté ou en se relevant.",
-      "whatHappens": "Le carré des lombes relie les côtes, les vertèbres lombaires et le bassin. Trop sollicité, il reste contracté et sensible.",
-      "whoIsAffected": "Position assise prolongée, port de charges d’un seul côté, travaux penché.",
-      "exercises": ["etql", "lat", "rot"],
-      "warning": "Douleur du flanc avec fièvre ou brûlures urinaires : consultez, un rein peut être en cause.",
-      "answers": ["flanc", "uncote"]
+      "id": "disco",
+      "name": "Discopathie dégénérative",
+      "commonName": "Disque qui vieillit",
+      "frequency": 30,
+      "whatYouFeel": "Douleur en barre au milieu du bas du dos, pire assis longtemps et penché en avant, raideur au lever.",
+      "whatHappens": "Avec l’âge, les disques perdent un peu d’eau et de hauteur, comme les cheveux grisonnent. Ces images sont aussi fréquentes chez les personnes sans douleur. Elles ne veulent pas dire que le dos est fragile : bouger et se renforcer reste le traitement.",
+      "whoIsAffected": "Après 40 ans. À 50 ans, environ huit personnes sur dix sans mal de dos ont ce type d’image.",
+      "exercises": ["marche", "bird", "planche"],
+      "warning": "Douleur nocturne qui réveille ou raideur du matin de plus d’une heure : consultez.",
+      "answers": ["barre", "assis", "matin"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
-      "id": "cruralgie",
-      "name": "Cruralgie",
-      "commonName": "Douleur à l’avant de la cuisse",
-      "frequency": 22,
-      "whatYouFeel": "Douleur de l’aine à l’avant de la cuisse jusqu’au genou, souvent pire la nuit, parfois faiblesse pour monter les marches.",
-      "whatHappens": "Une racine L3 ou L4 du nerf fémoral est irritée, par un disque ou par l’arthrose.",
-      "whoIsAffected": "Après 50 ans surtout.",
-      "exercises": ["marche", "ncru", "chat"],
-      "warning": "Genou qui se dérobe ou perte de force de la cuisse : consultez rapidement.",
-      "answers": ["cuisse", "nuit", "fourmi"]
+      "id": "facettes",
+      "name": "Arthrose zygapophysaire (articulations postérieures)",
+      "commonName": "Douleur du dos en se cambrant",
+      "alias": "Syndrome facettaire",
+      "frequency": 30,
+      "whatYouFeel": "Douleur d’un côté du bas du dos en se cambrant, en restant debout longtemps, soulagée assis ou penché en avant.",
+      "whatHappens": "De petites articulations relient les vertèbres à l’arrière. Elles s’usent et deviennent douloureuses quand le dos se cambre.",
+      "whoIsAffected": "Après 50 ans.",
+      "exercises": ["genoux", "bascule", "planche"],
+      "warning": "Douleur qui descend dans les deux jambes à la marche : consultez.",
+      "answers": ["uncote", "cambre"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
-      "id": "listhesis",
-      "name": "Spondylolisthésis",
-      "commonName": "Vertèbre qui glisse",
-      "frequency": 16,
-      "whatYouFeel": "Douleur en barre en bas du dos en se cambrant, raideur des muscles de l’arrière de la cuisse.",
-      "whatHappens": "Une fissure de l’arc arrière de L5 ou l’usure des articulations laisse la vertèbre glisser vers l’avant sur celle du dessous.",
-      "whoIsAffected": "Adolescents sportifs (gymnastique, plongeon), ou après 50 ans par arthrose.",
-      "exercises": ["dead", "bascule", "planche"],
-      "warning": "Douleur dans les jambes, fourmillements ou perte de force : consultez.",
-      "answers": ["barre", "cambre"]
+      "id": "si",
+      "name": "Douleur sacro-iliaque",
+      "commonName": "Douleur en haut de la fesse, d’un seul côté",
+      "frequency": 25,
+      "whatYouFeel": "Douleur sous la ceinture, d’un seul côté, au-dessus de la fesse, en se retournant dans le lit ou en montant les marches.",
+      "whatHappens": "L’articulation sacro-iliaque relie le sacrum à l’os du bassin. Des ligaments puissants la maintiennent, mais elle peut s’irriter.",
+      "whoIsAffected": "Pendant ou après une grossesse, après une chute sur les fesses, parfois sans cause claire.",
+      "exercises": ["pontb", "bascule", "bird"],
+      "warning": "Réveils en seconde partie de nuit et raideur du matin de plus de 30 minutes, avant 45 ans : consultez, un rhumatisme inflammatoire est possible. Douleur nocturne intense, fièvre ou perte de poids : consultez rapidement.",
+      "answers": ["fesse", "uncote", "retourne"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "tassement",
       "name": "Fracture-tassement vertébrale",
       "commonName": "Douleur brutale du dos après 60 ans",
-      "frequency": 11,
+      "frequency": 15,
       "whatYouFeel": "Douleur brutale au milieu du dos ou en haut des lombaires après un effort minime, pire debout, soulagée couché.",
       "whatHappens": "Le corps d’une vertèbre fragilisée par l’ostéoporose s’écrase, le plus souvent à la jonction entre le dos et les lombaires.",
-      "whoIsAffected": "Après 60 ans, surtout les femmes, en cas d’ostéoporose.",
+      "whoIsAffected": "Après 60 ans, surtout les femmes, en cas d’ostéoporose, de traitement prolongé par cortisone ou d’antécédent de fracture.",
       "exercises": ["marche", "ext", "chaise"],
-      "warning": "Consultez : une radio confirme et l’ostéoporose se traite. Urgence si les jambes faiblissent.",
-      "answers": ["brutal", "age", "barre"]
+      "warning": "Douleur brutale du dos après 60 ans, même sans chute : consultez dans les jours qui suivent. Une radio confirme, et l’ostéoporose se traite. En attendant, évitez de porter des charges et de vous pencher en avant dos rond. Consultez aussi en cas d’antécédent de cancer. Urgences (15 ou 112) si les jambes faiblissent ou en cas de troubles urinaires.",
+      "rule": "avis",
+      "answers": ["brutal", "age", "barre"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "listhesis",
+      "name": "Spondylolisthésis",
+      "commonName": "Vertèbre qui glisse",
+      "frequency": 12,
+      "whatYouFeel": "Douleur en barre en bas du dos en se cambrant, raideur des muscles de l’arrière de la cuisse.",
+      "whatHappens": "Une fissure de l’arc arrière de L5 ou l’usure des articulations laisse la vertèbre glisser vers l’avant sur celle du dessous.",
+      "whoIsAffected": "Adolescents sportifs (gymnastique, plongeon), ou après 50 ans par arthrose.",
+      "exercises": ["dead", "bascule", "planche"],
+      "warning": "Adolescent sportif qui a mal en se cambrant depuis plus de deux semaines : consultez et suspendez les sports qui cambrent le dos (gymnastique, danse, plongeon, service au tennis), une fissure de fatigue de la vertèbre est possible. Fourmillements ou faiblesse des jambes : consultez. Troubles urinaires : urgences (15 ou 112).",
+      "answers": ["barre", "cambre"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "ql",
+      "name": "Douleur du carré des lombes",
+      "commonName": "Point douloureux dans le flanc",
+      "frequency": 10,
+      "whatYouFeel": "Douleur profonde entre les dernières côtes et le bassin, d’un côté, en se penchant sur le côté ou en se relevant.",
+      "whatHappens": "Le carré des lombes relie les côtes, les vertèbres lombaires et le bassin. Trop sollicité, il reste contracté et sensible.",
+      "whoIsAffected": "Position assise prolongée, port de charges d’un seul côté, travaux penché.",
+      "exercises": ["etql", "lat", "rot"],
+      "warning": "Douleur du flanc avec fièvre ou brûlures urinaires : consultez, un rein peut être en cause.",
+      "answers": ["flanc", "uncote"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
+    },
+    {
+      "id": "cruralgie",
+      "name": "Cruralgie",
+      "commonName": "Douleur à l’avant de la cuisse",
+      "frequency": 8,
+      "whatYouFeel": "Douleur de l’aine à l’avant de la cuisse jusqu’au genou, souvent pire la nuit, parfois faiblesse pour monter les marches.",
+      "whatHappens": "Une racine L3 ou L4 du nerf fémoral est irritée, par un disque ou par l’arthrose.",
+      "whoIsAffected": "Après 50 ans surtout.",
+      "exercises": ["marche", "ncru", "chat"],
+      "warning": "Genou qui se dérobe ou cuisse qui faiblit : consultez rapidement. Urgences (15 ou 112) en cas de troubles urinaires ou d’engourdissement entre les jambes. Une douleur de l’aine à la marche peut aussi venir de la hanche : un examen fait la différence.",
+      "rule": "nerf",
+      "answers": ["cuisse", "nuit", "fourmi"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     },
     {
       "id": "spa",
       "name": "Spondylarthrite",
       "commonName": "Dos raide le matin",
-      "frequency": 7,
+      "frequency": 5,
       "whatYouFeel": "Douleur des fesses et du bas du dos en seconde partie de nuit, raideur du matin de plus de 30 minutes, améliorée par le mouvement.",
       "whatHappens": "Une inflammation chronique touche d’abord les articulations sacro-iliaques, puis la colonne. Le mouvement soulage, le repos aggrave.",
       "whoIsAffected": "Début avant 45 ans, plus souvent les hommes.",
       "exercises": ["chat", "rot", "respi"],
-      "warning": "Ce tableau justifie un avis médical : des traitements freinent la maladie. L’exercice quotidien en fait partie.",
-      "answers": ["fesse", "matin", "nuit"]
+      "warning": "Ce tableau justifie un avis médical : des traitements freinent la maladie. L’exercice quotidien en fait partie. Œil rouge et douloureux : consultez le jour même. Œil rouge et douloureux : consultez le jour même.",
+      "answers": ["fesse", "matin", "nuit"],
+      "updated": "2026-11-11",
+      "review": {
+        "status": "non-relu"
+      }
     }
   ],
   "exercises": {
@@ -185,13 +237,13 @@
     },
     "sphinx": {
       "name": "Extension couchée, appui sur les avant-bras",
-      "how": "À plat ventre, redressez le buste, bassin au sol. 10 fois, si la douleur de jambe remonte vers le dos.",
+      "how": "À plat ventre, appuyez-vous sur les avant-bras, bassin au sol, tenez 5 à 10 s. 10 fois. Continuez seulement si la douleur de jambe diminue ou remonte vers le dos. Arrêtez si elle descend plus bas dans la jambe.",
       "videoSearch": "extension lombaire McKenzie sphinx hernie discale",
       "video": ""
     },
     "nsci": {
       "name": "Glissement du nerf sciatique",
-      "how": "Assis, tendez le genou en relevant la tête, relâchez. 10 fois lentement, sans forcer la douleur.",
+      "how": "Assis au bord d’une chaise, dos droit. Tendez le genou en relevant la tête vers le plafond, puis pliez le genou en baissant la tête. 10 fois lentement. Les fourmillements ne doivent pas augmenter.",
       "videoSearch": "glissement nerf sciatique neurodynamique exercice assis",
       "video": ""
     },
@@ -244,9 +296,9 @@
       "video": ""
     },
     "ext": {
-      "name": "Redressement du haut du dos",
-      "how": "Assis, mains derrière la nuque, ouvrez les coudes et redressez-vous. 10 fois.",
-      "videoSearch": "extension thoracique exercice ostéoporose posture",
+      "name": "Se grandir assis",
+      "how": "Assis au bord d’une chaise, pieds à plat, mains sur les cuisses. Grandissez-vous doucement en ouvrant la poitrine, tenez 5 s. 10 fois, sans aller jusqu’à la douleur. Après une fracture récente, attendez l’accord du médecin.",
+      "videoSearch": "redressement postural assis ostéoporose exercice kiné",
       "video": ""
     },
     "chaise": {
@@ -352,11 +404,11 @@
   ],
   "structures": {
     "lomb": "Vertèbres lombaires",
-    "c-lomb": "Cartilage des articulations postérieures et des plateaux",
+    "c-lomb": "Cartilage des articulations zygapophysaires (postérieures) et des plateaux vertébraux",
     "sacrum": "Sacrum",
-    "c-sacrum": "Cartilage : sacrum",
-    "iliaque": "Os iliaques",
-    "c-iliaque": "Cartilage : os iliaques",
+    "c-sacrum": "Cartilage articulaire : sacrum",
+    "iliaque": "Os coxaux",
+    "c-iliaque": "Cartilage articulaire : os iliaques",
     "thor": "Dernières vertèbres thoraciques et côtes",
     "femur": "Fémurs",
     "disques": "Disques intervertébraux",
@@ -367,13 +419,13 @@
     "lsi": "Ligaments sacro-iliaques",
     "lst": "Ligaments sacro-tubéraux",
     "m-multi": "Multifide",
-    "m-erect": "Muscles érecteurs du rachis",
+    "m-erect": "Érecteurs du rachis (longissimus et ilio-costal)",
     "m-ql": "Carré des lombes",
-    "m-psoas": "Psoas",
-    "t-psoas": "Tendon : psoas",
+    "m-psoas": "Grand psoas",
+    "t-psoas": "Tendon du grand psoas",
     "m-gmax": "Grand fessier",
     "m-gmed": "Moyen fessier",
-    "t-gmed": "Tendon : moyen fessier",
+    "t-gmed": "Tendon du moyen fessier",
     "m-piri": "Piriforme",
     "dure": "Sac dural et queue de cheval",
     "sci": "Nerf sciatique",

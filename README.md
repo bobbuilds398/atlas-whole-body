@@ -1,20 +1,23 @@
 # Atlas du corps
 
-**Un atlas 3D interactif des douleurs articulaires et du dos les plus fréquentes.**
-Où a-t-on mal, quelle structure est en cause, et quels exercices peuvent aider.
+**Un atlas 3D interactif, en français, des douleurs articulaires et du dos fréquentes : où elles se situent, quelles structures elles concernent, et quels exercices sont souvent proposés.**
 
-**[Ouvrir l'atlas](https://bobbuilds398.github.io/atlas-whole-body/)** · [Proposer une correction](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose) · [Contribuer](CONTRIBUTING.md) · [English summary](#english-summary)
+> **Information générale, pas un avis médical.** Le code et les textes ont été écrits avec Claude, un modèle d’IA d’Anthropic, et **les fiches n’ont pas encore été relues par des professionnels de santé**. L’atlas ne pose pas de diagnostic. Urgence : **15** ou **112**.
+>
+> **Relecteurs recherchés** : kinésithérapeutes, médecins, étudiants en santé. Voir [comment relire](MEDICAL_REVIEW.md).
 
-![Vue du corps entier : squelette en 3D et classement des douleurs les plus fréquentes](docs/corps-entier.jpg)
+**[Ouvrir l'atlas](https://bobbuilds398.github.io/atlas-whole-body/)** · [À propos et avertissements](https://bobbuilds398.github.io/atlas-whole-body/a-propos.html) · [Proposer une correction](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose) · [Contribuer](CONTRIBUTING.md) · [English summary](#english-summary)
+
+![Vue du corps entier : squelette en 3D et douleurs fréquentes](docs/corps-entier.jpg)
 
 ## Ce que fait l'atlas
 
-- **Corps entier.** Un squelette en 3D et les douleurs les plus fréquentes, classées par nombre de personnes concernées. Chaque chiffre vient d'une étude publiée, citée dans la fiche.
+- **Corps entier.** Un squelette en 3D et les douleurs les plus fréquentes, regroupées par ordre de grandeur du nombre de personnes concernées. Chaque chiffre vient d'une étude publiée, citée dans la fiche avec ce qu'elle mesure : à un instant donné ou sur une année, âges, pays. Ces études ne sont pas directement comparables, c'est pourquoi l'atlas montre des groupes plutôt qu'un classement exact.
 - **Huit articulations détaillées** : cou, épaule, coude, poignet et main, bas du dos, hanche, genou, cheville et pied. Pour chacune, les 12 douleurs les plus fréquentes (13 pour la hanche).
 - **Anatomie réelle.** Os, cartilages, ligaments, tendons, muscles et nerfs issus de [Z-Anatomy](https://github.com/Z-Anatomy/Models-of-human-anatomy), avec une couche par type de structure.
 - **Zone douloureuse.** La structure en cause est mise en évidence, et la zone où l'on ressent la douleur est peinte sur la peau.
-- **Questions en langage courant.** « Où avez-vous mal ? », « Quand et comment ? » : la liste se réordonne selon les réponses.
-- **Exercices.** Pour chaque douleur, quelques exercices avec leurs consignes, un repère de douleur acceptable et les signes qui doivent faire consulter.
+- **Filtres en langage courant.** « Zone de la douleur », « Moment ou geste » : les fiches qui mentionnent ces repères restent en clair, sans changer l'ordre de la liste. Ce n'est pas un diagnostic.
+- **Signes d'alerte et exercices.** Chaque fiche commence par les signes qui doivent faire consulter, puis propose quelques exercices souvent utilisés en rééducation, avec leurs consignes et un repère de douleur acceptable.
 
 | Genou | Épaule | Bas du dos |
 | --- | --- | --- |
@@ -24,14 +27,24 @@ Où a-t-on mal, quelle structure est en cause, et quels exercices peuvent aider.
 
 Ce projet est jeune. Ses limites sont connues, et ce sont autant de façons d'aider.
 
-- **Les fiches n'ont pas été relues par des professionnels de santé.** Textes, exercices et signes d'alerte ont été rédigés avec l'aide d'une IA à partir de connaissances générales. **Relecteurs recherchés** : kinésithérapeutes, médecins du sport, rhumatologues, étudiants en santé.
-- **Le classement dans chaque articulation est indicatif.** Seul le classement du corps entier repose sur des chiffres publiés. Des données d'épidémiologie par articulation seraient précieuses.
-- **Les vidéos sont des recherches YouTube.** Chaque exercice mériterait un lien vers une vidéo précise et fiable.
+- **Les fiches n'ont pas été relues par des professionnels de santé.** Le code et les textes (fiches, exercices, signes d’alerte) ont été écrits avec Claude, un modèle d’IA d’Anthropic, à partir de connaissances générales, puis relus et publiés par le mainteneur, qui n’est pas professionnel de santé. Le site affiche l'état de relecture de chaque fiche. **Relecteurs recherchés** : kinésithérapeutes, médecins du sport, rhumatologues, étudiants en santé ([politique de relecture](MEDICAL_REVIEW.md)).
+- **Le classement dans chaque articulation est une estimation.** Il ne repose pas sur des chiffres publiés et varie selon l'âge et le sport. Des données par articulation (consultations de médecine générale, suivis de sportifs) seraient précieuses.
+- **Les vidéos sont des recherches YouTube, non vérifiées.** Chaque exercice mériterait un lien vers une vidéo précise, regardée en entier par un professionnel.
+- **Quelques douleurs fréquentes manquent** : goutte, luxation de la rotule, arthrose du gros orteil sur le corps entier, douleur du grand trochanter sur le corps entier. Chacune demande un placement 3D.
+- **Le site pèse environ 23 Mo** (modèles en base64) et utilise three.js r128 (2021).
 - **L'anatomie est celle d'un seul individu**, en position debout. Quelques structures sont schématiques : bourse de l'olécrâne, nerf grand occipital, et les éléments « lorsqu'ils existent » (hernie discale, kyste synovial, névrome de Morton, dépôt calcaire).
 - **La hanche utilise un moteur à part**, plus ancien, avec ses propres réglages (mouvement, coupe, exercices par phase).
 - **Le site est en français uniquement.**
 
 L'atlas est un outil d'information. Il ne remplace pas l'avis d'un médecin ou d'un kinésithérapeute.
+
+## Feuille de route
+
+1. Relecture des fiches par des professionnels, en commençant par les signes d’alerte.
+2. Sources pour chaque fiche, et vidéos vérifiées.
+3. Hanche intégrée au moteur commun, textes dans `content/hanche.json`.
+4. Scripts de modèles reproductibles.
+5. Version anglaise.
 
 ## Contribuer
 
@@ -57,7 +70,8 @@ Puis ouvrez <http://localhost:8000>. La page doit être servie par un serveur we
 
 | Dossier | Contenu |
 | --- | --- |
-| `index.html`, `css/`, `js/` | La page, ses styles, et les deux scripts : `js/atlas.js` (corps entier et articulations) et `js/hip.js` (hanche). |
+| `index.html`, `a-propos.html`, `css/`, `js/` | La page, la page « À propos », les styles, et les deux scripts : `js/atlas.js` (corps entier et articulations) et `js/hip.js` (hanche). |
+| `vendor/` | three.js r128 et les polices, servis par le site lui-même (aucune requête vers un tiers). |
 | `content/` | Les textes : fiches, exercices, questions, chiffres et sources. Un fichier JSON par articulation, plus `corps.json` pour la vue d'ensemble. |
 | `models/` | Les modèles 3D et le placement des douleurs, un fichier par articulation. |
 | `tools/` | `check-content.mjs` vérifie la cohérence des contenus. `models/` garde, pour référence, les scripts qui ont produit les modèles. |
@@ -65,16 +79,19 @@ Puis ouvrez <http://localhost:8000>. La page doit être servie par un serveur we
 
 ## Licences et crédits
 
-- **Code** (`index.html`, `css/`, `js/`, `tools/`) : [licence MIT](LICENSE).
-- **Contenus et modèles 3D** (`content/`, `models/`, `docs/`) : [CC BY-SA 4.0](LICENSE-CONTENT.md).
-- Les modèles 3D sont dérivés de **Z-Anatomy** — The libre 3D atlas of anatomy — CC BY-SA 4.0 (Gauthier Kervyn et al.), lui-même dérivé de **BodyParts3D** — © The Database Center for Life Science — CC BY-SA 2.1 Japan.
-- Rendu 3D : [three.js](https://threejs.org/) (MIT).
+- **Code** (`index.html`, `a-propos.html`, `css/`, `js/`, `tools/`) : [licence MIT](LICENSE).
+- **Contenus et modèles 3D** (`content/`, `models/`, `docs/`, textes de `js/hip.js`, fichiers `.md`) : [CC BY-SA 4.0](LICENSE-CONTENT.md). Le détail par fichier est dans [`REUSE.toml`](REUSE.toml).
+- Les modèles 3D sont dérivés de **Z-Anatomy** — The libre 3D atlas of anatomy — CC BY-SA 4.0 (Gauthier Kervyn et al.), lui-même dérivé de **BodyParts3D** — © The Database Center for Life Science — CC BY-SA 2.1 Japon (la base est aujourd’hui diffusée sous CC BY 4.0).
+- Rendu 3D : [three.js](https://threejs.org/) (MIT). Polices : Bricolage Grotesque, Public Sans, IBM Plex Mono (SIL OFL 1.1).
+- Pour citer l'atlas : [`CITATION.cff`](CITATION.cff). Historique : [`CHANGELOG.md`](CHANGELOG.md). Conduite : [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Failles : [`SECURITY.md`](SECURITY.md).
 
 ## English summary
 
-**Atlas du corps** is an interactive 3D atlas of the most common joint and back pain, in French. A whole-body view ranks conditions by number of people affected (published figures, cited on each card). Eight detailed views (neck, shoulder, elbow, wrist and hand, lower back, hip, knee, ankle and foot) each show their 12 most common conditions with real anatomy from Z-Anatomy, the structure involved, the area where pain is felt, and a few exercises with warning signs.
+**General information, not medical advice.** Code and texts were written with an AI model (Claude, by Anthropic) and published by a non-clinician maintainer; the cards have **not yet been reviewed by health professionals**. The atlas does not diagnose. We are looking for physiotherapist and physician reviewers: see [MEDICAL_REVIEW.md](MEDICAL_REVIEW.md).
 
-**Help wanted.** The medical content has not been reviewed by health professionals yet, the per-joint rankings are indicative, and exercise videos are plain YouTube searches. Reviews from physiotherapists and physicians are the most valuable contribution. An English translation would also be welcome: all texts live in plain JSON files under `content/`.
+**Atlas du corps** is an interactive 3D atlas of the most common joint and back pain, in French. A whole-body view groups conditions by order of magnitude of people affected, using published figures cited on each card; the studies differ in what they measure (point prevalence, yearly new cases, painless deformity), age range and country, so the order within a group is not meaningful. Eight detailed views (neck, shoulder, elbow, wrist and hand, lower back, hip, knee, ankle and foot) each show their 12 most common conditions with real anatomy from Z-Anatomy, the structure involved, the area where pain is felt, and a few exercises with warning signs.
+
+**Help wanted.** The medical content has not been reviewed by health professionals yet, the per-joint orderings are estimates without published figures, and exercise videos are unverified YouTube searches. Reviews from physiotherapists and physicians are the most valuable contribution. An English translation would also be welcome: all texts live in plain JSON files under `content/`.
 
 You can open an issue in English with one of the [issue forms](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose), or read [CONTRIBUTING.md](CONTRIBUTING.md) (it has an English section). The site is static, with no build step: clone it, run `python3 -m http.server`, and open the page.
 

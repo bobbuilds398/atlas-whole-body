@@ -3,6 +3,18 @@ description: Remplacer une recherche YouTube par une vidéo précise et fiable.
 title: "Vidéo : "
 labels: ["contenu", "vidéo"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Ce formulaire est public.** N’y décrivez pas votre propre situation médicale : nous ne pouvons pas donner d’avis personnel. Urgence : 15 ou 112.
+        *This form is public. Do not describe your own medical situation.*
+  - type: checkboxes
+    id: perso
+    attributes:
+      label: Avant d’envoyer / Before submitting
+      options:
+        - label: Je ne partage pas d’informations sur ma santé ou celle d’un proche. / I am not sharing personal health information.
+          required: true
   - type: input
     id: articulation
     attributes:
@@ -30,3 +42,12 @@ body:
       description: Qui l'a réalisée (kinésithérapeute, hôpital, société savante), langue, et ce qu'elle montre bien.
     validations:
       required: true
+  - type: checkboxes
+    id: verif
+    attributes:
+      label: Vérifications
+      options:
+        - label: J’ai regardé la vidéo en entier et elle correspond à la consigne écrite de l’exercice.
+          required: true
+        - label: La vidéo ne fait pas la promotion d’un produit, d’un cabinet ou d’une méthode payante.
+          required: true
