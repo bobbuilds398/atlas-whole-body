@@ -2,6 +2,16 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Toute modification d’un signe d’alerte, d’un exercice ou d’un chiffre est listée.
 
+## [0.3.0] — 2026-11-12
+
+### Ajouté
+- **Version anglaise** de tout le site : interface, 96 fiches des articulations, 13 fiches de la hanche, vue corps entier, page « About ». La langue suit celle du navigateur ; un bouton permet de changer, et le choix est gardé dans le navigateur. Adresse directe : `?lang=en` ou `?lang=fr`.
+- `content/en/*.json` (texte anglais, mêmes identifiants) et `js/hip-en.js` ; la vérification refuse une traduction incomplète.
+
+### Corrigé
+- Phrases en double dans 8 fiches et exercices (cou, coude, genou, bas du dos, cheville).
+- Le message d'erreur de chargement n'utilise plus de script en ligne (bloqué par la politique de sécurité).
+
 ## [0.2.0] — 2026-11-11
 
 Revue critique du projet par des relecteurs spécialisés (clinique, anatomie, épidémiologie, accessibilité, interface, performance, juridique), puis application des recommandations retenues.

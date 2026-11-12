@@ -1,0 +1,169 @@
+{
+  "_comment": "English text for content/cou.json. Same ids; numbers, exercises lists and placements come from the French file.",
+  "joint": {"name": "Neck", "subtitle": "Cervical spine, seen from behind"},
+  "pathologies": {
+    "cervicalgie": {
+      "name": "Non-specific neck pain",
+      "commonName": "Neck pain",
+      "whatYouFeel": "Pain and stiffness in the neck, sometimes spreading to the shoulder or shoulder blade, difficulty turning the head.",
+      "whatHappens": "Most of the time the muscles and small joints of the neck are involved, with no serious damage. Moving and strengthening help more than rest.",
+      "whoIsAffected": "Adults aged 45 to 75, more often women, long hours of sitting work.",
+      "warning": "Emergency (112 or your local number): after an accident or a fall with pain over the bones at the back of the neck, or with dizziness, double vision, difficulty speaking or swallowing, numbness of the face or weakness on one side. See a doctor promptly for: pins and needles or weakness in an arm, clumsy hands, unsteady walking, fever, a history of cancer or unexplained weight loss."
+    },
+    "torticolis": {
+      "name": "Wry neck (torticollis)",
+      "commonName": "Neck locked on waking",
+      "whatYouFeel": "Neck locked and painful on one side, head tilted, unable to turn the head for a few days.",
+      "whatHappens": "The exact cause is unclear: a small joint or a disc in the neck becomes irritated and the muscles tighten to protect it. It usually eases within a few days.",
+      "whoIsAffected": "All ages, often on waking or after a sudden movement.",
+      "warning": "Emergency (112 or your local number): stiff neck with fever, severe headache or vomiting, especially in a child. See a doctor after a fall or a blow, if you have pins and needles in an arm, or if the neck stays locked for more than a week."
+    },
+    "trapeze": {
+      "name": "Upper trapezius pain",
+      "commonName": "Knots between neck and shoulder",
+      "whatYouFeel": "Tension and tender spots between the neck and the shoulder, which flare up when pressed and at the end of the day.",
+      "whatHappens": "The upper trapezius supports the shoulder and the head. When it stays tense for long periods, sensitive areas develop. Neck pain without a serious cause is very common: these distinctions are approximate and are treated the same way, by moving.",
+      "whoIsAffected": "Screen work, stress, carrying a bag on one shoulder.",
+      "warning": "Pain running down the arm with pins and needles: see a doctor."
+    },
+    "arthrose": {
+      "name": "Cervical osteoarthritis",
+      "commonName": "Neck arthritis",
+      "alias": "Cervical spondylosis",
+      "whatYouFeel": "Stiff neck, especially when turning the head or looking up, cracking noises, pain that comes and goes.",
+      "whatHappens": "The discs flatten and the joints of the neck wear. This wear is common without any pain.",
+      "whoIsAffected": "After 50, almost always visible on X-rays after 65.",
+      "warning": "Clumsy hands, stiff legs or balance problems: see a doctor."
+    },
+    "cephalee": {
+      "name": "Cervicogenic headache",
+      "commonName": "Headache starting in the neck",
+      "whatYouFeel": "Pain that starts at the back of the neck and rises behind the head, sometimes to the forehead and the eye, on one side.",
+      "whatHappens": "The top three neck vertebrae and the small muscles under the skull refer their pain to the head.",
+      "whoIsAffected": "Screen work, stress, after whiplash.",
+      "warning": "Emergency (112 or your local number): sudden headache, the worst of your life; or with fever and a stiff neck; or with problems seeing or speaking, weakness or numbness. After 50, a new headache, especially at the temples or with jaw pain when chewing, should be seen by a doctor the same day. Unusual neck pain with a new headache should be examined before any exercise."
+    },
+    "ncb": {
+      "name": "Cervical radiculopathy",
+      "commonName": "Pain running down the arm",
+      "whatYouFeel": "Neck pain that runs into the shoulder, the arm and down to the fingers, with pins and needles, worse when tilting the head to the same side.",
+      "whatHappens": "A nerve root is irritated where it leaves the spine, by a disc herniation or by arthritis, most often at C6 or C7.",
+      "whoIsAffected": "Adults aged 40 to 60.",
+      "warning": "Weakness of the arm or hand: see a doctor promptly. Emergency (112 or your local number) if both arms are affected, if the hands become clumsy, if walking becomes unsteady or if you have bladder problems. Also see a doctor if the pain stays unbearable despite painkillers."
+    },
+    "whiplash": {
+      "name": "Whiplash",
+      "commonName": "Sore neck after an accident",
+      "whatYouFeel": "Neck pain and stiffness in the hours or days that follow, headaches, sometimes dizziness and tiredness.",
+      "whatHappens": "The neck is thrown backwards then forwards. Muscles, ligaments and small joints are stretched, usually without serious damage.",
+      "whoIsAffected": "After a car accident, a fall or a knock during sport.",
+      "warning": "After an accident: get examined before moving your neck. Emergency (112 or your local number) if you are over 65, have pins and needles in the arms or legs, a precise pain over the bones in the middle of the back of the neck, or cannot turn your head. Once serious injuries are ruled out, start moving again quickly: wearing a collar for long delays recovery."
+    },
+    "facettes": {
+      "name": "Facet joint pain",
+      "commonName": "Neck catching on one side",
+      "alias": "Cervical facet syndrome",
+      "whatYouFeel": "Sharp pain on one side of the neck when turning the head or looking up, sometimes towards the shoulder blade.",
+      "whatHappens": "Small joints guide movement between the vertebrae at the back of the neck. They can become irritated or catch. Neck pain without a serious cause is very common: these distinctions are approximate and are treated the same way, by moving.",
+      "whoIsAffected": "Adults, after a sudden movement or a long-held position.",
+      "warning": "Dizziness, double vision or speech problems that started with the pain: emergency (112 or your local number). Pins and needles in an arm: see a doctor."
+    },
+    "levator": {
+      "name": "Levator scapulae syndrome",
+      "commonName": "Sore spot at the corner of the shoulder blade",
+      "whatYouFeel": "Pain at the upper corner of the shoulder blade that rises towards the neck, stiffness when turning the head to that side.",
+      "whatHappens": "The levator scapulae links the top of the shoulder blade to the upper neck vertebrae. Its lower attachment becomes tender. Neck pain without a serious cause is very common: these distinctions are approximate and are treated the same way, by moving.",
+      "whoIsAffected": "Phone work, a badly placed screen, a shoulder bag.",
+      "warning": "Pain with shortness of breath or chest pain: emergency (112 or your local number)."
+    },
+    "arnold": {
+      "name": "Occipital neuralgia",
+      "commonName": "Shooting pain at the back of the head",
+      "whatYouFeel": "Electric shocks or burning that start at the back of the neck and rise over the back of the head on one side, tender scalp.",
+      "whatHappens": "The greater occipital nerve comes out between the first two vertebrae and crosses the neck muscles, where it can be irritated.",
+      "whoIsAffected": "After a neck injury, arthritis of the upper neck, muscle tension.",
+      "warning": "Unusual or constant pain, or pain with loss of feeling: see a doctor."
+    },
+    "defile": {
+      "name": "Thoracic outlet syndrome",
+      "commonName": "Arm going numb when raised",
+      "whatYouFeel": "Pins and needles in the hand, especially the last two fingers, and a heavy arm when it stays raised.",
+      "whatHappens": "The nerves of the arm pass between the scalene muscles and then under the collarbone. This narrow passage can compress them.",
+      "whoIsAffected": "Young women, work with the arms raised, swimmers, musicians.",
+      "warning": "Emergency (112 or your local number): a cold, pale or blue hand, or an arm that swells and becomes heavy, especially after effort with the arms raised. Wasting of the hand muscles or weakness: see a doctor promptly."
+    },
+    "myelopathie": {
+      "name": "Degenerative cervical myelopathy",
+      "commonName": "Clumsy hands and unsteady walking",
+      "whatYouFeel": "Clumsy hands, difficulty doing up buttons or writing, pins and needles in both hands, stiff and unsteady walking, falls, sometimes urgent need to pass urine. Neck pain may be mild.",
+      "whatHappens": "The neck's spinal canal, narrowed by arthritis, compresses the spinal cord.",
+      "whoIsAffected": "After 55.",
+      "warning": "See a doctor within days, and go to emergency (112 or your local number) if the signs get worse quickly. Exercises do not treat the compression. Avoid tilting the head back for long and any neck manipulation."
+    }
+  },
+  "exercises": {
+    "menton": {"name": "Chin tuck", "how": "Draw the head back while keeping your gaze level. Hold 5 s, 10 times.", "videoSearch": "chin tuck exercise neck pain physiotherapy"},
+    "rot": {"name": "Slow rotations", "how": "Turn the head to the right then to the left up to the point of discomfort. 10 times.", "videoSearch": "neck rotation gentle mobility exercise"},
+    "row": {"name": "Shoulder blade rows", "how": "With a resistance band, pull the elbows back and squeeze the shoulder blades. 3 sets of 12.", "videoSearch": "resistance band row exercise neck pain"},
+    "chal": {"name": "Heat and gentle movement", "how": "Hot water bottle for 15 minutes, then small movements within the pain-free range, several times a day.", "videoSearch": "wry neck what to do heat gentle movement"},
+    "incl": {"name": "Side bends", "how": "Ear towards the shoulder, without lifting the opposite shoulder. 10 times each side.", "videoSearch": "neck side bend gentle stretch"},
+    "ettrap": {"name": "Upper trapezius stretch", "how": "Hand on the head, tilt gently to the opposite side while the other hand holds the chair. 3 times 30 s.", "videoSearch": "upper trapezius stretch seated"},
+    "etlev": {"name": "Levator scapulae stretch", "how": "Nose towards the armpit, hand on the back of the head. 3 times 30 s.", "videoSearch": "levator scapulae stretch"},
+    "hauss": {"name": "Shoulder shrugs with weight", "how": "Lift the shoulders towards the ears, lower slowly. 3 sets of 12.", "videoSearch": "dumbbell shrugs trapezius pain strengthening"},
+    "balle": {"name": "Self-massage with a ball", "how": "Ball between the upper back and a wall, bearable pressure for 1 minute per spot.", "videoSearch": "trapezius self massage ball wall"},
+    "subocc": {"name": "Suboccipital release", "how": "Lying down, two balls under the base of the skull, let the head rest on them for 2 minutes.", "videoSearch": "suboccipital release tennis balls tension headache"},
+    "flechprof": {"name": "Deep neck flexor strengthening", "how": "Lying down, tuck the chin and barely lift the head. Hold 10 s, 10 times.", "videoSearch": "deep neck flexor strengthening exercise"},
+    "isoc": {"name": "Holds against the hand", "how": "Push the head into your hand forwards, backwards and to the sides, without moving. Hold 10 s, 5 times.", "videoSearch": "isometric neck strengthening hand"},
+    "nmed": {"name": "Arm nerve glides", "how": "Arm out to the side, extend the wrist while tilting the head to the same side, then relax. 10 times slowly.", "videoSearch": "median nerve glide cervical radiculopathy"},
+    "etscal": {"name": "Scalene stretch", "how": "Hand on the collarbone, tilt the head to the opposite side and slightly back. 3 times 30 s.", "videoSearch": "scalene stretch thoracic outlet syndrome"},
+    "etpec": {"name": "Chest stretch", "how": "Forearm on a door frame, turn the trunk away. 3 times 30 s.", "videoSearch": "pec minor doorway stretch"},
+    "equil": {"name": "Walking and balance", "how": "While waiting for medical advice: walk every day at your own pace. For balance, stand with feet together, one hand on the kitchen counter, 30 s, 3 times. Stop if you feel unsteady.", "videoSearch": "balance exercises older adults holding counter"}
+  },
+  "questions": {
+    "nuque": "At the back of the neck",
+    "cote": "On one side of the neck",
+    "epaule": "Between neck and shoulder",
+    "tete": "Behind the head",
+    "omoplate": "Towards the shoulder blade",
+    "bras": "In the arm",
+    "tourner": "When turning the head",
+    "reveil": "Locked on waking",
+    "ecran": "At the end of the day, at a screen",
+    "maldetete": "With headaches",
+    "fourmi": "Pins and needles in the arm or hand",
+    "decharge": "Electric shocks",
+    "accident": "After an accident or a knock",
+    "brasleve": "Arm raised, the hand goes numb",
+    "maladroit": "Clumsy hands, unsteady walking",
+    "enlair": "When looking up"
+  },
+  "structures": {
+    "cerv": "Cervical vertebrae",
+    "c-cerv": "Cartilage of the facet joints and vertebral endplates",
+    "crane": "Skull",
+    "ctx": "Upper chest, collarbones and shoulder blades",
+    "humerus": "Humerus",
+    "disques": "Intervertebral discs",
+    "lnu": "Nuchal ligament",
+    "ljaune": "Ligamenta flava",
+    "m-trap": "Trapezius, upper part",
+    "t-trap": "Tendons of the upper trapezius",
+    "m-lev": "Levator scapulae",
+    "t-lev": "Tendons of the levator scapulae",
+    "m-scm": "Sternocleidomastoid",
+    "t-scm": "Tendons of the sternocleidomastoid",
+    "m-spl": "Splenius capitis and cervicis",
+    "t-spl": "Tendons of the splenius",
+    "m-semi": "Deep neck muscles (semispinalis cervicis, longissimus capitis, multifidus)",
+    "t-semi": "Tendons of the deep neck muscles",
+    "m-scal": "Scalenes",
+    "m-subocc": "Suboccipital muscles",
+    "m-long": "Longus colli and capitis (prevertebral)",
+    "moelle": "Spinal cord",
+    "plex": "Roots (C5–T1) and trunks of the brachial plexus",
+    "nbras": "Nerves of the arm",
+    "arnold": "Greater occipital nerve (schematic outline)",
+    "hern": "Disc herniation, when present",
+    "peau": "Skin"
+  }
+}

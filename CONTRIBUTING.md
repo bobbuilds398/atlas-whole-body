@@ -80,6 +80,12 @@ Dans le même fichier :
 
 La hanche fait exception : ses fiches sont encore dans [`js/hip.js`](js/hip.js) (tableaux `PATHO`, `SYMS`, `EXTRA` et `EXO` en tête de fichier).
 
+## Traductions
+
+Le français fait foi. Le texte anglais est dans [`content/en/`](content/en/), un fichier par articulation avec **les mêmes identifiants** que le fichier français, et seulement les champs de texte (`name`, `commonName`, `alias`, `whatYouFeel`, `whatHappens`, `whoIsAffected`, `warning`, les exercices, les questions et les structures). Les chiffres, les listes d'exercices, les règles et le placement 3D viennent toujours du fichier français. Pour la hanche : [`js/hip-en.js`](js/hip-en.js), dans le même ordre que `js/hip.js`.
+
+Quand vous changez une fiche en français, signalez dans la proposition que l'anglais est à mettre à jour (ou mettez-le à jour). La vérification refuse un fichier anglais incomplet. Les numéros d'urgence s'écrivent « Emergency (112 or your local number) » dans les signes d'alerte : le site repère ce mot pour afficher l'encadré d'urgence.
+
 ## Règles pour les contenus médicaux
 
 - **Une source pour chaque changement médical** : recommandation (HAS, NICE…), revue systématique, article ou manuel de référence.
@@ -123,7 +129,7 @@ Contributions are welcome, and **reviews by health professionals** are the most 
 - **Edit a text:** all texts are plain JSON under [`content/`](content/), one file per joint. On GitHub, open the file, click the pencil, edit, and propose the change. Keep the `id` fields unchanged: they link each card to its placement in the 3D model.
 - **Work on the code:** the site is static with no build step. Run `python3 -m http.server 8000` and open the page; run `node tools/check-content.mjs` to validate the content files.
 
-Field names are in English (`name`, `commonName`, `frequency`, `whatYouFeel`, `whatHappens`, `whoIsAffected`, `exercises`, `warning`, `answers`); the table above describes each one. Setting an exercise's `video` to a specific URL replaces the default YouTube search link; only do so after watching the whole video. Medical changes need a source, and removing or softening a warning sign needs a qualified reviewer's approval: see [MEDICAL_REVIEW.md](MEDICAL_REVIEW.md). Issues are public, so please do not describe your own health situation.
+English text lives in `content/en/` (same ids, text fields only; the French file is the reference) and `js/hip-en.js`. Field names are in English (`name`, `commonName`, `frequency`, `whatYouFeel`, `whatHappens`, `whoIsAffected`, `exercises`, `warning`, `answers`); the table above describes each one. Setting an exercise's `video` to a specific URL replaces the default YouTube search link; only do so after watching the whole video. Medical changes need a source, and removing or softening a warning sign needs a qualified reviewer's approval: see [MEDICAL_REVIEW.md](MEDICAL_REVIEW.md). Issues are public, so please do not describe your own health situation.
 
 Rules for medical content: cite a source for every medical change, write in plain language for patients, make no diagnostic claims, keep exercises safe for someone alone at home, and always state when to see a professional.
 

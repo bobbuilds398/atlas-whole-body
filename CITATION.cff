@@ -5,8 +5,8 @@ title: "Atlas du corps"
 abstract: "Atlas 3D interactif, en français, des douleurs articulaires et du dos fréquentes, avec exercices souvent proposés et signes d'alerte. Information générale ; code et contenus écrits avec Claude (Anthropic), non relus par des professionnels de santé."
 authors:
   - alias: bobbuilds398
-version: 0.2.0
-date-released: 2026-11-11
+version: 0.3.0
+date-released: 2026-11-12
 license:
   - MIT
   - CC-BY-SA-4.0

@@ -1,0 +1,182 @@
+{
+  "_comment": "English text for content/coude.json. Same ids; numbers, exercises lists and placements come from the French file.",
+  "joint": {"name": "Elbow", "subtitle": "Right elbow"},
+  "pathologies": {
+    "epicondylite": {
+      "name": "Lateral elbow tendinopathy",
+      "commonName": "Tennis elbow",
+      "alias": "Lateral epicondylitis",
+      "whatYouFeel": "Pain on the outer side of the elbow when gripping, carrying something palm down, or turning a door handle.",
+      "whatHappens": "The tendons that lift the wrist attach together on the bony bump on the outside of the elbow. This attachment becomes painful when it is overloaded. It usually heals within 6 to 12 months. A cortisone injection relieves quickly but makes relapses more likely.",
+      "whoIsAffected": "Between 35 and 55, repeated gripping and screwing movements, racket sports.",
+      "warning": "Swollen or locked elbow, or pins and needles in the hand: see a doctor."
+    },
+    "epitro": {
+      "name": "Medial epicondylitis",
+      "commonName": "Golfer's elbow",
+      "whatYouFeel": "Pain on the inner side of the elbow when gripping, bending the wrist, or turning the palm down.",
+      "whatHappens": "The tendons that bend the wrist and turn the forearm attach on the bony bump on the inside of the elbow.",
+      "whoIsAffected": "Golfers, throwers, DIY enthusiasts, manual jobs.",
+      "warning": "Pins and needles in the last two fingers as well: see a doctor, the nearby nerve may be affected."
+    },
+    "bursite": {
+      "name": "Olecranon bursitis",
+      "commonName": "Lump on the point of the elbow",
+      "alias": "Student's elbow",
+      "whatYouFeel": "Soft swelling, sometimes the size of an egg, on the point of the elbow, not very painful except when leaning on it.",
+      "whatHappens": "A bursa slides between the skin and the point of the elbow. Leaning on it or a knock fills it with fluid.",
+      "whoIsAffected": "Repeated leaning on the elbow, after a knock, sometimes with gout.",
+      "warning": "Red, hot, painful area, a cut or graze on the elbow, or fever: see a doctor the same day, the bursa may be infected. Do not pierce it yourself."
+    },
+    "ulnaire": {
+      "name": "Cubital tunnel syndrome",
+      "commonName": "Tingling little finger",
+      "whatYouFeel": "Pins and needles in the little finger and half of the ring finger, worse with the elbow bent, sometimes a clumsy hand.",
+      "whatHappens": "The ulnar nerve runs in a groove behind the bony bump on the inside of the elbow. It is stretched and compressed there when the elbow stays bent.",
+      "whoIsAffected": "Leaning on the elbow for long periods, elbow bent for a long time on the phone or at night.",
+      "warning": "Loss of hand strength or wasting of the muscles between the fingers: see a doctor."
+    },
+    "arthrose": {
+      "name": "Elbow osteoarthritis",
+      "commonName": "Elbow arthritis",
+      "whatYouFeel": "Stiffness, especially when straightening the elbow fully, pain at the end of the movement, cracking, sometimes locking.",
+      "whatHappens": "The cartilage wears and bone spurs form, which limit the last few degrees of movement.",
+      "whoIsAffected": "Heavy manual workers, former throwing athletes, after a fracture.",
+      "warning": "Repeated locking or pins and needles in the little finger: see a doctor."
+    },
+    "bicepsd": {
+      "name": "Distal biceps tendinopathy",
+      "commonName": "Pain in the crease of the elbow",
+      "whatYouFeel": "Deep pain in the crease of the elbow when carrying a load with the elbow bent or when screwing.",
+      "whatHappens": "The biceps tendon dives into the crease of the elbow to attach on the radius. It bends the elbow and turns the palm up.",
+      "whoIsAffected": "Men aged 40 to 60, carrying loads, weight training.",
+      "warning": "A sudden snap in the crease of the elbow with bruising and a lump moving up the arm: see a doctor without delay, within the week. Repair works best in the first two to three weeks."
+    },
+    "triceps": {
+      "name": "Triceps tendinopathy",
+      "commonName": "Pain at the back of the elbow",
+      "whatYouFeel": "Pain just above the point of the elbow when pushing, doing push-ups or dips.",
+      "whatHappens": "The triceps tendon attaches on the point of the elbow and straightens the arm.",
+      "whoIsAffected": "Weight training, throwing, combat sports, pushing work.",
+      "warning": "Unable to straighten the elbow against resistance after a violent effort: see a doctor."
+    },
+    "lcu": {
+      "name": "Ulnar (medial) collateral ligament injury",
+      "commonName": "Thrower's elbow",
+      "whatYouFeel": "Pain on the inner side of the elbow when throwing, loss of speed and accuracy.",
+      "whatHappens": "This ligament holds the elbow when the forearm is pushed outwards, as when cocking the arm to throw. Repeated throwing stretches it.",
+      "whoIsAffected": "Throwers: baseball, javelin, handball. In a child who throws, pain in the same place often involves the growth cartilage.",
+      "warning": "A snap with sharp pain while throwing: see a doctor. In a child or teenager who throws, any pain on the inner side of the elbow means stopping throwing and getting advice."
+    },
+    "radial": {
+      "name": "Radial tunnel syndrome",
+      "commonName": "Pain on top of the forearm",
+      "whatYouFeel": "Dull pain a few centimetres below the elbow, on top of the forearm, often mistaken for tennis elbow.",
+      "whatHappens": "The deep branch of the radial nerve passes through the supinator muscle, where it can be compressed.",
+      "whoIsAffected": "Repeated screwing and forearm-turning movements.",
+      "warning": "Difficulty lifting the fingers or the wrist: see a doctor."
+    },
+    "pronateur": {
+      "name": "Pronator teres syndrome",
+      "commonName": "Forearm pain with pins and needles",
+      "whatYouFeel": "Pain at the front of the forearm, pins and needles in the first three fingers on effort, without waking at night.",
+      "whatHappens": "The median nerve passes between the two heads of the pronator teres, just below the crease of the elbow.",
+      "whoIsAffected": "Repeated gripping and palm-down turning movements, weight training.",
+      "warning": "Loss of strength in the thumb–index pinch: see a doctor."
+    },
+    "conflit": {
+      "name": "Posterior elbow impingement",
+      "commonName": "Elbow that jams when straightened",
+      "whatYouFeel": "Pain at the back of the elbow when it straightens fully, loss of the last few degrees of extension.",
+      "whatHappens": "The point of the elbow jams into its hollow at the back of the humerus. Bone spurs can form there.",
+      "whoIsAffected": "Throwers, boxers, gymnasts, sports with forceful extension.",
+      "warning": "Elbow locking: see a doctor."
+    },
+    "ocd": {
+      "name": "Osteochondritis dissecans of the capitellum",
+      "commonName": "Painful elbow in young athletes",
+      "whatYouFeel": "Pain on the outer side of the elbow on effort, stiffness, sometimes locking.",
+      "whatHappens": "A fragment of bone and cartilage weakens on the capitellum, the part of the humerus that faces the radius.",
+      "whoIsAffected": "Children and teenagers aged 10 to 16, especially gymnasts and throwers.",
+      "warning": "In a child or teenage athlete, elbow pain lasting more than two weeks, locking, or an elbow that no longer straightens fully: see a doctor and stop throwing and weight-bearing on the hands (cartwheels, handstands, floor work) until then. Carrying on can detach the fragment."
+    }
+  },
+  "exercises": {
+    "isoext": {"name": "Wrist extension hold", "how": "Forearm resting, wrist lifted against a light weight. Hold 30 to 45 s, 5 times.", "videoSearch": "tennis elbow isometric wrist extension exercise"},
+    "excext": {"name": "Slow wrist lowering, palm down", "how": "Lift with help from the other hand, lower over 4 s. 3 sets of 12.", "videoSearch": "tennis elbow eccentric wrist extensor exercise"},
+    "etext": {"name": "Extensor stretch", "how": "Elbow straight, bend the wrist down with the other hand. 3 times 30 s.", "videoSearch": "wrist extensor stretch tennis elbow"},
+    "isoflech": {"name": "Wrist flexion hold", "how": "Forearm resting palm up, hold a light weight. Hold 30 to 45 s, 5 times.", "videoSearch": "golfer's elbow isometric wrist flexor exercise"},
+    "excflech": {"name": "Slow wrist lowering, palm up", "how": "Lift with help from the other hand, lower over 4 s. 3 sets of 12.", "videoSearch": "golfer's elbow eccentric wrist flexor exercise"},
+    "etflech": {"name": "Flexor stretch", "how": "Elbow straight, palm up, pull the fingers down. 3 times 30 s.", "videoSearch": "wrist flexor forearm stretch"},
+    "prosup": {"name": "Forearm rotation with a hammer", "how": "Elbow at your side, slowly turn the palm up then down. 3 sets of 10.", "videoSearch": "pronation supination hammer exercise elbow"},
+    "glace": {"name": "Protect and relieve", "how": "Avoid leaning on the elbow, use a pad if needed, ice for 15 minutes twice a day.", "videoSearch": "olecranon bursitis advice"},
+    "mob": {"name": "Elbow bending and straightening", "how": "Bend and straighten the elbow without forcing. 15 times, 3 times a day.", "videoSearch": "elbow flexion extension mobility rehab"},
+    "nulnaire": {"name": "Ulnar nerve glide", "how": "Arm out to the side, palm towards the ceiling. Bend the elbow bringing the hand towards the ear while tilting the head the other way, then come back. 5 slow repetitions, with no lasting pins and needles.", "videoSearch": "ulnar nerve glide exercise"},
+    "nradial": {"name": "Radial nerve glide", "how": "Arm by your side, elbow straight, palm facing back. Bend the wrist down while tilting the head to the same side, then release both at the same time. 5 slow repetitions, with no pins and needles.", "videoSearch": "radial nerve glide exercise"},
+    "nmedian": {"name": "Median nerve glide", "how": "Arm out to the side, palm up, extend then relax the wrist. 5 slow repetitions.", "videoSearch": "median nerve glide arm exercise"},
+    "nuit": {"name": "Elbow only slightly bent at night", "how": "Avoid sleeping with the elbow fully bent; a towel wrapped around the elbow helps.", "videoSearch": "cubital tunnel night position towel"},
+    "curl": {"name": "Elbow curl, slow lowering", "how": "Light weight, lift in 2 s, lower in 4 s. 3 sets of 10.", "videoSearch": "eccentric biceps curl distal biceps tendinopathy"},
+    "triex": {"name": "Elbow extension with a band", "how": "Elbow close to the body, straighten the arm downwards, return slowly. 3 sets of 12.", "videoSearch": "triceps band extension eccentric"},
+    "serrer": {"name": "Squeeze a soft ball", "how": "Squeeze for 5 s without pain. 2 sets of 10.", "videoSearch": "grip strengthening ball forearm"},
+    "epaule": {"name": "Shoulder strengthening", "how": "External rotation with a band, elbow at your side. 3 sets of 12.", "videoSearch": "shoulder external rotation band thrower"}
+  },
+  "questions": {
+    "dehors": "On the outer side of the elbow",
+    "dedans": "On the inner side of the elbow",
+    "pointe": "On the point or the back of the elbow",
+    "pli": "In the crease of the elbow",
+    "avantbras": "In the forearm",
+    "serrer": "When gripping or screwing",
+    "porter": "When carrying a load",
+    "pousser": "When pushing or straightening the arm",
+    "lancer": "When throwing",
+    "fourmi45": "Pins and needles in the little finger",
+    "fourmi123": "Pins and needles in the thumb and index finger",
+    "boule": "A lump has appeared",
+    "raide": "The elbow is stiff or locks",
+    "appui": "When leaning on the elbow",
+    "ado": "Teenage athlete"
+  },
+  "structures": {
+    "humerus": "Humerus",
+    "c-humerus": "Articular cartilage: humerus",
+    "radius": "Radius",
+    "c-radius": "Articular cartilage: radius",
+    "ulna": "Ulna",
+    "c-ulna": "Articular cartilage: ulna",
+    "lcu": "Ulnar (medial) collateral ligament",
+    "lcr": "Radial (lateral) collateral ligament",
+    "lan": "Annular ligament of the radius",
+    "capsule": "Elbow joint capsule",
+    "b-bic": "Bicipitoradial bursa",
+    "b-tri": "Subtendinous bursa of the triceps",
+    "bol": "Subcutaneous olecranon bursa (schematic outline)",
+    "m-ecrb": "Extensor carpi radialis brevis",
+    "t-ecrb": "Extensor carpi radialis brevis tendon",
+    "m-ext": "Wrist and finger extensors",
+    "t-ext": "Extensor tendons",
+    "m-brad": "Brachioradialis",
+    "t-brad": "Brachioradialis tendon",
+    "m-sup": "Supinator",
+    "m-flech": "Wrist and finger flexors",
+    "t-flech": "Flexor tendons",
+    "m-pron": "Pronator teres",
+    "t-pron": "Pronator teres tendon",
+    "m-bic": "Biceps brachii",
+    "t-bic": "Biceps tendon",
+    "m-brach": "Brachialis",
+    "t-brach": "Brachialis tendon",
+    "m-tri": "Triceps brachii",
+    "t-tri": "Triceps tendon",
+    "m-anc": "Anconeus",
+    "t-anc": "Anconeus tendon",
+    "nu": "Ulnar nerve",
+    "nr": "Radial nerve and its deep branch",
+    "nm": "Median nerve",
+    "e-ext": "Common extensor attachment",
+    "e-flech": "Common flexor attachment",
+    "e-bic": "Biceps attachment on the radius",
+    "e-tri": "Triceps attachment on the olecranon",
+    "peau": "Skin"
+  }
+}

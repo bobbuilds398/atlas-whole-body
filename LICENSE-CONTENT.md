@@ -1,6 +1,6 @@
 # Licence des contenus et des modèles 3D
 
-Les fichiers des dossiers `content/`, `models/` et `docs/`, les textes médicaux de `js/hip.js` (tableaux `PATHO`, `EXTRA`, `EXO`, `GLOSS`, `PHASES`, `PHDESC`) et les fichiers `.md` de la racine sont mis à disposition sous licence
+Les fichiers des dossiers `content/`, `models/` et `docs/`, les textes médicaux de `js/hip.js` (tableaux `PATHO`, `EXTRA`, `EXO`, `GLOSS`, `PHASES`, `PHDESC`), leur traduction `js/hip-en.js` et les fichiers `.md` de la racine sont mis à disposition sous licence
 **Creative Commons Attribution - Partage dans les mêmes conditions 4.0 International (CC BY-SA 4.0)**.
 
 Texte complet de la licence : <https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr>

@@ -16,6 +16,11 @@ SPDX-FileCopyrightText = ["2026 bobbuilds398 and contributors", "Z-Anatomy, Gaut
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
-path = "js/hip.js"
+path = ["js/hip.js"]
 SPDX-FileCopyrightText = "2026 bobbuilds398 and contributors"
 SPDX-License-Identifier = "MIT AND CC-BY-SA-4.0"
+
+[[annotations]]
+path = "js/hip-en.js"
+SPDX-FileCopyrightText = "2026 bobbuilds398 and contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

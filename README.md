@@ -6,7 +6,7 @@
 >
 > **Relecteurs recherchés** : kinésithérapeutes, médecins, étudiants en santé. Voir [comment relire](MEDICAL_REVIEW.md).
 
-**[Ouvrir l'atlas](https://bobbuilds398.github.io/atlas-whole-body/)** · [À propos et avertissements](https://bobbuilds398.github.io/atlas-whole-body/a-propos.html) · [Proposer une correction](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose) · [Contribuer](CONTRIBUTING.md) · [English summary](#english-summary)
+**[Ouvrir l'atlas](https://bobbuilds398.github.io/atlas-whole-body/)** · [English version](https://bobbuilds398.github.io/atlas-whole-body/?lang=en) · [À propos et avertissements](https://bobbuilds398.github.io/atlas-whole-body/a-propos.html) · [Proposer une correction](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose) · [Contribuer](CONTRIBUTING.md) · [English summary](#english-summary)
 
 ![Vue du corps entier : squelette en 3D et douleurs fréquentes](docs/corps-entier.jpg)
 
@@ -34,7 +34,7 @@ Ce projet est jeune. Ses limites sont connues, et ce sont autant de façons d'ai
 - **Le site pèse environ 23 Mo** (modèles en base64) et utilise three.js r128 (2021).
 - **L'anatomie est celle d'un seul individu**, en position debout. Quelques structures sont schématiques : bourse de l'olécrâne, nerf grand occipital, et les éléments « lorsqu'ils existent » (hernie discale, kyste synovial, névrome de Morton, dépôt calcaire).
 - **La hanche utilise un moteur à part**, plus ancien, avec ses propres réglages (mouvement, coupe, exercices par phase).
-- **Le site est en français uniquement.**
+- **Le site est en français et en anglais.** La langue suit celle du navigateur (bouton pour changer). Le texte anglais est une traduction faite avec la même IA ; en cas de différence, le français fait foi. Relecteurs anglophones bienvenus.
 
 L'atlas est un outil d'information. Il ne remplace pas l'avis d'un médecin ou d'un kinésithérapeute.
 
@@ -44,7 +44,7 @@ L'atlas est un outil d'information. Il ne remplace pas l'avis d'un médecin ou d
 2. Sources pour chaque fiche, et vidéos vérifiées.
 3. Hanche intégrée au moteur commun, textes dans `content/hanche.json`.
 4. Scripts de modèles reproductibles.
-5. Version anglaise.
+5. Relecture de la version anglaise, autres langues.
 
 ## Contribuer
 
@@ -72,7 +72,7 @@ Puis ouvrez <http://localhost:8000>. La page doit être servie par un serveur we
 | --- | --- |
 | `index.html`, `a-propos.html`, `css/`, `js/` | La page, la page « À propos », les styles, et les deux scripts : `js/atlas.js` (corps entier et articulations) et `js/hip.js` (hanche). |
 | `vendor/` | three.js r128 et les polices, servis par le site lui-même (aucune requête vers un tiers). |
-| `content/` | Les textes : fiches, exercices, questions, chiffres et sources. Un fichier JSON par articulation, plus `corps.json` pour la vue d'ensemble. |
+| `content/` | Les textes : fiches, exercices, questions, chiffres et sources. Un fichier JSON par articulation, plus `corps.json` pour la vue d'ensemble. `content/en/` contient le texte anglais, avec les mêmes identifiants. |
 | `models/` | Les modèles 3D et le placement des douleurs, un fichier par articulation. |
 | `tools/` | `check-content.mjs` vérifie la cohérence des contenus. `models/` garde, pour référence, les scripts qui ont produit les modèles. |
 | `docs/` | Images de ce README. |
@@ -91,7 +91,7 @@ Puis ouvrez <http://localhost:8000>. La page doit être servie par un serveur we
 
 **Atlas du corps** is an interactive 3D atlas of the most common joint and back pain, in French. A whole-body view groups conditions by order of magnitude of people affected, using published figures cited on each card; the studies differ in what they measure (point prevalence, yearly new cases, painless deformity), age range and country, so the order within a group is not meaningful. Eight detailed views (neck, shoulder, elbow, wrist and hand, lower back, hip, knee, ankle and foot) each show their 12 most common conditions with real anatomy from Z-Anatomy, the structure involved, the area where pain is felt, and a few exercises with warning signs.
 
-**Help wanted.** The medical content has not been reviewed by health professionals yet, the per-joint orderings are estimates without published figures, and exercise videos are unverified YouTube searches. Reviews from physiotherapists and physicians are the most valuable contribution. An English translation would also be welcome: all texts live in plain JSON files under `content/`.
+**Help wanted.** The medical content has not been reviewed by health professionals yet, the per-joint orderings are estimates without published figures, and exercise videos are unverified YouTube searches. Reviews from physiotherapists and physicians are the most valuable contribution. The site is also available in English ([open in English](https://bobbuilds398.github.io/atlas-whole-body/?lang=en)); it follows the browser language and has a switch. The English text is an AI translation of the French original and lives in `content/en/` (same ids as the French files) and `js/hip-en.js`; reviews by English-speaking clinicians are welcome.
 
 You can open an issue in English with one of the [issue forms](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose), or read [CONTRIBUTING.md](CONTRIBUTING.md) (it has an English section). The site is static, with no build step: clone it, run `python3 -m http.server`, and open the page.
 

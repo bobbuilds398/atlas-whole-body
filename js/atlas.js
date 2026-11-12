@@ -3,6 +3,7 @@
    La hanche a son propre moteur : js/hip.js. Voir CONTRIBUTING.md. */
 (function () {
   'use strict';
+  const L = window.L10N;
   const esc = s =>
     String(s == null ? '' : s).replace(
       /[&<>"']/g,
@@ -10,25 +11,11 @@
     );
   const url = u => (/^https:\/\/[^\s"'<>]+$/.test(String(u || '')) ? String(u) : '#');
   const REPO = 'https://github.com/bobbuilds398/atlas-whole-body';
-  const NEW_TAB = '<span class="sr"> (nouvel onglet)</span>';
-  const PAIN_RULES = {
-    standard:
-      '<b>Jusqu’où aller ?</b> Pendant l’exercice, une gêne jusqu’à 3 sur 10 est acceptable (0 = aucune douleur, 10 = la pire imaginable) si elle est revenue à son niveau habituel le lendemain matin. À 4 ou 5, réduisez la charge ou l’amplitude. Arrêtez et demandez un avis en cas de fourmillements qui augmentent, de perte de force, de blocage ou de dérobement.',
-    nerf: '<b>Repère pour les nerfs.</b> Le mouvement reste doux. Il ne doit ni réveiller ni augmenter les fourmillements, l’engourdissement ou la douleur qui descend dans le membre. Si c’est le cas, faites plus petit ou arrêtez.',
-    avis: '<b>Avis médical d’abord.</b> Cette situation demande un examen avant tout exercice. Les conseils ci-dessous ne s’appliquent qu’avec l’accord du médecin ou du kinésithérapeute qui vous suit.',
-  };
-  /* niveau d'urgence lu dans le texte : « 15 ou 112 » / « urgences » → urgent ; « le jour même », « rapidement »… → rapide */
-  const urgency = t =>
-    /15 ou 112|urgences|en urgence/i.test(t)
-      ? 'urgent'
-      : /le jour même|rapidement|sans attendre|24 à 48 heures|dans les jours|dans la semaine/i.test(t)
-        ? 'rapide'
-        : 'info';
-  const URG_LABEL = {
-    urgent: 'Signes d’urgence',
-    rapide: 'Consulter rapidement si…',
-    info: 'Quand consulter',
-  };
+  const NEW_TAB = '<span class="sr">' + L.newTab + '</span>';
+  const PAIN_RULES = L.rules;
+  /* niveau d'urgence lu dans le texte de la fiche (expressions propres à chaque langue, voir js/i18n.js) */
+  const urgency = t => (L.urgent.test(t) ? 'urgent' : L.rapide.test(t) ? 'rapide' : 'info');
+  const URG_LABEL = L.urgLabel;
   window.ATLAS = {
     esc,
     url,
@@ -51,12 +38,14 @@
         '</h3><p>' +
         esc(t) +
         '</p>' +
-        (u === 'urgent' ? '<p class="call">Urgence vitale : appelez le <b>15</b> (SAMU) ou le <b>112</b>.</p>' : '') +
+        (u === 'urgent' ? '<p class="call">' + L.call + '</p>' : '') +
         '</section>'
       );
     },
     fixLinkHTML: (art, fiche) =>
-      '<p class="fix">Une erreur, une précision, une meilleure vidéo ? <a href="' +
+      '<p class="fix">' +
+      L.fixQ +
+      ' <a href="' +
       REPO +
       '/issues/new?template=correction.yml&amp;title=' +
       encodeURIComponent('Correction : ' + fiche + ' (' + art + ')') +
@@ -64,11 +53,13 @@
       encodeURIComponent(art) +
       '&amp;fiche=' +
       encodeURIComponent(fiche) +
-      '" target="_blank" rel="noopener">Proposer une correction pour cette fiche' +
+      '" target="_blank" rel="noopener">' +
+      L.fixA +
       NEW_TAB +
-      '</a> <span class="sm">(compte GitHub gratuit nécessaire)</span></p>',
-    freqWord: pop =>
-      pop >= 70 ? 'Très fréquente' : pop >= 40 ? 'Fréquente' : pop >= 15 ? 'Moins fréquente' : 'Plus rare',
+      '</a> <span class="sm">' +
+      L.fixNote +
+      '</span></p>',
+    freqWord: pop => L.freq[pop >= 70 ? 0 : pop >= 40 ? 1 : pop >= 15 ? 2 : 3],
     reduceMotion: () => !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches),
     coarse: () => !!(window.matchMedia && matchMedia('(hover: none), (pointer: coarse)').matches),
     /* téléphone : un doigt fait défiler la page, deux doigts tournent et zooment le modèle */
@@ -94,16 +85,32 @@
   window.fixLinkHTML = window.ATLAS.fixLinkHTML;
   window.freqWord = window.ATLAS.freqWord;
 })();
-fetch('content/corps.json')
-  .then(function (r) {
-    if (!r.ok) throw new Error('content/corps.json : ' + r.status);
-    return r.json();
-  })
+/* contenus : le fichier français fait foi ; en anglais, son texte est remplacé par content/en/<fichier>.json */
+function loadContent(name, kind) {
+  const get = f =>
+    fetch(f).then(function (r) {
+      if (!r.ok) throw new Error(f + ' : ' + r.status);
+      return r.json();
+    });
+  const fr = get('content/' + name + '.json');
+  if (window.LANG !== 'en') return fr;
+  return Promise.all([
+    fr,
+    get('content/en/' + name + '.json').catch(function (e) {
+      console.warn('Texte anglais absent, français affiché : ' + name, e);
+      return null;
+    }),
+  ]).then(function (r) {
+    return window.mergeContent(r[0], r[1], kind);
+  });
+}
+loadContent('corps', 'corps')
   .then(function (CONTENT) {
     'use strict';
     const T = THREE,
       $ = id => document.getElementById(id),
       A = window.ATLAS,
+      L = window.L10N,
       esc = A.esc,
       url = A.url;
     const SRC = {};
@@ -118,12 +125,8 @@ fetch('content/corps.json')
     /* repères en millimètres (x vers la gauche du sujet, y vers l'arrière, z vers le haut) */
     const ANCH = CONTENT.anchors;
     const GRP = { instant: 0, annee: 1, deformation: 2 },
-      GRP_T = {
-        instant: ['Ont mal en ce moment', 'À un instant donné ou au cours du dernier mois'],
-        annee: ['Nouveaux cas chaque année', 'Ne se compare pas avec le groupe du dessus'],
-        deformation: ['Déformations fréquentes', 'Souvent sans douleur'],
-      },
-      TIER_T = ['Plus de 3 sur 100', '1 à 3 sur 100', 'Moins de 1 sur 100'];
+      GRP_T = L.grp,
+      TIER_T = L.tiers;
     const HOME_P = CONTENT.pathologies
       .filter(p => JOINTS[p.joint] && SRC[p.source] && ANCH[p.anchor])
       .map(p => ({
@@ -149,20 +152,10 @@ fetch('content/corps.json')
     HOME_P.sort((a, b) => GRP[a.m] - GRP[b.m] || tierOf(a) - tierOf(b) || b.all - a.all || b.v - a.v);
     const FIG = {};
     HOME_P.forEach(p => (FIG[p.id] = p));
-    const fr = v => v.toLocaleString('fr-FR');
+    const fr = v => v.toLocaleString(L.num);
     const share = p =>
-      esc(
-        p.label ||
-          (p.v < 1
-            ? 'Environ ' + Math.max(1, Math.round(p.v * 10)) + ' sur 1 000'
-            : 'Environ ' + fr(Math.round(p.v)) + ' sur 100'),
-      );
+      esc(p.label || (p.v < 1 ? L.per1000(Math.max(1, Math.round(p.v * 10))) : L.per100(fr(Math.round(p.v)))));
     const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
-    const getJSON = f =>
-      fetch(f).then(r => {
-        if (!r.ok) throw new Error(f + ' : ' + r.status);
-        return r.json();
-      });
     const fixLink = A.fixLinkHTML;
     /* une seule couleur d'accent pour tous les rangs : le numéro porte le rang, la couleur chaude est réservée à la zone douloureuse */
     const rankCol = () => '#ff7a4d';
@@ -181,8 +174,7 @@ fetch('content/corps.json')
     } catch (e) {
       console.warn('WebGL indisponible', e);
       document.body.classList.add('no3d');
-      $('b-load').textContent =
-        'L’affichage 3D n’est pas disponible sur cet appareil. La liste des douleurs, les explications et les exercices restent accessibles.';
+      $('b-load').textContent = L.no3d;
     }
     const RM = A.reduceMotion();
     const onScreen = A.watchVisible(view);
@@ -243,14 +235,14 @@ fetch('content/corps.json')
 
     /* ===== Structures : os du corps entier (toujours présents) et structures de l'articulation ouverte ===== */
     const LAYERS = {
-      os: { n: 'Os', c: '#e4d9bd', op: 1 },
-      cart: { n: 'Cartilages, disques et ménisques', c: '#7cc7e3', op: 0.7 },
-      syn: { n: 'Bourses et gaines', c: '#8fd3c8', op: 0.6 },
-      lig: { n: 'Ligaments', c: '#d8b45a', op: 0.85 },
-      ten: { n: 'Tendons', c: '#efe4c8', op: 0.95 },
-      mus: { n: 'Muscles', c: '#c0665b', op: 0.34 },
-      nerf: { n: 'Nerfs', c: '#f2d94e', op: 0.95 },
-      peau: { n: 'Peau', c: '#9fc4dc', op: 0.1 },
+      os: { n: L.layers.os, c: '#e4d9bd', op: 1 },
+      cart: { n: L.layers.cart, c: '#7cc7e3', op: 0.7 },
+      syn: { n: L.layers.syn, c: '#8fd3c8', op: 0.6 },
+      lig: { n: L.layers.lig, c: '#d8b45a', op: 0.85 },
+      ten: { n: L.layers.ten, c: '#efe4c8', op: 0.95 },
+      mus: { n: L.layers.mus, c: '#c0665b', op: 0.34 },
+      nerf: { n: L.layers.nerf, c: '#f2d94e', op: 0.95 },
+      peau: { n: L.layers.peau, c: '#9fc4dc', op: 0.1 },
     };
     const LV = { os: true, cart: true, syn: true, lig: true, ten: true, mus: true, nerf: true, peau: true };
     const S = {},
@@ -423,7 +415,7 @@ fetch('content/corps.json')
           addMesh(
             struct(
               'os:' + id,
-              disc ? 'Disques intervertébraux' : 'Os',
+              disc ? L.discs : L.bone,
               disc ? 'cart' : 'os',
               null,
               disc ? 1 : null,
@@ -437,8 +429,7 @@ fetch('content/corps.json')
       })
       .catch(() => {
         if (ren)
-          $('b-load').textContent =
-          'Le squelette n’a pas pu être chargé. Les repères numérotés et les fiches restent utilisables.';
+          $('b-load').textContent = L.skelFail;
       });
 
     /* halo de la zone, vue corps entier */
@@ -613,7 +604,7 @@ fetch('content/corps.json')
         pn.className = 'pin';
         pn.style.setProperty('--c', p.col);
         pn.textContent = p.rank;
-        pn.setAttribute('aria-label', 'N° ' + p.rank + ' : ' + p.ns);
+        pn.setAttribute('aria-label', L.no + p.rank + ' : ' + p.ns);
         pn.tabIndex = -1;
         pn.onmouseenter = () => setHover(p.id);
         pn.onmouseleave = () => setHover(null);
@@ -656,12 +647,7 @@ fetch('content/corps.json')
       const sc = p => (p.tags || []).filter(t => SEL.has(t)).length;
       items.forEach(p => p.el.classList.toggle('dim', SEL.size > 0 && !sc(p)));
       const n = items.filter(p => sc(p)).length;
-      $('b-sres').textContent = SEL.size
-        ? n
-          ? (n > 1 ? n + ' fiches mentionnent' : '1 fiche mentionne') +
-            ' au moins un de ces repères. Elles restent dans l’ordre habituel de la liste. Ce n’est pas un diagnostic : seul un examen permet de trancher.'
-          : 'Aucune fiche de cette liste ne mentionne ces repères. Si la douleur est forte, inhabituelle ou s’aggrave, consultez.'
-        : '';
+      $('b-sres').textContent = SEL.size ? (n ? L.match(n) : L.noMatch) : '';
       $('b-qclear').hidden = !SEL.size;
     }
 
@@ -678,7 +664,7 @@ fetch('content/corps.json')
       el.appendChild(b);
       return b;
     }
-    chip(jEl, 'Corps entier', () => {
+    chip(jEl, L.whole, () => {
       if (hipOpen) window.openBody();
       leave();
     }).dataset.j = '';
@@ -741,7 +727,7 @@ fetch('content/corps.json')
       panel();
       flyTo(p);
       route(true);
-      $('b-status').textContent = 'Fiche affichée : ' + p.ns;
+      $('b-status').textContent = L.shown + p.ns;
       if (narrow()) {
         $('b-detail').scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
         const h = $('b-detail').querySelector('h2');
@@ -770,7 +756,7 @@ fetch('content/corps.json')
     }
     function load(j) {
       if (LOADING[j]) return LOADING[j];
-      return (LOADING[j] = Promise.all([getFile('models/' + j + '.b64.txt'), getJSON('content/' + j + '.json')])
+      return (LOADING[j] = Promise.all([getFile('models/' + j + '.b64.txt'), loadContent(j)])
         .then(r => {
         const buf = r[0],
           C = r[1],
@@ -875,8 +861,7 @@ fetch('content/corps.json')
         .catch(e => {
           console.error(e);
           if (joint !== j) return;
-          $('b-detail').innerHTML =
-            '<h2>Vue indisponible</h2><p>Les structures de cette articulation n’ont pas pu être chargées. Vérifiez votre connexion, puis réessayez.</p><button type="button" class="open" id="b-retry">Réessayer</button>';
+          $('b-detail').innerHTML = L.unavailable + '<button type="button" class="open" id="b-retry">' + L.retry + '</button>';
           $('b-retry').onclick = () => enter(j, pid);
         });
     }
@@ -940,34 +925,26 @@ fetch('content/corps.json')
       });
       const pj = joint && data && BY[pinned];
       document.title = hipOpen
-        ? 'Hanche | Atlas du corps'
+        ? L.hip + ' | ' + L.site
         : joint
-          ? JOINTS[joint].n + (pj ? ' – ' + pj.ns : '') + ' | Atlas du corps'
-          : 'Atlas du corps';
+          ? JOINTS[joint].n + (pj ? ' – ' + pj.ns : '') + ' | ' + L.site
+          : L.site;
       const touch = A.coarse();
-      $('g-sub').textContent = hipOpen
-        ? 'Hanche droite : les douleurs les plus fréquentes, leurs explications et des exercices.'
-        : joint
-          ? data
-            ? data.j.sub + ' : les douleurs les plus fréquentes, leurs explications et des exercices.'
-            : JOINTS[joint].n
-          : 'Où avez-vous mal ? Choisissez une zone du corps pour voir les douleurs les plus fréquentes, des explications et des exercices.';
+      $('g-sub').textContent = hipOpen ? L.subHip : joint ? (data ? L.subJoint(data.j.sub) : JOINTS[joint].n) : L.subHome;
       $('b-notice').hidden = !(joint && data && data.notice);
       $('b-notice').textContent = joint && data ? data.notice || '' : '';
       lEl.hidden = !joint;
       $('b-lh').textContent = joint
-        ? JOINTS[joint].n + (data ? ' · ' + items.length + ' douleurs fréquentes' : '')
-        : 'Douleurs les plus fréquentes';
-      $('b-ln').textContent = joint
-        ? 'Du plus courant au plus rare, selon une estimation sans chiffre publié. L’ordre varie beaucoup selon l’âge et le sport pratiqué.'
-        : 'Regroupées par ordre de grandeur du nombre de personnes concernées. Les études ne mesurent pas toutes la même chose : à l’intérieur d’un groupe, l’ordre n’est pas significatif.';
+        ? JOINTS[joint].n + (data ? ' · ' + L.nPains(items.length) : '')
+        : L.mostCommon;
+      $('b-ln').textContent = joint ? L.noteJoint : L.noteHome;
       $('b-hint').textContent = joint
         ? touch
-          ? 'Touchez un numéro ou une ligne pour voir la zone et les exercices. Deux doigts pour tourner et zoomer.'
-          : 'Passez la souris sur une structure ou un numéro pour voir la zone douloureuse, cliquez pour afficher la fiche. Faites glisser pour tourner, molette pour zoomer.'
+          ? L.hintJointTouch
+          : L.hintJoint
         : touch
-          ? 'Touchez un numéro ou une ligne pour ouvrir l’articulation.'
-          : 'Passez la souris sur un numéro ou une ligne pour voir la zone, cliquez pour ouvrir l’articulation.';
+          ? L.hintHomeTouch
+          : L.hintHome;
     }
 
     /* ----- fiche ----- */
@@ -987,14 +964,11 @@ fetch('content/corps.json')
         '"><strong>' +
         cap(share(f)) +
         '</strong><span>' +
-        (f.m === 'annee'
-          ? 'nouveaux cas par an, selon l’étude citée'
-          : f.m === 'deformation'
-            ? 'personnes ayant la déformation, avec ou sans douleur, selon l’étude citée'
-            : 'personnes concernées, selon l’étude citée') +
+        (f.m === 'annee' ? L.figYear : f.m === 'deformation' ? L.figDef : L.figInst) +
         '</span><p>' +
         esc(f.base) +
-        '</p><p>Source : ' +
+        '</p><p>' +
+        L.source +
         srcLink(f.src) +
         '</p></div>'
       );
@@ -1003,7 +977,8 @@ fetch('content/corps.json')
       let h =
         '<span class="tag" style="--c:' +
         p.col +
-        '"><i></i>Repère ' +
+        '"><i></i>' +
+        L.marker +
         p.rank +
         ' · ' +
         esc(JOINTS[p.j].n) +
@@ -1018,25 +993,33 @@ fetch('content/corps.json')
       if (p.hip)
         return (
           h +
-          '<p>La hanche dispose de son atlas : 13 douleurs, les muscles, tendons et cartilages en 3D, et des exercices par phase.</p><button type="button" class="open" id="b-open">Ouvrir l’atlas de la hanche</button>'
+          L.hipHome +
+          '<button type="button" class="open" id="b-open">' +
+          L.openHip +
+          '</button>'
         );
       return (
         h +
-        '<h3>Ce que vous ressentez</h3><p>' +
+        '<h3>' +
+        L.feel +
+        '</h3><p>' +
         esc(p.pain) +
-        '</p><button type="button" class="open" id="b-go">Voir ' +
-        esc(JOINTS[p.j].n.toLowerCase()) +
-        ' en détail</button>' +
+        '</p><button type="button" class="open" id="b-go">' +
+        esc(L.goJoint(JOINTS[p.j].n)) +
+        '</button>' +
         fixLink(JOINTS[p.j].n, p.n)
       );
     }
-    const fdate = d => (/^\d{4}-\d\d-\d\d$/.test(d) ? d.slice(8) + '/' + d.slice(5, 7) + '/' + d.slice(0, 4) : '');
+    const fdate = d =>
+      /^\d{4}-\d\d-\d\d$/.test(d)
+        ? new Date(d + 'T12:00:00').toLocaleDateString(L.date.loc, { day: 'numeric', month: 'long', year: 'numeric' })
+        : '';
     function revLine(p) {
       const d = fdate(p.upd);
       return (
         '<p class="rev">' +
-        (p.rev === 'relu' && p.revBy ? 'Fiche relue par ' + esc(p.revBy) : 'Fiche non relue par un professionnel de santé') +
-        (d ? ' · mise à jour le ' + d : '') +
+        (p.rev === 'relu' && p.revBy ? L.revBy(esc(p.revBy)) : L.notRev) +
+        (d ? L.updated + d : '') +
         '</p>'
       );
     }
@@ -1045,7 +1028,8 @@ fetch('content/corps.json')
       let h =
         '<span class="tag" style="--c:' +
         p.col +
-        '"><i></i>N° ' +
+        '"><i></i>' +
+        L.no +
         p.rank +
         ' · ' +
         esc(JOINTS[p.j].n) +
@@ -1060,19 +1044,31 @@ fetch('content/corps.json')
         A.warnHTML(p.warn);
       if (FIG[p.id] && FIG[p.id].j === p.j) h += figure(FIG[p.id], p.col);
       h +=
-        '<h3>Ce que vous ressentez</h3><p>' +
+        '<h3>' +
+        L.feel +
+        '</h3><p>' +
         esc(p.pain) +
-        '</p><h3>Ce qui se passe</h3><p>' +
+        '</p><h3>' +
+        L.what +
+        '</h3><p>' +
         esc(p.txt) +
-        '</p><p class="sm">Structures concernées, en couleur sur le modèle :</p><div class="chips" style="--c:' +
+        '</p><p class="sm">' +
+        L.structs +
+        '</p><div class="chips" style="--c:' +
         p.col +
         '">' +
         p.zones.map(z => (S[z] ? '<span class="zc">' + esc(S[z].label) + '</span>' : '')).join('') +
-        '</div><h3>Qui est concerné</h3><p>' +
+        '</div><h3>' +
+        L.who +
+        '</h3><p>' +
         esc(p.who) +
         '</p>';
       h +=
-        '<h3>Exercices souvent proposés</h3><p class="sm">Exemples généraux, souvent proposés pour cette douleur. Ils ne remplacent pas un bilan par un médecin ou un kinésithérapeute, qui adapte les exercices à votre cas.</p>' +
+        '<h3>' +
+        L.exH +
+        '</h3><p class="sm">' +
+        L.exNote +
+        '</p>' +
         A.ruleHTML(p.rule);
       p.ex.forEach(k => {
         const e = data.ex[k],
@@ -1084,29 +1080,24 @@ fetch('content/corps.json')
           esc(e.d) +
           '</p>' +
           (v !== '#'
-            ? '<a class="yt" href="' + esc(v) + '" target="_blank" rel="noopener">' + YT + 'Voir la vidéo<span class="sr"> : ' + esc(e.n) + ' (nouvel onglet)</span></a>'
+            ? '<a class="yt" href="' + esc(v) + '" target="_blank" rel="noopener">' + YT + L.seeVideo + '<span class="sr"> : ' + esc(e.n) + L.newTab + '</span></a>'
             : '<a class="yt" href="https://www.youtube.com/results?search_query=' +
               encodeURIComponent(e.q) +
               '" target="_blank" rel="noopener">' +
               YT +
-              'Chercher une vidéo<span class="sr"> : ' +
+              L.findVideo +
+              '<span class="sr"> : ' +
               esc(e.n) +
-              ' (YouTube, nouvel onglet)</span></a> <span class="sm">· recherche non vérifiée, préférez les vidéos de kinésithérapeutes</span>') +
+              L.ytNewTab +
+              '</span></a> <span class="sm">' +
+              L.unverified +
+              '</span>') +
           '</div>';
       });
       return h + fixLink(JOINTS[p.j].n, p.n);
     }
     function rest() {
-      return (
-        '<span class="tag" style="--c:var(--cool)"><i></i>Corps entier</span><h2 tabindex="-1">Où a-t-on mal le plus souvent ?</h2>' +
-        '<p>' +
-        HOME_P.length +
-        ' douleurs fréquentes des articulations et du dos, regroupées par ordre de grandeur du nombre de personnes concernées. Chaque numéro sur le squelette correspond à une ligne de la liste.</p>' +
-        '<ol class="steps"><li>Choisissez la zone qui fait mal, avec les boutons du haut, la liste ou le squelette.</li><li>Comparez avec les douleurs les plus fréquentes de cette zone.</li><li>Lisez les explications, les exercices et les signes qui doivent faire consulter.</li></ol>' +
-        '<p class="warn-lite">Cet atlas informe, il ne pose pas de diagnostic et ne remplace pas un médecin ou un kinésithérapeute.</p>' +
-        '<h3>Comment lire les chiffres</h3><p>Chaque chiffre vient d’une étude publiée, citée dans la fiche. Ces études ne mesurent pas toutes la même chose : personnes qui ont mal à un moment donné, nouveaux cas en un an, ou déformation souvent sans douleur ; population mondiale ou d’un seul pays ; tous âges ou certaines tranches d’âge. C’est pourquoi la liste montre des groupes et des ordres de grandeur, pas un classement exact.</p>' +
-        '<p class="sm">Dans chaque articulation, l’ordre des douleurs est une estimation, sans chiffre publié.</p>'
-      );
+      return L.rest + L.restIntro(HOME_P.length) + L.restSteps + L.restFigures;
     }
     function panel() {
       const d = $('b-detail'),
@@ -1115,7 +1106,8 @@ fetch('content/corps.json')
         d.innerHTML =
           '<span class="tag" style="--c:var(--cool)"><i></i>' +
           JOINTS[joint].n +
-          '</span><h2>Chargement de l’articulation…</h2><p class="ns">Muscles, tendons et ligaments arrivent.</p>';
+          '</span>' +
+          L.loadingJoint;
         return;
       }
       d.innerHTML = id && BY[id] ? (joint ? jointCard(BY[id]) : homeCard(BY[id])) : rest();
@@ -1171,8 +1163,8 @@ fetch('content/corps.json')
           esc(s.label) +
           '</b><em>' +
           (l.length
-            ? l.map(p => 'N° ' + p.rank + ' ' + esc(p.ns)).join('<br>')
-            : 'Aucune douleur de la liste') +
+            ? l.map(p => L.no + p.rank + ' ' + esc(p.ns)).join('<br>')
+            : L.noneInList) +
           '</em>';
         const top = l[0] ? l[0].id : null,
           want = l.some(p => p.id === pinned) ? null : top;
@@ -1185,7 +1177,7 @@ fetch('content/corps.json')
           cv.style.cursor = '';
           return;
         }
-        html = '<b>' + esc(JOINTS[j].n) + '</b><em>Douleurs fréquentes · cliquez pour ouvrir</em>';
+        html = '<b>' + esc(JOINTS[j].n) + '</b><em>' + L.tipHome + '</em>';
       }
       cv.style.cursor = clickable ? 'pointer' : '';
       tip.innerHTML = html;
@@ -1434,7 +1426,10 @@ fetch('content/corps.json')
   .catch(function (e) {
     console.error(e);
     var d = document.getElementById('b-detail');
-    if (d)
-      d.innerHTML =
-        '<h2>Chargement impossible</h2><p>Le contenu n’a pas pu être chargé. Vérifiez votre connexion, puis rechargez la page.</p><button type="button" class="open" onclick="location.reload()">Recharger</button>';
+    if (d) {
+      d.innerHTML = window.L10N.loadFail + '<button type="button" class="open" id="b-reload">' + window.L10N.reload + '</button>';
+      document.getElementById('b-reload').onclick = function () {
+        location.reload();
+      };
+    }
   });

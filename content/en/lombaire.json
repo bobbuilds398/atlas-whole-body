@@ -1,0 +1,173 @@
+{
+  "_comment": "English text for content/lombaire.json. Same ids; numbers, exercises lists and placements come from the French file.",
+  "joint": {"name": "Lower back", "subtitle": "Lumbar spine and pelvis, seen from behind"},
+  "pathologies": {
+    "lombalgie": {
+      "name": "Non-specific low back pain",
+      "commonName": "Lower back pain",
+      "whatYouFeel": "Pain in the lower back, sometimes in the buttock, that changes with positions and movements.",
+      "whatHappens": "In nine cases out of ten, no precise injury explains the pain. The back remains strong and movement is part of the treatment.",
+      "whoIsAffected": "All ages, peaking between 50 and 55.",
+      "warning": "Emergency (112 or your local number) without waiting: difficulty passing urine or leaks, loss of bowel control, numbness between the legs, weakness spreading to one or both legs. See a doctor promptly if you have a fever, after a fall or a blow, with a history of cancer, unexplained weight loss, pain that does not ease with rest or at night, or a first episode of back pain after 50."
+    },
+    "lumbago": {
+      "name": "Acute low back pain",
+      "commonName": "Back that has \"gone\"",
+      "whatYouFeel": "Sudden band of pain across the lower back, back locked, leaning to one side, for a few days.",
+      "whatHappens": "The muscles alongside the spine contract strongly and block movement. The episode usually heals in less than two weeks.",
+      "whoIsAffected": "Adults aged 30 to 50, after an effort or an awkward movement, sometimes for no reason.",
+      "warning": "Pain running below the knee with loss of strength: see a doctor promptly. Emergency (112 or your local number) if you have difficulty passing urine, lose bowel control or feel numbness between the legs. Also see a doctor if the pain has not eased at all after a week."
+    },
+    "sciatique": {
+      "name": "Sciatica from a disc herniation",
+      "commonName": "Pain running down the leg",
+      "whatYouFeel": "Pain from the buttock to the back of the thigh, the calf and the foot, often stronger than the back pain, worse when sitting and when coughing.",
+      "whatHappens": "The L4-L5 or L5-S1 disc bulges backwards and irritates a root of the sciatic nerve. In most cases the herniation shrinks on its own.",
+      "whoIsAffected": "Adults aged 30 to 50.",
+      "warning": "Emergency (112 or your local number): difficulty passing urine or leaks, loss of bowel control, numbness between the legs, pain in both legs, foot drop or weakness that gets worse. Also see a doctor if the pain stays unbearable despite painkillers."
+    },
+    "canal": {
+      "name": "Lumbar spinal stenosis",
+      "commonName": "Heavy legs when walking",
+      "whatYouFeel": "Pain, heaviness or pins and needles in both legs when walking, which force you to stop and ease when sitting or leaning forward.",
+      "whatHappens": "The canal the nerve roots run through narrows with arthritis. It opens up when the back rounds, hence the relief when leaning forward.",
+      "whoIsAffected": "Over 60.",
+      "warning": "Emergency (112 or your local number): difficulty passing urine or leaks, numbness between the legs, legs giving way. See a doctor if your walking distance shrinks week after week. If calf pain goes away as soon as you stop and stand still, without sitting or leaning, tell your doctor: the arteries may be involved."
+    },
+    "disco": {
+      "name": "Degenerative disc disease",
+      "commonName": "Ageing disc",
+      "whatYouFeel": "Band of pain in the middle of the lower back, worse after sitting for long and leaning forward, stiffness on getting up.",
+      "whatHappens": "With age, discs lose a little water and height, just as hair turns grey. These scan findings are just as common in people without pain. They do not mean the back is fragile: moving and getting stronger remains the treatment.",
+      "whoIsAffected": "Over 40. At 50, about eight in ten people without back pain show this kind of finding.",
+      "warning": "Night pain that wakes you, or morning stiffness lasting more than an hour: see a doctor."
+    },
+    "facettes": {
+      "name": "Facet joint osteoarthritis",
+      "commonName": "Back pain when arching",
+      "alias": "Facet syndrome",
+      "whatYouFeel": "Pain on one side of the lower back when arching, when standing for long, eased by sitting or leaning forward.",
+      "whatHappens": "Small joints link the vertebrae at the back. They wear and become painful when the back arches.",
+      "whoIsAffected": "Over 50.",
+      "warning": "Pain running down both legs when walking: see a doctor."
+    },
+    "si": {
+      "name": "Sacroiliac joint pain",
+      "commonName": "Pain at the top of one buttock",
+      "whatYouFeel": "Pain below the belt line, on one side, above the buttock, when turning over in bed or climbing stairs.",
+      "whatHappens": "The sacroiliac joint links the sacrum to the pelvic bone. Strong ligaments hold it, but it can become irritated.",
+      "whoIsAffected": "During or after pregnancy, after a fall onto the buttocks, sometimes with no clear cause.",
+      "warning": "Waking in the second half of the night and morning stiffness lasting more than 30 minutes, before 45: see a doctor, inflammatory arthritis is possible. Severe night pain, fever or weight loss: see a doctor promptly."
+    },
+    "tassement": {
+      "name": "Vertebral compression fracture",
+      "commonName": "Sudden back pain after 60",
+      "whatYouFeel": "Sudden pain in the middle of the back or the upper lower back after minimal effort, worse standing, eased lying down.",
+      "whatHappens": "The body of a vertebra weakened by osteoporosis collapses, most often where the mid back meets the lower back.",
+      "whoIsAffected": "Over 60, especially women, with osteoporosis, long-term cortisone treatment or a previous fracture.",
+      "warning": "Sudden back pain after 60, even without a fall: see a doctor within days. An X-ray confirms it, and osteoporosis can be treated. In the meantime, avoid carrying loads and bending forward with a rounded back. Also see a doctor if you have a history of cancer. Emergency (112 or your local number) if the legs weaken or you have bladder problems."
+    },
+    "listhesis": {
+      "name": "Spondylolisthesis",
+      "commonName": "Slipping vertebra",
+      "whatYouFeel": "Band of pain across the lower back when arching, tight muscles at the back of the thigh.",
+      "whatHappens": "A crack in the back arch of L5, or wear of the joints, lets the vertebra slide forward over the one below.",
+      "whoIsAffected": "Teenage athletes (gymnastics, diving), or over 50 through arthritis.",
+      "warning": "A teenage athlete with pain when arching for more than two weeks: see a doctor and pause sports that arch the back (gymnastics, dance, diving, tennis serve), a stress fracture of the vertebra is possible. Pins and needles or weakness in the legs: see a doctor. Bladder problems: emergency (112 or your local number)."
+    },
+    "ql": {
+      "name": "Quadratus lumborum pain",
+      "commonName": "Sore spot in the flank",
+      "whatYouFeel": "Deep pain between the last ribs and the pelvis, on one side, when leaning sideways or standing up.",
+      "whatHappens": "The quadratus lumborum links the ribs, the lumbar vertebrae and the pelvis. When overloaded, it stays tight and tender.",
+      "whoIsAffected": "Long periods of sitting, carrying loads on one side, work bent over.",
+      "warning": "Flank pain with fever or burning when passing urine: see a doctor, a kidney may be involved."
+    },
+    "cruralgie": {
+      "name": "Femoral radiculopathy",
+      "commonName": "Pain at the front of the thigh",
+      "whatYouFeel": "Pain from the groin down the front of the thigh to the knee, often worse at night, sometimes weakness when climbing stairs.",
+      "whatHappens": "An L3 or L4 root of the femoral nerve is irritated, by a disc or by arthritis.",
+      "whoIsAffected": "Mostly over 50.",
+      "warning": "Knee giving way or thigh weakening: see a doctor promptly. Emergency (112 or your local number) with bladder problems or numbness between the legs. Groin pain when walking can also come from the hip: an examination tells them apart."
+    },
+    "spa": {
+      "name": "Axial spondyloarthritis",
+      "commonName": "Stiff back in the morning",
+      "whatYouFeel": "Pain in the buttocks and lower back in the second half of the night, morning stiffness lasting more than 30 minutes, better with movement.",
+      "whatHappens": "A long-term inflammation first affects the sacroiliac joints, then the spine. Movement relieves it, rest makes it worse.",
+      "whoIsAffected": "Starts before 45, more often men.",
+      "warning": "This picture calls for medical advice: treatments slow the disease. Daily exercise is part of it. Red, painful eye: see a doctor the same day."
+    }
+  },
+  "exercises": {
+    "marche": {"name": "Walking", "how": "10 to 30 minutes a day, at your own pace, even if the back pulls a little.", "videoSearch": "low back pain walking advice physiotherapist"},
+    "chat": {"name": "Cat and cow", "how": "On all fours, round then hollow the back. 10 slow repetitions.", "videoSearch": "cat cow exercise lumbar mobility"},
+    "genoux": {"name": "Knees to chest", "how": "Lying down, bring one knee then the other towards the chest. 10 times each side.", "videoSearch": "knees to chest lower back stretch"},
+    "bird": {"name": "Bird-dog", "how": "On all fours, extend one arm and the opposite leg. 3 sets of 8 each side.", "videoSearch": "bird dog exercise core low back pain"},
+    "bascule": {"name": "Pelvic tilt lying down", "how": "Flatten the lower back then relax. 2 sets of 10.", "videoSearch": "pelvic tilt lying down exercise"},
+    "sphinx": {"name": "Prone extension on the forearms", "how": "Lying face down, prop yourself on your forearms with the pelvis on the floor, hold 5 to 10 s. 10 times. Only continue if the leg pain lessens or moves back up towards the back. Stop if it moves further down the leg.", "videoSearch": "McKenzie prone extension sphinx disc herniation"},
+    "nsci": {"name": "Sciatic nerve glide", "how": "Sitting on the edge of a chair, back straight. Straighten the knee while lifting the head towards the ceiling, then bend the knee while lowering the head. 10 times slowly. Pins and needles must not increase.", "videoSearch": "sciatic nerve glide seated exercise"},
+    "ncru": {"name": "Femoral nerve glide", "how": "Lying on your side, heel towards the buttock then relax. 10 times slowly.", "videoSearch": "femoral nerve glide exercise"},
+    "pontb": {"name": "Glute bridge with a ball between the knees", "how": "Squeeze the ball as you lift. 3 sets of 10.", "videoSearch": "glute bridge ball between knees sacroiliac"},
+    "planche": {"name": "Forearm plank", "how": "Body in a straight line, hold 20 to 30 s, 3 times.", "videoSearch": "forearm plank technique"},
+    "lat": {"name": "Side plank on the knees", "how": "Resting on the forearm and knees, hold 20 s, 3 times each side.", "videoSearch": "side plank knees quadratus lumborum"},
+    "etql": {"name": "Side stretch", "how": "Standing, arm above the head, lean to the opposite side. 3 times 30 s.", "videoSearch": "standing quadratus lumborum stretch"},
+    "flex": {"name": "Seated forward bend", "how": "Sitting, lean forward, hands towards the floor. 10 times, gives relief with spinal stenosis.", "videoSearch": "seated lumbar flexion spinal stenosis exercise"},
+    "velo": {"name": "Exercise bike", "how": "Trunk leaning slightly forward, 15 to 20 minutes. Cycling is better tolerated than walking when the canal is narrow.", "videoSearch": "cycling spinal stenosis exercise"},
+    "dead": {"name": "Core work in neutral", "how": "Lying down, back in neutral, lift one knee then the other without moving the pelvis. 2 sets of 10.", "videoSearch": "dead bug core spondylolisthesis"},
+    "ext": {"name": "Sit tall", "how": "Sitting on the edge of a chair, feet flat, hands on the thighs. Gently grow taller while opening the chest, hold 5 s. 10 times, without going into pain. After a recent fracture, wait for the doctor's agreement.", "videoSearch": "seated posture extension osteoporosis exercise physiotherapy"},
+    "chaise": {"name": "Sit to stand", "how": "Without using your hands if possible, 3 sets of 8.", "videoSearch": "sit to stand strengthening older adults"},
+    "rot": {"name": "Lying trunk rotations", "how": "Knees bent, let them drop to one side then the other. 10 times.", "videoSearch": "lying lumbar rotation windscreen wiper exercise"},
+    "respi": {"name": "Deep breathing", "how": "Breathe in while opening the ribs, 10 cycles, morning and evening.", "videoSearch": "thoracic breathing ankylosing spondylitis exercise"}
+  },
+  "questions": {
+    "barre": "A band across the middle of the lower back",
+    "uncote": "On one side of the back",
+    "fesse": "At the top of the buttock",
+    "jambe": "In the leg, at the back",
+    "cuisse": "At the front of the thigh",
+    "flanc": "In the flank",
+    "brutal": "Sudden locking",
+    "assis": "Worse sitting or leaning forward",
+    "cambre": "Worse standing or arching",
+    "marche": "Heavy legs when walking",
+    "toux": "Worse when coughing",
+    "matin": "Stiff in the morning, better with movement",
+    "nuit": "Wakes me at night",
+    "fourmi": "Pins and needles in the leg",
+    "retourne": "When turning over in bed",
+    "age": "After 60"
+  },
+  "structures": {
+    "lomb": "Lumbar vertebrae",
+    "c-lomb": "Cartilage of the facet (posterior) joints and vertebral endplates",
+    "sacrum": "Sacrum",
+    "c-sacrum": "Articular cartilage: sacrum",
+    "iliaque": "Hip bones",
+    "c-iliaque": "Articular cartilage: iliac bones",
+    "thor": "Lowest thoracic vertebrae and ribs",
+    "femur": "Femurs",
+    "disques": "Intervertebral discs",
+    "lse": "Supraspinous and interspinous ligaments",
+    "ljaune": "Ligamenta flava",
+    "llp": "Posterior longitudinal ligament",
+    "lil": "Iliolumbar ligaments",
+    "lsi": "Sacroiliac ligaments",
+    "lst": "Sacrotuberous ligaments",
+    "m-multi": "Multifidus",
+    "m-erect": "Erector spinae (longissimus and iliocostalis)",
+    "m-ql": "Quadratus lumborum",
+    "m-psoas": "Psoas major",
+    "t-psoas": "Psoas major tendon",
+    "m-gmax": "Gluteus maximus",
+    "m-gmed": "Gluteus medius",
+    "t-gmed": "Gluteus medius tendon",
+    "m-piri": "Piriformis",
+    "dure": "Dural sac and cauda equina",
+    "sci": "Sciatic nerve",
+    "cru": "Femoral nerve",
+    "hern": "Disc herniation, when present",
+    "peau": "Skin"
+  }
+}

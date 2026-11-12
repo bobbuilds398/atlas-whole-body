@@ -138,6 +138,73 @@ for (const [j, id] of homeIds) {
   if (c && !(c.pathologies || []).some((p) => p.id === id)) err('content/corps.json', `fiche "${id}" absente de content/${j}.json`);
 }
 
+// ---- textes anglais : content/en/*.json (mêmes identifiants que le français, texte seulement) ----
+const EN_KEYS = {
+  card: ['name', 'commonName', 'alias', 'whatYouFeel', 'whatHappens', 'whoIsAffected', 'warning'],
+  home: ['name', 'commonName', 'alias', 'display', 'basis', 'whatYouFeel'],
+  exercise: ['name', 'how', 'videoSearch'],
+};
+for (const file of readdirSync('content').filter((x) => x.endsWith('.json'))) {
+  const fr = read('content/' + file), f = 'content/en/' + file;
+  let en;
+  try { en = JSON.parse(readFileSync(f, 'utf8')); } catch (e) { err(f, 'fichier anglais absent ou JSON invalide — ' + e.message); continue; }
+  if (!fr) continue;
+  noMarkup(f, en);
+  const need = (where, src, dst, keys) => {
+    for (const k of keys) {
+      if (text(src && src[k]) && !text(dst && dst[k])) err(f, `${where} : traduction "${k}" manquante`);
+      if (dst && dst[k] !== undefined && !(src && src[k] !== undefined)) err(f, `${where} : "${k}" absent du français`);
+    }
+    for (const k of Object.keys(dst || {})) if (!keys.includes(k)) err(f, `${where} : champ inconnu "${k}"`);
+  };
+  const sameIds = (where, frIds, enObj) => {
+    for (const id of frIds) if (!(enObj || {})[id]) err(f, `${where} "${id}" sans traduction`);
+    for (const id of Object.keys(enObj || {})) if (!frIds.includes(id)) err(f, `${where} "${id}" absent du français`);
+  };
+  if (file === 'corps.json') {
+    sameIds('source', Object.keys(fr.sources || {}), en.sources);
+    sameIds('articulation', Object.keys(fr.joints || {}), en.joints);
+    sameIds('fiche', (fr.pathologies || []).map((p) => p.id), en.pathologies);
+    for (const p of fr.pathologies || []) need(`fiche "${p.id}"`, p, (en.pathologies || {})[p.id], EN_KEYS.home);
+    continue;
+  }
+  for (const k of ['name', 'subtitle']) if (!text((en.joint || {})[k])) err(f, `joint.${k} manquant`);
+  sameIds('fiche', (fr.pathologies || []).map((p) => p.id), en.pathologies);
+  for (const p of fr.pathologies || []) need(`fiche "${p.id}"`, p, (en.pathologies || {})[p.id], EN_KEYS.card);
+  sameIds('exercice', Object.keys(fr.exercises || {}), en.exercises);
+  for (const [k, e] of Object.entries(fr.exercises || {})) need(`exercice "${k}"`, e, (en.exercises || {})[k], EN_KEYS.exercise);
+  sameIds('question', (fr.questions || []).map((q) => q.id), en.questions);
+  sameIds('structure', Object.keys(fr.structures || {}), en.structures);
+}
+
+// ---- hanche : js/hip-en.js doit suivre les tableaux français de js/hip.js ----
+{
+  const f = 'js/hip-en.js', hip = readFileSync('js/hip.js', 'utf8');
+  const win = {};
+  try { new Function('window', readFileSync(f, 'utf8'))(win); } catch (e) { err(f, 'illisible — ' + e.message); }
+  const H = win.HIP_EN;
+  const body = hip.slice(hip.indexOf('const PATHO=['), hip.indexOf('PATHO.sort('));
+  const extraSyms = hip.slice(hip.indexOf('const SYMS=['), hip.indexOf('PATHO.forEach(p=>Object.assign(p,EXTRA[p.id]));'));
+  const exm = hip.slice(hip.indexOf('const EXM={'), hip.indexOf('const VID='));
+  if (H) {
+    let P = [], SY = [], EX = {}, EM = {};
+    try { P = new Function('const HE=null;' + body + ';return PATHO;')(); } catch (e) { err('js/hip.js', 'PATHO illisible — ' + e.message); }
+    try { [SY, EX] = new Function(extraSyms + ';return [SYMS,EXTRA];')(); } catch (e) { err('js/hip.js', 'SYMS/EXTRA illisibles — ' + e.message); }
+    try { EM = new Function(exm + ';return EXM;')(); } catch (e) { err('js/hip.js', 'EXM illisible — ' + e.message); }
+    for (const p of P) {
+      const e = (H.patho || {})[p.id];
+      if (!e) { err(f, `fiche "${p.id}" sans traduction`); continue; }
+      for (const k of ['n', 'al', 'who', 'pain', 'txt', 'warn']) if (!text(e[k])) err(f, `fiche "${p.id}" : "${k}" manquant`);
+      if (!Array.isArray(e.ex) || e.ex.length !== p.ex.length) err(f, `fiche "${p.id}" : ${p.ex.length} exercices attendus, dans le même ordre`);
+      for (const x of p.ex) if (!text((H.exName || {})[x.n])) err(f, `exercice "${x.n}" sans nom anglais (exName)`);
+      if (!(H.extra || {})[p.id] || (H.extra[p.id].fe || []).length !== (EX[p.id] || {}).fe?.length) err(f, `fiche "${p.id}" : extra.ns et extra.fe (même nombre de phrases) attendus`);
+    }
+    for (const s of SY) if (!(H.syms || {})[s.id]) err(f, `repère "${s.id}" sans traduction`);
+    for (const m of Object.values(EM)) if (/[a-zé]{3,}/i.test(m.dose) && !text((H.dose || {})[m.dose])) err(f, `dose "${m.dose}" sans traduction`);
+    noMarkup(f, { patho: H.patho, extra: H.extra, syms: H.syms, gloss: H.gloss });
+  }
+}
+
 if (warnings.length) console.warn(warnings.map((w) => 'avertissement · ' + w).join('\n'));
 if (errors.length) { console.error(errors.join('\n')); console.error(`\n${errors.length} problème(s).`); process.exit(1); }
 console.log('Contenus cohérents.');

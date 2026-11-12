@@ -3,6 +3,28 @@
 window.startHip=function(){
 
 'use strict';
+/* langue : textes anglais dans js/hip-en.js (window.HIP_EN), même ordre et mêmes identifiants */
+const HE=window.LANG==='en'&&window.HIP_EN?window.HIP_EN:null;
+const U=HE?HE.ui:{
+  freqIdx:n=>'Indice de fréquence relative : '+n+' sur 100',
+  match:n=>(n>1?n+' fiches mentionnent':'1 fiche mentionne')+' ces repères. Elles restent dans l’ordre habituel de la liste. Ce n’est pas un diagnostic : seul un examen permet de trancher.',
+  noMatch:'Aucune fiche ne mentionne ces mots. Si la douleur est forte, inhabituelle ou s’aggrave, consultez.',
+  seeDef:'Voir la définition',
+  noEx:'Aucun exercice ne correspond à ces filtres pour cette douleur. Changez d’étape ou de matériel, ou demandez conseil à un kinésithérapeute.',
+  video:'Vidéo : ',search:'Chercher sur YouTube',newTab:' (nouvel onglet)',unverified:'· résultats non vérifiés, préférez les vidéos de kinésithérapeutes',
+  rest:'repos ',timer:'Minuteur ',
+  howTo:'<span class="tag">Mode d’emploi</span><h2>Choisissez une douleur</h2><ol class="steps"><li>Survolez une structure du modèle ou un numéro : la zone douloureuse se colore avec sa forme exacte.</li><li>Survolez la liste : la même zone apparaît sur le modèle.</li><li>Décrivez ce que vous ressentez dans la recherche : les fiches qui en parlent restent nettes, les autres s’atténuent.</li><li>Cliquez pour verrouiller la sélection et afficher les exercices.</li><li>« Mouvement et coupe » permet de plier la hanche et de voir où ça pince.</li></ol>',
+  aka:'Aussi appelé : ',rev:'Fiche non relue par un professionnel de santé · mise à jour le 11 novembre 2026',
+  what:'Ce qui se passe',structs:'Structures concernées :',feel:'Ce que vous ressentez',
+  exH:'Exercices souvent proposés',exNote:'Exemples généraux. Ils ne remplacent pas un bilan par un médecin ou un kinésithérapeute, qui adapte les exercices à votre cas.',
+  allStages:'Toutes les étapes',equip:'Matériel :',back:'Retour à la vue d’ensemble',words:'Mots utiles',
+  clickEx:' — cliquez pour les exercices',landmark:'Structure de repère',
+  contact:lim=>'Contact : la bosse du col bute sur le bord du cotyle et pince le labrum. Avec ces réglages, le contact commence vers '+lim+'° de flexion.',
+  noContact:'Avec cette bosse, aucun contact sur ces réglages.',
+  notYet:lim=>'Pas de contact pour l’instant. Avec ces réglages, il apparaît vers '+lim+'° de flexion.',
+  healthy:'Hanche saine : le mouvement reste libre. Ajoutez la bosse pour voir ce que provoque un conflit. Ligaments, tendons et muscles sont masqués pendant le mouvement.',
+  none:'aucune',active:'active'};
+const NO=window.LANG==='en'?'No. ':'N° ';
 /* ===== Données : douleurs de hanche, ordre estimé du plus courant au plus rare (indice 0-100, sans chiffre publié) =====
    zones = structures survolables et colorées ; also = colorées seulement ; anchor = position du numéro 3D ; view = direction de la caméra */
 const PATHO=[
@@ -128,6 +150,10 @@ PATHO.push(
   {n:'Marche avec deux cannes anglaises',d:'En attendant l’avis, deux cannes si l’appui fait mal. Ensuite, décharge selon la prescription du médecin.',q:'marche avec cannes anglaises technique'}],
  warn:'Arrêtez tout de suite course et sauts, et consultez dans les 24 à 48 heures. Ne testez pas la douleur en sautant sur la jambe. Si vous ne pouvez plus appuyer : urgences. La radio est souvent normale au début, une IRM est souvent nécessaire.'}
 );
+/* exercices : e.k garde le nom français, clé de EXM ; textes anglais appliqués dans le même ordre */
+PATHO.forEach(p=>p.ex.forEach(x=>{x.k=x.n}));
+if(HE)PATHO.forEach(p=>{const e=HE.patho[p.id];if(!e)return;['n','al','who','pain','txt','warn'].forEach(k=>{if(e[k])p[k]=e[k]});
+  p.ex.forEach((x,i)=>{x.n=HE.exName[x.k]||x.k;if(e.ex&&e.ex[i])Object.assign(x,e.ex[i])})});
 PATHO.sort((a,b)=>b.pop-a.pop);
 PATHO.forEach((p,i)=>{p.rank=i+1;p.col='hsl('+(6+i*3.6).toFixed(0)+',94%,'+(56+i*.6).toFixed(0)+'%)';p.hex=new THREE.Color().setStyle(p.col)});
 const BY={};PATHO.forEach(p=>BY[p.id]=p);
@@ -167,6 +193,7 @@ const EXTRA={
  necrose:{ns:'Os de la tête du fémur mal irrigué',tags:['aine','nuit','boite','fesse'],fe:['« Une douleur est apparue dans l’aine assez vite, sans choc. »','« La nuit, la douleur me réveille. »','« Je boite et j’évite de poser le poids sur cette jambe. »']},
  fracture:{ns:'Petite fracture du col du fémur',tags:['aine','effort','nuit','boite','descend'],fe:['« Ça a commencé à l’effort et ça persiste maintenant au repos. »','« Je dois m’arrêter de courir et la douleur revient de plus en plus tôt. »','« La douleur est dans l’aine ou la cuisse et je boite. »']}};
 PATHO.forEach(p=>Object.assign(p,EXTRA[p.id]));
+if(HE){PATHO.forEach(p=>{const e=HE.extra[p.id];if(e){p.ns=e.ns;p.fe=e.fe}});SYMS.forEach(s=>{const e=HE.syms[s.id];if(e){s.t=e.t;s.k=e.k}})}
 /* terme, définition, expressions repérées dans les textes (expressions régulières, insensibles à la casse) */
 const GLOSS=[
  ['Abduction, adduction','Écarter la jambe du corps (abduction), la ramener vers l’intérieur (adduction).',['abduction','adduction']],
@@ -180,11 +207,13 @@ const GLOSS=[
  ['Labrum','Anneau souple de fibrocartilage qui borde le cotyle et stabilise la hanche.',['labrum']],
  ['Rotation interne, externe','Tourner la pointe du pied vers l’intérieur, vers l’extérieur.',['rotation interne','rotation externe','rotation']],
  ['Tendinopathie','Tendon irrité ou abîmé par des contraintes répétées. Le terme « tendinite » suppose une inflammation, pas toujours présente.',['tendinopathies?']]];
-GLOSS.sort((a,b)=>a[0].localeCompare(b[0],'fr'));
+if(HE)GLOSS.splice(0,GLOSS.length,...HE.gloss);
+GLOSS.sort((a,b)=>a[0].localeCompare(b[0],window.LANG||'fr'));
 /* ===== Exercices : phases 1 douleur vive, 2 reprise, 3 retour au sport ; matériel a=aucun el=élastique ba=ballon bm=banc/mur vp=vélo/piscine ch=charge/rouleau ===== */
 const PHASES=['Douleur vive','Reprise','Retour au sport'];
 const PHDESC=['Calmer la douleur : mouvements doux et contractions sans mouvement, sans dépasser 3 sur 10.','Renforcer par paliers : plus de séries, plus d’amplitude.','Charges, impacts et gestes du sport, ajoutés un par un.'];
 const EQL={el:'Élastique',ba:'Ballon',bm:'Banc ou mur',vp:'Vélo ou piscine',ch:'Haltère ou rouleau'};
+if(HE){PHASES.splice(0,PHASES.length,...HE.phases);PHDESC.splice(0,PHDESC.length,...HE.phdesc);Object.assign(EQL,HE.eql)}
 const EXM={
  'Pont fessier':{ph:[1,2],eq:'a',dose:'3 × 10',rest:60},
  'Abduction couchée sur le côté':{ph:[2,3],eq:'a',dose:'2 à 3 × 10',rest:45},
@@ -230,12 +259,14 @@ const VID={};
 const T=THREE,V=(x,y,z)=>new T.Vector3(x,y,z),D2=Math.PI*2;
 const LAYERS={os:{n:'Os',c:'#e4d9bd',op:1},cart:{n:'Cartilage',c:'#7cc7e3',op:.6},lig:{n:'Ligaments',c:'#d8b45a',op:.8},ten:{n:'Tendons',c:'#efe4c8',op:.92},mus:{n:'Muscles et nerf',c:'#c0665b',op:.2}};
 const LV={os:true,cart:true,lig:true,ten:true,mus:true};
+const layerName=()=>{if(HE)Object.keys(LAYERS).forEach(k=>{if(HE.layers[k])LAYERS[k].n=HE.layers[k]})};
 const S={},root=new T.Group();
 const P=V(.8,.58,-.14).normalize();   // axe profond du cotyle (vers le fond de la cavité)
 const N=V(-.78,-.55,.29).normalize(); // axe du col fémoral
 const Q=(a,b)=>new T.Quaternion().setFromUnitVectors(V(...a).normalize(),(b.isVector3?b:V(...b)).clone().normalize());
 const K=v=>()=>v, bel=(w,a=.15,p=.7)=>t=>w*(a+(1-a)*Math.pow(Math.sin(Math.PI*t),p));
 function reg(id,label,layer,color,op,ov){
+  if(HE&&HE.struct[id])label=HE.struct[id];
   const mat=new T.MeshStandardMaterial({color,roughness:.62,metalness:.02,transparent:true,opacity:op,side:T.DoubleSide});
   return S[id]={id,label,layer,base:new T.Color(color),op:ov?0:op,mat,meshes:[],k:0,ov:!!ov};
 }
@@ -351,7 +382,7 @@ put(s,tube([[1,1.4,-2.45],[.2,-.8,-2.05],[-.7,-3,-1.65],[-1.1,-8,-1.3]],K(.22),K
 
 Object.values(S).forEach(o=>{o.meshes.forEach(m=>{m.userData.s=o});o.op=LAYERS[o.layer]&&!o.ov?(o.layer==='os'?1:o.op):0});
 /* ===== Enveloppe cutanée : hanche, fesse et cuisse, translucide avec contour renforcé ===== */
-LAYERS.skin={n:'Peau',c:'#e4b9a1',op:0};LV.skin=true;
+LAYERS.skin={n:'Peau',c:'#e4b9a1',op:0};LV.skin=true;layerName();
 const SK={cx:[1.2,.7,.7,.2,-.05,-.05],cy:[5.4,2.5,-.5,-3.5,-6.5,-10],cz:[-.6,-.95,-1,-.6,-.15,-.2],
   hx:[3.8,4.2,4.2,3.9,3.9,3.8],hz:[3.6,3.9,4.1,3.6,3.45,3.4]};
 const along=(a,t)=>{const x=t*(a.length-1),i=Math.min(a.length-2,Math.floor(x)),f=x-i,s=f*f*(3-2*f);return a[i]+(a[i+1]-a[i])*s};
@@ -394,7 +425,7 @@ Object.entries(LAYERS).forEach(([k,L])=>{const b=document.createElement('button'
 
 /* ----- liste, recherche, vocabulaire ----- */
 PATHO.forEach(p=>{const li=document.createElement('li'),b=document.createElement('button');b.type='button';b.className='item';b.style.setProperty('--c',p.col);
-  b.title='Indice de fréquence relative : '+p.pop+' sur 100';
+  b.title=U.freqIdx(p.pop);
   b.innerHTML='<span class="rk"><i></i>'+p.rank+'</span><span class="nm"><span class="tt">'+p.ns+'</span><small class="mb"></small></span><span class="ns">'+title(p)+(window.freqWord?' · '+window.freqWord(p.pop):'')+'</span>';
   b.onmouseenter=b.onfocus=()=>setHover(p.id);b.onmouseleave=b.onblur=()=>setHover(null);b.onclick=()=>pin(p.id);
   li.appendChild(b);$('plist').appendChild(li);p.itemEl=b});
@@ -409,7 +440,7 @@ function score(p){const q=norm(query).split(/[^a-z0-9]+/).filter(w=>w.length>2&&
 function reorder(){const act=SEL.size>0||norm(query).trim().length>2,sc=new Map(PATHO.map(p=>[p,act?score(p):0]));
   PATHO.forEach(p=>{p.itemEl.classList.toggle('dim',act&&sc.get(p)===0);p.itemEl.querySelector('.mb').textContent=''});
   const n=PATHO.filter(p=>sc.get(p)>0).length;
-  $('sres').textContent=act?(n?(n>1?n+' fiches mentionnent':'1 fiche mentionne')+' ces repères. Elles restent dans l’ordre habituel de la liste. Ce n’est pas un diagnostic : seul un examen permet de trancher.':'Aucune fiche ne mentionne ces mots. Si la douleur est forte, inhabituelle ou s’aggrave, consultez.'):''}
+  $('sres').textContent=act?(n?U.match(n):U.noMatch):''}
 SYMS.forEach(s=>{const b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('aria-pressed','false');b.textContent=s.t;
   b.onclick=()=>{SEL.has(s.id)?SEL.delete(s.id):SEL.add(s.id);b.setAttribute('aria-pressed',String(SEL.has(s.id)));reorder()};$(s.g==='w'?'tw':'tq').appendChild(b)});
 $('q').oninput=e=>{query=e.target.value;reorder()};
@@ -422,7 +453,7 @@ function openGloss(term){const d=$('gd');d.open=true;const t=[...document.queryS
 function linkTerms(s,used){let out=s;
   GLOSS.forEach(g=>{if(used.has(g[0]))return;const re=new RegExp('(^|[^\\p{L}])('+g[2].join('|')+')(?=[^\\p{L}]|$)','iu'),m=re.exec(out);if(!m)return;
     used.add(g[0]);const i=m.index+m[1].length;
-    out=out.slice(0,i)+'<button type="button" class="tl" data-g="'+g[0]+'" title="Voir la définition">'+m[2]+'</button>'+out.slice(i+m[2].length)});
+    out=out.slice(0,i)+'<button type="button" class="tl" data-g="'+g[0]+'" title="'+U.seeDef+'">'+m[2]+'</button>'+out.slice(i+m[2].length)});
   return out}
 $('gbtn').onclick=()=>openGloss('*');
 
@@ -439,26 +470,26 @@ function unpin(){pinned=null;sync();panel();home();try{history.replaceState(null
 
 /* ----- fiche et exercices ----- */
 function exHTML(p){
-  const list=p.ex.filter(e=>{const m=EXM[e.n]||{ph:[1,2,3],eq:'a'};return(!phase||m.ph.includes(phase))&&(!EQS.size||m.eq==='a'||EQS.has(m.eq))});
-  if(!list.length)return '<p class="rule">Aucun exercice ne correspond à ces filtres pour cette douleur. Changez d’étape ou de matériel, ou demandez conseil à un kinésithérapeute.</p>';
-  return list.map(e=>{const m=EXM[e.n]||{ph:[],eq:'a',dose:'',rest:0},v=VID[e.n];
-    const link=v?'<a class="yt" href="https://www.youtube.com/watch?v='+v.id+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Vidéo : '+esc(v.t)+'</a>'
-      :'<a class="yt" href="'+yt(e.q)+'" target="_blank" rel="noopener noreferrer">'+PLAY+'Chercher sur YouTube<span class="sr"> : '+e.n+' (nouvel onglet)</span></a> <span class="sm">· résultats non vérifiés, préférez les vidéos de kinésithérapeutes</span>';
-    return '<div class="ex"><h4>'+e.n+'</h4><p>'+e.d+'</p><div class="mt"><span>'+m.dose+'</span>'+(m.rest?'<span>repos '+m.rest+' s</span>':'')
+  const list=p.ex.filter(e=>{const m=EXM[e.k]||{ph:[1,2,3],eq:'a'};return(!phase||m.ph.includes(phase))&&(!EQS.size||m.eq==='a'||EQS.has(m.eq))});
+  if(!list.length)return '<p class="rule">'+U.noEx+'</p>';
+  return list.map(e=>{const m=EXM[e.k]||{ph:[],eq:'a',dose:'',rest:0},v=VID[e.k],dose=HE&&HE.dose[m.dose]||m.dose;
+    const link=v?'<a class="yt" href="https://www.youtube.com/watch?v='+v.id+'" target="_blank" rel="noopener noreferrer">'+PLAY+U.video+esc(v.t)+'</a>'
+      :'<a class="yt" href="'+yt(e.q)+'" target="_blank" rel="noopener noreferrer">'+PLAY+U.search+'<span class="sr"> : '+e.n+U.newTab+'</span></a> <span class="sm">'+U.unverified+'</span>';
+    return '<div class="ex"><h4>'+e.n+'</h4><p>'+e.d+'</p><div class="mt"><span>'+dose+'</span>'+(m.rest?'<span>'+U.rest+m.rest+' s</span>':'')
       +'<span>'+m.ph.map(i=>PHASES[i-1]).join(' · ')+'</span>'+(m.eq!=='a'?'<span>'+EQL[m.eq]+'</span>':'')+'</div><div class="act">'
-      +(m.tm?'<button type="button" class="tm" data-tm="'+m.tm+'">Minuteur '+m.tm+' s</button>':'')+link+'</div></div>'}).join('')}
+      +(m.tm?'<button type="button" class="tm" data-tm="'+m.tm+'">'+U.timer+m.tm+' s</button>':'')+link+'</div></div>'}).join('')}
 function panel(){const d=$('detail'),p=BY[pinned];stopT();
-  if(!p){d.innerHTML='<span class="tag">Mode d’emploi</span><h2>Choisissez une douleur</h2><ol class="steps"><li>Survolez une structure du modèle ou un numéro : la zone douloureuse se colore avec sa forme exacte.</li><li>Survolez la liste : la même zone apparaît sur le modèle.</li><li>Décrivez ce que vous ressentez dans la recherche : les fiches qui en parlent restent nettes, les autres s’atténuent.</li><li>Cliquez pour verrouiller la sélection et afficher les exercices.</li><li>« Mouvement et coupe » permet de plier la hanche et de voir où ça pince.</li></ol>';return}
+  if(!p){d.innerHTML=U.howTo;return}
   d.style.setProperty('--c',p.col);
   const used=new Set(),lk=s=>linkTerms(s,used);
   const chips=p.zones.concat(p.also||[]).map(z=>'<span class="zc">'+S[z].label+'</span>').join('');
   const bt=(a,t,on)=>'<button type="button" class="chip" '+a+' aria-pressed="'+on+'">'+t+'</button>';
-  d.innerHTML='<span class="tag"><i></i>N° '+p.rank+' · '+(window.freqWord?window.freqWord(p.pop):'')+'</span><h2 tabindex="-1">'+p.ns+'</h2><p class="sub2">'+title(p)+'</p><p class="alias">Aussi appelé : '+p.al+'</p><p class="rev">Fiche non relue par un professionnel de santé · mise à jour le 11/11/2026</p>'+(window.warnHTML?window.warnHTML(p.warn):'<div class="warn">'+p.warn+'</div>')+'<h3>Ce qui se passe</h3><p>'+lk(p.txt)+'</p><div class="chips"><span class="sm">Structures concernées :</span> '+chips+'</div>'
-   +'<h3>Ce que vous ressentez</h3><ul class="fe">'+p.fe.map(f=>'<li>'+lk(f)+'</li>').join('')+'</ul><p>'+lk(p.pain)+'</p><p>'+lk(p.who)+'</p>'
-   +'<h3>Exercices souvent proposés</h3><p class="sm">Exemples généraux. Ils ne remplacent pas un bilan par un médecin ou un kinésithérapeute, qui adapte les exercices à votre cas.</p><div class="tags" id="phs">'+['Toutes les étapes'].concat(PHASES).map((t,i)=>bt('data-ph="'+i+'"',t,phase===i)).join('')+'</div><p class="sm" id="phd">'+(phase?PHDESC[phase-1]:'')+'</p>'
-   +'<div class="tags" id="eqs"><span class="sm">Matériel :</span>'+Object.entries(EQL).map(([k,t])=>bt('data-eq="'+k+'"',t,EQS.has(k))).join('')+'</div>'
+  d.innerHTML='<span class="tag"><i></i>'+NO+p.rank+' · '+(window.freqWord?window.freqWord(p.pop):'')+'</span><h2 tabindex="-1">'+p.ns+'</h2><p class="sub2">'+title(p)+'</p><p class="alias">'+U.aka+p.al+'</p><p class="rev">'+U.rev+'</p>'+(window.warnHTML?window.warnHTML(p.warn):'<div class="warn">'+p.warn+'</div>')+'<h3>'+U.what+'</h3><p>'+lk(p.txt)+'</p><div class="chips"><span class="sm">'+U.structs+'</span> '+chips+'</div>'
+   +'<h3>'+U.feel+'</h3><ul class="fe">'+p.fe.map(f=>'<li>'+lk(f)+'</li>').join('')+'</ul><p>'+lk(p.pain)+'</p><p>'+lk(p.who)+'</p>'
+   +'<h3>'+U.exH+'</h3><p class="sm">'+U.exNote+'</p><div class="tags" id="phs">'+[U.allStages].concat(PHASES).map((t,i)=>bt('data-ph="'+i+'"',t,phase===i)).join('')+'</div><p class="sm" id="phd">'+(phase?PHDESC[phase-1]:'')+'</p>'
+   +'<div class="tags" id="eqs"><span class="sm">'+U.equip+'</span>'+Object.entries(EQL).map(([k,t])=>bt('data-eq="'+k+'"',t,EQS.has(k))).join('')+'</div>'
    +'<div class="rule'+(p.rule==='avis'?' avis':'')+'">'+(window.PAIN_RULES?window.PAIN_RULES[p.rule||'standard']:'')+'</div>'
-   +'<div id="exs">'+exHTML(p)+'</div>'+(window.fixLinkHTML?window.fixLinkHTML('Hanche',p.n):'')+'<p>'+bt('id="back" style="--c:var(--cool)"','Retour à la vue d’ensemble',false)+' '+bt('data-g="*" style="--c:var(--cool)"','Mots utiles',false)+'</p>'}
+   +'<div id="exs">'+exHTML(p)+'</div>'+(window.fixLinkHTML?window.fixLinkHTML(HE?'Hip':'Hanche',p.n):'')+'<p>'+bt('id="back" style="--c:var(--cool)"',U.back,false)+' '+bt('data-g="*" style="--c:var(--cool)"',U.words,false)+'</p>'}
 $('detail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   if(b.dataset.g){openGloss(b.dataset.g);return}const p=BY[pinned];if(!p)return;
   if(b.dataset.ph!==undefined){phase=+b.dataset.ph;document.querySelectorAll('#phs button').forEach(x=>x.setAttribute('aria-pressed',String(+x.dataset.ph===phase)));$('phd').textContent=phase?PHDESC[phase-1]:'';stopT();$('exs').innerHTML=exHTML(p)}
@@ -478,7 +509,7 @@ function pick(e){const r=cv.getBoundingClientRect();pt.set((e.clientX-r.left)/r.
   const h=hits.find(x=>OF[x.object.userData.sid]&&x.object.material.opacity>.1)||hits.find(x=>x.object.material.opacity>.5);
   return h?S[h.object.userData.sid]:null}
 function showTip(s,e){if(!s){tip.hidden=true;return}
-  const l=OF[s.id];tip.innerHTML='<b>'+s.label+'</b><em>'+(l?l.map(title).slice(0,2).join(' · ')+(l.length>2?' …':'')+' — cliquez pour les exercices':'Structure de repère')+'</em>';
+  const l=OF[s.id];tip.innerHTML='<b>'+s.label+'</b><em>'+(l?l.map(title).slice(0,2).join(' · ')+(l.length>2?' …':'')+U.clickEx:U.landmark)+'</em>';
   tip.hidden=false;const r=view.getBoundingClientRect();let x=e.clientX-r.left+14,y=e.clientY-r.top+14;
   x=Math.min(x,r.width-tip.offsetWidth-8);y=Math.min(y,r.height-tip.offsetHeight-8);tip.style.left=Math.max(6,x)+'px';tip.style.top=Math.max(6,y)+'px'}
 let down=null;
@@ -507,13 +538,12 @@ function clear(fl,ab,ro){const c=BUMP.clone().applyQuaternion(quat(fl,ab,ro));le
 const clipP=new T.Plane(V(0,0,-1),3.5);
 function upd(){const fl=+$('r1').value,ab=+$('r2').value,ro=+$('r3').value,cut=+$('r4').value/10;
   mv.bump=$('bump').checked;mv.act=!!(fl||ab||ro||mv.bump);
-  $('o1').textContent=fl+'°';$('o2').textContent=ab+'°';$('o3').textContent=ro+'°';$('o4').textContent=cut>=3.4?'aucune':'active';
+  $('o1').textContent=fl+'°';$('o2').textContent=ab+'°';$('o3').textContent=ro+'°';$('o4').textContent=cut>=3.4?U.none:U.active;
   femG.quaternion.copy(quat(fl,ab,ro));ren.clippingPlanes=cut>=3.4?[]:[clipP];clipP.constant=cut;
   const m=$('mst');let pc=false;
   if(mv.bump){pc=clear(fl,ab,ro)<0;let lim=null;for(let f=0;f<=130;f++){if(clear(f,ab,ro)<0){lim=f;break}}
-    m.textContent=pc?'Contact : la bosse du col bute sur le bord du cotyle et pince le labrum. Avec ces réglages, le contact commence vers '+lim+'° de flexion.'
-      :lim===null?'Avec cette bosse, aucun contact sur ces réglages.':'Pas de contact pour l’instant. Avec ces réglages, il apparaît vers '+lim+'° de flexion.';m.className='mst'+(pc?' bad':'')}
-  else{m.textContent='Hanche saine : le mouvement reste libre. Ajoutez la bosse pour voir ce que provoque un conflit. Ligaments, tendons et muscles sont masqués pendant le mouvement.';m.className='mst'}
+    m.textContent=pc?U.contact(lim):lim===null?U.noContact:U.notYet(lim);m.className='mst'+(pc?' bad':'')}
+  else{m.textContent=U.healthy;m.className='mst'}
   pinch=pc}
 ['r1','r2','r3','r4','bump'].forEach(id=>$(id).oninput=upd);
 function mvReset(){$('r1').value=0;$('r2').value=0;$('r3').value=0;$('r4').value=35;$('bump').checked=false;upd()}

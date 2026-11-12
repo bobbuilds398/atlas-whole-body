@@ -13,107 +13,112 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="fr" href="https://bobbuilds398.github.io/atlas-whole-body/?lang=fr">
+<link rel="alternate" hreflang="en" href="https://bobbuilds398.github.io/atlas-whole-body/?lang=en">
 <link rel="preload" href="content/corps.json" as="fetch" crossorigin="anonymous">
 <link rel="stylesheet" href="css/atlas.css">
 </head>
 <body>
 <header class="top" id="g-top">
   <div>
-    <h1>Atlas du corps</h1>
+    <h1 data-i18n="h1">Atlas du corps</h1>
     <p class="sub" id="g-sub">Où avez-vous mal ? Choisissez une zone du corps pour voir les douleurs les plus fréquentes, des explications et des exercices.</p>
   </div>
-  <nav class="tr" aria-label="Zones du corps"><span class="sm lbl">Choisir une zone :</span><div class="layers" id="b-joints"></div></nav>
+  <nav class="tr" aria-label="Zones du corps" data-i18n-attr="aria-label:navZones"><span class="sm lbl" data-i18n="chooseZone">Choisir une zone :</span><div class="layers" id="b-joints"></div></nav>
+  <a class="lang" id="g-lang" href="?lang=en" hreflang="en" lang="en">English</a>
 </header>
-<section class="urg" aria-label="Urgences et avertissement">
-  <p><strong>Douleur après un accident ou une chute, douleur dans la poitrine, essoufflement, perte de force ou de sensibilité, difficulté à uriner, fièvre avec articulation chaude ? N’utilisez pas ce site : appelez le 15 (SAMU) ou le 112.</strong> Personnes sourdes ou malentendantes : 114 par SMS. <a href="a-propos.html#urgences">Tous les signes d’alerte</a></p>
-  <p class="avert">Information générale, pas un avis médical. Les fiches ont été écrites avec une IA (Claude, d’Anthropic) et <strong>ne sont pas encore relues par des professionnels de santé</strong>. L’atlas ne dit pas ce que vous avez. <a href="a-propos.html">À propos</a></p>
+<section class="urg" aria-label="Urgences et avertissement" data-i18n-attr="aria-label:urgLabel">
+  <p data-i18n="urg1"><strong>Douleur après un accident ou une chute, douleur dans la poitrine, essoufflement, perte de force ou de sensibilité, difficulté à uriner, fièvre avec articulation chaude ? N’utilisez pas ce site : appelez le 15 (SAMU) ou le 112.</strong> Personnes sourdes ou malentendantes : 114 par SMS. <a href="a-propos.html#urgences">Tous les signes d’alerte</a></p>
+  <p class="avert" data-i18n="urg2">Information générale, pas un avis médical. Les fiches ont été écrites avec une IA (Claude, d’Anthropic) et <strong>ne sont pas encore relues par des professionnels de santé</strong>. L’atlas ne dit pas ce que vous avez. <a href="a-propos.html">À propos</a></p>
 </section>
-<noscript><p class="urg">Cet atlas a besoin de JavaScript pour afficher la liste des douleurs et le modèle 3D.</p></noscript>
+<noscript><p class="urg">Cet atlas a besoin de JavaScript pour afficher la liste des douleurs et le modèle 3D. <span lang="en">This atlas needs JavaScript to show the list of pains and the 3D model.</span></p></noscript>
 <p class="sr" id="b-status" role="status"></p>
 <div id="bodyview">
-<div class="layers" id="b-layers" role="group" aria-label="Couches anatomiques affichées" hidden><span class="sm lbl" aria-hidden="true">Afficher :</span></div>
+<div class="layers" id="b-layers" data-i18n-attr="aria-label:layersLabel" role="group" aria-label="Couches anatomiques affichées" hidden><span class="sm lbl" aria-hidden="true" data-i18n="show">Afficher :</span></div>
 <main class="app">
-  <section class="list" aria-label="Liste des douleurs">
+  <section class="list" aria-label="Liste des douleurs" data-i18n-attr="aria-label:listLabel">
     <h2 id="b-lh" tabindex="-1">Douleurs les plus fréquentes</h2>
     <p class="note" id="b-ln"></p>
     <p class="notice" id="b-notice" hidden></p>
-    <details class="glo ask" id="b-q" hidden><summary>Filtrer les fiches (zone, moment)</summary>
-      <fieldset><legend class="gl-h">Zone de la douleur</legend><div class="tags" id="b-tw"></div></fieldset>
-      <fieldset><legend class="gl-h">Moment ou geste qui la déclenche</legend><div class="tags" id="b-tq"></div></fieldset>
+    <details class="glo ask" id="b-q" hidden><summary data-i18n="filterSum">Filtrer les fiches (zone, moment)</summary>
+      <fieldset><legend class="gl-h" data-i18n="where">Zone de la douleur</legend><div class="tags" id="b-tw"></div></fieldset>
+      <fieldset><legend class="gl-h" data-i18n="when">Moment ou geste qui la déclenche</legend><div class="tags" id="b-tq"></div></fieldset>
       <p class="sm" id="b-sres" aria-live="polite"></p>
-      <button type="button" class="chip" id="b-qclear" hidden>Tout effacer</button>
-      <p class="sm">Ce filtre montre les fiches qui mentionnent ces repères. Il ne dit pas ce que vous avez : d’autres causes, absentes de l’atlas, peuvent donner les mêmes douleurs.</p>
+      <button type="button" class="chip" id="b-qclear" hidden data-i18n="clearAll">Tout effacer</button>
+      <p class="sm" data-i18n="filterNote">Ce filtre montre les fiches qui mentionnent ces repères. Il ne dit pas ce que vous avez : d’autres causes, absentes de l’atlas, peuvent donner les mêmes douleurs.</p>
     </details>
     <ol id="b-list"></ol>
   </section>
   <section class="view" id="b-view">
-    <canvas id="b-cv" role="img" aria-label="Modèle anatomique en 3D. Les mêmes informations sont dans la liste et la fiche."></canvas>
+    <canvas id="b-cv" data-i18n-attr="aria-label:cvLabel" role="img" aria-label="Modèle anatomique en 3D. Les mêmes informations sont dans la liste et la fiche."></canvas>
     <svg id="b-lead" aria-hidden="true"></svg>
     <div id="b-pins"></div>
-    <div class="tb"><div class="seg" id="b-views" role="group" aria-label="Point de vue"><button type="button" data-v="face">Face</button><button type="button" data-v="cote">Côté</button><button type="button" data-v="dos">Dos</button><button type="button" data-v="dedans">Côté intérieur</button></div></div>
-    <p id="b-load">Chargement du squelette…</p>
+    <div class="tb"><div class="seg" id="b-views" data-i18n-attr="aria-label:viewpoint" role="group" aria-label="Point de vue"><button type="button" data-v="face" data-i18n="vFace">Face</button><button type="button" data-v="cote" data-i18n="vSide">Côté</button><button type="button" data-v="dos" data-i18n="vBack">Dos</button><button type="button" data-v="dedans" data-i18n="vIn">Côté intérieur</button></div></div>
+    <p id="b-load" data-i18n="loadSkel">Chargement du squelette…</p>
     <div class="tip" id="b-tip" hidden></div>
     <div class="hint" id="b-hint"></div>
-    <button id="b-reset" type="button">Recentrer</button>
+    <button id="b-reset" type="button" data-i18n="recenter">Recentrer</button>
   </section>
-  <aside class="detail" id="b-detail" aria-label="Fiche"></aside>
+  <aside class="detail" id="b-detail" aria-label="Fiche" data-i18n-attr="aria-label:card"></aside>
 </main>
 <footer class="foot">
-  <p><strong>Information générale, pas un avis médical</strong> : fiches écrites avec une IA (Claude, d’Anthropic), non relues par des professionnels de santé. Urgence : 15 ou 112. <a href="a-propos.html">À propos · mentions légales · données personnelles</a>. Contenus v0.2.0 du 11/11/2026.</p>
-  <p>Chiffres du corps entier : chaque chiffre vient d’une étude publiée, citée dans la fiche (<span id="b-src"></span>). Ces études ne mesurent pas toutes la même chose : personnes qui ont mal à un moment donné, nouveaux cas en un an, ou déformation souvent sans douleur ; population mondiale ou d’un seul pays ; tous âges ou certaines tranches d’âge. C’est pourquoi les douleurs sont regroupées par ordre de grandeur : à l’intérieur d’un groupe, l’ordre n’est pas significatif. Les parts tirées des totaux mondiaux de l’étude GBD 2021 sont rapportées à la population mondiale de 2020 (7,8 milliards d’habitants). Dans chaque articulation, l’ordre des douleurs est une estimation, sans chiffre publié : il varie beaucoup selon l’âge et le sport pratiqué.</p>
-  <p>Anatomie 3D adaptée de <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy</a> (Gauthier Kervyn et al., <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>), lui-même dérivé de <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html">BodyParts3D</a> (© The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/">CC BY-SA 2.1 Japon</a>) ; modèles d’un seul individu, sélectionnés, simplifiés et modifiés : ils ne remplacent pas une imagerie. Quelques structures sont des tracés schématiques, signalés comme tels. Textes et modèles de l’atlas sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>, code sous licence MIT, sur <a href="https://github.com/bobbuilds398/atlas-whole-body">GitHub</a> : <a href="https://github.com/bobbuilds398/atlas-whole-body/blob/main/CONTRIBUTING.md">corrections bienvenues</a>. Les liens vidéo ouvrent une recherche YouTube, non vérifiée : si une vidéo ne correspond pas à la consigne écrite, suivez la consigne écrite.</p>
+  <p data-i18n="foot1"><strong>Information générale, pas un avis médical</strong> : fiches écrites avec une IA (Claude, d’Anthropic), non relues par des professionnels de santé. Urgence : 15 ou 112. <a href="a-propos.html">À propos · mentions légales · données personnelles</a>. Contenus v0.3.0 du 12/11/2026, aussi en anglais.</p>
+  <p data-i18n="foot2">Chiffres du corps entier : chaque chiffre vient d’une étude publiée, citée dans la fiche (<span id="b-src"></span>). Ces études ne mesurent pas toutes la même chose : personnes qui ont mal à un moment donné, nouveaux cas en un an, ou déformation souvent sans douleur ; population mondiale ou d’un seul pays ; tous âges ou certaines tranches d’âge. C’est pourquoi les douleurs sont regroupées par ordre de grandeur : à l’intérieur d’un groupe, l’ordre n’est pas significatif. Les parts tirées des totaux mondiaux de l’étude GBD 2021 sont rapportées à la population mondiale de 2020 (7,8 milliards d’habitants). Dans chaque articulation, l’ordre des douleurs est une estimation, sans chiffre publié : il varie beaucoup selon l’âge et le sport pratiqué.</p>
+  <p data-i18n="foot3">Anatomie 3D adaptée de <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy</a> (Gauthier Kervyn et al., <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>), lui-même dérivé de <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html">BodyParts3D</a> (© The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/">CC BY-SA 2.1 Japon</a>) ; modèles d’un seul individu, sélectionnés, simplifiés et modifiés : ils ne remplacent pas une imagerie. Quelques structures sont des tracés schématiques, signalés comme tels. Textes et modèles de l’atlas sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>, code sous licence MIT, sur <a href="https://github.com/bobbuilds398/atlas-whole-body">GitHub</a> : <a href="https://github.com/bobbuilds398/atlas-whole-body/blob/main/CONTRIBUTING.md">corrections bienvenues</a>. Les liens vidéo ouvrent une recherche YouTube, non vérifiée : si une vidéo ne correspond pas à la consigne écrite, suivez la consigne écrite.</p>
 </footer>
 </div>
 <div id="hipview" hidden>
 <header class="top">
   
   <div class="tr">
-    <button type="button" class="chip" id="gbtn" style="--c:var(--cool)" aria-keyshortcuts="G"><i></i>Mots utiles <kbd>G</kbd></button>
-    <div class="layers" id="layers" role="group" aria-label="Couches anatomiques affichées"></div>
+    <button type="button" class="chip" id="gbtn" data-i18n="gbtn" style="--c:var(--cool)" aria-keyshortcuts="G"><i></i>Mots utiles <kbd>G</kbd></button>
+    <div class="layers" id="layers" data-i18n-attr="aria-label:layersLabel" role="group" aria-label="Couches anatomiques affichées"></div>
   </div>
 </header>
 <main class="app">
-  <section class="list" aria-label="Liste des douleurs">
-    <h2>Douleurs fréquentes</h2>
-    <p class="note">Du plus courant au plus rare, selon une estimation sans chiffre publié. L’ordre varie beaucoup selon l’âge et le sport pratiqué.</p>
-    <p class="notice">Enfant ou adolescent qui boite, ou qui a mal à la hanche, à la cuisse ou au genou sans cause évidente : consultez. Une douleur de hanche peut se ressentir au genou.</p>
+  <section class="list" aria-label="Liste des douleurs" data-i18n-attr="aria-label:listLabel">
+    <h2 data-i18n="hipListH">Douleurs fréquentes</h2>
+    <p class="note" data-i18n="hipNote">Du plus courant au plus rare, selon une estimation sans chiffre publié. L’ordre varie beaucoup selon l’âge et le sport pratiqué.</p>
+    <p class="notice" data-i18n="hipChild">Enfant ou adolescent qui boite, ou qui a mal à la hanche, à la cuisse ou au genou sans cause évidente : consultez. Une douleur de hanche peut se ressentir au genou.</p>
     <ol id="plist"></ol>
-    <details class="glo ask"><summary>Filtrer les fiches (mot, zone, moment)</summary>
+    <details class="glo ask"><summary data-i18n="hipFilterSum">Filtrer les fiches (mot, zone, moment)</summary>
     <div class="sx">
-      <label class="sr" for="q">Rechercher un mot dans les fiches</label>
-      <input id="q" type="search" placeholder="Ex. : escalier, aine, course…" autocomplete="off">
-      <p class="gl-h">Zone de la douleur</p><div class="tags" id="tw"></div>
-      <p class="gl-h">Moment ou geste qui la déclenche</p><div class="tags" id="tq"></div>
+      <label class="sr" for="q" data-i18n="searchLabel">Rechercher un mot dans les fiches</label>
+      <input id="q" data-i18n-attr="placeholder:searchPh" type="search" placeholder="Ex. : escalier, aine, course…" autocomplete="off">
+      <p class="gl-h" data-i18n="where">Zone de la douleur</p><div class="tags" id="tw"></div>
+      <p class="gl-h" data-i18n="when">Moment ou geste qui la déclenche</p><div class="tags" id="tq"></div>
       <p class="sm" id="sres" aria-live="polite"></p>
-      <p class="sm">Ce filtre montre les fiches qui contiennent ces mots ou repères. Il ne dit pas ce que vous avez : d’autres causes, absentes de l’atlas, peuvent donner les mêmes douleurs.</p>
+      <p class="sm" data-i18n="hipFilterNote">Ce filtre montre les fiches qui contiennent ces mots ou repères. Il ne dit pas ce que vous avez : d’autres causes, absentes de l’atlas, peuvent donner les mêmes douleurs.</p>
     </div>
     </details>
-    <details class="glo" id="gd"><summary>Mots utiles</summary><dl id="glo"></dl></details>
+    <details class="glo" id="gd"><summary data-i18n="glossary">Mots utiles</summary><dl id="glo"></dl></details>
   </section>
   <section class="view" id="view">
-    <canvas id="cv" role="img" aria-label="Modèle 3D de la hanche droite. Les mêmes informations sont dans la liste et la fiche."></canvas>
+    <canvas id="cv" data-i18n-attr="aria-label:hipCv" role="img" aria-label="Modèle 3D de la hanche droite. Les mêmes informations sont dans la liste et la fiche."></canvas>
     <div id="pins"></div>
-    <div class="tb"><div class="seg" id="views" role="group" aria-label="Point de vue"><button type="button" data-v="face" aria-pressed="true">Face</button><button type="button" data-v="cote" aria-pressed="false">Côté</button><button type="button" data-v="dos" aria-pressed="false">Dos</button></div>
-      <button type="button" class="chip" id="mvb" style="--c:var(--cool)" aria-expanded="false" aria-controls="mv"><i></i>Mouvement et coupe</button></div>
+    <div class="tb"><div class="seg" id="views" data-i18n-attr="aria-label:viewpoint" role="group" aria-label="Point de vue"><button type="button" data-v="face" aria-pressed="true" data-i18n="vFace">Face</button><button type="button" data-v="cote" aria-pressed="false" data-i18n="vSide">Côté</button><button type="button" data-v="dos" aria-pressed="false" data-i18n="vBack">Dos</button></div>
+      <button type="button" class="chip" id="mvb" data-i18n="mvb" style="--c:var(--cool)" aria-expanded="false" aria-controls="mv"><i></i>Mouvement et coupe</button></div>
     <div class="mv" id="mv" hidden>
-      <label for="r1">Flexion (genou vers la poitrine)<output id="o1">0°</output></label><input type="range" id="r1" min="-15" max="120" value="0">
-      <label for="r2">Écartement de la jambe<output id="o2">0°</output></label><input type="range" id="r2" min="-25" max="45" value="0">
-      <label for="r3">Rotation (− extérieur / + intérieur)<output id="o3">0°</output></label><input type="range" id="r3" min="-45" max="40" value="0">
-      <label for="r4">Coupe de l’avant vers l’arrière<output id="o4">aucune</output></label><input type="range" id="r4" min="-5" max="35" value="35">
-      <label class="ck" for="bump"><input type="checkbox" id="bump"><span>Ajouter une bosse osseuse sur le col (conflit de hanche)</span></label>
-      <p class="mst" id="mst"></p><button type="button" class="chip" id="mvr" style="--c:var(--cool)">Remise à zéro</button>
+      <label for="r1" data-i18n="r1">Flexion (genou vers la poitrine)<output id="o1">0°</output></label><input type="range" id="r1" min="-15" max="120" value="0">
+      <label for="r2" data-i18n="r2">Écartement de la jambe<output id="o2">0°</output></label><input type="range" id="r2" min="-25" max="45" value="0">
+      <label for="r3" data-i18n="r3">Rotation (− extérieur / + intérieur)<output id="o3">0°</output></label><input type="range" id="r3" min="-45" max="40" value="0">
+      <label for="r4" data-i18n="r4">Coupe de l’avant vers l’arrière<output id="o4">aucune</output></label><input type="range" id="r4" min="-5" max="35" value="35">
+      <label class="ck" for="bump"><input type="checkbox" id="bump"><span data-i18n="bump">Ajouter une bosse osseuse sur le col (conflit de hanche)</span></label>
+      <p class="mst" id="mst"></p><button type="button" class="chip" id="mvr" data-i18n="mvr" style="--c:var(--cool)">Remise à zéro</button>
     </div>
     <div class="tip" id="tip" hidden></div>
-    <div class="hint">Touchez ou survolez une structure ou un numéro pour voir la zone douloureuse ; la fiche s’affiche en dessous.</div>
-    <button id="reset" type="button">Recentrer</button>
+    <div class="hint" data-i18n="hipHint">Touchez ou survolez une structure ou un numéro pour voir la zone douloureuse ; la fiche s’affiche en dessous.</div>
+    <button id="reset" type="button" data-i18n="recenter">Recentrer</button>
   </section>
-  <aside class="detail" id="detail" aria-label="Fiche"></aside>
+  <aside class="detail" id="detail" aria-label="Fiche" data-i18n-attr="aria-label:card"></aside>
 </main>
 <footer class="foot">
-  <p><strong>Information générale, pas un avis médical</strong> : fiches écrites avec une IA (Claude, d’Anthropic), non relues par des professionnels de santé. Urgence : 15 ou 112. <a href="a-propos.html">À propos · mentions légales · données personnelles</a>. Contenus v0.2.0 du 11/11/2026.</p>
-  <p>Anatomie 3D adaptée de <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy</a> (Gauthier Kervyn et al., <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>), lui-même dérivé de <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html">BodyParts3D</a> (© The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/">CC BY-SA 2.1 Japon</a>) ; modèle d’un seul individu, découpé en zones : il ne remplace pas une imagerie. Cartilages de la tête et du cotyle reconstruits d’après l’os ; le sciatique et quelques repères sont des tracés schématiques. Si le modèle ne se charge pas, la page affiche une version schématique. Les liens vidéo ouvrent une recherche YouTube, non vérifiée : si une vidéo ne correspond pas à la consigne écrite, suivez la consigne écrite. Textes et modèles sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>, code sous licence MIT, sur <a href="https://github.com/bobbuilds398/atlas-whole-body">GitHub</a>.</p>
+  <p data-i18n="foot1"><strong>Information générale, pas un avis médical</strong> : fiches écrites avec une IA (Claude, d’Anthropic), non relues par des professionnels de santé. Urgence : 15 ou 112. <a href="a-propos.html">À propos · mentions légales · données personnelles</a>. Contenus v0.3.0 du 12/11/2026, aussi en anglais.</p>
+  <p data-i18n="hipFoot2">Anatomie 3D adaptée de <a href="https://github.com/Z-Anatomy/Models-of-human-anatomy">Z-Anatomy</a> (Gauthier Kervyn et al., <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>), lui-même dérivé de <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html">BodyParts3D</a> (© The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/">CC BY-SA 2.1 Japon</a>) ; modèle d’un seul individu, découpé en zones : il ne remplace pas une imagerie. Cartilages de la tête et du cotyle reconstruits d’après l’os ; le sciatique et quelques repères sont des tracés schématiques. Si le modèle ne se charge pas, la page affiche une version schématique. Les liens vidéo ouvrent une recherche YouTube, non vérifiée : si une vidéo ne correspond pas à la consigne écrite, suivez la consigne écrite. Textes et modèles sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC BY-SA 4.0</a>, code sous licence MIT, sur <a href="https://github.com/bobbuilds398/atlas-whole-body">GitHub</a>.</p>
 </footer>
 </div>
+<script src="js/i18n.js"></script>
+<script src="js/hip-en.js"></script>
 <script src="vendor/three/three.min.js"></script>
 <script src="vendor/three/OrbitControls.js"></script>
 <script src="js/hip.js"></script>
