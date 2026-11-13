@@ -77,7 +77,7 @@
         try { localStorage.setItem('atlas-lang', other); } catch (err) {}
         /* garder la vue ouverte (#genou/menisque) en changeant de langue */
         e.preventDefault();
-        location.href = location.pathname + '?lang=' + other + location.hash;
+        location.assign('?lang=' + other + location.hash);
       });
     }
     if (lang !== 'en') return;
