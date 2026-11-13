@@ -1,0 +1,14 @@
+{
+  "name": "atlas-three-bundle",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Construit vendor/three/three.bundle.min.js (three.js + OrbitControls, global THREE) pour le site statique.",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild entry.js --bundle --minify --format=iife --target=chrome90,firefox90,safari15 --legal-comments=none --log-level=warning --outfile=../../vendor/three/three.bundle.min.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "three": "0.187.0"
+  }
+}

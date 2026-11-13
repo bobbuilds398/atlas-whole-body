@@ -171,6 +171,7 @@ loadContent('corps', 'corps')
       ren = new T.WebGLRenderer({ canvas: cv, antialias: (window.devicePixelRatio || 1) < 2, alpha: true });
       ren.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       ren.setClearColor(0, 0);
+      ren.outputColorSpace = T.LinearSRGBColorSpace; /* sortie linéaire comme three r128 (voir tools/three-bundle/README.md) */
     } catch (e) {
       console.warn('WebGL indisponible', e);
       document.body.classList.add('no3d');
@@ -180,14 +181,15 @@ loadContent('corps', 'corps')
     const onScreen = A.watchVisible(view);
     const scene = new T.Scene(),
       cam = new T.PerspectiveCamera(30, 1, 0.05, 200);
-    scene.add(new T.HemisphereLight(0xe3ecff, 0x2a201b, 0.75));
+    if (ren) ren.setTransparentSort(T.legacyTransparentSort(cam)); /* tri des transparents comme r128 */
+    scene.add(new T.HemisphereLight(0xe3ecff, 0x2a201b, 0.75 * T.ATLAS_LIGHT_SCALE));
     [
       [0xfff1dd, 0.7, -6, 12, 14],
       [0x7fb7ff, 0.4, 10, 6, -10],
       [0xffffff, 0.2, -8, 2, 4],
       [0xdfe8ff, 0.35, 2, -12, 3],
     ].forEach(l => {
-      const d = new T.DirectionalLight(l[0], l[1]);
+      const d = new T.DirectionalLight(l[0], l[1] * T.ATLAS_LIGHT_SCALE); /* intensité × π × 1,04 : voir tools/three-bundle/entry.js */
       d.position.set(l[2], l[3], l[4]);
       scene.add(d);
     });

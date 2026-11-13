@@ -3,3 +3,12 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule: { interval: monthly }
+  # three.js et esbuild, épinglés dans tools/three-bundle/ : après une mise à jour,
+  # relancer `npm ci && npm run build` et commiter vendor/three/three.bundle.min.js (voir vendor/README.md).
+  - package-ecosystem: npm
+    directory: /tools/three-bundle
+    schedule: { interval: weekly }
+    cooldown: { default-days: 3 }
+    groups:
+      three-bundle:
+        patterns: ["*"]

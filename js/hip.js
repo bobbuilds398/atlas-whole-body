@@ -395,10 +395,10 @@ skin.renderOrder=2;root.add(skin);let skinK=1;
 /* ===== Rendu, état, recherche par symptômes, fiches ===== */
 const $=id=>document.getElementById(id),cv=$('cv'),view=$('view'),tip=$('tip'),pinsEl=$('pins');
 const ren=new T.WebGLRenderer({canvas:cv,antialias:(window.devicePixelRatio||1)<2,alpha:true});
-ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));ren.setClearColor(0,0);
-const scene=new T.Scene(),cam=new T.PerspectiveCamera(36,1,.1,100);scene.add(root);
-scene.add(new T.HemisphereLight(0xe3ecff,0x2a201b,1.0));
-[[0xfff1dd,1.1,-6,8,9],[0x7fb7ff,.5,8,2,-8],[0xffffff,.3,-8,-4,3]].forEach(l=>{const d=new T.DirectionalLight(l[0],l[1]);d.position.set(l[2],l[3],l[4]);scene.add(d)});
+ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));ren.setClearColor(0,0);ren.outputColorSpace=T.LinearSRGBColorSpace; /* sortie linéaire comme three r128 */
+const scene=new T.Scene(),cam=new T.PerspectiveCamera(36,1,.1,100);scene.add(root);ren.setTransparentSort(T.legacyTransparentSort(cam)); /* tri des transparents comme r128 */
+scene.add(new T.HemisphereLight(0xe3ecff,0x2a201b,T.ATLAS_LIGHT_SCALE));
+[[0xfff1dd,1.1,-6,8,9],[0x7fb7ff,.5,8,2,-8],[0xffffff,.3,-8,-4,3]].forEach(l=>{const d=new T.DirectionalLight(l[0],l[1]*T.ATLAS_LIGHT_SCALE);d.position.set(l[2],l[3],l[4]);scene.add(d)});
 const ctl=new T.OrbitControls(cam,cv);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.minDistance=4;ctl.maxDistance=26;
 if(window.ATLAS)window.ATLAS.touchScroll(view,cv,ctl);const hipVis=window.ATLAS?window.ATLAS.watchVisible(view):{on:true};
 const HOME={t:V(-1,-.6,.3),o:V(-6,3,10.5)};

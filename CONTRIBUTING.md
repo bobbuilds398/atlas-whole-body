@@ -32,7 +32,7 @@ python3 -m http.server 8000      # puis ouvrir http://localhost:8000
 node tools/check-content.mjs     # vérifie la cohérence des contenus
 ```
 
-Il n'y a pas d'étape de construction ni de dépendance à installer. three.js est chargé depuis un CDN.
+Il n'y a pas d'étape de construction ni de dépendance à installer pour travailler sur le site : three.js est servi par le site lui-même (`vendor/three/three.bundle.min.js`, aucun CDN). Seul le bundle se reconstruit, avec Node : voir `tools/three-bundle/README.md`.
 
 ## Le format des fiches
 

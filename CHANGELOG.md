@@ -2,6 +2,11 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Toute modification d’un signe d’alerte, d’un exercice ou d’un chiffre est listée.
 
+## [Non publié]
+
+### Modifié
+- three.js passe de r128 (2021) à r187, via un petit bundle construit dans `tools/three-bundle/` (esbuild, versions épinglées) et servi par le site (`vendor/three/three.bundle.min.js`) ; la politique de sécurité (CSP) ne change pas. Couleurs, lumières et ordre des transparents sont réglés pour garder le rendu d'avant.
+
 ## [0.3.0] — 2026-11-12
 
 ### Ajouté

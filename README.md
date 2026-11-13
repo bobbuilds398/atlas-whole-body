@@ -31,7 +31,7 @@ Ce projet est jeune. Ses limites sont connues, et ce sont autant de façons d'ai
 - **Le classement dans chaque articulation est une estimation.** Il ne repose pas sur des chiffres publiés et varie selon l'âge et le sport. Des données par articulation (consultations de médecine générale, suivis de sportifs) seraient précieuses.
 - **Les vidéos sont des recherches YouTube, non vérifiées.** Chaque exercice mériterait un lien vers une vidéo précise, regardée en entier par un professionnel.
 - **Quelques douleurs fréquentes manquent** : goutte, luxation de la rotule, arthrose du gros orteil sur le corps entier, douleur du grand trochanter sur le corps entier. Chacune demande un placement 3D.
-- **Le site pèse environ 23 Mo** (modèles en base64) et utilise three.js r128 (2021).
+- **Le site pèse environ 23 Mo** (modèles en base64) et utilise three.js r187.
 - **L'anatomie est celle d'un seul individu**, en position debout. Quelques structures sont schématiques : bourse de l'olécrâne, nerf grand occipital, et les éléments « lorsqu'ils existent » (hernie discale, kyste synovial, névrome de Morton, dépôt calcaire).
 - **La hanche utilise un moteur à part**, plus ancien, avec ses propres réglages (mouvement, coupe, exercices par phase).
 - **Le site est en français et en anglais.** La langue suit celle du navigateur (bouton pour changer). Le texte anglais est une traduction faite avec la même IA ; en cas de différence, le français fait foi. Relecteurs anglophones bienvenus.
@@ -52,7 +52,7 @@ Vous n'avez pas besoin de savoir programmer.
 
 - **Une erreur dans une fiche ?** Chaque fiche du site a un lien « Proposer une correction », qui ouvre un formulaire prérempli. Vous pouvez aussi [choisir un formulaire ici](https://github.com/bobbuilds398/atlas-whole-body/issues/new/choose).
 - **Envie de corriger vous-même ?** Les textes sont dans des fichiers lisibles, un par articulation : [`content/genou.json`](content/genou.json), [`content/epaule.json`](content/epaule.json)… Sur GitHub, le crayon en haut du fichier permet de le modifier et de proposer le changement.
-- **Développeur ?** Le site est statique, sans étape de construction : HTML, CSS, JavaScript et three.js.
+- **Développeur ?** Le site est statique, sans étape de construction pour le servir : HTML, CSS, JavaScript et un bundle three.js déjà construit (`vendor/three/`, reconstructible avec `tools/three-bundle/`).
 
 Le guide complet est dans [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -71,10 +71,10 @@ Puis ouvrez <http://localhost:8000>. La page doit être servie par un serveur we
 | Dossier | Contenu |
 | --- | --- |
 | `index.html`, `a-propos.html`, `css/`, `js/` | La page, la page « À propos », les styles, et les deux scripts : `js/atlas.js` (corps entier et articulations) et `js/hip.js` (hanche). |
-| `vendor/` | three.js r128 et les polices, servis par le site lui-même (aucune requête vers un tiers). |
+| `vendor/` | three.js r187 (bundle) et les polices, servis par le site lui-même (aucune requête vers un tiers). |
 | `content/` | Les textes : fiches, exercices, questions, chiffres et sources. Un fichier JSON par articulation, plus `corps.json` pour la vue d'ensemble. `content/en/` contient le texte anglais, avec les mêmes identifiants. |
 | `models/` | Les modèles 3D et le placement des douleurs, un fichier par articulation. |
-| `tools/` | `check-content.mjs` vérifie la cohérence des contenus. `models/` garde, pour référence, les scripts qui ont produit les modèles. |
+| `tools/` | `check-content.mjs` vérifie la cohérence des contenus. `three-bundle/` reconstruit `vendor/three/three.bundle.min.js`. `models/` garde, pour référence, les scripts qui ont produit les modèles. |
 | `docs/` | Images de ce README. |
 
 ## Licences et crédits

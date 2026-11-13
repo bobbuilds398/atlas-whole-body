@@ -1,7 +1,8 @@
 name: Veille des composants vendorisés
-# Les composants copiés à la main dans vendor/ (three.js, polices) échappent à
-# Dependabot : ce workflow compare chaque semaine leur version à celle de npm et
-# ouvre UNE issue si une version plus récente existe. Il n'écrit rien dans le dépôt.
+# Les composants copiés à la main dans vendor/ (bundle three.js, polices) : ce workflow
+# compare chaque semaine leur version à celle de npm et ouvre UNE issue si une version
+# plus récente existe (three.js est aussi suivi par Dependabot via tools/three-bundle/).
+# Il n'écrit rien dans le dépôt.
 on:
   schedule:
     - cron: "17 5 * * 1" # lundi 05:17 UTC (hors heure pleine)
@@ -48,12 +49,11 @@ jobs:
           const latest = (pkg) =>
             execFileSync('npm', ['view', pkg, 'version'], { encoding: 'utf8' }).trim();
 
-          // three.js : « const e="128",… » puis « REVISION=e » dans le bundle minifié.
-          const src = fs.readFileSync('vendor/three/three.min.js', 'utf8');
-          const ref = /\bREVISION=(\w+)/.exec(src);
-          const rev = ref && new RegExp('\\b' + ref[1] + '="(\\d+)"').exec(src);
-          if (!rev) throw new Error('REVISION introuvable dans vendor/three/three.min.js');
-          const items = [{ pkg: 'three', current: '0.' + rev[1] + '.0' }];
+          // three.js : version exacte épinglée dans tools/three-bundle/package.json (bundle vendor/three/three.bundle.min.js).
+          const pkg = JSON.parse(fs.readFileSync('tools/three-bundle/package.json', 'utf8'));
+          const pinned = ((pkg.devDependencies || {}).three || (pkg.dependencies || {}).three || '').replace(/^[\^~=v]+/, '');
+          if (!/^\d+\.\d+\.\d+$/.test(pinned)) throw new Error('version de three introuvable dans tools/three-bundle/package.json : ' + JSON.stringify(pinned));
+          const items = [{ pkg: 'three', current: pinned }];
 
           // Polices : lignes de vendor/README.md citant « @fontsource/<nom> … X.Y.Z » (optionnel).
           if (fs.existsSync('vendor/README.md')) {
@@ -77,7 +77,7 @@ jobs:
               '',
               ...lines,
               '',
-              'À faire : relire les notes de version, remplacer les fichiers de `vendor/`, mettre à jour `vendor/README.md`, vérifier le site (rendu 3D, polices), puis fermer cette issue.',
+              'À faire : relire les notes de version ; pour three.js : changer la version épinglée dans `tools/three-bundle/package.json`, `npm ci && npm run build`, mettre à jour `vendor/README.md` ; pour les polices : remplacer les fichiers de `vendor/fonts/` ; puis vérifier le site (rendu 3D, polices) et fermer cette issue.',
               '',
               'Issue ouverte automatiquement par `.github/workflows/vendor-watch.yml`. Aucune nouvelle issue ne sera ouverte tant que celle-ci reste ouverte.',
               '',
