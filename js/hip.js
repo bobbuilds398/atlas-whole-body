@@ -156,7 +156,7 @@ if(HE)PATHO.forEach(p=>{const e=HE.patho[p.id];if(!e)return;['n','al','who','pai
   p.ex.forEach((x,i)=>{x.n=HE.exName[x.k]||x.k;if(e.ex&&e.ex[i])Object.assign(x,e.ex[i])})});
 PATHO.sort((a,b)=>b.pop-a.pop);
 PATHO.forEach((p,i)=>{p.rank=i+1;p.col='hsl('+(6+i*3.6).toFixed(0)+',94%,'+(56+i*.6).toFixed(0)+'%)';p.hex=new THREE.Color().setStyle(p.col)});
-const BY={};PATHO.forEach(p=>BY[p.id]=p);
+const BY=Object.create(null);PATHO.forEach(p=>BY[p.id]=p);
 const OF={};PATHO.forEach(p=>p.zones.forEach(z=>(OF[z]=OF[z]||[]).push(p)));
 /* ===== Symptômes en mots courants, noms simples, glossaire ===== */
 const SYMS=[
@@ -488,7 +488,7 @@ function panel(){const d=$('detail'),p=BY[pinned];stopT();
    +'<h3>'+U.feel+'</h3><ul class="fe">'+p.fe.map(f=>'<li>'+lk(f)+'</li>').join('')+'</ul><p>'+lk(p.pain)+'</p><p>'+lk(p.who)+'</p>'
    +'<h3>'+U.exH+'</h3><p class="sm">'+U.exNote+'</p><div class="tags" id="phs">'+[U.allStages].concat(PHASES).map((t,i)=>bt('data-ph="'+i+'"',t,phase===i)).join('')+'</div><p class="sm" id="phd">'+(phase?PHDESC[phase-1]:'')+'</p>'
    +'<div class="tags" id="eqs"><span class="sm">'+U.equip+'</span>'+Object.entries(EQL).map(([k,t])=>bt('data-eq="'+k+'"',t,EQS.has(k))).join('')+'</div>'
-   +'<div class="rule'+(p.rule==='avis'?' avis':'')+'">'+(window.PAIN_RULES?window.PAIN_RULES[p.rule||'standard']:'')+'</div>'
+   +'<div class="rule'+(p.rule==='avis'?' avis':'')+'">'+(window.PAIN_RULES?(Object.hasOwn(window.PAIN_RULES,p.rule)?window.PAIN_RULES[p.rule]:window.PAIN_RULES.standard):'')+'</div>'
    +'<div id="exs">'+exHTML(p)+'</div>'+(window.fixLinkHTML?window.fixLinkHTML(HE?'Hip':'Hanche',p.n):'')+'<p>'+bt('id="back" style="--c:var(--cool)"',U.back,false)+' '+bt('data-g="*" style="--c:var(--cool)"',U.words,false)+'</p>'}
 $('detail').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   if(b.dataset.g){openGloss(b.dataset.g);return}const p=BY[pinned];if(!p)return;

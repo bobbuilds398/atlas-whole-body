@@ -23,7 +23,7 @@
     NEW_TAB,
     PAIN_RULES,
     ruleHTML: r =>
-      '<div class="rule' + (r === 'avis' ? ' avis' : '') + '">' + (PAIN_RULES[r] || PAIN_RULES.standard) + '</div>',
+      '<div class="rule' + (r === 'avis' ? ' avis' : '') + '">' + (Object.hasOwn(PAIN_RULES, r) ? PAIN_RULES[r] : PAIN_RULES.standard) + '</div>',
     warnHTML: t => {
       const u = urgency(t || '');
       return (
@@ -53,7 +53,7 @@
       encodeURIComponent(art) +
       '&amp;fiche=' +
       encodeURIComponent(fiche) +
-      '" target="_blank" rel="noopener">' +
+      '" target="_blank" rel="noopener noreferrer">' +
       L.fixA +
       NEW_TAB +
       '</a> <span class="sm">' +
@@ -117,7 +117,7 @@ loadContent('corps', 'corps')
     Object.keys(CONTENT.sources).forEach(
       k => (SRC[k] = { t: CONTENT.sources[k].title, u: CONTENT.sources[k].url }),
     );
-    const JOINTS = {};
+    const JOINTS = Object.create(null);
     Object.keys(CONTENT.joints).forEach(k => {
       const j = CONTENT.joints[k];
       JOINTS[k] = { n: j.name, a: j.anchor, g: j.bones };
@@ -453,7 +453,7 @@ loadContent('corps', 'corps')
       joint = null,
       data = null,
       items = [],
-      BY = {};
+      BY = Object.create(null);
     const DATA = {},
       SEL = new Set();
     let hipOpen = false;
@@ -530,7 +530,7 @@ loadContent('corps', 'corps')
     function buildList() {
       listEl.innerHTML = '';
       pinsEl.innerHTML = '';
-      BY = {};
+      BY = Object.create(null);
       SEL.clear();
       items = joint && data ? data.p : joint ? [] : HOME_P;
       let lastG = null,
@@ -953,7 +953,7 @@ loadContent('corps', 'corps')
     const srcLink = k =>
       '<a class="yt" href="' +
       esc(url(SRC[k].u)) +
-      '" target="_blank" rel="noopener">' +
+      '" target="_blank" rel="noopener noreferrer">' +
       esc(SRC[k].t) +
       A.NEW_TAB +
       '</a>';
@@ -1080,10 +1080,10 @@ loadContent('corps', 'corps')
           esc(e.d) +
           '</p>' +
           (v !== '#'
-            ? '<a class="yt" href="' + esc(v) + '" target="_blank" rel="noopener">' + YT + L.seeVideo + '<span class="sr"> : ' + esc(e.n) + L.newTab + '</span></a>'
+            ? '<a class="yt" href="' + esc(v) + '" target="_blank" rel="noopener noreferrer">' + YT + L.seeVideo + '<span class="sr"> : ' + esc(e.n) + L.newTab + '</span></a>'
             : '<a class="yt" href="https://www.youtube.com/results?search_query=' +
               encodeURIComponent(e.q) +
-              '" target="_blank" rel="noopener">' +
+              '" target="_blank" rel="noopener noreferrer">' +
               YT +
               L.findVideo +
               '<span class="sr"> : ' +
@@ -1105,7 +1105,7 @@ loadContent('corps', 'corps')
       if (joint && !data) {
         d.innerHTML =
           '<span class="tag" style="--c:var(--cool)"><i></i>' +
-          JOINTS[joint].n +
+          esc(JOINTS[joint].n) +
           '</span>' +
           L.loadingJoint;
         return;

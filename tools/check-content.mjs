@@ -1,6 +1,7 @@
 // Vérifie la cohérence des fichiers content/*.json avec les modèles 3D.
 // Usage : node tools/check-content.mjs   (aucune dépendance, Node 18 ou plus)
 import { readFileSync, readdirSync } from 'node:fs';
+import vm from 'node:vm';
 
 const errors = [], warnings = [];
 const err = (file, msg) => errors.push(`${file} : ${msg}`);
@@ -11,6 +12,8 @@ const header = (f) => { const b = Buffer.from(readFileSync(f, 'utf8'), 'base64')
 // adresse https sans caractère qui pourrait sortir d'un attribut HTML
 const okUrl = (u) => { try { const x = new URL(u); return x.protocol === 'https:' && !/["'<>\s`]/.test(u); } catch { return false; } };
 const VIDEO_HOSTS = new Set(['www.youtube.com', 'youtube.com', 'youtu.be', 'm.youtube.com']);
+// hôtes autorisés pour les sources bibliographiques (corps.json, et le champ "sources" d'une fiche)
+const SOURCE_HOSTS = new Set(['doi.org', 'academic.oup.com']);
 const RULES = new Set(['standard', 'nerf', 'avis']);
 const REVIEW = new Set(['non-relu', 'relu', 'a-revoir']);
 const MEASURES = new Set(['instant', 'annee', 'deformation']);
@@ -26,7 +29,15 @@ const KEYS = {
   file: new Set(['_comment', 'joint', 'pathologies', 'exercises', 'questions', 'structures', 'sources']),
   home: new Set(['id', 'joint', 'name', 'commonName', 'alias', 'per100', 'display', 'measure', 'allAges', 'basis', 'source', 'whatYouFeel', 'anchor', 'bones', 'radius', 'hipId']),
   review: new Set(['status', 'by', 'date']),
+  source: new Set(['title', 'url']),
 };
+// une source doit être une adresse https vers un hôte de SOURCE_HOSTS
+const checkSourceUrl = (f, where, u) => {
+  if (!okUrl(u)) err(f, `${where} : url absente, non https ou invalide`);
+  else if (!SOURCE_HOSTS.has(new URL(u).hostname)) err(f, `${where} : l'hôte "${new URL(u).hostname}" n'est pas autorisé (ajoutez-le à SOURCE_HOSTS après discussion)`);
+};
+// exécute un extrait de js/ dans un contexte vide (aucun accès à process, require, fs…), avec délai maximal
+const run = (code, ctx = {}) => vm.runInNewContext(code, ctx, { timeout: 5000 });
 const unknown = (f, where, obj, set) => { for (const k of Object.keys(obj || {})) if (!set.has(k)) err(f, `${where} : champ inconnu "${k}"`); };
 
 // aucun texte ne doit contenir de balise : les fiches sont affichées comme du texte
@@ -54,7 +65,8 @@ if (corps) {
   noMarkup(f, corps);
   for (const [k, s] of Object.entries(corps.sources || {})) {
     if (!text(s.title)) err(f, `source "${k}" sans titre`);
-    if (!okUrl(s.url || '')) err(f, `source "${k}" : url absente, non https ou invalide`);
+    unknown(f, `source "${k}"`, s, KEYS.source);
+    checkSourceUrl(f, `source "${k}"`, s.url || '');
   }
   const usedSrc = new Set();
   for (const p of corps.pathologies || []) {
@@ -122,6 +134,18 @@ for (const file of readdirSync('content').filter((x) => x.endsWith('.json') && x
     if (!Array.isArray(p.exercises) || !p.exercises.length) err(f, `${w} : au moins un exercice`);
     for (const k of p.exercises || []) { usedEx.add(k); if (!ex[k]) err(f, `${w} : exercice inconnu "${k}"`); }
     for (const k of p.answers || []) { usedQ.add(k); if (!qids.has(k)) err(f, `${w} : réponse inconnue "${k}"`); }
+    if (p.sources !== undefined) {
+      if (!Array.isArray(p.sources) || !p.sources.length) err(f, `${w} : sources doit être une liste non vide`);
+      else p.sources.forEach((s, i) => {
+        const sw = `${w} sources[${i}]`;
+        if (typeof s === 'string') checkSourceUrl(f, sw, s);
+        else if (s && typeof s === 'object' && !Array.isArray(s)) {
+          unknown(f, sw, s, KEYS.source);
+          if (!text(s.title)) err(f, `${sw} : titre manquant`);
+          checkSourceUrl(f, sw, s.url || '');
+        } else err(f, `${sw} : une adresse https ou un objet {title, url} est attendu`);
+      });
+    }
     checkReview(f, w, p);
   }
   for (const id of placed) if (!ids.has(id)) err(f, `fiche "${id}" présente dans le modèle mais absente du contenu`);
@@ -163,6 +187,8 @@ for (const file of readdirSync('content').filter((x) => x.endsWith('.json'))) {
   };
   if (file === 'corps.json') {
     sameIds('source', Object.keys(fr.sources || {}), en.sources);
+    // en anglais, une source est un simple titre : l'adresse reste celle du français
+    for (const [k, t] of Object.entries(en.sources || {})) if (!text(t)) err(f, `source "${k}" : le titre anglais doit être un texte (l'adresse vient du français)`);
     sameIds('articulation', Object.keys(fr.joints || {}), en.joints);
     sameIds('fiche', (fr.pathologies || []).map((p) => p.id), en.pathologies);
     for (const p of fr.pathologies || []) need(`fiche "${p.id}"`, p, (en.pathologies || {})[p.id], EN_KEYS.home);
@@ -181,16 +207,16 @@ for (const file of readdirSync('content').filter((x) => x.endsWith('.json'))) {
 {
   const f = 'js/hip-en.js', hip = readFileSync('js/hip.js', 'utf8');
   const win = {};
-  try { new Function('window', readFileSync(f, 'utf8'))(win); } catch (e) { err(f, 'illisible — ' + e.message); }
+  try { run(readFileSync(f, 'utf8'), { window: win }); } catch (e) { err(f, 'illisible — ' + e.message); }
   const H = win.HIP_EN;
   const body = hip.slice(hip.indexOf('const PATHO=['), hip.indexOf('PATHO.sort('));
   const extraSyms = hip.slice(hip.indexOf('const SYMS=['), hip.indexOf('PATHO.forEach(p=>Object.assign(p,EXTRA[p.id]));'));
   const exm = hip.slice(hip.indexOf('const EXM={'), hip.indexOf('const VID='));
   if (H) {
     let P = [], SY = [], EX = {}, EM = {};
-    try { P = new Function('const HE=null;' + body + ';return PATHO;')(); } catch (e) { err('js/hip.js', 'PATHO illisible — ' + e.message); }
-    try { [SY, EX] = new Function(extraSyms + ';return [SYMS,EXTRA];')(); } catch (e) { err('js/hip.js', 'SYMS/EXTRA illisibles — ' + e.message); }
-    try { EM = new Function(exm + ';return EXM;')(); } catch (e) { err('js/hip.js', 'EXM illisible — ' + e.message); }
+    try { P = run('(function(){const HE=null;' + body + ';return PATHO;})()'); } catch (e) { err('js/hip.js', 'PATHO illisible — ' + e.message); }
+    try { [SY, EX] = run('(function(){' + extraSyms + ';return [SYMS,EXTRA];})()'); } catch (e) { err('js/hip.js', 'SYMS/EXTRA illisibles — ' + e.message); }
+    try { EM = run('(function(){' + exm + ';return EXM;})()'); } catch (e) { err('js/hip.js', 'EXM illisible — ' + e.message); }
     for (const p of P) {
       const e = (H.patho || {})[p.id];
       if (!e) { err(f, `fiche "${p.id}" sans traduction`); continue; }
