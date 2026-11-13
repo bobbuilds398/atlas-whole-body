@@ -1,0 +1,23 @@
+# secrets
+.env
+.env.*
+*.pem
+*.key
+
+# dépendances et caches
+node_modules/
+__pycache__/
+*.pyc
+
+# système et éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# fichiers temporaires et brouillons locaux
+tmp/
+scratch/
+*.log
