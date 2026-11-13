@@ -1,0 +1,99 @@
+name: Veille des composants vendorisés
+# Les composants copiés à la main dans vendor/ (three.js, polices) échappent à
+# Dependabot : ce workflow compare chaque semaine leur version à celle de npm et
+# ouvre UNE issue si une version plus récente existe. Il n'écrit rien dans le dépôt.
+on:
+  schedule:
+    - cron: "17 5 * * 1" # lundi 05:17 UTC (hors heure pleine)
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Comparer les versions vendorisées aux dernières versions npm
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_MARKER: "[vendor-watch]"
+        run: |
+          set -euo pipefail
+          report="$RUNNER_TEMP/vendor-watch-report.md"
+          export REPORT="$report"
+          node --version
+          node <<'EOF'
+          const fs = require('fs');
+          const { execFileSync } = require('child_process');
+
+          const parse = (v) => {
+            const m = /^(\d+)\.(\d+)\.(\d+)$/.exec(v);
+            if (!m) throw new Error('version non reconnue : ' + JSON.stringify(v));
+            return m.slice(1).map(Number);
+          };
+          const newer = (a, b) => {
+            const [x, y] = [parse(a), parse(b)];
+            for (let i = 0; i < 3; i++) if (x[i] !== y[i]) return x[i] > y[i];
+            return false;
+          };
+          const latest = (pkg) =>
+            execFileSync('npm', ['view', pkg, 'version'], { encoding: 'utf8' }).trim();
+
+          // three.js : « const e="128",… » puis « REVISION=e » dans le bundle minifié.
+          const src = fs.readFileSync('vendor/three/three.min.js', 'utf8');
+          const ref = /\bREVISION=(\w+)/.exec(src);
+          const rev = ref && new RegExp('\\b' + ref[1] + '="(\\d+)"').exec(src);
+          if (!rev) throw new Error('REVISION introuvable dans vendor/three/three.min.js');
+          const items = [{ pkg: 'three', current: '0.' + rev[1] + '.0' }];
+
+          // Polices : lignes de vendor/README.md citant « @fontsource/<nom> … X.Y.Z » (optionnel).
+          if (fs.existsSync('vendor/README.md')) {
+            const seen = new Set();
+            for (const line of fs.readFileSync('vendor/README.md', 'utf8').split('\n')) {
+              const m = /(@fontsource(?:-variable)?\/[a-z0-9-]+)\D{0,40}?(\d+\.\d+\.\d+)/.exec(line);
+              if (m && !seen.has(m[1])) { seen.add(m[1]); items.push({ pkg: m[1], current: m[2] }); }
+            }
+          }
+
+          const lines = [];
+          for (const it of items) {
+            it.latest = latest(it.pkg);
+            const stale = newer(it.latest, it.current);
+            console.log(`${it.pkg}: vendorisé ${it.current}, npm ${it.latest} -> ${stale ? 'OBSOLÈTE' : 'à jour'}`);
+            if (stale) lines.push(`- \`${it.pkg}\` : ${it.current} -> ${it.latest} (https://www.npmjs.com/package/${it.pkg})`);
+          }
+          if (lines.length) {
+            fs.writeFileSync(process.env.REPORT, [
+              'Des composants copiés à la main dans `vendor/` ont une version plus récente sur npm :',
+              '',
+              ...lines,
+              '',
+              'À faire : relire les notes de version, remplacer les fichiers de `vendor/`, mettre à jour `vendor/README.md`, vérifier le site (rendu 3D, polices), puis fermer cette issue.',
+              '',
+              'Issue ouverte automatiquement par `.github/workflows/vendor-watch.yml`. Aucune nouvelle issue ne sera ouverte tant que celle-ci reste ouverte.',
+              '',
+            ].join('\n'));
+          }
+          EOF
+          if [ ! -s "$report" ]; then
+            echo "Tout est à jour."
+            exit 0
+          fi
+          open=$(gh issue list --state open --limit 200 --json title \
+            --jq "[.[] | select(.title | startswith(env.ISSUE_MARKER))] | length")
+          if [ "$open" != "0" ]; then
+            echo "Une issue $ISSUE_MARKER est déjà ouverte : rien à créer."
+            exit 0
+          fi
+          gh issue create \
+            --title "$ISSUE_MARKER Mise à jour disponible pour des composants vendorisés" \
+            --body-file "$report"
