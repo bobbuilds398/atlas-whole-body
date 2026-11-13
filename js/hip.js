@@ -156,7 +156,7 @@ if(HE)PATHO.forEach(p=>{const e=HE.patho[p.id];if(!e)return;['n','al','who','pai
   p.ex.forEach((x,i)=>{x.n=HE.exName[x.k]||x.k;if(e.ex&&e.ex[i])Object.assign(x,e.ex[i])})});
 PATHO.sort((a,b)=>b.pop-a.pop);
 PATHO.forEach((p,i)=>{p.rank=i+1;p.col='hsl('+(6+i*3.6).toFixed(0)+',94%,'+(56+i*.6).toFixed(0)+'%)';p.hex=new THREE.Color().setStyle(p.col)});
-const BY={};PATHO.forEach(p=>BY[p.id]=p);
+const BY=Object.create(null);PATHO.forEach(p=>BY[p.id]=p);
 const OF={};PATHO.forEach(p=>p.zones.forEach(z=>(OF[z]=OF[z]||[]).push(p)));
 /* ===== Symptômes en mots courants, noms simples, glossaire ===== */
 const SYMS=[

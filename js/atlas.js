@@ -117,7 +117,7 @@ loadContent('corps', 'corps')
     Object.keys(CONTENT.sources).forEach(
       k => (SRC[k] = { t: CONTENT.sources[k].title, u: CONTENT.sources[k].url }),
     );
-    const JOINTS = {};
+    const JOINTS = Object.create(null);
     Object.keys(CONTENT.joints).forEach(k => {
       const j = CONTENT.joints[k];
       JOINTS[k] = { n: j.name, a: j.anchor, g: j.bones };
@@ -453,7 +453,7 @@ loadContent('corps', 'corps')
       joint = null,
       data = null,
       items = [],
-      BY = {};
+      BY = Object.create(null);
     const DATA = {},
       SEL = new Set();
     let hipOpen = false;
@@ -530,7 +530,7 @@ loadContent('corps', 'corps')
     function buildList() {
       listEl.innerHTML = '';
       pinsEl.innerHTML = '';
-      BY = {};
+      BY = Object.create(null);
       SEL.clear();
       items = joint && data ? data.p : joint ? [] : HOME_P;
       let lastG = null,
